@@ -1,0 +1,27 @@
+{
+  "body": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found</h1>\n<p>The requested URL was not found on this server.</p>\n<hr>\n<address>Apache/2.4.67 (Debian) Server at www.acme-corp.example Port 80</address>\n</body></html>",
+  "command": [
+    "kathara",
+    "exec",
+    "mal_user",
+    "--",
+    "curl",
+    "--noproxy",
+    "*",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "8",
+    "-w",
+    "\n__A3_HTTP__%{http_code}",
+    "http://www.acme-corp.example/malicious/public/path-extra?refeng_a3_token=RQ1-A3-01-restored-near_match-mal_user"
+  ],
+  "http_status": "404",
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found</h1>\n<p>The requested URL was not found on this server.</p>\n<hr>\n<address>Apache/2.4.67 (Debian) Server at www.acme-corp.example Port 80</address>\n</body></html>\n\n__A3_HTTP__404",
+  "time_utc": "2026-10-26T16:23:59.763645+00:00",
+  "token": "RQ1-A3-01-restored-near_match-mal_user",
+  "url": "http://www.acme-corp.example/malicious/public/path-extra?refeng_a3_token=RQ1-A3-01-restored-near_match-mal_user"
+}

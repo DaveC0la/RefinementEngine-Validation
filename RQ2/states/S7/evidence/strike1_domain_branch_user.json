@@ -1,0 +1,30 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "branch_user",
+    "--",
+    "curl",
+    "-q",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "9",
+    "-o",
+    "/dev/null",
+    "-w",
+    "__RQ2_HTTP__%{http_code}",
+    "--proxy",
+    "http://10.70.20.10:3128",
+    "--noproxy",
+    "",
+    "http://malware-c2.example/index.html?rq2=s7_strike1_branch_user"
+  ],
+  "duration_s": 3.097387211,
+  "ended_utc": "2026-11-18T00:59:18.625879+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-18T00:59:18.252141+00:00",
+  "stderr": "",
+  "stdout": "__RQ2_HTTP__403"
+}

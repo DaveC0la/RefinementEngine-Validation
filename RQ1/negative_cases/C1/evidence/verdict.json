@@ -1,0 +1,12 @@
+{
+  "case_id": "RQ1-C1-01",
+  "control": "CONTROL_PASS",
+  "deployment": "NOT_PERFORMED",
+  "live_engine_or_lab_modified": false,
+  "negative_classification": "EXPLICIT_TEMPORAL_REQUIREMENT_REJECTION",
+  "negative_exit_code": 1,
+  "no_actionable_rule": true,
+  "oracle_sha256": "4f5edb0f3c4b87bc13ce9270ae99e39f59e398b16699a2eee6a1667a51e77ffc",
+  "pass": true,
+  "status": "C1_UNSUPPORTED_REQUIREMENT_PASS"
+}

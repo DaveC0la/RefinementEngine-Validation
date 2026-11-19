@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "baseline_denied": true,
+    "corp_fw_rule_absent": true,
+    "near_match": true,
+    "near_match_log": true,
+    "other_destination_http": true,
+    "other_ip_same_port": true,
+    "other_ip_same_port_log": true,
+    "target": true,
+    "target_log": true
+  },
+  "near_match_http": "200",
+  "other_destination_http": "200",
+  "other_ip_same_port_http": "200",
+  "pass": true,
+  "phase": "restored",
+  "recorded_utc": "2026-10-26T15:17:16.994034+00:00",
+  "target_http": "200"
+}

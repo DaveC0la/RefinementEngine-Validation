@@ -1,0 +1,14 @@
+{
+  "args": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "/workspace/refeng-rq2-novelty/lab/remove-rules.ps1",
+    "-Once"
+  ],
+  "checked_utc": "2026-11-18T01:25:11.201053+00:00",
+  "duration_s": 9.877227026,
+  "rc": 0,
+  "stderr": "",
+  "stdout": "2026-11-18 02:25:04  remover start (mode: once)\n2026-11-18 02:25:07  REMOVED  edge_fw       80.71.158.96/32  (to_ids=0, iptables)\n2026-11-18 02:25:11  REMOVED  corp_fw       80.71.158.10:8443/TCP  (to_ids=0, iptables)\n"
+}

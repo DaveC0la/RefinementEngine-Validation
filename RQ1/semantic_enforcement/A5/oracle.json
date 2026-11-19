@@ -1,0 +1,121 @@
+{
+  "case_id": "RQ1-A5-01",
+  "cti": {
+    "indicator_id": "IOC-GOBRUTE-USERAGENT",
+    "normalized_type": "http_user_agent",
+    "original_indicator": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "input": {
+    "action": "is not authorized to access",
+    "hspl_id": "rq1_a5_01_inbound_useragent",
+    "object": "PublicWebApp",
+    "subject": "MaliciousHost"
+  },
+  "network": {
+    "expected_pair": [
+      "WebApplicationFirewall",
+      "ModSecurity"
+    ],
+    "forbidden_capabilities": [
+      "IpSourceAddressConditionCapability",
+      "IpDestinationAddressConditionCapability",
+      "UrlPathRegexConditionCapability",
+      "DestinationDomainConditionCapability",
+      "DestinationPortConditionCapability"
+    ],
+    "lab_device": "waf",
+    "required_capabilities": {
+      "HttpReqHdrUserAgentConditionCapability": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+      "RejectActionCapability": ""
+    }
+  },
+  "protocol_family": "A5",
+  "scope_note": "Single A5 pilot using the literal original GoBrute User-Agent. A converter-only reversible comma encoding prevents the frozen converter from splitting the literal into a union. The XML uses exactMatch while the frozen ModSecurity emitter uses @contains; report this semantic difference. Lab-only endpoint substitution; reset is not RQ2 lifecycle withdrawal.",
+  "substitution": {
+    "lab_independent_source": "c2",
+    "lab_site": "http://www.acme-corp.example",
+    "lab_source": "mal_user",
+    "lab_target": "PublicWebApp",
+    "lab_target_device": "web_backend",
+    "lab_user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+    "reason": "No User-Agent substitution. The original GoBrute CTI User-Agent is sent as an HTTP header and used as the refinement indicator. Only the controlled lab endpoints are substituted. A reversible comma placeholder is used on a temporary copy given to the frozen XML converter, and decoded in XML; the original refinement JSON and the emitted ModSecurity rule use the unmodified literal."
+  },
+  "traffic_oracle": {
+    "allowed_user_agents": [
+      "Mozilla/5.0 (validation benign browser)",
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.37"
+    ],
+    "blocked_user_agents": [
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+      "ValidationProbe Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+    ],
+    "log_oracle": "Blocked requests appear in WAF access log and not backend; allowed requests appear at both",
+    "requests": [
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "403",
+        "id": "target_root",
+        "path": "/",
+        "source": "mal_user",
+        "ua": "indicator"
+      },
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "403",
+        "id": "target_other_path",
+        "path": "/malicious/public/path",
+        "source": "mal_user",
+        "ua": "indicator"
+      },
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "403",
+        "id": "embedded_indicator",
+        "path": "/",
+        "source": "mal_user",
+        "ua": "prefixed"
+      },
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "200",
+        "id": "benign_root",
+        "path": "/",
+        "source": "mal_user",
+        "ua": "benign"
+      },
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "200",
+        "id": "near_match",
+        "path": "/",
+        "source": "mal_user",
+        "ua": "near_match"
+      },
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "200",
+        "id": "benign_other_path",
+        "path": "/malicious/public/path",
+        "source": "mal_user",
+        "ua": "benign"
+      },
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "403",
+        "id": "independent_target",
+        "path": "/",
+        "source": "c2",
+        "ua": "indicator"
+      },
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "200",
+        "id": "independent_benign",
+        "path": "/",
+        "source": "c2",
+        "ua": "benign"
+      }
+    ],
+    "restore": "All WAF rules and baseline traffic decisions restored exactly"
+  }
+}

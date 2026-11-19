@@ -1,0 +1,14 @@
+{
+  "command": [
+    "kathara",
+    "exec",
+    "egress_proxy",
+    "--",
+    "cat",
+    "/etc/squid/re-rules.conf"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "# RefinementEngine Squid rules (acl + http_access), filled by the Translator\n# (empty before refinement)\n# >>> rid=rq1_a7_01_outbound_domain_Devices|EgressProxy|Squid\nacl re_blk_ad74eacb dstdomain .malware-c2.example\nhttp_access deny re_blk_ad74eacb\n# <<< rid=rq1_a7_01_outbound_domain_Devices|EgressProxy|Squid\n",
+  "utc": "2026-10-27T11:00:59.814652+00:00"
+}

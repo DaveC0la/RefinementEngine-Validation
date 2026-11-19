@@ -1,0 +1,10 @@
+{
+  "indicators": [
+    {
+      "ioc_id": "IOC-THREATFOX-C2-IPPORT",
+      "type": "destination-ipv4-tcp-port",
+      "value": "80.71.158.10:8443/TCP"
+    }
+  ],
+  "schema_version": 1
+}

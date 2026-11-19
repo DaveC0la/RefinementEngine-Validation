@@ -1,0 +1,8 @@
+{
+  "checked_utc": "2026-11-18T00:34:43.828107+00:00",
+  "generated_C2_rule_id": "1ea6780cd9062adac8e7d9a6ee27982330bb99eaa1680f2aeae537b362c510f4",
+  "no_lifecycle_or_device_operations": true,
+  "pass": true,
+  "phase": "preflight_passed",
+  "pre_deployment_state_sha256": "670fdd5d0fd1e2a917bba31eae1c300f5e6b2a473f6e17daff8599a714c76784"
+}

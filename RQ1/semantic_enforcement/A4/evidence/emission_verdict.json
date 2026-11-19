@@ -1,0 +1,19 @@
+{
+  "pass": true,
+  "rule_files": {
+    "branch_proxy": {
+      "acl": "re_blk_bb808b3c",
+      "marker": "rq1_a4_01_outbound_url_Branch_Users|BranchProxy|Squid",
+      "path": "/workspace/windows/Desktop/validation/results/RQ1-A4-01/shared/outbox/branch_proxy/re_engine.rules",
+      "regex": "^http://80\\.71\\.158\\.20/index\\.html([?].*|$)",
+      "sha256": "897284c991c8620ac06d344035f3b68890ba775d1166877b9cb840ff3142b6e8"
+    },
+    "egress_proxy": {
+      "acl": "re_blk_9c535d1e",
+      "marker": "rq1_a4_01_outbound_url_Devices|EgressProxy|Squid",
+      "path": "/workspace/windows/Desktop/validation/results/RQ1-A4-01/shared/outbox/egress_proxy/re_engine.rules",
+      "regex": "^http://80\\.71\\.158\\.20/index\\.html([?].*|$)",
+      "sha256": "3b0c93a7a99ff2b1ae36a968b152b74c54f673f64bffae97af472f9ea641137e"
+    }
+  }
+}

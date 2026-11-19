@@ -1,0 +1,14 @@
+{
+  "add": [],
+  "ownership_changed": [
+    "104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d",
+    "bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9"
+  ],
+  "remove": [],
+  "retain": [
+    "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+    "104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d",
+    "9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4",
+    "bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9"
+  ]
+}

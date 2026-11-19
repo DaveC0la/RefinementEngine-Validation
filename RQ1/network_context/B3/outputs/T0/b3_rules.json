@@ -1,0 +1,37 @@
+[
+    {
+        "hsplid": "rq1_b3_01_guest_c2_ipport",
+        "device": "GuestFirewall",
+        "nsf": "IpTables",
+        "capabilities": [
+            {
+                "capability": "DestinationPortConditionCapability",
+                "detail": "10213"
+            },
+            {
+                "capability": "IpDestinationAddressConditionCapability",
+                "detail": "80.71.158.10"
+            },
+            {
+                "capability": "IpSourceAddressConditionCapability",
+                "detail": "10.30.10.10"
+            },
+            {
+                "capability": "AppendRuleActionCapability",
+                "detail": "FORWARD"
+            },
+            {
+                "capability": "RejectActionCapability",
+                "detail": ""
+            },
+            {
+                "capability": "MatchActionCapability",
+                "detail": "conntrack"
+            },
+            {
+                "capability": "ConnTrackStateConditionCapability",
+                "detail": "NEW"
+            }
+        ]
+    }
+]

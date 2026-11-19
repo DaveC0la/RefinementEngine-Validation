@@ -1,0 +1,16 @@
+{
+  "command": [
+    "kathara",
+    "exec",
+    "corp_fw",
+    "--",
+    "iptables",
+    "-nvxL",
+    "FORWARD",
+    "--line-numbers"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "Chain FORWARD (policy ACCEPT 30 packets, 2549 bytes)\nnum      pkts      bytes target     prot opt in     out     source               destination         \n1           8      672 DROP       0    --  *      *       10.20.10.0/24        10.40.20.0/24        ctstate NEW\n2           2      168 DROP       0    --  *      *       10.20.20.0/24        10.40.20.0/24        ctstate NEW\n3           2      168 DROP       0    --  *      *       10.20.10.0/24        10.20.20.0/24        ctstate NEW\n4           2      168 DROP       0    --  *      *       10.20.10.0/24        10.10.10.0/24        ctstate NEW\n5           2      168 DROP       0    --  *      *       10.20.20.0/24        10.10.10.0/24        ctstate NEW\n6           2      168 DROP       0    --  *      *       10.20.10.0/24        10.10.20.0/24        ctstate NEW\n7           2      168 DROP       0    --  *      *       10.20.20.0/24        10.10.20.0/24        ctstate NEW\n8           3      180 DROP       6    --  *      *       10.20.10.10          80.71.158.10         ctstate NEW tcp dpt:8443 /* rq1_a2_01_c2_ipport|CorpFirewall|IpTables */\n",
+  "time_utc": "2026-10-26T15:02:11.289531+00:00"
+}

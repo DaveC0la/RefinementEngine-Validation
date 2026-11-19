@@ -1,0 +1,12 @@
+{
+  "case_id": "RQ1-B2-01",
+  "deployment": "INSTALLED_NOT_TRAFFIC_TESTED",
+  "device": "edge_fw",
+  "other_firewalls_unchanged": true,
+  "owned_rule_count": 1,
+  "removal": "PENDING",
+  "routing": "T0_EDGE",
+  "rule_sha256": "86061be19e284339711b4665959ca489fa5fe001abd34615e911061f63df0d70",
+  "status": "B2_T0_DEPLOYMENT_PASS",
+  "timestamp_utc": "2026-10-28T10:46:17.832048+00:00"
+}

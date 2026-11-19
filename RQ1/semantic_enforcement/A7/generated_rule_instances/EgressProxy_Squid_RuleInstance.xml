@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="language_Squid.xml" nsfName="Squid">
+  <rule id="0">
+    <destinationDomainConditionCapability operator="exactMatch">
+      <capabilityValue>
+        <exactMatch>malware-c2.example</exactMatch>
+      </capabilityValue>
+    </destinationDomainConditionCapability>
+    <rejectActionCapability />
+  </rule>
+</policy>

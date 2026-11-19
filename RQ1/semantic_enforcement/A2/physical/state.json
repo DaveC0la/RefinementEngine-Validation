@@ -1,0 +1,9 @@
+{
+  "case_id": "RQ1-A2-01",
+  "fixture_ids": {
+    "refeng-validation-a2-benign-fixture": "590cc1c36c17",
+    "refeng-validation-a2-c2-fixture": "a7e8ecc7997f"
+  },
+  "stage": "complete",
+  "updated_utc": "2026-10-26T15:22:06.820482+00:00"
+}

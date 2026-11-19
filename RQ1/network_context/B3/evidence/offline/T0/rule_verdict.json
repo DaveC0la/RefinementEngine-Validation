@@ -1,0 +1,13 @@
+{
+  "check": "JSON_XML_IPTABLES_PASS",
+  "emitted_sha256": "28fe0dd23e3a4687ded94d6b8de45da34fb10196c9e6f784053f49c91196ebc9",
+  "intermediate_sha256": "802718d6d0f4bdd132f6ddd1733724c22d589f8c5910eb10ac0ce0b4cb40c3c4",
+  "lab_device": "guest_fw",
+  "line": "iptables -A FORWARD -m conntrack --ctstate NEW -s 10.30.10.10 -d 80.71.158.10 -p tcp --dport 10213 -m comment --comment \"rq1_b3_01_guest_c2_ipport|GuestFirewall|IpTables\" -j DROP",
+  "pass": true,
+  "selected_pair": [
+    "GuestFirewall",
+    "IpTables"
+  ],
+  "xml_sha256": "f51a0d9828ada0389877b86d605581deaafda78a411d088c85e2ce85680c47ca"
+}

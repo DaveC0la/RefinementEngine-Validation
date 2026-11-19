@@ -1,0 +1,16 @@
+[
+  {
+    "decayed": false,
+    "expiry_strikes": 2,
+    "fixture_owner_family": "A",
+    "last_checked": "2026-11-01T22:45:56.121300+00:00",
+    "ownership_withdrawn_at": "2026-11-01T22:45:56.121300+00:00",
+    "seen_in_feed": true,
+    "snapshot_id": "RQ2-REVERSE-A-02",
+    "status": "ownership_withdrawn",
+    "to_ids": false,
+    "type": "domain",
+    "value": "malware-c2.example",
+    "withdrawal_signal": "to_ids=0"
+  }
+]

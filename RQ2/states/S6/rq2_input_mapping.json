@@ -1,0 +1,20 @@
+{
+  "CTI_id": "IOC-THREATFOX-C2-IPPORT",
+  "CTI_original": "102.220.161.63:10213",
+  "grace_strikes": 2,
+  "lab": "80.71.158.10:8443/TCP",
+  "required_S6_C_pair": [
+    "CorpFirewall",
+    "IpTables"
+  ],
+  "retained": [
+    "source_I_B",
+    "domain_B_HQ",
+    "domain_B_BRANCH"
+  ],
+  "transport": "controlled lab selection; protocol absent upstream",
+  "withdrawn_at_S6": [
+    "source_I_A",
+    "U"
+  ]
+}

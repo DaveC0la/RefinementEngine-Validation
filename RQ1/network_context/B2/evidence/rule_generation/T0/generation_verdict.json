@@ -1,0 +1,15 @@
+{
+  "converted_xml": "EdgeFirewall_IpTables_RuleInstance.xml",
+  "converted_xml_sha256": "e645a0bc5bc6be607b73195c2cc505b177f18f9b94f8c01dd0596eb429979da0",
+  "deployment": "NOT_PERFORMED",
+  "emitted_rule_sha256": "86061be19e284339711b4665959ca489fa5fe001abd34615e911061f63df0d70",
+  "lab_device": "edge_fw",
+  "line": "iptables -A FORWARD -m conntrack --ctstate NEW -s 10.80.10.10 -d 80.71.158.10 -p tcp --dport 10213 -m comment --comment \"rq1_b2_01_wan_c2_ipport|EdgeFirewall|IpTables\" -j DROP",
+  "pass": true,
+  "selected_pair": [
+    "EdgeFirewall",
+    "IpTables"
+  ],
+  "semantic_equivalence": "JSON_XML_IPTABLES_PASS",
+  "state": "T0"
+}

@@ -1,0 +1,25 @@
+{
+  "capture_points": [
+    "b1_access_fw:eth1",
+    "b1_access_fw:eth0",
+    "c2:eth0"
+  ],
+  "icmp": {
+    "c2": "ALLOWED",
+    "employee": "BLOCKED",
+    "iot": "BLOCKED"
+  },
+  "iptables": "NO_RULE_INSTALLATION_OR_REMOVAL",
+  "near_match": {
+    "destination": "80.71.158.10",
+    "expected": "CONNECTED",
+    "port": 10214,
+    "source": "10.30.10.10"
+  },
+  "target": {
+    "destination": "80.71.158.10",
+    "expected": "CONNECTED",
+    "port": 10213,
+    "source": "10.30.10.10"
+  }
+}

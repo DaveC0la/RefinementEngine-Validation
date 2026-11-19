@@ -1,0 +1,11 @@
+{
+  "adaptation_latency_to_completed_physical_verification_s": 68.971862902,
+  "additions": 1,
+  "measures_including_traffic_probe_duration": true,
+  "operation_id": "add:10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+  "removals": 0,
+  "replacements": 0,
+  "source_of_operation": "frozen engine RuleOperation & lifecycle persistence, existing Kathara applier",
+  "unnecessary_device_operations": 0,
+  "verified_at_utc": "2026-11-01T18:28:27.080396+00:00"
+}

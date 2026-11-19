@@ -1,0 +1,9 @@
+{
+  "independent_owner_B_is_added_only_at_S4": true,
+  "isolated_lab_observable": "malware-c2.example",
+  "original_cti_observable": "kali365.xyz",
+  "owner_source": "Native A7 RefinementEngine ownership snapshot",
+  "prohibition_family": "A",
+  "source_indicator": "IOC-KALI-DOMAIN",
+  "validity_history_is_controlled": true
+}

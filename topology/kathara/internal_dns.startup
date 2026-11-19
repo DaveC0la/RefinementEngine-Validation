@@ -1,0 +1,9 @@
+#!/bin/sh
+# startup for internal_dns
+ip link set eth0 up
+ip addr add 10.40.30.53/24 dev eth0
+ip route add default via 10.40.30.1
+# --- start dnsmasq ---
+cp /etc/dnsmasq.d/lab.conf.lab /etc/dnsmasq.d/lab.conf 2>/dev/null || true
+pkill dnsmasq 2>/dev/null || true
+dnsmasq -C /etc/dnsmasq.d/lab.conf

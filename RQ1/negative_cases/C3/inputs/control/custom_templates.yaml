@@ -1,0 +1,89 @@
+tosca_definitions_version: tosca_simple_yaml_1_2
+description: Synthetic C3 L7 off-path placement negative test; no physical deployment
+imports:
+- file: custom_types.yaml
+topology_template:
+  node_templates:
+    Guests:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.30.10.0/24
+    InspectionTransit:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.255.210.0/24
+    Internet:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 80.71.158.0/24
+    DisconnectedA:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.255.220.0/24
+    DisconnectedB:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.255.221.0/24
+    GuestHost:
+      type: company.nodes.NetworkUser
+      properties:
+        ip_address: 10.30.10.10
+      requirements:
+      - to_subnet:
+          node: Guests
+          relationship: tosca.relationships.network.LinksTo
+    MaliciousWeb:
+      type: company.nodes.MaliciousWeb
+      properties:
+        ip_address: 80.71.158.20
+        ip_is_indicator: false
+        domain: malware-c2.example
+      requirements:
+      - to_subnet:
+          node: Internet
+          relationship: tosca.relationships.network.LinksTo
+    EgressProxy:
+      type: company.nodes.NetworkDevice
+      properties:
+        id: egress-proxy
+      capabilities:
+        NSFs:
+          properties:
+            supported_functions:
+            - function: Squid
+              processing_order: 1
+      requirements:
+      - device_subnet:
+          node: Guests
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: InspectionTransit
+          relationship: tosca.relationships.network.LinksTo
+    TransitRouter:
+      type: company.nodes.NetworkDevice
+      properties:
+        id: c3-nsf-free-transit
+      requirements:
+      - device_subnet:
+          node: DisconnectedA
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: DisconnectedB
+          relationship: tosca.relationships.network.LinksTo
+    WebApplicationFirewall:
+      type: company.nodes.WAFDevice
+      properties:
+        id: waf
+      capabilities:
+        NSFs:
+          properties:
+            supported_functions:
+            - function: ModSecurity
+              processing_order: 1
+      requirements:
+      - device_subnet:
+          node: InspectionTransit
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: Internet
+          relationship: tosca.relationships.network.LinksTo

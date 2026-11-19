@@ -1,0 +1,16 @@
+#!/bin/sh
+# startup for egress_proxy
+ip link set eth0 up
+ip addr add 10.1.5.2/30 dev eth0
+ip link set eth1 up
+ip addr add 10.1.5.6/30 dev eth1
+ip route add default via 10.1.5.1
+echo 'nameserver 10.40.30.53' > /etc/resolv.conf
+# --- start Squid forward proxy ---
+mkdir -p /etc/squid
+cp /etc/squid/squid.conf.lab /etc/squid/squid.conf 2>/dev/null || true
+(squid -z >/dev/null 2>&1) ; (service squid restart >/dev/null 2>&1) || (squid -f /etc/squid/squid.conf >/dev/null 2>&1 &) || true
+
+# RefinementEngine lifecycle device-job agent
+mkdir -p /shared/egress_proxy
+DEVICE=egress_proxy sh /shared/device_applier.sh >> /shared/egress_proxy/agent.log 2>&1 < /dev/null &

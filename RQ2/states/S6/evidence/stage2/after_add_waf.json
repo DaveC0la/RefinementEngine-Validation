@@ -1,0 +1,16 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "waf",
+    "--",
+    "cat",
+    "/etc/modsecurity/re-rules.conf"
+  ],
+  "duration_s": 3.244002106,
+  "ended_utc": "2026-11-18T00:36:17.806318+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-18T00:36:14.562344+00:00",
+  "stderr": "",
+  "stdout": "# RefinementEngine ModSecurity rules (filled by the Translator)\n# (empty before refinement)\n# >>> rid=rq1_a5_01_inbound_useragent|WebApplicationFirewall|ModSecurity\nSecRule REQUEST_HEADERS:User-Agent \"@contains Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36\" \"id:1788327,phase:1,deny,status:403,msg:'RE block user-agent IoC',tag:'rid=rq1_a5_01_inbound_useragent|WebApplicationFirewall|ModSecurity'\"\n# <<< rid=rq1_a5_01_inbound_useragent|WebApplicationFirewall|ModSecurity\n"
+}

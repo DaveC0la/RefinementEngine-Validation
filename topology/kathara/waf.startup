@@ -1,0 +1,15 @@
+#!/bin/sh
+# startup for waf
+ip link set eth0 up
+ip addr add 172.16.10.2/24 dev eth0
+ip link set eth1 up
+ip addr add 172.16.20.1/24 dev eth1
+ip route add default via 172.16.10.1
+# --- start Apache + ModSecurity reverse proxy ---
+cp /etc/apache2/sites-available/waf.conf.lab /etc/apache2/sites-available/000-default.conf 2>/dev/null || true
+a2enmod proxy proxy_http security2 headers >/dev/null 2>&1 || true
+(service apache2 restart >/dev/null 2>&1) || (apachectl restart >/dev/null 2>&1) || true
+
+# RefinementEngine lifecycle device-job agent
+mkdir -p /shared/waf/inbox /shared/waf/done
+DEVICE=waf sh /shared/device_applier.sh >> /shared/waf/agent.log 2>&1 < /dev/null &

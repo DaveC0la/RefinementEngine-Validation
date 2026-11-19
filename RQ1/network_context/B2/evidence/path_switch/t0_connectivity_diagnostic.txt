@@ -1,0 +1,51 @@
+=== 1. Test host to its gateway ===
+PING 10.80.10.1 (10.80.10.1) 56(84) bytes of data.
+64 bytes from 10.80.10.1: icmp_seq=1 ttl=64 time=3.58 ms
+64 bytes from 10.80.10.1: icmp_seq=2 ttl=64 time=1.26 ms
+
+--- 10.80.10.1 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.257/2.419/3.582/1.162 ms
+=== 2. WAN router to EdgeFirewall ===
+PING 10.255.255.1 (10.255.255.1) 56(84) bytes of data.
+64 bytes from 10.255.255.1: icmp_seq=1 ttl=64 time=6.63 ms
+64 bytes from 10.255.255.1: icmp_seq=2 ttl=64 time=0.907 ms
+
+--- 10.255.255.1 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 0.907/3.767/6.628/2.860 ms
+=== 3. EdgeFirewall to C2 ===
+PING 80.71.158.10 (80.71.158.10) 56(84) bytes of data.
+64 bytes from 80.71.158.10: icmp_seq=1 ttl=63 time=2.20 ms
+64 bytes from 80.71.158.10: icmp_seq=2 ttl=63 time=1.70 ms
+
+--- 80.71.158.10 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 999ms
+rtt min/avg/max/mdev = 1.703/1.949/2.196/0.246 ms
+=== 4. EdgeFirewall return route to test host ===
+10.80.10.10 via 10.255.255.2 dev eth1 src 10.255.255.1 uid 0 
+    cache 
+=== 5. EdgeFirewall route to C2 ===
+80.71.158.10 via 203.0.113.1 dev eth0 src 203.0.113.2 uid 0 
+    cache 
+=== 6. WAN router OSPF neighbors ===
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+203.0.113.2       1 Full/DR         1m50s             39.927s 10.255.255.1    eth0:10.255.255.2                    0     0     0
+203.0.113.6       1 Full/DR         1m50s             39.174s 10.255.255.6    eth1:10.255.255.5                    0     0     0
+
+=== 7. EdgeFirewall OSPF neighbors ===
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+10.255.255.5      1 Full/Backup     1m52s             35.707s 10.255.255.2    eth1:10.255.255.1                    0     0     0
+10.1.5.1          1 Full/Backup     1m52s             36.642s 10.0.0.2        eth3:10.0.0.1                        0     0     0
+10.1.5.5          1 Full/Backup     1m48s             36.864s 10.0.0.6        eth4:10.0.0.5                        0     0     0
+
+=== 8. Test host to C2 (recheck) ===
+PING 80.71.158.10 (80.71.158.10) 56(84) bytes of data.
+64 bytes from 80.71.158.10: icmp_seq=1 ttl=61 time=2.81 ms
+64 bytes from 80.71.158.10: icmp_seq=2 ttl=61 time=3.96 ms
+
+--- 80.71.158.10 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1011ms
+rtt min/avg/max/mdev = 2.814/3.384/3.955/0.570 ms

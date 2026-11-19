@@ -1,0 +1,5 @@
+# RefinementEngine -> egress_proxy (squid); 1 rule(s)
+# >>> rid=rq1_a7_01_outbound_domain_Devices|EgressProxy|Squid
+acl re_blk_ad74eacb dstdomain .malware-c2.example
+http_access deny re_blk_ad74eacb
+# <<< rid=rq1_a7_01_outbound_domain_Devices|EgressProxy|Squid

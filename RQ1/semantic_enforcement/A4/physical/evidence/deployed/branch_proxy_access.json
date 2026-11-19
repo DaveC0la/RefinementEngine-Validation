@@ -1,0 +1,16 @@
+{
+  "command": [
+    "kathara",
+    "exec",
+    "branch_proxy",
+    "--",
+    "tail",
+    "-n",
+    "15000",
+    "/var/log/squid/access.log"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "1793007725.685      8 10.70.10.10 TCP_MISS/200 409 GET http://hadleyshope.3utilities.com/? - HIER_DIRECT/80.71.158.20 text/html\n1793086808.295     31 10.70.10.10 TCP_MISS/200 409 GET http://80.71.158.20/index.html? - HIER_DIRECT/80.71.158.20 text/html\n1793086811.081     56 10.70.10.10 TCP_MISS/200 409 GET http://80.71.158.20/index.html? - HIER_DIRECT/80.71.158.20 text/html\n1793086815.781    612 10.70.10.10 TCP_MISS/404 612 GET http://80.71.158.20/index.html-extra? - HIER_DIRECT/80.71.158.20 text/html\n1793086819.589      7 10.70.10.10 TCP_MISS/200 409 GET http://80.71.158.20/? - HIER_DIRECT/80.71.158.20 text/html\n1793086822.575     14 10.70.10.10 TCP_MISS/200 407 GET http://80.71.158.30/index.html? - HIER_DIRECT/80.71.158.30 text/html\n1793087508.636     13 10.70.10.10 TCP_MISS/200 409 GET http://80.71.158.20/index.html? - HIER_DIRECT/80.71.158.20 text/html\n1793087511.383      8 10.70.10.10 TCP_MISS/200 409 GET http://80.71.158.20/index.html? - HIER_DIRECT/80.71.158.20 text/html\n1793087515.912    330 10.70.10.10 TCP_MISS/404 612 GET http://80.71.158.20/index.html-extra? - HIER_DIRECT/80.71.158.20 text/html\n1793087519.344      3 10.70.10.10 TCP_MISS/200 409 GET http://80.71.158.20/? - HIER_DIRECT/80.71.158.20 text/html\n1793087521.971     10 10.70.10.10 TCP_MISS/200 407 GET http://80.71.158.30/index.html? - HIER_DIRECT/80.71.158.30 text/html\n1793087796.000      6 10.70.10.10 TCP_DENIED/403 3470 GET http://80.71.158.20/index.html? - HIER_NONE/- text/html\n1793087799.513      0 10.70.10.10 TCP_DENIED/403 3470 GET http://80.71.158.20/index.html? - HIER_NONE/- text/html\n1793087802.300      5 10.70.10.10 TCP_MISS/404 612 GET http://80.71.158.20/index.html-extra? - HIER_DIRECT/80.71.158.20 text/html\n1793087805.260      6 10.70.10.10 TCP_MISS/200 409 GET http://80.71.158.20/? - HIER_DIRECT/80.71.158.20 text/html\n1793087808.458     13 10.70.10.10 TCP_MISS/200 407 GET http://80.71.158.30/index.html? - HIER_DIRECT/80.71.158.30 text/html\n",
+  "utc": "2026-10-27T07:56:57.952180+00:00"
+}

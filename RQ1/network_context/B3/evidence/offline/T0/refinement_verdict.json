@@ -1,0 +1,9 @@
+{
+  "input_rule_sha256": "802718d6d0f4bdd132f6ddd1733724c22d589f8c5910eb10ac0ce0b4cb40c3c4",
+  "pass": true,
+  "selected_pair": [
+    "GuestFirewall",
+    "IpTables"
+  ],
+  "state": "T0"
+}

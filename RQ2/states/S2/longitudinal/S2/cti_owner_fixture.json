@@ -1,0 +1,12 @@
+{
+  "lab_observable": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+  "owner": {
+    "bundle_id": "SRC-CHECKPOINT-GOBRUTE",
+    "hsplid": "rq1_a5_01_inbound_useragent",
+    "ioc_id": "IOC-GOBRUTE-USERAGENT"
+  },
+  "prohibition_id": "U",
+  "source_dataset_version": "1.1",
+  "source_observable": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+  "validity_history_is_controlled": true
+}

@@ -1,0 +1,11 @@
+{
+  "B_withdrawal_device_operations": 0,
+  "add_command_s": 8.969667448021937,
+  "checked_utc": "2026-11-01T22:48:21.854252+00:00",
+  "necessary_additions": 2,
+  "necessary_removals": 2,
+  "remove_command_s": 7.523691528011113,
+  "shared_owner_device_operations": 0,
+  "unnecessary_operations": 0,
+  "verification_includes_traffic": true
+}

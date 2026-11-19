@@ -1,0 +1,69 @@
+{
+  "rules": [
+    {
+      "owners": [
+        {
+          "bundle_id": "rq1_a7_01_outbound_domain_Devices:ioc-977d5e9b5164a258deb71b131bfe4658f9fa2feb8f4c98fee93290b0b55815d0",
+          "hsplid": "rq1_a7_01_outbound_domain_Devices",
+          "ioc_id": "ioc-977d5e9b5164a258deb71b131bfe4658f9fa2feb8f4c98fee93290b0b55815d0"
+        },
+        {
+          "bundle_id": "rq1_a7_01_outbound_domain_Employees:ioc-977d5e9b5164a258deb71b131bfe4658f9fa2feb8f4c98fee93290b0b55815d0",
+          "hsplid": "rq1_a7_01_outbound_domain_Employees",
+          "ioc_id": "ioc-977d5e9b5164a258deb71b131bfe4658f9fa2feb8f4c98fee93290b0b55815d0"
+        },
+        {
+          "bundle_id": "rq1_a7_01_outbound_domain_Finance:ioc-977d5e9b5164a258deb71b131bfe4658f9fa2feb8f4c98fee93290b0b55815d0",
+          "hsplid": "rq1_a7_01_outbound_domain_Finance",
+          "ioc_id": "ioc-977d5e9b5164a258deb71b131bfe4658f9fa2feb8f4c98fee93290b0b55815d0"
+        },
+        {
+          "bundle_id": "rq1_a7_01_outbound_domain_Guests:ioc-977d5e9b5164a258deb71b131bfe4658f9fa2feb8f4c98fee93290b0b55815d0",
+          "hsplid": "rq1_a7_01_outbound_domain_Guests",
+          "ioc_id": "ioc-977d5e9b5164a258deb71b131bfe4658f9fa2feb8f4c98fee93290b0b55815d0"
+        }
+      ],
+      "rule": {
+        "capabilities": [
+          {
+            "capability": "DestinationDomainConditionCapability",
+            "detail": "malware-c2.example"
+          },
+          {
+            "capability": "RejectActionCapability",
+            "detail": ""
+          }
+        ],
+        "device": "EgressProxy",
+        "nsf": "Squid"
+      },
+      "rule_id": "104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d"
+    },
+    {
+      "owners": [
+        {
+          "bundle_id": "rq1_a7_01_outbound_domain_Branch_Users:ioc-977d5e9b5164a258deb71b131bfe4658f9fa2feb8f4c98fee93290b0b55815d0",
+          "hsplid": "rq1_a7_01_outbound_domain_Branch_Users",
+          "ioc_id": "ioc-977d5e9b5164a258deb71b131bfe4658f9fa2feb8f4c98fee93290b0b55815d0"
+        }
+      ],
+      "rule": {
+        "capabilities": [
+          {
+            "capability": "DestinationDomainConditionCapability",
+            "detail": "malware-c2.example"
+          },
+          {
+            "capability": "RejectActionCapability",
+            "detail": ""
+          }
+        ],
+        "device": "BranchProxy",
+        "nsf": "Squid"
+      },
+      "rule_id": "bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9"
+    }
+  ],
+  "schema_version": 1,
+  "state_kind": "desired"
+}

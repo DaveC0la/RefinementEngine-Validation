@@ -1,0 +1,29 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "guest_host",
+    "--",
+    "curl",
+    "-q",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "10",
+    "-o",
+    "/dev/null",
+    "-w",
+    "__RQ2_HTTP__%{http_code}",
+    "--proxy",
+    "http://10.1.5.2:3128",
+    "--noproxy",
+    "",
+    "http://panel.malware-c2.example/index.html?rq2=REVERSE2_eba52e7436f1"
+  ],
+  "checked_utc": "2026-11-01T22:41:12.914048+00:00",
+  "duration_s": 2.6214675919909496,
+  "rc": 0,
+  "stderr": "",
+  "stdout": "__RQ2_HTTP__403"
+}

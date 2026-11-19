@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="language_Squid.xml" nsfName="Squid">
+  <rule id="0">
+    <urlPathRegexConditionCapability>
+      <regex>http://80.71.158.20/index.html</regex>
+    </urlPathRegexConditionCapability>
+    <rejectActionCapability />
+  </rule>
+</policy>

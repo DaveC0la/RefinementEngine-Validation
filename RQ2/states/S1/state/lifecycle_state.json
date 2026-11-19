@@ -1,0 +1,71 @@
+{
+  "bindings": [
+    {
+      "deployed_marker": "rq2_s1_srcip|EdgeFirewall|IpTables",
+      "device": "EdgeFirewall",
+      "nsf": "IpTables",
+      "rule_id": "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd"
+    }
+  ],
+  "operations": [
+    {
+      "device": "EdgeFirewall",
+      "execution_result": "ok",
+      "job_id": "rq2_s1_applier_23d14eefe4f7dc1e",
+      "kind": "add",
+      "nsf": "IpTables",
+      "operation_id": "add:10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+      "rule_id": "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+      "status": "verified",
+      "verified_rule_present": true
+    }
+  ],
+  "ownership": [
+    {
+      "owners": [
+        {
+          "bundle_id": "SRC-CIRCL-KRVTZ",
+          "hsplid": "rq2_s1_srcip",
+          "ioc_id": "IOC-KRVTZ-IP-SRC"
+        }
+      ],
+      "rule": {
+        "capabilities": [
+          {
+            "capability": "AppendRuleActionCapability",
+            "detail": "FORWARD"
+          },
+          {
+            "capability": "ConnTrackStateConditionCapability",
+            "detail": "NEW"
+          },
+          {
+            "capability": "IpDestinationAddressConditionCapability",
+            "detail": "172.16.20.10"
+          },
+          {
+            "capability": "IpProtocolTypeConditionCapability",
+            "detail": "http"
+          },
+          {
+            "capability": "IpSourceAddressConditionCapability",
+            "detail": "80.71.158.96/32"
+          },
+          {
+            "capability": "MatchActionCapability",
+            "detail": "conntrack"
+          },
+          {
+            "capability": "RejectActionCapability",
+            "detail": ""
+          }
+        ],
+        "device": "EdgeFirewall",
+        "nsf": "IpTables"
+      },
+      "rule_id": "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd"
+    }
+  ],
+  "schema_version": 1,
+  "state_kind": "lifecycle_state"
+}

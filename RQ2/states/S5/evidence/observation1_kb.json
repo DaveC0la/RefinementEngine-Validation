@@ -1,0 +1,14 @@
+[
+  {
+    "decayed": false,
+    "expiry_strikes": 1,
+    "fixture_owner_family": "A",
+    "last_checked": "2026-11-18T00:21:08.570642+00:00",
+    "seen_in_feed": true,
+    "snapshot_id": "NOVELTY-S5-OWNER-A-OBS-01",
+    "status": "active",
+    "to_ids": false,
+    "type": "domain",
+    "value": "malware-c2.example"
+  }
+]

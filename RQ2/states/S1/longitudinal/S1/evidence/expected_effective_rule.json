@@ -1,0 +1,15 @@
+{
+  "allocation": {
+    "control": "IpTables",
+    "device": "EdgeFirewall"
+  },
+  "effective_rule_id": "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+  "emitted_marker": "rq2_s1_srcip|EdgeFirewall|IpTables",
+  "expected_physical_additions": 1,
+  "owner": {
+    "bundle_id": "SRC-CIRCL-KRVTZ",
+    "hsplid": "rq2_s1_srcip",
+    "ioc_id": "IOC-KRVTZ-IP-SRC"
+  },
+  "rule_file_sha256": "23d14eefe4f7dc1e0e63c0613af2ab417863a57c5d4467742756aa36b40adf8a"
+}

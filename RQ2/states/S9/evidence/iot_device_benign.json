@@ -1,0 +1,29 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "iot_device",
+    "--",
+    "curl",
+    "-q",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "9",
+    "-o",
+    "/dev/null",
+    "-w",
+    "__RQ2_HTTP__%{http_code}",
+    "--proxy",
+    "http://10.1.5.2:3128",
+    "--noproxy",
+    "",
+    "http://allowed.utilities.com/index.html?rq2=RQ2_S9_4c50fac822_iot_device_benign"
+  ],
+  "checked_utc": "2026-11-18T01:26:18.699736+00:00",
+  "duration_s": 3.467646531,
+  "rc": 0,
+  "stderr": "",
+  "stdout": "__RQ2_HTTP__200"
+}

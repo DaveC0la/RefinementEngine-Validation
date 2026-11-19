@@ -1,0 +1,13 @@
+path,nodes,S2Hub/IpTables,S2Local1/IpTables,S2Local2/IpTables,S2Local3/IpTables,S2Local4/IpTables
+P1,S2Hub -> S2Local1 -> S2_Link01,1,1,0,0,0
+P2,S2Hub -> S2Local1 -> S2_Link02,1,1,0,0,0
+P3,S2Local1 -> S2_Link03,0,1,0,0,0
+P4,S2Hub -> S2Local2 -> S2_Link04,1,0,1,0,0
+P5,S2Hub -> S2Local2 -> S2_Link05,1,0,1,0,0
+P6,S2Local2 -> S2_Link06,0,0,1,0,0
+P7,S2Hub -> S2Local3 -> S2_Link07,1,0,0,1,0
+P8,S2Hub -> S2Local3 -> S2_Link08,1,0,0,1,0
+P9,S2Local3 -> S2_Link09,0,0,0,1,0
+P10,S2Hub -> S2Local4 -> S2_Link10,1,0,0,0,1
+P11,S2Hub -> S2Local4 -> S2_Link11,1,0,0,0,1
+P12,S2Local4 -> S2_Link12,0,0,0,0,1

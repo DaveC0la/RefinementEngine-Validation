@@ -1,0 +1,11 @@
+{
+  "adapter_enabled": true,
+  "literal_user_agent_preserved": true,
+  "note": "Adapter encodes comma only in disposable converter input and restores XML; emitter uses original JSON.",
+  "pass": true,
+  "source_intermediate_sha256": "157aefbff26484a540c8d7664c2f175e8a624018f66d1cf88e2a9ea530cd1072",
+  "xml": {
+    "BranchProxy_Squid_RuleInstance.xml": "ea2e37fb6459fb4926500595c146477323625801d937cbc0ff82c8c62270000b",
+    "EgressProxy_Squid_RuleInstance.xml": "ea2e37fb6459fb4926500595c146477323625801d937cbc0ff82c8c62270000b"
+  }
+}

@@ -1,0 +1,7 @@
+A2_BOOT
+A2_BOUND port=8443
+A2_BOUND port=8444
+A2_READY port=8443
+A2_READY port=8444
+A2_ACCESS port=8443 path=/?test=RQ1-A2-01-baseline-target
+A2_ACCESS port=8444 path=/?test=RQ1-A2-01-baseline-near_match

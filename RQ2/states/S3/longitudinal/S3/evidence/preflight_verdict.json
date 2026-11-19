@@ -1,0 +1,13 @@
+{
+  "S1_edge": "-A FORWARD -s 80.71.158.96/32 -d 172.16.10.2/32 -p tcp -m conntrack --ctstate NEW -m tcp --dport 80 -m comment --comment \"rq2_s1_srcip|EdgeFirewall|IpTables\" -j DROP",
+  "S2_waf_sha256": "b0fc6f39ef35261703b41eb6e8694c823100bb9d32606f95f9dedfc468bf845a",
+  "checked_utc": "2026-11-01T19:40:37.948077+00:00",
+  "expected_additions": 2,
+  "expected_removals": 0,
+  "pass": true,
+  "proxy_baseline_sha256": {
+    "branch_proxy": "435546c2ea1c6f28242532fae85f46ed5e76e9fe435ce90979c7acc82b673339",
+    "egress_proxy": "435546c2ea1c6f28242532fae85f46ed5e76e9fe435ce90979c7acc82b673339"
+  },
+  "state_sha256": "3c5bfb84c418341c1e30f244f741e8bf087bdac5b18b891bcbc314d82630eff6"
+}

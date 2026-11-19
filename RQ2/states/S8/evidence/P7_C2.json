@@ -1,0 +1,19 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "employee",
+    "--",
+    "nc",
+    "-vz",
+    "-w",
+    "5",
+    "80.71.158.10",
+    "8443"
+  ],
+  "checked_utc": "2026-11-18T01:12:28.061047+00:00",
+  "duration_s": 8.425769756,
+  "rc": 1,
+  "stderr": "nc: connect to 80.71.158.10 port 8443 (tcp) timed out: Operation now in progress\n",
+  "stdout": ""
+}

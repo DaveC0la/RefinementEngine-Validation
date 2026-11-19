@@ -1,0 +1,15 @@
+{
+  "active_effective_rules": 2,
+  "active_rule_labels": [
+    "I_B",
+    "C"
+  ],
+  "baseline_preserved": true,
+  "checked_utc": "2026-11-18T01:03:34.931651+00:00",
+  "first_strike_retained_protection": true,
+  "last_owner_withdrawal_removed_two_rules": true,
+  "owner_B_domain_contributions": 0,
+  "pass": true,
+  "state": "S7",
+  "unnecessary_operations": 0
+}

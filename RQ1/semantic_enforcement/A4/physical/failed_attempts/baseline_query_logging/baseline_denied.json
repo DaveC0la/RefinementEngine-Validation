@@ -1,0 +1,18 @@
+{
+  "command": [
+    "kathara",
+    "exec",
+    "employee",
+    "--",
+    "ping",
+    "-c",
+    "2",
+    "-W",
+    "2",
+    "10.40.20.10"
+  ],
+  "returncode": 1,
+  "stderr": "",
+  "stdout": "PING 10.40.20.10 (10.40.20.10) 56(84) bytes of data.\n\n--- 10.40.20.10 ping statistics ---\n2 packets transmitted, 0 received, 100% packet loss, time 1015ms\n\n",
+  "utc": "2026-10-27T07:40:44.486040+00:00"
+}

@@ -1,0 +1,141 @@
+{
+  "case_id": "RQ1-A7-01",
+  "cti": {
+    "indicator_id": "IOC-KALI-DOMAIN",
+    "interpretation": "Campaign-associated domain indicator; no claim that its DNS is queried",
+    "native_type": "MISP domain",
+    "original_indicator": "kali365.xyz",
+    "source_id": "SRC-CIRCL-KALI365"
+  },
+  "input": {
+    "action": "is not authorized to access",
+    "expected_expanded_rules": {
+      "rq1_a7_01_outbound_domain_Branch_Users": [
+        "BranchProxy",
+        "Squid"
+      ],
+      "rq1_a7_01_outbound_domain_Devices": [
+        "EgressProxy",
+        "Squid"
+      ],
+      "rq1_a7_01_outbound_domain_Employees": [
+        "EgressProxy",
+        "Squid"
+      ],
+      "rq1_a7_01_outbound_domain_Finance": [
+        "EgressProxy",
+        "Squid"
+      ],
+      "rq1_a7_01_outbound_domain_Guests": [
+        "EgressProxy",
+        "Squid"
+      ]
+    },
+    "group_expansion": "Existing frozen refinement configuration expands Corporate_Users into Branch_Users, Devices, Employees, Finance, and Guests; one input HSPL yields five source-scoped configuration rules at two control locations",
+    "hspl_id": "rq1_a7_01_outbound_domain",
+    "note": "One domain IoC / one parent HSPL; five source group contributions to two effective domain-deny rules with full ownership.",
+    "object": "MaliciousWeb",
+    "subject": "Corporate_Users"
+  },
+  "network": {
+    "device_map": {
+      "BranchProxy": "branch_proxy",
+      "EgressProxy": "egress_proxy"
+    },
+    "expected_pairs": [
+      [
+        "EgressProxy",
+        "Squid"
+      ],
+      [
+        "BranchProxy",
+        "Squid"
+      ]
+    ],
+    "forbidden_capabilities": [
+      "IpSourceAddressConditionCapability",
+      "IpDestinationAddressConditionCapability",
+      "HostnameConditionCapability",
+      "UrlPathRegexConditionCapability",
+      "HttpReqHdrUserAgentConditionCapability",
+      "DestinationPortConditionCapability",
+      "IpProtocolTypeConditionCapability"
+    ],
+    "required_capabilities": {
+      "DestinationDomainConditionCapability": "malware-c2.example",
+      "RejectActionCapability": ""
+    }
+  },
+  "protocol_family": "A7",
+  "scope_note": "One isolated A7 domain pilot: DNS-backed apex and subdomain matching at both Squid proxies; no Internet contact, HTTPS/SNI, RQ2 lifecycle, or aggregate RQ1 generalization claimed.",
+  "substitution": {
+    "lab_address": "80.71.158.20",
+    "lab_domain": "malware-c2.example",
+    "lab_host": "mal_web",
+    "reason": "Controlled domain already mapped by isolated lab ext_dns to malicious-web HTTP origin. No traffic to Kali365 domain. Explicit substitution preserves domain-indicator semantics."
+  },
+  "traffic_oracle": {
+    "benign_domain": "http://allowed.utilities.com/index.html",
+    "direct_ip": "http://80.71.158.20/index.html",
+    "dns_basis": "The existing external dnsmasq address=/malware-c2.example/80.71.158.20 resolves the apex and child names within lab",
+    "expected_baseline_statuses": {
+      "benign_domain": "200",
+      "direct_ip": "200",
+      "same_domain_other_path": "200",
+      "subdomain": "200",
+      "target": "200"
+    },
+    "expected_deployed_statuses": {
+      "benign_domain": "200",
+      "direct_ip": "200",
+      "same_domain_other_path": "403",
+      "subdomain": "403",
+      "target": "403"
+    },
+    "expected_restored_statuses": {
+      "benign_domain": "200",
+      "direct_ip": "200",
+      "same_domain_other_path": "200",
+      "subdomain": "200",
+      "target": "200"
+    },
+    "near_match_lookalike": "http://malware-c2.example.invalid/index.html",
+    "near_match_note": "near_match_lookalike is STATIC non-resolving ACL negative control, not an HTTP-200 live probe",
+    "proxy_denial": "TCP_DENIED/403; blocked host requests not present in mal_web access.log",
+    "same_domain_other_path": "http://malware-c2.example/",
+    "sources": [
+      {
+        "lab_device": "employee",
+        "proxy": "egress_proxy",
+        "proxy_url": "http://10.1.5.2:3128",
+        "scope": "Employees"
+      },
+      {
+        "lab_device": "finance",
+        "proxy": "egress_proxy",
+        "proxy_url": "http://10.1.5.2:3128",
+        "scope": "Finance"
+      },
+      {
+        "lab_device": "guest_host",
+        "proxy": "egress_proxy",
+        "proxy_url": "http://10.1.5.2:3128",
+        "scope": "Guests"
+      },
+      {
+        "lab_device": "iot_device",
+        "proxy": "egress_proxy",
+        "proxy_url": "http://10.1.5.2:3128",
+        "scope": "Devices"
+      },
+      {
+        "lab_device": "branch_user",
+        "proxy": "branch_proxy",
+        "proxy_url": "http://10.70.20.10:3128",
+        "scope": "Branch_Users"
+      }
+    ],
+    "subdomain": "http://panel.malware-c2.example/index.html",
+    "target": "http://malware-c2.example/index.html"
+  }
+}

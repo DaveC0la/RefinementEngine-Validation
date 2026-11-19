@@ -1,0 +1,12 @@
+{
+  "case_id": "RQ1-B1-01",
+  "deployment": "INSTALLED_NOT_YET_TRAFFIC_TESTED",
+  "device": "b1_access_fw",
+  "exact_rule_check": "PASS",
+  "installed_marker_count": 1,
+  "other_firewalls_unchanged": true,
+  "restoration": "PENDING",
+  "rule_sha256": "b80e6cf56debf43b78f3b5daaa8adbdf866e8a84a25f19a09f3c00e207c21f02",
+  "status": "STAGE13_DEPLOYMENT_PASS",
+  "timestamp_utc": "2026-10-27T20:05:19.620735+00:00"
+}

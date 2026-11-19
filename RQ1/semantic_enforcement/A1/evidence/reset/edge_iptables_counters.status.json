@@ -1,0 +1,12 @@
+{
+  "command": [
+    "iptables",
+    "-L",
+    "FORWARD",
+    "-n",
+    "-v",
+    "--line-numbers"
+  ],
+  "host": "edge_fw",
+  "returncode": 0
+}

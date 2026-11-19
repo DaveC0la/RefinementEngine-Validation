@@ -1,0 +1,65 @@
+========== C2: LISTENING PORTS ==========
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess
+LISTEN 0      4096      127.0.0.11:37449      0.0.0.0:*          
+========== C2: AVAILABLE TOOLS ==========
+/usr/bin/nc
+/usr/bin/python3
+/usr/bin/timeout
+========== b1_access_fw: FORWARD RULES ==========
+-P FORWARD ACCEPT
+========== guest_fw: FORWARD RULES ==========
+-P FORWARD ACCEPT
+-A FORWARD -s 10.30.10.0/24 -d 10.20.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.10.0/24 -d 10.20.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.10.0/24 -d 10.40.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.10.0/24 -d 10.40.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.10.0/24 -d 10.40.30.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.10.0/24 -d 10.10.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.10.0/24 -d 10.10.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.10.0/24 -d 10.30.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.10.0/24 -d 10.70.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.20.0/24 -d 10.20.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.20.0/24 -d 10.20.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.20.0/24 -d 10.40.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.20.0/24 -d 10.40.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.20.0/24 -d 10.40.30.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.20.0/24 -d 10.10.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.20.0/24 -d 10.10.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.20.0/24 -d 10.30.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 10.30.20.0/24 -d 10.70.10.0/24 -m conntrack --ctstate NEW -j DROP
+========== edge_fw: FORWARD RULES ==========
+-P FORWARD ACCEPT
+-A FORWARD -s 80.71.158.0/24 -d 10.10.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 80.71.158.0/24 -d 10.10.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 80.71.158.0/24 -d 10.20.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 80.71.158.0/24 -d 10.20.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 80.71.158.0/24 -d 10.30.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 80.71.158.0/24 -d 10.30.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 80.71.158.0/24 -d 10.40.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 80.71.158.0/24 -d 10.40.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 80.71.158.0/24 -d 10.40.30.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 80.71.158.0/24 -d 172.16.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.20.0/24 -d 10.20.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.20.0/24 -d 10.20.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.20.0/24 -d 10.40.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.20.0/24 -d 10.40.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.20.0/24 -d 10.40.30.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.20.0/24 -d 10.10.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.20.0/24 -d 80.71.158.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.10.0/24 -d 10.20.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.10.0/24 -d 10.20.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.10.0/24 -d 10.40.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.10.0/24 -d 10.40.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.10.0/24 -d 10.40.30.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.10.0/24 -d 10.10.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.20.0/24 -d 10.30.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.20.0/24 -d 10.30.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.20.0/24 -d 10.70.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.10.0/24 -d 10.30.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.10.0/24 -d 10.30.20.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.10.0/24 -d 10.70.10.0/24 -m conntrack --ctstate NEW -j DROP
+-A FORWARD -s 172.16.10.0/24 -d 80.71.158.0/24 -m conntrack --ctstate NEW -j DROP
+========== EDGE FIREWALL: SNAT ==========
+-P POSTROUTING ACCEPT
+-A POSTROUTING -d 127.0.0.11/32 -j DOCKER_POSTROUTING
+-A POSTROUTING -o eth0 -j MASQUERADE

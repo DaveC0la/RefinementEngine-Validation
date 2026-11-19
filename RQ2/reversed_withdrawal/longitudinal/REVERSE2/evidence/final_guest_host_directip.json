@@ -1,0 +1,29 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "guest_host",
+    "--",
+    "curl",
+    "-q",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "10",
+    "-o",
+    "/dev/null",
+    "-w",
+    "__RQ2_HTTP__%{http_code}",
+    "--proxy",
+    "http://10.1.5.2:3128",
+    "--noproxy",
+    "",
+    "http://80.71.158.20/index.html?rq2=REVERSE2_34f828a47bab"
+  ],
+  "checked_utc": "2026-11-01T22:47:32.625814+00:00",
+  "duration_s": 2.5751947549870238,
+  "rc": 0,
+  "stderr": "",
+  "stdout": "__RQ2_HTTP__200"
+}

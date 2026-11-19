@@ -1,0 +1,12 @@
+{
+  "actionable": true,
+  "laboratory_observable": "80.71.158.96/32",
+  "not_a_claim_of_natural_CTI_validity_history": true,
+  "original_observable": "91.243.188.233",
+  "owner": {
+    "bundle_id": "SRC-CIRCL-KRVTZ",
+    "hsplid": "rq2_s1_srcip",
+    "ioc_id": "IOC-KRVTZ-IP-SRC"
+  },
+  "source_derived_from": "refeng_cti_validation_dataset_v1_1.json"
+}

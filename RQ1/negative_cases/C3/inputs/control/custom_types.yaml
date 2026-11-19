@@ -1,0 +1,230 @@
+tosca_definitions_version: tosca_simple_yaml_1_2
+
+node_types:
+  company.nodes.NetworkDevice:
+    derived_from: tosca.nodes.Root
+    description: Represents a network device that works as a firewall or VPN gateway.
+    properties:
+      id:
+        type: string
+        required: false
+    capabilities:
+      node:
+        type: tosca.capabilities.Node
+      NSFs:
+        type: company.capabilities.NSFs
+    requirements:
+    - device_device:
+        capability: tosca.capabilities.Node 
+        node: company.nodes.NetworkDevice
+        relationship: tosca.relationships.DependsOn
+        occurrences: [0, UNBOUNDED]
+    - device_subnet:
+        capability: tosca.capabilities.network.Linkable 
+        node: company.nodes.CustomSubnet
+        relationship: tosca.relationships.network.LinksTo
+        occurrences: [0, UNBOUNDED]
+        
+  company.nodes.WAFDevice:
+    derived_from: tosca.nodes.Root
+    description: Represents a network device that works as a Web Application Firewall.
+    properties:
+      id:
+        type: string
+        required: false
+    capabilities:
+      node:
+        type: tosca.capabilities.Node
+      NSFs:
+        type: company.capabilities.NSFs
+    requirements:
+    - device_subnet:
+        capability: tosca.capabilities.network.Linkable 
+        node: company.nodes.CustomSubnet
+        relationship: tosca.relationships.network.LinksTo
+        occurrences: [0, UNBOUNDED]
+    - device_webapp:
+        capability: tosca.capabilities.network.Linkable 
+        node: company.nodes.WebApp
+        relationship: tosca.relationships.network.LinksTo
+        occurrences: [0, UNBOUNDED]
+
+  company.nodes.CustomSubnet:
+    derived_from: tosca.nodes.network.Network
+    description: Represents a customized Subnet that allows to specify if a range of IP addresses is "negated".
+    properties:
+      negated:
+        type: boolean
+        required: false
+        default: false
+  
+  company.nodes.NetworkUser:
+    derived_from: tosca.nodes.network.Port
+    description: Represents a user belonging to a subnet.
+    properties:
+      port:
+        type: string
+        required: false
+      mac_address:
+        type: string
+        required: false
+      WID:
+        type: string
+        required: false
+      DID:
+        type: string
+        required: false
+    capabilities:
+      endpoint:
+        type: company.capabilities.CustomEndpoint
+      NSFs:
+        type: company.capabilities.NSFs
+    requirements:
+    - to_subnet:
+        capability: tosca.capabilities.network.Linkable 
+        node: company.nodes.CustomSubnet
+        relationship: tosca.relationships.network.LinksTo
+        occurrences: [1, UNBOUNDED]
+
+  company.nodes.MaliciousUser:
+    derived_from: company.nodes.CustomSubnet
+    description: Represents a malicious entity of any kind.
+    properties:
+      mac_address:
+        type: string
+        required: false
+      WID:
+        type: string
+        required: false
+      DID:
+        type: string
+        required: false
+      port:
+        type: string
+        required: false
+      user_agent:
+        type: string
+        required: false
+      uri:
+        type: string
+        required: false
+      ip_is_indicator:
+        type: boolean
+        required: false
+        default: false
+    capabilities:
+      node:
+        type: tosca.capabilities.Node
+    requirements:
+    - to_device:
+        capability: tosca.capabilities.Node 
+        node: company.nodes.NetworkDevice
+        relationship: tosca.relationships.DependsOn
+        occurrences: [0, UNBOUNDED]   #Connessione non necessaria
+    - to_subnet:
+        capability: tosca.capabilities.network.Linkable 
+        node: company.nodes.CustomSubnet
+        relationship: tosca.relationships.network.LinksTo
+        occurrences: [0, UNBOUNDED]   #Connessione non necessaria
+    - to_networkUser:
+        capability: company.capabilities.CustomEndpoint
+        node: company.nodes.NetworkUser
+        relationship: tosca.relationships.ConnectsTo
+        occurrences: [0, UNBOUNDED]   #Connessione non necessaria
+    - to_webApp:
+        capability: company.capabilities.CustomEndpoint
+        node: company.nodes.WebApp
+        relationship: tosca.relationships.ConnectsTo
+        occurrences: [0, UNBOUNDED]   #Connessione non necessaria
+  
+  company.nodes.WebApp:
+    derived_from: tosca.nodes.network.Port
+    description: Represents a web app within the company network.
+    capabilities:
+      endpoint:
+        type: company.capabilities.CustomEndpoint
+      NSFs:
+        type: company.capabilities.NSFs
+    requirements:
+    - to_subnet:
+        capability: tosca.capabilities.network.Linkable 
+        node: company.nodes.CustomSubnet
+        relationship: tosca.relationships.network.LinksTo
+        occurrences: [1, UNBOUNDED]   #E' necessaria una connessione ad almeno una delle subnet presenti
+
+  company.nodes.Traffic:
+    derived_from: tosca.nodes.Root
+    description: Represents a specific kind of traffic inside the network.
+    capabilities:
+      endpoint:
+        type: company.capabilities.CustomEndpoint
+
+  company.nodes.MaliciousC2Server:
+    derived_from: tosca.nodes.network.Port
+    properties:
+      port:
+        type: string
+        required: false
+      ip_is_indicator:
+        type: boolean
+        required: false
+        default: true
+    requirements:
+    - to_subnet:
+        capability: tosca.capabilities.network.Linkable
+        node: company.nodes.CustomSubnet
+        relationship: tosca.relationships.network.LinksTo
+        occurrences: [1, UNBOUNDED]
+
+  company.nodes.MaliciousWeb:
+    derived_from: tosca.nodes.network.Port
+    properties:
+      port:
+        type: string
+        required: false
+      domain:
+        type: string
+        required: false
+      hostname:
+        type: string
+        required: false
+      url:
+        type: string
+        required: false
+      ip_is_indicator:
+        type: boolean
+        required: false
+        default: false
+    requirements:
+    - to_subnet:
+        capability: tosca.capabilities.network.Linkable
+        node: company.nodes.CustomSubnet
+        relationship: tosca.relationships.network.LinksTo
+        occurrences: [1, UNBOUNDED]
+
+capability_types:
+  company.capabilities.NSFs:
+    derived_from: tosca.capabilities.Root
+    properties:
+      supported_functions:
+        type: list
+        entry_schema:
+          type: map
+          properties:
+            function:
+              type: string
+            processing_order:
+              type: integer
+        required: false
+
+  company.capabilities.CustomEndpoint:
+    derived_from: tosca.capabilities.Endpoint
+    properties:
+      protocol:
+        type: list
+        entry_schema:
+          type: string
+        required: false
+      destination_type:
+        type: string
+        required: false

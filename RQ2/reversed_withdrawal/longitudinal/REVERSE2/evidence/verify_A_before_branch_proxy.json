@@ -1,0 +1,15 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "branch_proxy",
+    "--",
+    "cat",
+    "/etc/squid/re-rules.conf"
+  ],
+  "checked_utc": "2026-11-01T22:40:47.789987+00:00",
+  "duration_s": 2.647072999010561,
+  "rc": 0,
+  "stderr": "",
+  "stdout": "# RefinementEngine Squid rules (acl + http_access), filled by the Translator\n# (empty before refinement)\n# >>> rid=rq1_a7_01_outbound_domain_Branch_Users|BranchProxy|Squid\nacl re_blk_816f5ae1 dstdomain .malware-c2.example\nhttp_access deny re_blk_816f5ae1\n# <<< rid=rq1_a7_01_outbound_domain_Branch_Users|BranchProxy|Squid\n"
+}

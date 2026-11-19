@@ -1,0 +1,8 @@
+---RULES---
+# RefinementEngine Squid rules (acl + http_access), filled by the Translator
+# (empty before refinement)
+---DENYLIST---
+# (empty before refinement)
+---SERVICE---
+2026/11/01 17:58:53| WARNING: BCP 177 violation. Detected non-functional IPv6 loopback.
+2026/11/01 17:58:53| Warning: empty ACL: acl re_denied dstdomain "/etc/squid/re-denylist.acl"

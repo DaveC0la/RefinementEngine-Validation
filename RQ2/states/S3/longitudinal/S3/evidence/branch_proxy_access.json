@@ -1,0 +1,18 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "branch_proxy",
+    "--",
+    "tail",
+    "-n",
+    "12000",
+    "/var/log/squid/access.log"
+  ],
+  "duration_s": 2.48883569,
+  "ended_utc": "2026-11-01T19:42:53.743448+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-01T19:42:51.254636+00:00",
+  "stderr": "",
+  "stdout": "1793555952.284      7 10.70.10.10 TCP_MISS/200 409 GET http://malware-c2.example/ - HIER_DIRECT/80.71.158.20 text/html\n1793556585.620     21 10.70.10.10 TCP_MISS/200 407 GET http://allowed.utilities.com/ - HIER_DIRECT/80.71.158.30 text/html\n1793557681.463     10 10.70.10.10 TCP_REFRESH_UNMODIFIED/200 415 GET http://malware-c2.example/ - HIER_DIRECT/80.71.158.20 text/html\n1793557684.004      5 10.70.10.10 TCP_REFRESH_UNMODIFIED/200 413 GET http://allowed.utilities.com/ - HIER_DIRECT/80.71.158.30 text/html\n1793560885.125      6 10.70.10.10 TCP_REFRESH_UNMODIFIED/200 415 GET http://malware-c2.example/ - HIER_DIRECT/80.71.158.20 text/html\n1793560887.642      6 10.70.10.10 TCP_REFRESH_UNMODIFIED/200 413 GET http://allowed.utilities.com/ - HIER_DIRECT/80.71.158.30 text/html\n1793562141.110      2 10.70.10.10 TCP_DENIED/403 3482 GET http://malware-c2.example/index.html? - HIER_NONE/- text/html\n1793562143.628      2 10.70.10.10 TCP_DENIED/403 3494 GET http://panel.malware-c2.example/index.html? - HIER_NONE/- text/html\n1793562146.111      0 10.70.10.10 TCP_DENIED/403 3496 GET http://malware-c2.example/status/index.html? - HIER_NONE/- text/html\n1793562148.613      7 10.70.10.10 TCP_MISS/200 407 GET http://allowed.utilities.com/index.html? - HIER_DIRECT/80.71.158.30 text/html\n1793562151.122      7 10.70.10.10 TCP_MISS/200 409 GET http://80.71.158.20/index.html? - HIER_DIRECT/80.71.158.20 text/html\n"
+}

@@ -1,0 +1,6 @@
+A2_BOOT
+A2_BOUND port=8443
+A2_READY port=8443
+A2_ACCESS port=8443 path=/?test=RQ1-A2-01-baseline-other_ip_same_port
+A2_ACCESS port=8443 path=/?test=RQ1-A2-01-deployed-other_ip_same_port
+A2_ACCESS port=8443 path=/?test=RQ1-A2-01-restored-other_ip_same_port

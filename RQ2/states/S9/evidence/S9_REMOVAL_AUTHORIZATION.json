@@ -1,0 +1,20 @@
+[
+  {
+    "device": "EdgeFirewall",
+    "effective_rule_id": "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+    "nsf": "IpTables",
+    "operation_id": "remove:10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+    "rule_id": "rq2_s1_srcip|EdgeFirewall|IpTables",
+    "signal": "to_ids=0",
+    "value": "80.71.158.96/32"
+  },
+  {
+    "device": "CorpFirewall",
+    "effective_rule_id": "1ea6780cd9062adac8e7d9a6ee27982330bb99eaa1680f2aeae537b362c510f4",
+    "nsf": "IpTables",
+    "operation_id": "remove:1ea6780cd9062adac8e7d9a6ee27982330bb99eaa1680f2aeae537b362c510f4",
+    "rule_id": "rq1_a2_01_c2_ipport|CorpFirewall|IpTables",
+    "signal": "to_ids=0",
+    "value": "80.71.158.10:8443/TCP"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "accepted_S7_state_sha256": "e55edccada4101147a87d381b8aebdcd951ba0bd02830dbcd6fcd00459e3be26",
+  "frozen_files": {
+    "lifecycle/revalidate_ownership.py": "56dc1a9c67309b8ed76e2ac4241b4e73322907898d149e0b35267e9d609a4726",
+    "src/engine/lifecycle_state_store.py": "53e9398ccd6d9b33e45d854768dc66e84111a248fbca44e7fbf682bcb6b0d951",
+    "src/engine/rule_ownership.py": "ee0dce0fb30bdb43442a5527eed5e5ba1a416a632737fabfe9b6cd35292d1543"
+  },
+  "input_sha256": "94a63f8499240e1e0273e495f055385b56e609cb5d0a8f2020dcd901210d2344",
+  "refined_source_B_sha256": "6fd0422574ebee1d83ad61d9f0eb277a7195e296fb1a3dacf3ba73c3c01079a1",
+  "s6_source_sha256": "b81fb48af4051254c3835de5b8bf10baadb0c6bdfb302ba7ad64cb5b0e250ddf"
+}

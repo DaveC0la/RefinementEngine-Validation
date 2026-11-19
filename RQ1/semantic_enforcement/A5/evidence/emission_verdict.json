@@ -1,0 +1,13 @@
+{
+  "pass": true,
+  "rule_files": {
+    "waf": {
+      "header": "User-Agent",
+      "marker": "rq1_a5_01_inbound_useragent|WebApplicationFirewall|ModSecurity",
+      "operator": "@contains",
+      "path": "/workspace/windows/Desktop/validation/results/RQ1-A5-01/shared/outbox/waf/re_engine.rules",
+      "sha256": "724a6a77483ec71eb6b674d89189af186978804e3611bf015d4afdbd5d420935",
+      "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+1793199004.795774 eth4  In  IP 10.30.10.10.50610 > 80.71.158.10.10214: Flags [S], seq 2334335233, win 64240, options [mss 1460,sackOK,TS val 3767345262 ecr 0,nop,wscale 7], length 0
+1793199004.795858 eth0  Out IP 203.0.113.2.50610 > 80.71.158.10.10214: Flags [S], seq 2334335233, win 64240, options [mss 1460,sackOK,TS val 3767345262 ecr 0,nop,wscale 7], length 0
+1793199004.799288 eth4  In  IP 10.30.10.10.50610 > 80.71.158.10.10214: Flags [.], ack 202913537, win 502, options [nop,nop,TS val 3767345265 ecr 275636748], length 0
+1793199004.799306 eth0  Out IP 203.0.113.2.50610 > 80.71.158.10.10214: Flags [.], ack 202913537, win 502, options [nop,nop,TS val 3767345265 ecr 275636748], length 0
+1793199004.799538 eth4  In  IP 10.30.10.10.50610 > 80.71.158.10.10214: Flags [P.], seq 0:15, ack 1, win 502, options [nop,nop,TS val 3767345265 ecr 275636748], length 15
+1793199004.799555 eth0  Out IP 203.0.113.2.50610 > 80.71.158.10.10214: Flags [P.], seq 0:15, ack 1, win 502, options [nop,nop,TS val 3767345265 ecr 275636748], length 15
+1793199004.802943 eth4  In  IP 10.30.10.10.50610 > 80.71.158.10.10214: Flags [.], ack 13, win 502, options [nop,nop,TS val 3767345269 ecr 275636751], length 0
+1793199004.802963 eth0  Out IP 203.0.113.2.50610 > 80.71.158.10.10214: Flags [.], ack 13, win 502, options [nop,nop,TS val 3767345269 ecr 275636751], length 0
+1793199004.803302 eth4  In  IP 10.30.10.10.50610 > 80.71.158.10.10214: Flags [F.], seq 15, ack 13, win 502, options [nop,nop,TS val 3767345269 ecr 275636751], length 0
+1793199004.803321 eth0  Out IP 203.0.113.2.50610 > 80.71.158.10.10214: Flags [F.], seq 15, ack 13, win 502, options [nop,nop,TS val 3767345269 ecr 275636751], length 0
+1793199004.803595 eth4  In  IP 10.30.10.10.50610 > 80.71.158.10.10214: Flags [.], ack 14, win 502, options [nop,nop,TS val 3767345269 ecr 275636752], length 0
+1793199004.803616 eth0  Out IP 203.0.113.2.50610 > 80.71.158.10.10214: Flags [.], ack 14, win 502, options [nop,nop,TS val 3767345269 ecr 275636752], length 0
+

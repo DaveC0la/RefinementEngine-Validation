@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-10-27T07:37:30.035084+00:00",
+  "passed": true,
+  "rule_shas": {
+    "branch_proxy": "897284c991c8620ac06d344035f3b68890ba775d1166877b9cb840ff3142b6e8",
+    "egress_proxy": "3b0c93a7a99ff2b1ae36a968b152b74c54f673f64bffae97af472f9ea641137e"
+  },
+  "scope_sources": [
+    "Employees",
+    "Finance",
+    "Guests",
+    "Devices",
+    "Branch_Users"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "finished_utc": "2026-10-26T11:50:06.772165+00:00",
+  "host": "mal_user",
+  "http_status": "200",
+  "returncode": 0,
+  "started_utc": "2026-10-26T11:50:03.027968+00:00",
+  "stderr": "",
+  "stdout": "200",
+  "url": "http://www.acme-corp.example/?rq1_a1=target&phase=baseline"
+}

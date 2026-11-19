@@ -1,0 +1,16 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "egress_proxy",
+    "--",
+    "squid",
+    "-k",
+    "parse"
+  ],
+  "checked_utc": "2026-11-01T22:48:06.428882+00:00",
+  "duration_s": 2.6374327689991333,
+  "rc": 0,
+  "stderr": "2026/11/01 22:48:06| Startup: Initializing Authentication Schemes ...\n2026/11/01 22:48:06| Startup: Initialized Authentication Scheme 'basic'\n2026/11/01 22:48:06| Startup: Initialized Authentication Scheme 'digest'\n2026/11/01 22:48:06| Startup: Initialized Authentication Scheme 'negotiate'\n2026/11/01 22:48:06| Startup: Initialized Authentication Scheme 'ntlm'\n2026/11/01 22:48:06| Startup: Initialized Authentication.\n2026/11/01 22:48:06| WARNING: BCP 177 violation. Detected non-functional IPv6 loopback.\n2026/11/01 22:48:06| aclIpParseIpData: IPv6 has not been enabled.\n2026/11/01 22:48:06| aclIpParseIpData: IPv6 has not been enabled.\n2026/11/01 22:48:06| Processing Configuration File: /etc/squid/squid.conf (depth 0)\n2026/11/01 22:48:06| Processing: http_port 3128\n2026/11/01 22:48:06| Processing: acl localnet src 10.0.0.0/8\n2026/11/01 22:48:06| Processing: acl localnet src 172.16.0.0/12\n2026/11/01 22:48:06| Processing: acl internal_dst dst 10.0.0.0/8\n2026/11/01 22:48:06| Processing: acl internal_dst dst 172.16.0.0/12\n2026/11/01 22:48:06| Processing: acl re_denied dstdomain \"/etc/squid/re-denylist.acl\"\n2026/11/01 22:48:06| Warning: empty ACL: acl re_denied dstdomain \"/etc/squid/re-denylist.acl\"\n2026/11/01 22:48:06| Processing: http_access deny re_denied\n2026/11/01 22:48:06| Processing: http_access deny internal_dst\n2026/11/01 22:48:06| Processing: include /etc/squid/re-rules.conf\n2026/11/01 22:48:06| Processing Configuration File: /etc/squid/re-rules.conf (depth 1)\n2026/11/01 22:48:06| Processing: http_access allow localnet\n2026/11/01 22:48:06| Processing: http_access deny all\n2026/11/01 22:48:06| Processing: visible_hostname egress_proxy\n2026/11/01 22:48:06| Initializing https:// proxy context\n",
+  "stdout": ""
+}

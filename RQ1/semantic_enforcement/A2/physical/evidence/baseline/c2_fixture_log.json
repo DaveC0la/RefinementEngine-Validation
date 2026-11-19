@@ -1,0 +1,11 @@
+{
+  "command": [
+    "docker",
+    "logs",
+    "refeng-validation-a2-c2-fixture"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "A2_BOOT\nA2_BOUND port=8443\nA2_BOUND port=8444\nA2_READY port=8443\nA2_READY port=8444\nA2_ACCESS port=8443 path=/?test=RQ1-A2-01-baseline-target\nA2_ACCESS port=8444 path=/?test=RQ1-A2-01-baseline-near_match\n",
+  "time_utc": "2026-10-26T14:58:09.956629+00:00"
+}

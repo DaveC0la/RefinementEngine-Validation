@@ -1,0 +1,14 @@
+{
+  "additions": 0,
+  "changed_owner_sets": 2,
+  "domain_A_contributions": 0,
+  "domain_B_contributions": 5,
+  "effective_rules": 4,
+  "native_rule_operations_by_runner": 0,
+  "pass": true,
+  "removals": 0,
+  "source_IP_owners": 2,
+  "state": "S5",
+  "traffic_probes": 32,
+  "verified_at": "2026-11-18T00:23:59.373796+00:00"
+}

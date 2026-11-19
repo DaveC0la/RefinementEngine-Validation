@@ -1,0 +1,14 @@
+{
+  "command": [
+    "kathara",
+    "exec",
+    "waf",
+    "--",
+    "cat",
+    "/etc/modsecurity/re-rules.conf"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "# RefinementEngine ModSecurity rules (filled by the Translator)\n# (empty before refinement)\n",
+  "utc": "2026-10-27T09:16:06.103222+00:00"
+}

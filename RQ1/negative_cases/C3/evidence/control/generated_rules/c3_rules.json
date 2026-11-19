@@ -1,0 +1,17 @@
+[
+    {
+        "hsplid": "rq1_c3_01_domain_offpath",
+        "device": "EgressProxy",
+        "nsf": "Squid",
+        "capabilities": [
+            {
+                "capability": "RejectActionCapability",
+                "detail": ""
+            },
+            {
+                "capability": "DestinationDomainConditionCapability",
+                "detail": "malware-c2.example"
+            }
+        ]
+    }
+]

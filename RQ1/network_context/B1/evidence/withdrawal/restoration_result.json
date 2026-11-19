@@ -1,0 +1,15 @@
+{
+  "case_id": "RQ1-B1-01",
+  "firewalls_restored": [
+    "b1_access_fw",
+    "guest_fw",
+    "edge_fw",
+    "corp_fw",
+    "dc_fw",
+    "admin_fw",
+    "branch_fw"
+  ],
+  "status": "STAGE13_RULE_REMOVED",
+  "timestamp_utc": "2026-10-27T21:36:28.033547+00:00",
+  "traffic_restoration": "NOT_YET_RETESTED"
+}

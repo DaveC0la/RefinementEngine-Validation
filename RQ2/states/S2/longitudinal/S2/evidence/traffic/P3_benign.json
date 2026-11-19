@@ -1,0 +1,30 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "benign_web",
+    "--",
+    "curl",
+    "-q",
+    "--noproxy",
+    "*",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "9",
+    "-A",
+    "Mozilla/5.0",
+    "-o",
+    "/dev/null",
+    "-w",
+    "__RQ2_HTTP__%{http_code}",
+    "http://www.acme-corp.example/?refeng_rq2=RQ2_S2_fa79dd9eaa504fb4bd410305586f8bdb_P3"
+  ],
+  "duration_s": 2.513522738,
+  "end_utc": "2026-11-01T19:21:05.377076+00:00",
+  "rc": 0,
+  "start_utc": "2026-11-01T19:21:02.863579+00:00",
+  "stderr": "",
+  "stdout": "__RQ2_HTTP__200"
+}

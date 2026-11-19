@@ -1,0 +1,14 @@
+{
+  "command": [
+    "kathara",
+    "exec",
+    "waf",
+    "--",
+    "cat",
+    "/etc/modsecurity/re-rules.conf"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "# RefinementEngine ModSecurity rules (filled by the Translator)\n# (empty before refinement)\n# RefinementEngine -> waf (waf); 1 rule(s)\n# >>> rid=rq1_a3_01_inbound_path|WebApplicationFirewall|ModSecurity\nSecRule REQUEST_URI \"@rx ^/malicious/public/path([?].*|$)\" \"id:1564707,phase:1,deny,status:403,msg:'RE block URL IoC',tag:'rid=rq1_a3_01_inbound_path|WebApplicationFirewall|ModSecurity'\"\n# <<< rid=rq1_a3_01_inbound_path|WebApplicationFirewall|ModSecurity\n",
+  "time_utc": "2026-10-26T16:16:24.451517+00:00"
+}

@@ -1,0 +1,28 @@
+{
+  "branch_eth1": [
+    {
+      "err": "",
+      "out": "B2_CAPTURE_READY",
+      "rc": 0
+    }
+  ],
+  "c2_eth0": [
+    {
+      "err": "",
+      "out": "B2_CAPTURE_READY",
+      "rc": 0
+    }
+  ],
+  "edge_eth1": [
+    {
+      "err": "",
+      "out": "B2_CAPTURE_WAITING",
+      "rc": 0
+    },
+    {
+      "err": "",
+      "out": "B2_CAPTURE_READY",
+      "rc": 0
+    }
+  ]
+}

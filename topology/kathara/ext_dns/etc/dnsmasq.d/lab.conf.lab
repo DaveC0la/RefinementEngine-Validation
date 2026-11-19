@@ -1,0 +1,10 @@
+interface=eth0
+interface=lo
+bind-interfaces
+no-resolv
+no-hosts
+log-queries
+address=/hadleyshope.3utilities.com/80.71.158.20
+address=/allowed.utilities.com/80.71.158.30
+address=/www.acme-corp.example/203.0.113.2
+address=/malware-c2.example/80.71.158.20

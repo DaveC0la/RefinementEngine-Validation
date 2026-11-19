@@ -1,0 +1,10 @@
+{
+  "planned_removals": [
+    "104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d",
+    "bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9"
+  ],
+  "remaining_effective_rules": 2,
+  "withdrawn_iocs": [
+    "ioc-64d62a361edfb6f5d9e4600386a090a5eba909f695cee370dec52734db6f0e5c"
+  ]
+}

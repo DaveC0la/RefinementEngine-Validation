@@ -1,0 +1,8 @@
+{
+  "S0_digest": "12c93634bf134f766e02dd9335f851b60411928b154d8a38ca1bb19a69f38c5c",
+  "checked_utc": "2026-11-01T18:27:05.545297+00:00",
+  "pass": true,
+  "pending_additions": 1,
+  "pending_removals": 0,
+  "pre_edge_iptables_sha256": "73d2ce72dcb9fa311e1eec86b81402dff1d606452523aed9b41dc0a6ada1670e"
+}

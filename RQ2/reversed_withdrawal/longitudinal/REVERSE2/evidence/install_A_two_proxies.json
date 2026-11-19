@@ -1,0 +1,14 @@
+{
+  "args": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "/workspace/refeng-rq2/lab/apply-rules.ps1",
+    "-Once"
+  ],
+  "checked_utc": "2026-11-01T22:40:34.298404+00:00",
+  "duration_s": 8.969667448021937,
+  "rc": 0,
+  "stderr": "",
+  "stdout": "2026-11-01 23:40:29  watcher start (mode: once; controls: edge_fw,admin_fw,guest_fw,corp_fw,dc_fw,branch_fw,waf,egress_proxy,branch_proxy)\n2026-11-01 23:40:32  APPLIED  egress_proxy  rq2_reverse_domain.rules  (+2 item(s), squid)\n2026-11-01 23:40:34  APPLIED  branch_proxy  rq2_reverse_domain.rules  (+2 item(s), squid)\n"
+}

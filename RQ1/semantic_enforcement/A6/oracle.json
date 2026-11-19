@@ -1,0 +1,101 @@
+{
+  "adaptations": {
+    "allocation": "A6 runtime alias: require live Squid HttpReqHdrConditionCapability and RejectActionCapability before treating HttpReqHdrUserAgentConditionCapability as Squid-supported",
+    "comma_mapping": "One original literal comma encoded only in temporary XML converter input; restored in XML",
+    "emission": "A6 runtime Squid req_header User-Agent adapter; untouched emitted engine source; POSIX [[:blank:]] for literal spaces",
+    "scientific_scope": "Experimental extension, not native capability of frozen RefinementEngine, as disclosed in verdict",
+    "source_model": "A6-only A6UserAgentSubnet subclass of CustomSubnet with user_agent, applied to five group-member subnet nodes"
+  },
+  "case_id": "RQ1-A6-01",
+  "cti": {
+    "indicator_id": "IOC-GOBRUTE-USERAGENT",
+    "normalized_type": "http_user_agent",
+    "original_indicator": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "input": {
+    "action": "is not authorized to access",
+    "hspl_id": "rq1_a6_01_outbound_useragent",
+    "object": "MaliciousWeb",
+    "subject": "Corporate_Users"
+  },
+  "network": {
+    "expanded_sources": [
+      "Branch_Users",
+      "Devices",
+      "Employees",
+      "Finance",
+      "Guests"
+    ],
+    "expected_pairs": [
+      [
+        "EgressProxy",
+        "Squid"
+      ],
+      [
+        "BranchProxy",
+        "Squid"
+      ]
+    ],
+    "forbidden_capabilities": [
+      "IpSourceAddressConditionCapability",
+      "IpDestinationAddressConditionCapability",
+      "DestinationDomainConditionCapability",
+      "UrlPathRegexConditionCapability",
+      "IpProtocolTypeConditionCapability"
+    ],
+    "required_capabilities": {
+      "HttpReqHdrUserAgentConditionCapability": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+      "RejectActionCapability": ""
+    }
+  },
+  "protocol_family": "A6",
+  "traffic_oracle": {
+    "expected_baseline": {
+      "benign_user_agent": 200,
+      "embedded_original_user_agent": 200,
+      "near_match_user_agent": 200,
+      "original_user_agent": 200
+    },
+    "expected_deployed": {
+      "benign_user_agent": 200,
+      "embedded_original_user_agent": 403,
+      "near_match_user_agent": 200,
+      "original_user_agent": 403
+    },
+    "expected_restored": {
+      "benign_user_agent": 200,
+      "embedded_original_user_agent": 200,
+      "near_match_user_agent": 200,
+      "original_user_agent": 200
+    },
+    "http_transport": "explicit HTTP proxy; no HTTPS CONNECT interception",
+    "lab_origin": "http://80.71.158.20/index.html",
+    "source_population_probes": [
+      {
+        "lab_device": "employee",
+        "name": "employee",
+        "proxy": "egress_proxy"
+      },
+      {
+        "lab_device": "finance",
+        "name": "finance",
+        "proxy": "egress_proxy"
+      },
+      {
+        "lab_device": "guest_host",
+        "name": "guest_host",
+        "proxy": "egress_proxy"
+      },
+      {
+        "lab_device": "iot_device",
+        "name": "iot_device",
+        "proxy": "egress_proxy"
+      },
+      {
+        "lab_device": "branch_user",
+        "name": "branch_user",
+        "proxy": "branch_proxy"
+      }
+    ]
+  }
+}

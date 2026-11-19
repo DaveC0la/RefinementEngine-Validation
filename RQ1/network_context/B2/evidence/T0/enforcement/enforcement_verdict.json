@@ -1,0 +1,49 @@
+{
+  "case_id": "RQ1-B2-01",
+  "checks": {
+    "drop_counter_increased": true,
+    "firewalls_unchanged": true,
+    "icmp_to_c2_preserved": true,
+    "near_match_accepted_by_c2": true,
+    "near_match_application_reachable": true,
+    "near_match_syn_absent_at_branch": true,
+    "near_match_syn_at_c2": true,
+    "near_match_syn_at_edge_egress": true,
+    "near_match_syn_at_edge_ingress": true,
+    "owned_rule_still_installed": true,
+    "target_connection_times_out": true,
+    "target_not_accepted_by_c2": true,
+    "target_syn_absent_at_branch": true,
+    "target_syn_absent_at_c2": true,
+    "target_syn_absent_at_edge_egress": true,
+    "target_syn_at_edge_ingress": true
+  },
+  "checks_passed": 16,
+  "checks_total": 16,
+  "counter_after": {
+    "bytes": 240,
+    "packets": 4
+  },
+  "counter_before": {
+    "bytes": 0,
+    "packets": 0
+  },
+  "deployment": "RULE_REMAINS_INSTALLED",
+  "near_match": {
+    "elapsed": 0.013,
+    "outcome": "CONNECTED",
+    "port": 10214,
+    "response": "B2_OK_10214\n"
+  },
+  "pass": true,
+  "restoration": "PENDING",
+  "routing": "T0_EDGE",
+  "rule_sha256": "86061be19e284339711b4665959ca489fa5fe001abd34615e911061f63df0d70",
+  "status": "B2_T0_ENFORCEMENT_PASS",
+  "target": {
+    "error": "TimeoutError('timed out')",
+    "outcome": "FAILED",
+    "port": 10213
+  },
+  "utc": "2026-10-28T10:59:32.122723+00:00"
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "B2_LISTENER_WAITING\n"
+  },
+  {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "B2_LISTENER_READY\n"
+  }
+]

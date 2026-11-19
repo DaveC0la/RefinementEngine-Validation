@@ -1,0 +1,11 @@
+{
+  "docker_version": "Docker version 28.5.1, build e180ab8",
+  "engine_image_digest": "[]",
+  "engine_image_id": "sha256:db4b303aa802c502d188c8a5976814da58507b57be7364d432f63d3f31276b3d",
+  "kathara_version": "Current version: 3.8.3",
+  "platform": "linux",
+  "powershell_version": "PowerShell 7.6.9",
+  "python": "3.12.3",
+  "recorded_utc": "2026-10-28T09:13:41.641641+00:00",
+  "runtime_note": "External Docker images and installed Kathara/PowerShell are required for live replay."
+}

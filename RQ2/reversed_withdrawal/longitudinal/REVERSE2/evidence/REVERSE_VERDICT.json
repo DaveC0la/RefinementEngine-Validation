@@ -1,0 +1,17 @@
+{
+  "active_rules": 0,
+  "additions": 2,
+  "checked_utc": "2026-11-01T22:48:21.861271+00:00",
+  "lifecycle_isolated": true,
+  "main_S9_sha256_unchanged": true,
+  "new_unnecessary_device_operations": 0,
+  "pass": true,
+  "removals": 2,
+  "sequence": [
+    "A",
+    "A+B",
+    "A",
+    "none"
+  ],
+  "source": "controlled owner B fixture; frozen original A7 domain rules"
+}

@@ -1,0 +1,11 @@
+{
+  "pass": true,
+  "rule_files": {
+    "waf": {
+      "marker": "rq1_a3_01_inbound_path|WebApplicationFirewall|ModSecurity",
+      "path": "/workspace/windows/Desktop/validation/results/RQ1-A3-01/shared/outbox/waf/re_engine.rules",
+      "regex": "^/malicious/public/path([?].*|$)",
+      "sha256": "0adf80d1c8762744f6b9052d6c01b81f7fe5834b838e945ec7984e023a94770e"
+    }
+  }
+}

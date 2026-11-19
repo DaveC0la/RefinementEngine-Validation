@@ -1,0 +1,14 @@
+{
+  "recorded_utc": "2026-10-28T15:14:48.772185+00:00",
+  "experiment_case": "RQ1-B3-01",
+  "external_requirements": [
+    "Kathara",
+    "Docker",
+    "re-lab/engine:latest",
+    "PowerShell Core (pwsh)",
+    "Python with PyYAML and runtime dependencies"
+  ],
+  "docker_images_included": false,
+  "failed_attempts_included": false,
+  "note": "Model revision happened after a discarded initial model experiment, but before the accepted corrected-model refinement. Only accepted successful evidence is bundled."
+}

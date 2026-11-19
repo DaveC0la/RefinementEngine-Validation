@@ -1,0 +1,13 @@
+{
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "/workspace/windows/Desktop/refinement-engine-validation/apply-rules.ps1",
+    "-Once"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "2026-10-27 11:14:51  watcher start (mode: once; controls: edge_fw,admin_fw,guest_fw,corp_fw,dc_fw,branch_fw,waf,egress_proxy,branch_proxy)\n2026-10-27 11:15:13  APPLIED  egress_proxy  rq1_a6_01.rules  (+2 item(s), squid)\n2026-10-27 11:15:18  APPLIED  branch_proxy  rq1_a6_01.rules  (+2 item(s), squid)\n",
+  "utc": "2026-10-27T10:15:18.551928+00:00"
+}

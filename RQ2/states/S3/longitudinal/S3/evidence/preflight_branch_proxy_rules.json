@@ -1,0 +1,16 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "branch_proxy",
+    "--",
+    "cat",
+    "/etc/squid/re-rules.conf"
+  ],
+  "duration_s": 2.640557935,
+  "ended_utc": "2026-11-01T19:40:32.758353+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-01T19:40:30.117819+00:00",
+  "stderr": "",
+  "stdout": "# RefinementEngine Squid rules (acl + http_access), filled by the Translator\n# (empty before refinement)\n"
+}

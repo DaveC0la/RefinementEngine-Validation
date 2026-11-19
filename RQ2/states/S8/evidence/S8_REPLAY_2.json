@@ -1,0 +1,25 @@
+{
+  "active_bindings": 2,
+  "checked_utc": "2026-11-18T01:11:07.386957+00:00",
+  "delta": {
+    "add": [],
+    "ownership_changed": [],
+    "remove": [],
+    "retain": [
+      "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+      "1ea6780cd9062adac8e7d9a6ee27982330bb99eaa1680f2aeae537b362c510f4"
+    ]
+  },
+  "desired_rule_ids": [
+    "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+    "1ea6780cd9062adac8e7d9a6ee27982330bb99eaa1680f2aeae537b362c510f4"
+  ],
+  "historical_bindings": 3,
+  "input_sha256": "94a63f8499240e1e0273e495f055385b56e609cb5d0a8f2020dcd901210d2344",
+  "operations_before_and_after": 8,
+  "pass": true,
+  "reconciliation_duration_s": 0.533971191,
+  "removal_plan": [],
+  "replay": 2,
+  "state_sha256": "e55edccada4101147a87d381b8aebdcd951ba0bd02830dbcd6fcd00459e3be26"
+}

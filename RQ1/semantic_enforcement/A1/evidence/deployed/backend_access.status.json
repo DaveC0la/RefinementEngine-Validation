@@ -1,0 +1,10 @@
+{
+  "command": [
+    "tail",
+    "-n",
+    "100",
+    "/var/log/apache2/access.log"
+  ],
+  "host": "web_backend",
+  "returncode": 0
+}

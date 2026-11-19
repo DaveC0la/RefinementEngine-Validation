@@ -1,0 +1,17 @@
+{
+  "accepted_s3": "/workspace/refeng-rq2-novelty/state/lifecycle_state.json",
+  "existing_S3_rule_identity": "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+  "new_B_rule_identity": "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+  "new_hspl": "rq2_s4_source_ownerB",
+  "new_hspl_sha256": "3f2b1bffed274696e5938b94721711190e1b9455a545f5a99906a5f903ffec7d",
+  "new_owner_ioc_id": "IOC-RQ2-SOURCE-B",
+  "new_rules_sha256": "6fd0422574ebee1d83ad61d9f0eb277a7195e296fb1a3dacf3ba73c3c01079a1",
+  "old_owner_ioc_id": "IOC-KRVTZ-IP-SRC",
+  "original_s1": "/workspace/refeng-rq2/longitudinal/S1",
+  "physical_operations_executed": 0,
+  "result_dir": "/workspace/refeng-rq2-novelty/source_b_refinement_v3",
+  "same_enforcement": true,
+  "scope": "fresh refinement + exact identity comparison; no native device deployment",
+  "source_state_modified": false,
+  "status": "PASS"
+}

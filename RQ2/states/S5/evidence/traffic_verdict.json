@@ -1,0 +1,6 @@
+{
+  "pass": true,
+  "probes": 32,
+  "report": "/workspace/refeng-rq2-novelty/s3_traffic_gate/s3_traffic_50c2c3660721.json",
+  "report_sha256": "ac2b4181ea634f57ffb640705b3ee33518d3b96492c5e429ef9067dbe1481fad"
+}

@@ -1,0 +1,55 @@
+{
+  "case_id": "RQ1-A2-01",
+  "cti": {
+    "indicator_id": "IOC-THREATFOX-C2-IPPORT",
+    "original_indicator": "102.220.161.63:10213",
+    "original_transport": "not specified in source dataset"
+  },
+  "input": {
+    "action": "is not authorized to access",
+    "hspl_id": "rq1_a2_01_c2_ipport",
+    "object": "MaliciousC2Server",
+    "subject": "EmployeeHost"
+  },
+  "network": {
+    "destination_subnet": "Internet",
+    "eligible_device_control_pairs": [
+      [
+        "CorpFirewall",
+        "IpTables"
+      ],
+      [
+        "EdgeFirewall",
+        "IpTables"
+      ]
+    ],
+    "required_capabilities": {
+      "DestinationPortConditionCapability": "8443",
+      "IpDestinationAddressConditionCapability": "80.71.158.10",
+      "IpSourceAddressConditionCapability": "10.20.10.10",
+      "RejectActionCapability": ""
+    },
+    "required_conntrack_state": "NEW",
+    "source_subnet": "Employees"
+  },
+  "protocol_family": "A2",
+  "scope_note": "A single held-out pilot, not the full multi-instance A-series evaluation",
+  "substitution": {
+    "destination_lab_actor": "c2",
+    "destination_lab_ip": "80.71.158.10",
+    "destination_lab_port": 8443,
+    "note": "TCP is an explicitly chosen laboratory transport; upstream IoC does not supply one",
+    "reason": "isolated Kathara topology; no traffic is sent to the real CTI endpoint",
+    "source_lab_actor": "employee",
+    "source_lab_ip": "10.20.10.10",
+    "test_transport": "tcp"
+  },
+  "traffic_oracle": {
+    "baseline_other_ip_same_port": "An independent benign external HTTP service remains reachable",
+    "baseline_same_ip_other_port": "TCP/8444 must establish an application response",
+    "baseline_target": "TCP/8443 must establish an application response",
+    "deployed_controls": "TCP/8444 and independent benign HTTP must remain reachable",
+    "deployed_target": "Connection to 80.71.158.10:8443 must be dropped",
+    "reset": "All baseline traffic decisions restored"
+  }
+}

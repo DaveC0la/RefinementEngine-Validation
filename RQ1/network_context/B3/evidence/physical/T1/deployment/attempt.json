@@ -1,0 +1,29 @@
+{
+  "device": "edge_fw",
+  "emitted_sha256": "c9220095ff7c2c2622067721f4fc80e5f13aceea9b95acfe578b6757bec65401",
+  "removal_command": [
+    "iptables",
+    "-D",
+    "FORWARD",
+    "-m",
+    "conntrack",
+    "--ctstate",
+    "NEW",
+    "-s",
+    "10.30.10.10",
+    "-d",
+    "80.71.158.10",
+    "-p",
+    "tcp",
+    "--dport",
+    "10213",
+    "-m",
+    "comment",
+    "--comment",
+    "rq1_b3_01_guest_c2_ipport|EdgeFirewall|IpTables",
+    "-j",
+    "DROP"
+  ],
+  "state": "T1",
+  "utc": "2026-10-28T14:55:10.923999+00:00"
+}

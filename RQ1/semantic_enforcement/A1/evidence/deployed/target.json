@@ -1,0 +1,10 @@
+{
+  "finished_utc": "2026-10-26T12:07:01.602212+00:00",
+  "host": "mal_user",
+  "http_status": "000",
+  "returncode": 28,
+  "started_utc": "2026-10-26T12:06:56.226675+00:00",
+  "stderr": "curl: (28) Failed to connect to www.acme-corp.example port 80 after 3000 ms: Timeout was reached\n",
+  "stdout": "000",
+  "url": "http://www.acme-corp.example/?rq1_a1=target&phase=deployed"
+}

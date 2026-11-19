@@ -1,0 +1,30 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "branch_user",
+    "--",
+    "curl",
+    "-q",
+    "--noproxy",
+    "",
+    "--proxy",
+    "http://10.70.20.10:3128",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "14",
+    "-o",
+    "/dev/null",
+    "-w",
+    "__RQ2_HTTP__%{http_code}",
+    "http://panel.malware-c2.example/index.html?rq2=RQ2_S3_bb3acbf5e05c44f7831adb6bdf4d2c94_branch_user_subdomain"
+  ],
+  "duration_s": 2.507863185,
+  "ended_utc": "2026-11-01T19:42:23.931587+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-01T19:42:21.423748+00:00",
+  "stderr": "",
+  "stdout": "__RQ2_HTTP__403"
+}

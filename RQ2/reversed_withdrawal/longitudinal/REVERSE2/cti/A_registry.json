@@ -1,0 +1,12 @@
+{
+  "indicators": [
+    {
+      "ioc_id": "ioc-977d5e9b5164a258deb71b131bfe4658f9fa2feb8f4c98fee93290b0b55815d0",
+      "origin_attribute": "destination-domain",
+      "origin_entity": "MaliciousWeb",
+      "type": "domain",
+      "value": "malware-c2.example"
+    }
+  ],
+  "schema_version": 1
+}

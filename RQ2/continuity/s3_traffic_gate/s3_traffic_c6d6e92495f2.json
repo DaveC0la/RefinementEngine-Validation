@@ -1,0 +1,302 @@
+{
+  "at_utc": "2026-11-17T23:55:32.144724+00:00",
+  "checks": {
+    "physical_branch_proxy": true,
+    "physical_edge_fw": true,
+    "physical_egress_proxy": true,
+    "physical_waf": true
+  },
+  "lab": "/home/david/refeng-rq2-novelty/lab",
+  "passed": false,
+  "physical_operations_executed": 0,
+  "probes": {
+    "C2_address_nearmatch": {
+      "device": "employee",
+      "expected_http": null,
+      "expected_rc": 0,
+      "http_status": null,
+      "pass": false,
+      "rc": 1,
+      "stderr": "nc: connect to 80.71.158.20 port 8443 (tcp) failed: Connection refused\n"
+    },
+    "C2_port_nearmatch": {
+      "device": "employee",
+      "expected_http": null,
+      "expected_rc": 0,
+      "http_status": null,
+      "pass": false,
+      "rc": 1,
+      "stderr": "nc: connect to 80.71.158.10 port 8444 (tcp) failed: Connection refused\n"
+    },
+    "C2_target": {
+      "device": "employee",
+      "expected_http": null,
+      "expected_rc": 0,
+      "http_status": null,
+      "pass": false,
+      "rc": 1,
+      "stderr": "nc: connect to 80.71.158.10 port 8443 (tcp) failed: Connection refused\n"
+    },
+    "S1_source_ip_denied": {
+      "device": "mal_user",
+      "expected_http": "000",
+      "expected_rc": 28,
+      "http_status": "000",
+      "pass": true,
+      "rc": 28,
+      "stderr": "curl: (28) Failed to connect to www.acme-corp.example port 80 after 4001 ms: Timeout was reached\n"
+    },
+    "S2_user_agent_denied": {
+      "device": "benign_web",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "baseline_denied": {
+      "device": "employee",
+      "pass": true,
+      "rc": 1,
+      "stdout": "PING 10.40.20.10 (10.40.20.10) 56(84) bytes of data.\n\n--- 10.40.20.10 ping statistics ---\n1 packets transmitted, 0 received, 100% packet loss, time 0ms\n\n"
+    },
+    "benign_ingress_allowed": {
+      "device": "benign_web",
+      "expected_http": "200",
+      "expected_rc": 0,
+      "http_status": "200",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "branch_user_benign": {
+      "device": "branch_user",
+      "expected_http": "200",
+      "expected_rc": 0,
+      "http_status": "200",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "branch_user_direct_ip": {
+      "device": "branch_user",
+      "expected_http": "200",
+      "expected_rc": 0,
+      "http_status": "200",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "branch_user_other_path": {
+      "device": "branch_user",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "branch_user_subdomain": {
+      "device": "branch_user",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "branch_user_target": {
+      "device": "branch_user",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "employee_benign": {
+      "device": "employee",
+      "expected_http": "200",
+      "expected_rc": 0,
+      "http_status": "200",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "employee_direct_ip": {
+      "device": "employee",
+      "expected_http": "200",
+      "expected_rc": 0,
+      "http_status": "200",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "employee_other_path": {
+      "device": "employee",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "employee_subdomain": {
+      "device": "employee",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "employee_target": {
+      "device": "employee",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "finance_benign": {
+      "device": "finance",
+      "expected_http": "200",
+      "expected_rc": 0,
+      "http_status": "200",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "finance_direct_ip": {
+      "device": "finance",
+      "expected_http": "200",
+      "expected_rc": 0,
+      "http_status": "200",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "finance_other_path": {
+      "device": "finance",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "finance_subdomain": {
+      "device": "finance",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "finance_target": {
+      "device": "finance",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "guest_host_benign": {
+      "device": "guest_host",
+      "expected_http": "200",
+      "expected_rc": 0,
+      "http_status": "200",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "guest_host_direct_ip": {
+      "device": "guest_host",
+      "expected_http": "200",
+      "expected_rc": 0,
+      "http_status": "200",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "guest_host_other_path": {
+      "device": "guest_host",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "guest_host_subdomain": {
+      "device": "guest_host",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "guest_host_target": {
+      "device": "guest_host",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "iot_device_benign": {
+      "device": "iot_device",
+      "expected_http": "200",
+      "expected_rc": 0,
+      "http_status": "200",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "iot_device_direct_ip": {
+      "device": "iot_device",
+      "expected_http": "200",
+      "expected_rc": 0,
+      "http_status": "200",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "iot_device_other_path": {
+      "device": "iot_device",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "iot_device_subdomain": {
+      "device": "iot_device",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    },
+    "iot_device_target": {
+      "device": "iot_device",
+      "expected_http": "403",
+      "expected_rc": 0,
+      "http_status": "403",
+      "pass": true,
+      "rc": 0,
+      "stderr": ""
+    }
+  },
+  "run_id": "c6d6e92495f2",
+  "scope": "read-only live S3 traffic probes",
+  "traffic_probes_executed": 32
+}

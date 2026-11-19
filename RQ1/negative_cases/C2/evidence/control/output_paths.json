@@ -1,0 +1,8 @@
+{
+    "rq1_c2_01_atomic_ip_socket": [
+        [
+            "EgressProxy",
+            "Squid"
+        ]
+    ]
+}

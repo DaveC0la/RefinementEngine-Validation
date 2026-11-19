@@ -1,0 +1,23 @@
+{
+  "checked_utc": "2026-11-01T19:38:22.981495+00:00",
+  "effective_rules": 2,
+  "expanded_sources": [
+    "Branch_Users",
+    "Devices",
+    "Employees",
+    "Finance",
+    "Guests"
+  ],
+  "pairs": [
+    [
+      "EgressProxy",
+      "Squid"
+    ],
+    [
+      "BranchProxy",
+      "Squid"
+    ]
+  ],
+  "pass": true,
+  "path_coverage": true
+}

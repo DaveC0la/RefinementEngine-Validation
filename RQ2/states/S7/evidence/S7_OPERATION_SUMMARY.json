@@ -1,0 +1,11 @@
+{
+  "checked_utc": "2026-11-18T01:03:34.921992+00:00",
+  "includes_traffic_probes": true,
+  "necessary_additions": 0,
+  "necessary_removals": 2,
+  "removal_command_duration_s": 11.076076143,
+  "removal_to_completed_verification_s": 141.175841082,
+  "unnecessary_operations": 0,
+  "verified_additions_cumulative": 5,
+  "verified_removals_cumulative": 3
+}

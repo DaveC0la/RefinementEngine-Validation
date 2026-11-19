@@ -1,0 +1,16 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "egress_proxy",
+    "--",
+    "squid",
+    "-k",
+    "parse"
+  ],
+  "checked_utc": "2026-11-01T22:41:53.907663+00:00",
+  "duration_s": 2.6691941670142114,
+  "rc": 0,
+  "stderr": "2026/11/01 22:41:53| Startup: Initializing Authentication Schemes ...\n2026/11/01 22:41:53| Startup: Initialized Authentication Scheme 'basic'\n2026/11/01 22:41:53| Startup: Initialized Authentication Scheme 'digest'\n2026/11/01 22:41:53| Startup: Initialized Authentication Scheme 'negotiate'\n2026/11/01 22:41:53| Startup: Initialized Authentication Scheme 'ntlm'\n2026/11/01 22:41:53| Startup: Initialized Authentication.\n2026/11/01 22:41:53| WARNING: BCP 177 violation. Detected non-functional IPv6 loopback.\n2026/11/01 22:41:53| aclIpParseIpData: IPv6 has not been enabled.\n2026/11/01 22:41:53| aclIpParseIpData: IPv6 has not been enabled.\n2026/11/01 22:41:53| Processing Configuration File: /etc/squid/squid.conf (depth 0)\n2026/11/01 22:41:53| Processing: http_port 3128\n2026/11/01 22:41:53| Processing: acl localnet src 10.0.0.0/8\n2026/11/01 22:41:53| Processing: acl localnet src 172.16.0.0/12\n2026/11/01 22:41:53| Processing: acl internal_dst dst 10.0.0.0/8\n2026/11/01 22:41:53| Processing: acl internal_dst dst 172.16.0.0/12\n2026/11/01 22:41:53| Processing: acl re_denied dstdomain \"/etc/squid/re-denylist.acl\"\n2026/11/01 22:41:53| Warning: empty ACL: acl re_denied dstdomain \"/etc/squid/re-denylist.acl\"\n2026/11/01 22:41:53| Processing: http_access deny re_denied\n2026/11/01 22:41:53| Processing: http_access deny internal_dst\n2026/11/01 22:41:53| Processing: include /etc/squid/re-rules.conf\n2026/11/01 22:41:53| Processing Configuration File: /etc/squid/re-rules.conf (depth 1)\n2026/11/01 22:41:53| Processing: acl re_blk_ad74eacb dstdomain .malware-c2.example\n2026/11/01 22:41:53| Processing: http_access deny re_blk_ad74eacb\n2026/11/01 22:41:53| Processing: http_access allow localnet\n2026/11/01 22:41:53| Processing: http_access deny all\n2026/11/01 22:41:53| Processing: visible_hostname egress_proxy\n2026/11/01 22:41:53| Initializing https:// proxy context\n",
+  "stdout": ""
+}

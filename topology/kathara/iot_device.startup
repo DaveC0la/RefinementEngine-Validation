@@ -1,0 +1,8 @@
+#!/bin/sh
+# startup for iot_device
+ip link set eth0 up
+ip addr add 10.30.20.10/24 dev eth0
+ip route add default via 10.30.20.1
+# Devices are denied Identity (hspl25) but allowed Internet (NISTIR 8228); they
+# must resolve via the external public DNS, not the corporate internal resolver.
+echo 'nameserver 80.71.158.53' > /etc/resolv.conf

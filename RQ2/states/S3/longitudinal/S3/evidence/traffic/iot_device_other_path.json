@@ -1,0 +1,30 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "iot_device",
+    "--",
+    "curl",
+    "-q",
+    "--noproxy",
+    "",
+    "--proxy",
+    "http://10.1.5.2:3128",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "14",
+    "-o",
+    "/dev/null",
+    "-w",
+    "__RQ2_HTTP__%{http_code}",
+    "http://malware-c2.example/status/index.html?rq2=RQ2_S3_bb3acbf5e05c44f7831adb6bdf4d2c94_iot_device_other_path"
+  ],
+  "duration_s": 2.550153202,
+  "ended_utc": "2026-11-01T19:42:14.797891+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-01T19:42:12.247763+00:00",
+  "stderr": "",
+  "stdout": "__RQ2_HTTP__403"
+}

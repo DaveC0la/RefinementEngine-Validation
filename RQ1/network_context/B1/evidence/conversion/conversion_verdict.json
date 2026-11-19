@@ -1,0 +1,19 @@
+{
+  "capabilities_verified": [
+    "AppendRuleActionCapability",
+    "ConnTrackStateConditionCapability",
+    "DestinationPortConditionCapability",
+    "IpDestinationAddressConditionCapability",
+    "IpSourceAddressConditionCapability",
+    "MatchActionCapability",
+    "RejectActionCapability"
+  ],
+  "deployment": "NOT_PERFORMED",
+  "file": "B1AccessFirewall_IpTables_RuleInstance.xml",
+  "pass": true,
+  "selected_pair": [
+    "B1AccessFirewall",
+    "IpTables"
+  ],
+  "sha256": "f51a0d9828ada0389877b86d605581deaafda78a411d088c85e2ce85680c47ca"
+}

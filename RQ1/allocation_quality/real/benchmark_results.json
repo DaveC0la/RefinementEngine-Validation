@@ -1,0 +1,188 @@
+{
+  "status": "FIVE_VALIDATED_REAL_ALLOCATIONS",
+  "backend": "pulp-cbc",
+  "backend_version": "3.3.2",
+  "source_full_results_sha256": "9fc15752332bfd0d1a9cf83bc292f922ffea4f6f0e5ed2054afd716b0f719054",
+  "results": [
+    {
+      "label": "engine/rq1_b1_01_guest_c2_ipport [b5d2675d]",
+      "cohort": "real-frozen-engine",
+      "input_sha256": "b5d2675d14f1652630d8e64c033e06f25a1f041d31853cc7dd27926d0d6298d6",
+      "paths": 1,
+      "bundles": 1,
+      "candidates": 4,
+      "selected_pairs_greedy": 1,
+      "selected_pairs_ilp": 1,
+      "optimal": true,
+      "excess_pairs": 0,
+      "relative_excess_percent": 0.0,
+      "greedy_pairs": [
+        [
+          "B1AccessFirewall",
+          "IpTables"
+        ]
+      ],
+      "ilp_pairs": [
+        [
+          "GuestFirewall",
+          "IpTables"
+        ]
+      ],
+      "frozen_engine_replay_match": true,
+      "greedy_timing": {
+        "median_ms": 0.00873,
+        "p95_ms": 0.01839,
+        "samples": 25
+      },
+      "ilp_timing": {
+        "median_ms": 10.25595,
+        "p95_ms": 12.70199,
+        "samples": 25
+      }
+    },
+    {
+      "label": "engine/rq1_b2_01_wan_c2_ipport [02f66fa9]",
+      "cohort": "real-frozen-engine",
+      "input_sha256": "02f66fa9e7d6a5b26c049387c502e36768b4a88d4e322884e27c5957bb6c21c4",
+      "paths": 1,
+      "bundles": 1,
+      "candidates": 1,
+      "selected_pairs_greedy": 1,
+      "selected_pairs_ilp": 1,
+      "optimal": true,
+      "excess_pairs": 0,
+      "relative_excess_percent": 0.0,
+      "greedy_pairs": [
+        [
+          "EdgeFirewall",
+          "IpTables"
+        ]
+      ],
+      "ilp_pairs": [
+        [
+          "EdgeFirewall",
+          "IpTables"
+        ]
+      ],
+      "frozen_engine_replay_match": true,
+      "greedy_timing": {
+        "median_ms": 0.00359,
+        "p95_ms": 0.00607,
+        "samples": 25
+      },
+      "ilp_timing": {
+        "median_ms": 10.11992,
+        "p95_ms": 11.09146,
+        "samples": 25
+      }
+    },
+    {
+      "label": "engine/rq1_b2_01_wan_c2_ipport [45393968]",
+      "cohort": "real-frozen-engine",
+      "input_sha256": "45393968080a2153b0ffeb2b1811484f2c61dc0fcb038e4300ecfed88926ad01",
+      "paths": 1,
+      "bundles": 1,
+      "candidates": 1,
+      "selected_pairs_greedy": 1,
+      "selected_pairs_ilp": 1,
+      "optimal": true,
+      "excess_pairs": 0,
+      "relative_excess_percent": 0.0,
+      "greedy_pairs": [
+        [
+          "BranchFirewall",
+          "IpTables"
+        ]
+      ],
+      "ilp_pairs": [
+        [
+          "BranchFirewall",
+          "IpTables"
+        ]
+      ],
+      "frozen_engine_replay_match": true,
+      "greedy_timing": {
+        "median_ms": 0.00351,
+        "p95_ms": 0.00456,
+        "samples": 25
+      },
+      "ilp_timing": {
+        "median_ms": 10.10207,
+        "p95_ms": 11.82771,
+        "samples": 25
+      }
+    },
+    {
+      "label": "engine/rq1_b3_01_guest_c2_ipport [30a8a146]",
+      "cohort": "real-frozen-engine",
+      "input_sha256": "30a8a1462f827e62bf410f79ef64660fbe986a88f3ab360f9ff60ecd7ceaac41",
+      "paths": 1,
+      "bundles": 1,
+      "candidates": 1,
+      "selected_pairs_greedy": 1,
+      "selected_pairs_ilp": 1,
+      "optimal": true,
+      "excess_pairs": 0,
+      "relative_excess_percent": 0.0,
+      "greedy_pairs": [
+        [
+          "EdgeFirewall",
+          "IpTables"
+        ]
+      ],
+      "ilp_pairs": [
+        [
+          "EdgeFirewall",
+          "IpTables"
+        ]
+      ],
+      "frozen_engine_replay_match": true,
+      "greedy_timing": {
+        "median_ms": 0.0036,
+        "p95_ms": 0.00458,
+        "samples": 25
+      },
+      "ilp_timing": {
+        "median_ms": 9.88959,
+        "p95_ms": 11.55835,
+        "samples": 25
+      }
+    },
+    {
+      "label": "engine/rq1_b3_01_guest_c2_ipport [8d07cf73]",
+      "cohort": "real-frozen-engine",
+      "input_sha256": "8d07cf733c3b74a7d1d9c6ccd9127dc7dca67bab63efec861c749d416ae5c917",
+      "paths": 1,
+      "bundles": 1,
+      "candidates": 2,
+      "selected_pairs_greedy": 1,
+      "selected_pairs_ilp": 1,
+      "optimal": true,
+      "excess_pairs": 0,
+      "relative_excess_percent": 0.0,
+      "greedy_pairs": [
+        [
+          "GuestFirewall",
+          "IpTables"
+        ]
+      ],
+      "ilp_pairs": [
+        [
+          "EdgeFirewall",
+          "IpTables"
+        ]
+      ],
+      "frozen_engine_replay_match": true,
+      "greedy_timing": {
+        "median_ms": 0.00528,
+        "p95_ms": 0.00619,
+        "samples": 25
+      },
+      "ilp_timing": {
+        "median_ms": 10.03118,
+        "p95_ms": 11.88547,
+        "samples": 25
+      }
+    }
+  ]
+}

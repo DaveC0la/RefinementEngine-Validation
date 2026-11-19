@@ -1,0 +1,14 @@
+{
+  "case_id": "RQ1-B2-01",
+  "firewalls_restored": [
+    "edge_fw",
+    "branch_fw",
+    "guest_fw",
+    "corp_fw",
+    "dc_fw",
+    "admin_fw"
+  ],
+  "status": "B2_T1_RULE_REMOVED",
+  "timestamp_utc": "2026-10-28T13:06:27.918236+00:00",
+  "traffic_restoration": "NOT_YET_RETESTED"
+}

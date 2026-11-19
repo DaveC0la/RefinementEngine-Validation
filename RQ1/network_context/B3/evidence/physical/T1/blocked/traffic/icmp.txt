@@ -1,0 +1,9 @@
+PING 80.71.158.10 (80.71.158.10) 56(84) bytes of data.
+64 bytes from 80.71.158.10: icmp_seq=1 ttl=60 time=4.33 ms
+64 bytes from 80.71.158.10: icmp_seq=2 ttl=60 time=3.05 ms
+
+--- 80.71.158.10 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 999ms
+rtt min/avg/max/mdev = 3.054/3.692/4.331/0.638 ms
+
+STDERR:

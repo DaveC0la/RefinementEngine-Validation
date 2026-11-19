@@ -1,0 +1,9 @@
+{
+  "created_utc": "2026-10-27T10:50:35.102444+00:00",
+  "native_frozen_implementation": true,
+  "pass": true,
+  "rule_shas": {
+    "branch_proxy": "1c8c3afb15b6695e364601d23a70cab960f38b24581182789df219b2e48e7149",
+    "egress_proxy": "08ad0f4d31950c1cf4ad6d6f0888e98a657abae61ad00f0e3a2469eacc9d02d7"
+  }
+}

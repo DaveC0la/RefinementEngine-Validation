@@ -1,0 +1,15 @@
+{
+  "command": [
+    "kathara",
+    "exec",
+    "egress_proxy",
+    "--",
+    "sh",
+    "-c",
+    "grep -F 'include /etc/squid/re-rules.conf' /etc/squid/squid.conf"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "include /etc/squid/re-rules.conf\n",
+  "utc": "2026-10-27T10:50:23.605652+00:00"
+}

@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "baseline_denied": true,
+    "corp_fw_counter_hit": true,
+    "corp_fw_rule_present": true,
+    "near_match": true,
+    "near_match_log": true,
+    "other_destination_http": true,
+    "other_ip_same_port": true,
+    "other_ip_same_port_log": true,
+    "target": true,
+    "target_log": true
+  },
+  "near_match_http": "200",
+  "other_destination_http": "200",
+  "other_ip_same_port_http": "200",
+  "pass": true,
+  "phase": "deployed",
+  "recorded_utc": "2026-10-26T15:02:11.302018+00:00",
+  "target_http": "000"
+}

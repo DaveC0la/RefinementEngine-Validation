@@ -1,0 +1,13 @@
+{
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "/workspace/windows/Desktop/refinement-engine-validation/apply-rules.ps1",
+    "-Once"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "2026-10-26 16:01:10  watcher start (mode: once; controls: edge_fw,admin_fw,guest_fw,corp_fw,dc_fw,branch_fw,waf,egress_proxy,branch_proxy)\n2026-10-26 16:01:19  APPLIED  corp_fw       rq1_a2_01.rules  (+1 item(s), iptables)\n",
+  "time_utc": "2026-10-26T15:01:22.777919+00:00"
+}

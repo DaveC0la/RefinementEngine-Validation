@@ -1,0 +1,28 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "mal_user",
+    "--",
+    "curl",
+    "-q",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "9",
+    "-o",
+    "/dev/null",
+    "-w",
+    "__RQ2_HTTP__%{http_code}",
+    "--noproxy",
+    "*",
+    "http://www.acme-corp.example/?rq2=RQ2_S7_353e4fcfa471_srcip"
+  ],
+  "duration_s": 7.164278909,
+  "ended_utc": "2026-11-18T01:02:44.709113+00:00",
+  "rc": 28,
+  "started_utc": "2026-11-18T01:02:37.544867+00:00",
+  "stderr": "curl: (28) Failed to connect to www.acme-corp.example port 80 after 4002 ms: Timeout was reached\n",
+  "stdout": "__RQ2_HTTP__000"
+}

@@ -1,0 +1,52 @@
+{
+  "case_id": "RQ1-A3-01",
+  "cti": {
+    "indicator_id": "IOC-URLHAUS-PATH-BINSH",
+    "original_indicator": "http://221.15.9.104:39894/bin.sh",
+    "original_path": "/bin.sh"
+  },
+  "input": {
+    "action": "is not authorized to access",
+    "hspl_id": "rq1_a3_01_inbound_path",
+    "object": "MaliciousWebPath",
+    "subject": "MaliciousHost"
+  },
+  "network": {
+    "expected_control": "ModSecurity",
+    "expected_device": "WebApplicationFirewall",
+    "forbidden_capabilities": [
+      "IpSourceAddressConditionCapability",
+      "DestinationPortConditionCapability",
+      "HttpReqHdrUserAgentConditionCapability",
+      "DestinationDomainConditionCapability"
+    ],
+    "lab_device": "waf",
+    "public_url": "http://www.acme-corp.example",
+    "required_capabilities": {
+      "RejectActionCapability": "",
+      "UrlPathRegexConditionCapability": "/malicious/public/path"
+    }
+  },
+  "protocol_family": "A3",
+  "scope_note": "One A3 pilot instance. Lab URL/path is an explicit substitution, not claimed as the original URLhaus location. No original RefinementEngine logic is edited.",
+  "substitution": {
+    "lab_actor": "mal_user",
+    "lab_path": "/malicious/public/path",
+    "lab_resource": "MaliciousWebPath",
+    "lab_site": "www.acme-corp.example",
+    "reason": "The real URLhaus endpoint is not contacted; a deliberately planted URL resource on the isolated public web application is used"
+  },
+  "traffic_oracle": {
+    "backend_target_absent_when_blocked": true,
+    "baseline_control_status": "200",
+    "baseline_target_status": "200",
+    "deployed_control_status": "200",
+    "deployed_target_status": "403",
+    "independent_control": "/",
+    "near_match": "/malicious/public/path-extra",
+    "near_match_status": "404",
+    "restore": "All baseline decisions and WAF rule file restored",
+    "same_path_query": "/malicious/public/path?probe=1",
+    "target": "/malicious/public/path"
+  }
+}

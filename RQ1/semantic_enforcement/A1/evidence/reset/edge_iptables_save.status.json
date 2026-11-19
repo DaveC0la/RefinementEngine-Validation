@@ -1,0 +1,7 @@
+{
+  "command": [
+    "iptables-save"
+  ],
+  "host": "edge_fw",
+  "returncode": 0
+}

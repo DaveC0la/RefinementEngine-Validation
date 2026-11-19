@@ -1,0 +1,14 @@
+{
+  "command": [
+    "kathara",
+    "exec",
+    "branch_proxy",
+    "--",
+    "cat",
+    "/etc/squid/re-rules.conf"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "# RefinementEngine Squid rules (acl + http_access), filled by the Translator\n# (empty before refinement)\n# >>> rid=rq1_a6_01_outbound_useragent_Branch_Users|BranchProxy|Squid\nacl re_blk_872c7197 req_header User-Agent Mozilla/5\\.0[[:blank:]]\\(Windows[[:blank:]]NT[[:blank:]]10\\.0;[[:blank:]]Win64;[[:blank:]]x64\\)[[:blank:]]AppleWebKit/537\\.3k[[:blank:]]\\(KHTML,[[:blank:]]like[[:blank:]]Gecko\\)[[:blank:]]Chrome/137\\.0\\.0\\.0[[:blank:]]Safari/537\\.36\nhttp_access deny re_blk_872c7197\n# <<< rid=rq1_a6_01_outbound_useragent_Branch_Users|BranchProxy|Squid\n",
+  "utc": "2026-10-27T10:18:34.077682+00:00"
+}

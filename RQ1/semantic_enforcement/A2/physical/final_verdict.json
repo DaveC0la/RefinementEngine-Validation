@@ -1,0 +1,46 @@
+{
+  "case_id": "RQ1-A2-01",
+  "conclusion": "A2 pilot physical enforcement and restoration verified; not aggregate RQ1 generalisation",
+  "evaluated_utc": "2026-10-26T15:21:16.372166+00:00",
+  "frozen_implementation_unchanged": true,
+  "observations": {
+    "baseline": {
+      "baseline_denied": true,
+      "corp_fw_rule_absent": true,
+      "near_match": true,
+      "near_match_log": true,
+      "other_destination_http": true,
+      "other_ip_same_port": true,
+      "other_ip_same_port_log": true,
+      "target": true,
+      "target_log": true
+    },
+    "deployed": {
+      "baseline_denied": true,
+      "corp_fw_counter_hit": true,
+      "corp_fw_rule_present": true,
+      "near_match": true,
+      "near_match_log": true,
+      "other_destination_http": true,
+      "other_ip_same_port": true,
+      "other_ip_same_port_log": true,
+      "target": true,
+      "target_log": true
+    },
+    "restored": {
+      "baseline_denied": true,
+      "corp_fw_rule_absent": true,
+      "near_match": true,
+      "near_match_log": true,
+      "other_destination_http": true,
+      "other_ip_same_port": true,
+      "other_ip_same_port_log": true,
+      "target": true,
+      "target_log": true
+    }
+  },
+  "pass": true,
+  "selected_devices": [
+    "corp_fw"
+  ]
+}

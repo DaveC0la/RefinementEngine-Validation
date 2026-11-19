@@ -1,0 +1,18 @@
+=== Test host address ===
+137: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    inet 10.80.10.10/24 scope global eth0
+       valid_lft forever preferred_lft forever
+=== Test host route to C2 ===
+80.71.158.10 via 10.80.10.1 dev eth0 src 10.80.10.10 uid 0 
+    cache 
+=== WAN router default route ===
+default via 10.255.255.1 dev eth0 
+=== WAN router forwarding decision ===
+80.71.158.10 from 10.80.10.10 via 10.255.255.1 dev eth0 
+    cache iif eth2 
+=== Test host ICMP connectivity ===
+PING 80.71.158.10 (80.71.158.10) 56(84) bytes of data.
+
+--- 80.71.158.10 ping statistics ---
+3 packets transmitted, 0 received, 100% packet loss, time 2026ms
+

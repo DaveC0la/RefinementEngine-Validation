@@ -1,0 +1,12 @@
+[
+  {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "B2_CAPTURE_WAITING\n"
+  },
+  {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "B2_CAPTURE_READY\n"
+  }
+]

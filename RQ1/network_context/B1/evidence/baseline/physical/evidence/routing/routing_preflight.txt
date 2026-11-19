@@ -1,0 +1,51 @@
+========== guest_host ==========
+lo               UNKNOWN        127.0.0.1/8 
+eth0             UP             10.30.10.10/24 
+--- Route to C2 ---
+80.71.158.10 via 10.30.10.1 dev eth0 src 10.30.10.10 uid 0 
+    cache 
+========== b1_access_fw ==========
+lo               UNKNOWN        127.0.0.1/8 
+eth0             UP             10.30.30.2/30 
+eth1             UP             10.30.10.1/24 
+--- Route to C2 ---
+80.71.158.10 via 10.30.30.1 dev eth0 src 10.30.30.2 uid 0 
+    cache 
+========== guest_fw ==========
+lo               UNKNOWN        127.0.0.1/8 
+eth0             UP             10.1.3.2/30 
+eth1             UP             10.1.3.6/30 
+eth2             UP             10.30.30.1/30 
+eth3             UP             10.30.20.1/24 
+--- Route to C2 ---
+80.71.158.10 via 10.1.3.1 dev eth0 src 10.1.3.2 uid 0 
+    cache 
+========== edge_fw ==========
+lo               UNKNOWN        127.0.0.1/8 
+eth0             UP             203.0.113.2/30 
+eth1             UP             10.255.255.1/30 
+eth2             UP             172.16.10.1/24 
+eth3             UP             10.0.0.1/30 
+eth4             UP             10.0.0.5/30 
+--- Route to C2 ---
+80.71.158.10 via 203.0.113.1 dev eth0 src 203.0.113.2 uid 0 
+    cache 
+========== B1 ACCESS FIREWALL: OSPF ==========
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+10.30.30.1        1 Full/Backup     4m51s             34.060s 10.30.30.1      eth0:10.30.30.2                      0     0     0
+
+========== GUEST FIREWALL: OSPF ==========
+
+Neighbor ID     Pri State           Up Time         Dead Time Address         Interface                        RXmtL RqstL DBsmL
+10.1.5.1          1 Full/Backup     4m58s             36.777s 10.1.3.1        eth0:10.1.3.2                        0     0     0
+10.1.5.5          1 Full/Backup     4m58s             36.946s 10.1.3.5        eth1:10.1.3.6                        0     0     0
+10.30.30.2        1 Full/DR         4m54s             30.866s 10.30.30.2      eth2:10.30.30.1                      0     0     0
+
+========== RETURN ROUTES ==========
+10.30.10.10 via 10.30.30.2 dev eth2 src 10.30.30.1 uid 0 
+    cache 
+10.30.10.10 via 10.0.0.6 dev eth4 src 10.0.0.5 uid 0 
+    cache 
+========== NEW FIREWALL IP FORWARDING ==========
+net.ipv4.ip_forward = 1

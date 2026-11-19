@@ -1,0 +1,9 @@
+{
+  "planned_removals": [
+    "1ea6780cd9062adac8e7d9a6ee27982330bb99eaa1680f2aeae537b362c510f4"
+  ],
+  "remaining_effective_rules": 0,
+  "withdrawn_iocs": [
+    "IOC-THREATFOX-C2-IPPORT"
+  ]
+}

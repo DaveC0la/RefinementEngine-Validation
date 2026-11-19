@@ -1,0 +1,19 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "employee",
+    "--",
+    "ping",
+    "-c",
+    "1",
+    "-W",
+    "3",
+    "10.40.20.10"
+  ],
+  "checked_utc": "2026-11-18T01:26:35.925979+00:00",
+  "duration_s": 7.095992193,
+  "rc": 1,
+  "stderr": "",
+  "stdout": "PING 10.40.20.10 (10.40.20.10) 56(84) bytes of data.\n\n--- 10.40.20.10 ping statistics ---\n1 packets transmitted, 0 received, 100% packet loss, time 0ms\n\n"
+}

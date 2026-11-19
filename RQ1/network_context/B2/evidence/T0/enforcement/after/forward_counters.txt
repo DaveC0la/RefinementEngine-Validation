@@ -1,0 +1,33 @@
+Chain FORWARD (policy ACCEPT 15 packets, 951 bytes)
+    pkts      bytes target     prot opt in     out     source               destination         
+       0        0 DROP       0    --  *      *       80.71.158.0/24       10.10.10.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       80.71.158.0/24       10.10.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       80.71.158.0/24       10.20.10.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       80.71.158.0/24       10.20.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       80.71.158.0/24       10.30.10.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       80.71.158.0/24       10.30.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       80.71.158.0/24       10.40.10.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       80.71.158.0/24       10.40.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       80.71.158.0/24       10.40.30.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       80.71.158.0/24       172.16.20.0/24       ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.20.0/24       10.20.10.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.20.0/24       10.20.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.20.0/24       10.40.10.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.20.0/24       10.40.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.20.0/24       10.40.30.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.20.0/24       10.10.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.20.0/24       80.71.158.0/24       ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.10.0/24       10.20.10.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.10.0/24       10.20.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.10.0/24       10.40.10.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.10.0/24       10.40.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.10.0/24       10.40.30.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.10.0/24       10.10.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.20.0/24       10.30.10.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.20.0/24       10.30.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.20.0/24       10.70.10.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.10.0/24       10.30.10.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.10.0/24       10.30.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.10.0/24       10.70.10.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       172.16.10.0/24       80.71.158.0/24       ctstate NEW
+       4      240 DROP       6    --  *      *       10.80.10.10          80.71.158.10         ctstate NEW tcp dpt:10213 /* rq1_b2_01_wan_c2_ipport|EdgeFirewall|IpTables */

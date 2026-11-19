@@ -1,0 +1,6 @@
+1793192360.199281 IP 203.0.113.6.56958 > 80.71.158.10.10214: Flags [S], seq 1917247908, win 64240, options [mss 1460,sackOK,TS val 4033672455 ecr 0,nop,wscale 7], length 0
+1793192360.215490 IP 203.0.113.6.56958 > 80.71.158.10.10214: Flags [.], ack 2886328827, win 502, options [nop,nop,TS val 4033672472 ecr 556826419], length 0
+1793192360.215744 IP 203.0.113.6.56958 > 80.71.158.10.10214: Flags [P.], seq 0:15, ack 1, win 502, options [nop,nop,TS val 4033672473 ecr 556826419], length 15
+1793192360.219687 IP 203.0.113.6.56958 > 80.71.158.10.10214: Flags [.], ack 13, win 502, options [nop,nop,TS val 4033672477 ecr 556826426], length 0
+1793192360.220208 IP 203.0.113.6.56958 > 80.71.158.10.10214: Flags [F.], seq 15, ack 14, win 502, options [nop,nop,TS val 4033672477 ecr 556826426], length 0
+

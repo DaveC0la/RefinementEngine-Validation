@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="language_Squid.xml" nsfName="Squid">
+  <rule id="0">
+    <httpReqHdrUserAgentConditionCapability operator="exactMatch">
+      <capabilityValue>
+        <exactMatch>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36</exactMatch>
+      </capabilityValue>
+    </httpReqHdrUserAgentConditionCapability>
+    <rejectActionCapability />
+  </rule>
+</policy>

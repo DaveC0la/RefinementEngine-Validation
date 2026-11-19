@@ -1,0 +1,13 @@
+{
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "/workspace/windows/Desktop/refinement-engine-validation/remove-rules.ps1",
+    "-Once"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "2026-10-26 16:16:46  remover start (mode: once)\n2026-10-26 16:16:49  REMOVED  corp_fw       80.71.158.10:8443  (experimental_reset, iptables)\n",
+  "time_utc": "2026-10-26T15:16:49.798114+00:00"
+}

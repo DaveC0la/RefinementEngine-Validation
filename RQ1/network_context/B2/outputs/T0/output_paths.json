@@ -1,0 +1,8 @@
+{
+    "rq1_b2_01_wan_c2_ipport": [
+        [
+            "EdgeFirewall",
+            "IpTables"
+        ]
+    ]
+}

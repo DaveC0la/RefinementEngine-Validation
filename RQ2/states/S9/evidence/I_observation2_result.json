@@ -1,0 +1,9 @@
+{
+  "planned_removals": [
+    "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd"
+  ],
+  "remaining_effective_rules": 1,
+  "withdrawn_iocs": [
+    "IOC-RQ2-SOURCE-B"
+  ]
+}

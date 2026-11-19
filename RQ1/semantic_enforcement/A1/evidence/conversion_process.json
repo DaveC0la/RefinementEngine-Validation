@@ -1,0 +1,12 @@
+{
+  "cmd": [
+    "/usr/local/bin/python3",
+    "src/converter.py",
+    "/work/engine/intermediate_outputs/a1_rules.json",
+    "/work/generated_rule_instances"
+  ],
+  "duration_seconds": 0.198118087,
+  "returncode": 0,
+  "stderr": "",
+  "stdout": ""
+}

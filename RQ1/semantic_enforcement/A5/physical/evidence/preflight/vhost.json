@@ -1,0 +1,15 @@
+{
+  "command": [
+    "kathara",
+    "exec",
+    "waf",
+    "--",
+    "sh",
+    "-c",
+    "grep -E 'SecRuleEngine On|re-rules.conf' /etc/apache2/sites-available/000-default.conf"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "        SecRuleEngine On\n        IncludeOptional /etc/modsecurity/re-rules.conf\n",
+  "utc": "2026-10-27T09:16:13.063661+00:00"
+}

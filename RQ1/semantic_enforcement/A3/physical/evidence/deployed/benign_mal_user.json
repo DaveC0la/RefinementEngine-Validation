@@ -1,0 +1,27 @@
+{
+  "body": "<h1>web_backend: www.acme-corp.example</h1>",
+  "command": [
+    "kathara",
+    "exec",
+    "mal_user",
+    "--",
+    "curl",
+    "--noproxy",
+    "*",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "8",
+    "-w",
+    "\n__A3_HTTP__%{http_code}",
+    "http://www.acme-corp.example/?refeng_a3_token=RQ1-A3-01-deployed-benign-mal_user"
+  ],
+  "http_status": "200",
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "<h1>web_backend: www.acme-corp.example</h1>\n\n__A3_HTTP__200",
+  "time_utc": "2026-10-26T16:16:00.856196+00:00",
+  "token": "RQ1-A3-01-deployed-benign-mal_user",
+  "url": "http://www.acme-corp.example/?refeng_a3_token=RQ1-A3-01-deployed-benign-mal_user"
+}

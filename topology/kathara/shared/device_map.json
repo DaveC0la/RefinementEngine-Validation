@@ -1,0 +1,23 @@
+{
+  "devices": {
+    "EdgeFirewall": "edge_fw",
+    "BranchFirewall": "branch_fw",
+    "GuestFirewall": "guest_fw",
+    "CorpFirewall": "corp_fw",
+    "DcFirewall": "dc_fw",
+    "AdminFirewall": "admin_fw",
+    "WebApplicationFirewall": "waf",
+    "EgressProxy": "egress_proxy",
+    "BranchProxy": "branch_proxy"
+  },
+  "nsf_type": {
+    "IpTables": "iptables",
+    "Squid": "squid",
+    "ModSecurity": "waf"
+  },
+  "enforcement_destinations": {
+    "EdgeFirewall": {
+      "172.16.20.10": "172.16.10.2"
+    }
+  }
+}

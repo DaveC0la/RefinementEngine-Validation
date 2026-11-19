@@ -1,0 +1,2 @@
+T0: default via 10.255.255.1 dev eth0
+T1: default via 10.255.255.6 dev eth1

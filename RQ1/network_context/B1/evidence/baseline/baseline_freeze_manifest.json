@@ -1,0 +1,31 @@
+{
+  "case_id": "RQ1-B1-01",
+  "status": "PRE_REFINEMENT_BASELINE_FROZEN",
+  "files": {
+    "engine_inputs/T0/custom_templates.yaml": "f5710044ed5ff1ae8d2d90cfc31be1f4a483bfb0a0bcff1a86a31338a4bd7799",
+    "engine_inputs/T0/custom_types.yaml": "b5f9641125019d2afa9852b0fc4216eae5ed4ec2ec9752a68257f8740f9ecfa8",
+    "engine_inputs/T1/custom_templates.yaml": "f105f73a7c1daabd597276866c73f91c1d21e812ff1388fad71955cd75171aca",
+    "engine_inputs/T1/custom_types.yaml": "b5f9641125019d2afa9852b0fc4216eae5ed4ec2ec9752a68257f8740f9ecfa8",
+    "independent_oracle_frozen.json": "eb2d3847a299b9e7f544606471e236f3b1484b5801bd4c330a5224ba8689f089",
+    "kathara_lab/lab.conf": "464efad80ba2bbf2f4dda6e5c63d5ec981d24928a6026240805f94ffa91fcb49",
+    "manifest.json": "d3684b70468272f6996f963248af9c1dcfa2aeb310a9a2bdd2270e674e5985ef",
+    "physical/evidence/guest_isolation/isolation_verification.txt": "526f8e83605647b85eed58091e2ceafa7b444dfdb4c40f606707da8a17ac43ec",
+    "physical/evidence/packet_path/access_guest_side.txt": "27b70c71eac788f63d02323aa7ddd0ad74e274096fbcb84153b6c1a87f650a39",
+    "physical/evidence/packet_path/access_transit_side.txt": "6412f74f9ead8dc1d7ac1ee879a10b24cc77c67aa04abb4c009332869b88219e",
+    "physical/evidence/packet_path/c2_capture.txt": "de70845514f5dc6039fcd12c1bf4a2c985e36a3daea2378aaefdecd074e40f88",
+    "physical/evidence/packet_path/guest_ping.txt": "62e52c972759808399284c9d71c782f9f78c6d2ab3f4320090b4918f1742c3a1",
+    "physical/evidence/pre_refinement/b1_access_fw_iptables.v4": "c44ef1433c6ff5e4746d84076e384a0e2ee3e2efa86000f984e0ecb3a801a3e0",
+    "physical/evidence/pre_refinement/edge_fw_iptables.v4": "54f5aad84d614d56efb62f681313b11f2f526ff39885f9625a707bce577ac908",
+    "physical/evidence/pre_refinement/guest_fw_iptables.v4": "e0affcb37688e0fb63448a6c9386256e8c7112b8bf188aeb6d6734e9847d13a8",
+    "physical/evidence/routing/routing_preflight.txt": "1b1f52fefe7a95d946f5e2c08983f44b245edd558dcc70796616b9e91bcedc07",
+    "physical/evidence/startup/lstart.log": "9ec865e202b1c78f7d0fb98e4f64989079a24465bdce7714360bb05e916f5c9e",
+    "physical/evidence/tcp_baseline/c2_10213.log": "bc3c864e9972d7657930da58b48490d88f13954e0f45fc3d46efdb8fa2100e2f",
+    "physical/evidence/tcp_baseline/c2_10214.log": "ba748bab209ac401e8c1f37a52a014043b1000a133fba07d6c2c83cef8f0ebd4",
+    "physical/evidence/tcp_baseline/guest_control.txt": "ffde25cea8ebbc514e4ae7c96eb2e56fe59ebf5a782b5609b266c7130e968318",
+    "physical/evidence/tcp_baseline/guest_target.txt": "7aaf675cb659c86d5734b1ced2385659fbbb7a8d347470a7fd5dc35b9e7afc3e",
+    "physical/evidence/tcp_baseline/tcp_c2_side.txt": "642973270cd63926e35fc2da528b13f83866a47a067e7f85de0de7c9dc44eb64",
+    "physical/evidence/tcp_baseline/tcp_guest_side.txt": "3feb895b42eac1aa8fda40aeba94af28800e47eab7bc22510278102751d239e8",
+    "physical/evidence/tcp_baseline/tcp_preflight.txt": "ac971b71f51e940e3e9432558d879caa81e68ecd82904882ce4f282856aa3eb8",
+    "physical/evidence/tcp_baseline/tcp_transit_side.txt": "31bbd6a48abbed23dae57a5300878a5256a92ca0360371f926ecf5793eb1d1fe"
+  }
+}

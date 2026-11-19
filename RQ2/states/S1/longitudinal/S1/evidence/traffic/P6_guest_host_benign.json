@@ -1,0 +1,30 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "guest_host",
+    "--",
+    "curl",
+    "-q",
+    "--proxy",
+    "http://10.1.5.2:3128",
+    "--noproxy",
+    "",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "12",
+    "-o",
+    "/dev/null",
+    "-w",
+    "__RQ2_HTTP__%{http_code}",
+    "http://allowed.utilities.com/"
+  ],
+  "elapsed_s": 2.561252578,
+  "finished_utc": "2026-11-01T18:27:59.256254+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-01T18:27:56.695040+00:00",
+  "stderr": "",
+  "stdout": "__RQ2_HTTP__200"
+}

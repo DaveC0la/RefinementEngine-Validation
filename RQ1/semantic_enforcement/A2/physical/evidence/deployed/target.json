@@ -1,0 +1,26 @@
+{
+  "body": "",
+  "command": [
+    "kathara",
+    "exec",
+    "employee",
+    "--",
+    "curl",
+    "--noproxy",
+    "*",
+    "-sS",
+    "--connect-timeout",
+    "3",
+    "--max-time",
+    "6",
+    "-w",
+    "\n__A2_HTTP__%{http_code}",
+    "http://80.71.158.10:8443/?test=RQ1-A2-01-deployed-target"
+  ],
+  "http_status": "000",
+  "returncode": 28,
+  "stderr": "curl: (28) Failed to connect to 80.71.158.10 port 8443 after 3001 ms: Timeout was reached\n",
+  "stdout": "\n__A2_HTTP__000",
+  "time_utc": "2026-10-26T15:01:51.946284+00:00",
+  "token": "RQ1-A2-01-deployed-target"
+}

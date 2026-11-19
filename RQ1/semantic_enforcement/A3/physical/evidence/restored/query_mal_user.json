@@ -1,0 +1,27 @@
+{
+  "body": "<h1>web_backend: PLANTED malicious resource (/malicious/public/path)</h1>",
+  "command": [
+    "kathara",
+    "exec",
+    "mal_user",
+    "--",
+    "curl",
+    "--noproxy",
+    "*",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "8",
+    "-w",
+    "\n__A3_HTTP__%{http_code}",
+    "http://www.acme-corp.example/malicious/public/path?probe=1&refeng_a3_token=RQ1-A3-01-restored-query-mal_user"
+  ],
+  "http_status": "200",
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "<h1>web_backend: PLANTED malicious resource (/malicious/public/path)</h1>\n\n__A3_HTTP__200",
+  "time_utc": "2026-10-26T16:23:56.572971+00:00",
+  "token": "RQ1-A3-01-restored-query-mal_user",
+  "url": "http://www.acme-corp.example/malicious/public/path?probe=1&refeng_a3_token=RQ1-A3-01-restored-query-mal_user"
+}

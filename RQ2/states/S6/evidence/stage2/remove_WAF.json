@@ -1,0 +1,15 @@
+{
+  "args": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "/workspace/refeng-rq2-novelty/lab/remove-rules.ps1",
+    "-Once"
+  ],
+  "duration_s": 6.9781458,
+  "ended_utc": "2026-11-18T00:39:59.770645+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-18T00:39:52.792530+00:00",
+  "stderr": "",
+  "stdout": "2026-11-18 01:39:55  remover start (mode: once)\n2026-11-18 01:39:59  REMOVED  waf           Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36  (to_ids=0, waf)\n"
+}

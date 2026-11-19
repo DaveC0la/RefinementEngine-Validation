@@ -1,0 +1,30 @@
+#!/bin/sh
+# startup for admin_fw
+ip link set eth0 up
+ip addr add 10.1.1.2/30 dev eth0
+ip link set eth1 up
+ip addr add 10.1.1.6/30 dev eth1
+ip link set eth2 up
+ip addr add 10.10.10.1/24 dev eth2
+ip link set eth3 up
+ip addr add 10.10.20.1/24 dev eth3
+# --- iptables baseline: permissive 'before refinement' state ---
+iptables -P FORWARD ACCEPT
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+# --- admin host (10.10.20.0/24): default-deny internet egress (PAW hardening) ---
+# permit internal management-plane traffic, drop everything internet-bound
+iptables -F FORWARD   # idempotency guard: re-run flushes before re-adding
+iptables -A FORWARD -s 10.10.20.0/24 -d 10.0.0.0/8     -j ACCEPT
+iptables -A FORWARD -s 10.10.20.0/24 -d 172.16.0.0/12  -j ACCEPT
+iptables -A FORWARD -s 10.10.20.0/24 -d 192.168.0.0/16 -j ACCEPT
+iptables -A FORWARD -s 10.10.20.0/24 -j DROP
+# --- start FRR (OSPF) ---
+mkdir -p /etc/frr
+cp /etc/frr/daemons.lab /etc/frr/daemons 2>/dev/null || true
+cp /etc/frr/frr.conf.lab /etc/frr/frr.conf 2>/dev/null || true
+(/usr/lib/frr/frrinit.sh restart >/dev/null 2>&1) || (service frr restart >/dev/null 2>&1) || (/etc/init.d/frr restart >/dev/null 2>&1) || true
+
+# RefinementEngine lifecycle device-job agent
+mkdir -p /shared/admin_fw/inbox /shared/admin_fw/done
+DEVICE=admin_fw sh /shared/device_applier.sh >> /shared/admin_fw/agent.log 2>&1 < /dev/null &

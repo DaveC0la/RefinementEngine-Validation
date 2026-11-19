@@ -1,0 +1,257 @@
+{
+  "bindings": [
+    {
+      "deployed_marker": "rq2_s1_srcip|EdgeFirewall|IpTables",
+      "device": "EdgeFirewall",
+      "nsf": "IpTables",
+      "rule_id": "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd"
+    },
+    {
+      "deployed_marker": "rq1_a7_01_outbound_domain_Devices|EgressProxy|Squid",
+      "device": "EgressProxy",
+      "nsf": "Squid",
+      "rule_id": "104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d"
+    },
+    {
+      "deployed_marker": "rq1_a2_01_c2_ipport|CorpFirewall|IpTables",
+      "device": "CorpFirewall",
+      "nsf": "IpTables",
+      "rule_id": "1ea6780cd9062adac8e7d9a6ee27982330bb99eaa1680f2aeae537b362c510f4"
+    },
+    {
+      "deployed_marker": "rq1_a5_01_inbound_useragent|WebApplicationFirewall|ModSecurity",
+      "device": "WebApplicationFirewall",
+      "nsf": "ModSecurity",
+      "rule_id": "9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4"
+    },
+    {
+      "deployed_marker": "rq1_a7_01_outbound_domain_Branch_Users|BranchProxy|Squid",
+      "device": "BranchProxy",
+      "nsf": "Squid",
+      "rule_id": "bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9"
+    }
+  ],
+  "operations": [
+    {
+      "device": "EdgeFirewall",
+      "execution_result": "ok",
+      "job_id": "rq2_s1_applier_23d14eefe4f7dc1e",
+      "kind": "add",
+      "nsf": "IpTables",
+      "operation_id": "add:10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+      "rule_id": "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+      "status": "verified",
+      "verified_rule_present": true
+    },
+    {
+      "device": "EgressProxy",
+      "execution_result": "ok",
+      "job_id": "rq2_s3_applier_08ad0f4d31950c1c",
+      "kind": "add",
+      "nsf": "Squid",
+      "operation_id": "add:104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d",
+      "rule_id": "104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d",
+      "status": "verified",
+      "verified_rule_present": true
+    },
+    {
+      "device": "CorpFirewall",
+      "execution_result": "ok",
+      "job_id": "rq2_s6_add_a21781fab63f2442",
+      "kind": "add",
+      "nsf": "IpTables",
+      "operation_id": "add:1ea6780cd9062adac8e7d9a6ee27982330bb99eaa1680f2aeae537b362c510f4",
+      "rule_id": "1ea6780cd9062adac8e7d9a6ee27982330bb99eaa1680f2aeae537b362c510f4",
+      "status": "verified",
+      "verified_rule_present": true
+    },
+    {
+      "device": "WebApplicationFirewall",
+      "execution_result": "ok",
+      "job_id": "rq2_s2_applier_724a6a77483ec71e",
+      "kind": "add",
+      "nsf": "ModSecurity",
+      "operation_id": "add:9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4",
+      "rule_id": "9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4",
+      "status": "verified",
+      "verified_rule_present": true
+    },
+    {
+      "device": "BranchProxy",
+      "execution_result": "ok",
+      "job_id": "rq2_s3_applier_1c8c3afb15b6695e",
+      "kind": "add",
+      "nsf": "Squid",
+      "operation_id": "add:bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9",
+      "rule_id": "bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9",
+      "status": "verified",
+      "verified_rule_present": true
+    },
+    {
+      "device": "WebApplicationFirewall",
+      "execution_result": "ok",
+      "job_id": "rq2_s6_remove_ea795561c89d1666",
+      "kind": "remove",
+      "nsf": "ModSecurity",
+      "operation_id": "remove:9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4",
+      "rule_id": "9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4",
+      "status": "verified",
+      "verified_rule_present": false
+    }
+  ],
+  "ownership": [
+    {
+      "owners": [
+        {
+          "bundle_id": "rq2_s4_source_ownerB:IOC-RQ2-SOURCE-B",
+          "hsplid": "rq2_s4_source_ownerB",
+          "ioc_id": "IOC-RQ2-SOURCE-B"
+        }
+      ],
+      "rule": {
+        "capabilities": [
+          {
+            "capability": "AppendRuleActionCapability",
+            "detail": "FORWARD"
+          },
+          {
+            "capability": "ConnTrackStateConditionCapability",
+            "detail": "NEW"
+          },
+          {
+            "capability": "IpDestinationAddressConditionCapability",
+            "detail": "172.16.20.10"
+          },
+          {
+            "capability": "IpProtocolTypeConditionCapability",
+            "detail": "http"
+          },
+          {
+            "capability": "IpSourceAddressConditionCapability",
+            "detail": "80.71.158.96/32"
+          },
+          {
+            "capability": "MatchActionCapability",
+            "detail": "conntrack"
+          },
+          {
+            "capability": "RejectActionCapability",
+            "detail": ""
+          }
+        ],
+        "device": "EdgeFirewall",
+        "nsf": "IpTables"
+      },
+      "rule_id": "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd"
+    },
+    {
+      "owners": [
+        {
+          "bundle_id": "rq2_s4_ownerB_outbound_domain_Devices:ioc-64d62a361edfb6f5d9e4600386a090a5eba909f695cee370dec52734db6f0e5c",
+          "hsplid": "rq2_s4_ownerB_outbound_domain_Devices",
+          "ioc_id": "ioc-64d62a361edfb6f5d9e4600386a090a5eba909f695cee370dec52734db6f0e5c"
+        },
+        {
+          "bundle_id": "rq2_s4_ownerB_outbound_domain_Employees:ioc-64d62a361edfb6f5d9e4600386a090a5eba909f695cee370dec52734db6f0e5c",
+          "hsplid": "rq2_s4_ownerB_outbound_domain_Employees",
+          "ioc_id": "ioc-64d62a361edfb6f5d9e4600386a090a5eba909f695cee370dec52734db6f0e5c"
+        },
+        {
+          "bundle_id": "rq2_s4_ownerB_outbound_domain_Finance:ioc-64d62a361edfb6f5d9e4600386a090a5eba909f695cee370dec52734db6f0e5c",
+          "hsplid": "rq2_s4_ownerB_outbound_domain_Finance",
+          "ioc_id": "ioc-64d62a361edfb6f5d9e4600386a090a5eba909f695cee370dec52734db6f0e5c"
+        },
+        {
+          "bundle_id": "rq2_s4_ownerB_outbound_domain_Guests:ioc-64d62a361edfb6f5d9e4600386a090a5eba909f695cee370dec52734db6f0e5c",
+          "hsplid": "rq2_s4_ownerB_outbound_domain_Guests",
+          "ioc_id": "ioc-64d62a361edfb6f5d9e4600386a090a5eba909f695cee370dec52734db6f0e5c"
+        }
+      ],
+      "rule": {
+        "capabilities": [
+          {
+            "capability": "DestinationDomainConditionCapability",
+            "detail": "malware-c2.example"
+          },
+          {
+            "capability": "RejectActionCapability",
+            "detail": ""
+          }
+        ],
+        "device": "EgressProxy",
+        "nsf": "Squid"
+      },
+      "rule_id": "104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d"
+    },
+    {
+      "owners": [
+        {
+          "bundle_id": "SRC-THREATFOX-CECBOT",
+          "hsplid": "rq1_a2_01_c2_ipport",
+          "ioc_id": "IOC-THREATFOX-C2-IPPORT"
+        }
+      ],
+      "rule": {
+        "capabilities": [
+          {
+            "capability": "AppendRuleActionCapability",
+            "detail": "FORWARD"
+          },
+          {
+            "capability": "ConnTrackStateConditionCapability",
+            "detail": "NEW"
+          },
+          {
+            "capability": "DestinationPortConditionCapability",
+            "detail": "8443"
+          },
+          {
+            "capability": "IpDestinationAddressConditionCapability",
+            "detail": "80.71.158.10"
+          },
+          {
+            "capability": "IpSourceAddressConditionCapability",
+            "detail": "10.20.10.10"
+          },
+          {
+            "capability": "MatchActionCapability",
+            "detail": "conntrack"
+          },
+          {
+            "capability": "RejectActionCapability",
+            "detail": ""
+          }
+        ],
+        "device": "CorpFirewall",
+        "nsf": "IpTables"
+      },
+      "rule_id": "1ea6780cd9062adac8e7d9a6ee27982330bb99eaa1680f2aeae537b362c510f4"
+    },
+    {
+      "owners": [
+        {
+          "bundle_id": "rq2_s4_ownerB_outbound_domain_Branch_Users:ioc-64d62a361edfb6f5d9e4600386a090a5eba909f695cee370dec52734db6f0e5c",
+          "hsplid": "rq2_s4_ownerB_outbound_domain_Branch_Users",
+          "ioc_id": "ioc-64d62a361edfb6f5d9e4600386a090a5eba909f695cee370dec52734db6f0e5c"
+        }
+      ],
+      "rule": {
+        "capabilities": [
+          {
+            "capability": "DestinationDomainConditionCapability",
+            "detail": "malware-c2.example"
+          },
+          {
+            "capability": "RejectActionCapability",
+            "detail": ""
+          }
+        ],
+        "device": "BranchProxy",
+        "nsf": "Squid"
+      },
+      "rule_id": "bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9"
+    }
+  ],
+  "schema_version": 1,
+  "state_kind": "lifecycle_state"
+}

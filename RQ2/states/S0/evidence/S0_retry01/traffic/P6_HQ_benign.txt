@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Date: Sun, 01 Nov 2026 17:59:14 GMT
+Server: Apache/2.4.67 (Debian)
+Last-Modified: Sun, 01 Nov 2026 17:51:15 GMT
+ETag: "2b-65f3aad05fb96"
+Accept-Ranges: bytes
+Content-Length: 43
+Content-Type: text/html
+X-Cache: MISS from egress_proxy
+X-Cache-Lookup: MISS from egress_proxy:3128
+Via: 1.1 egress_proxy (squid/5.7)
+Connection: keep-alive
+
+<h1>benign_web: allowed.utilities.com</h1>

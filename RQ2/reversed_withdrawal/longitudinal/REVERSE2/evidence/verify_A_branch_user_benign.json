@@ -1,0 +1,29 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "branch_user",
+    "--",
+    "curl",
+    "-q",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "10",
+    "-o",
+    "/dev/null",
+    "-w",
+    "__RQ2_HTTP__%{http_code}",
+    "--proxy",
+    "http://10.70.20.10:3128",
+    "--noproxy",
+    "",
+    "http://allowed.utilities.com/index.html?rq2=REVERSE2_2657dd26a8bc"
+  ],
+  "checked_utc": "2026-11-01T22:41:34.952337+00:00",
+  "duration_s": 2.7114676530181896,
+  "rc": 0,
+  "stderr": "",
+  "stdout": "__RQ2_HTTP__200"
+}

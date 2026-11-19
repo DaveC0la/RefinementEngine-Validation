@@ -1,0 +1,26 @@
+{
+  "body": "<h1>benign_web: allowed.utilities.com</h1>",
+  "command": [
+    "kathara",
+    "exec",
+    "employee",
+    "--",
+    "curl",
+    "--noproxy",
+    "*",
+    "-sS",
+    "--connect-timeout",
+    "3",
+    "--max-time",
+    "6",
+    "-w",
+    "\n__A2_HTTP__%{http_code}",
+    "http://80.71.158.30/?test=RQ1-A2-01-deployed-other_destination_http"
+  ],
+  "http_status": "200",
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "<h1>benign_web: allowed.utilities.com</h1>\n\n__A2_HTTP__200",
+  "time_utc": "2026-10-26T15:01:59.271506+00:00",
+  "token": "RQ1-A2-01-deployed-other_destination_http"
+}

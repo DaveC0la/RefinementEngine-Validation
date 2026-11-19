@@ -1,0 +1,8 @@
+{
+  "device": "guest_fw",
+  "other_firewalls_unchanged": true,
+  "rule_sha256": "28fe0dd23e3a4687ded94d6b8de45da34fb10196c9e6f784053f49c91196ebc9",
+  "state": "T0",
+  "status": "DEPLOYED_EXACTLY_ONCE",
+  "utc": "2026-10-28T14:49:09.623865+00:00"
+}

@@ -1,0 +1,7 @@
+path,nodes,S1A/IpTables,S1B/IpTables,S1C/IpTables,S1D/IpTables
+P1,S1A -> S1C -> S1_Link01,1,0,1,0
+P2,S1A -> S1D -> S1_Link02,1,0,0,1
+P3,S1A -> S1B -> S1_Link03,1,1,0,0
+P4,S1A -> S1B -> S1_Link04,1,1,0,0
+P5,S1B -> S1C -> S1_Link05,0,1,1,0
+P6,S1B -> S1D -> S1_Link06,0,1,0,1

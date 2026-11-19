@@ -1,0 +1,20 @@
+[
+  {
+    "device": "BranchProxy",
+    "effective_rule_id": "bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9",
+    "nsf": "Squid",
+    "operation_id": "remove:bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9",
+    "rule_id": "rq1_a7_01_outbound_domain_Branch_Users|BranchProxy|Squid",
+    "signal": "to_ids=0",
+    "value": "malware-c2.example"
+  },
+  {
+    "device": "EgressProxy",
+    "effective_rule_id": "104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d",
+    "nsf": "Squid",
+    "operation_id": "remove:104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d",
+    "rule_id": "rq1_a7_01_outbound_domain_Devices|EgressProxy|Squid",
+    "signal": "to_ids=0",
+    "value": "malware-c2.example"
+  }
+]

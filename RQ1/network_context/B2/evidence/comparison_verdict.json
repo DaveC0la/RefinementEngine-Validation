@@ -1,0 +1,23 @@
+{
+  "allocations": {
+    "T0": [
+      "EdgeFirewall",
+      "IpTables"
+    ],
+    "T1": [
+      "BranchFirewall",
+      "IpTables"
+    ]
+  },
+  "case_id": "RQ1-B2-01",
+  "conversion_and_emission": "PASS_BOTH_STATES",
+  "emitted_devices": {
+    "T0": "edge_fw",
+    "T1": "branch_fw"
+  },
+  "frozen_oracle_sha256": "a5ab7687f3a55ce3993f36aa7dfe46f9675c03a68224e50246e7c5bf326595e6",
+  "live_deployment": "NOT_PERFORMED",
+  "pass": true,
+  "semantics": "SOURCE_IP_DESTINATION_IP_TCP_PORT_NEW_DROP_UNCHANGED",
+  "status": "B2_STAGE4_RULE_GENERATION_PASS"
+}

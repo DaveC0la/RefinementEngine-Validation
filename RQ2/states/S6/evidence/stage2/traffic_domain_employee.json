@@ -1,0 +1,30 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "employee",
+    "--",
+    "curl",
+    "-q",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "9",
+    "-o",
+    "/dev/null",
+    "-w",
+    "__RQ2_HTTP__%{http_code}",
+    "--proxy",
+    "http://10.1.5.2:3128",
+    "--noproxy",
+    "",
+    "http://malware-c2.example/index.html?rq2=RQ2_S6_efaee63e8f57_employee"
+  ],
+  "duration_s": 3.146741487,
+  "ended_utc": "2026-11-18T00:40:30.508123+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-18T00:40:27.361418+00:00",
+  "stderr": "",
+  "stdout": "__RQ2_HTTP__403"
+}

@@ -1,0 +1,30 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "finance",
+    "--",
+    "curl",
+    "-q",
+    "--proxy",
+    "http://10.1.5.2:3128",
+    "--noproxy",
+    "",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "12",
+    "-o",
+    "/dev/null",
+    "-w",
+    "__RQ2_HTTP__%{http_code}",
+    "http://allowed.utilities.com/"
+  ],
+  "elapsed_s": 2.503200145,
+  "finished_utc": "2026-11-01T18:27:54.177563+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-01T18:27:52.302341+00:00",
+  "stderr": "",
+  "stdout": "__RQ2_HTTP__200"
+}

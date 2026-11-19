@@ -1,0 +1,16 @@
+{
+  "args": [
+    "nc",
+    "-vz",
+    "-w",
+    "4",
+    "80.71.158.10",
+    "8443"
+  ],
+  "device": "employee",
+  "duration_s": 3.266991933999634,
+  "rc": 0,
+  "recorded_utc": "2026-11-18T00:34:37.693577+00:00",
+  "stderr": "Connection to 80.71.158.10 8443 port [tcp/*] succeeded!\n",
+  "stdout": ""
+}

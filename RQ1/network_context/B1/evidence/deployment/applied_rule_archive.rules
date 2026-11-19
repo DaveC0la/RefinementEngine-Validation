@@ -1,0 +1,2 @@
+# RefinementEngine -> b1_access_fw (iptables); 1 rule(s)
+iptables -A FORWARD -m conntrack --ctstate NEW -s 10.30.10.10 -d 80.71.158.10 -p tcp --dport 10213 -m comment --comment "rq1_b1_01_guest_c2_ipport|B1AccessFirewall|IpTables" -j DROP

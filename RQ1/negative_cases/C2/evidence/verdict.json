@@ -1,0 +1,12 @@
+{
+  "case_id": "RQ1-C2-01",
+  "control": "CONTROL_PASS",
+  "deployment": "NOT_PERFORMED",
+  "live_engine_or_lab_modified": false,
+  "negative_classification": "EXPLICIT_ATOMIC_CONJUNCTION_INFEASIBLE",
+  "negative_exit_code": 1,
+  "no_actionable_rule": true,
+  "oracle_sha256": "9571c1f345efde7d982d176e665c60a71bf771bff742543407da33c63eb4ee09",
+  "pass": true,
+  "status": "C2_ATOMIC_CONJUNCTION_PASS"
+}

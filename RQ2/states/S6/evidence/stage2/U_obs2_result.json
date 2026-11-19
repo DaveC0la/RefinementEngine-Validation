@@ -1,0 +1,9 @@
+{
+  "planned_removals": [
+    "9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4"
+  ],
+  "remaining_effective_rules": 4,
+  "withdrawn_iocs": [
+    "IOC-GOBRUTE-USERAGENT"
+  ]
+}

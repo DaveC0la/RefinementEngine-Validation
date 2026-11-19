@@ -1,0 +1,12 @@
+{
+  "cmd": [
+    "/usr/local/bin/python3",
+    "/work/engine/lifecycle/emit_rules.py",
+    "/work/engine/intermediate_outputs/a1_rules.json",
+    "/work/shared"
+  ],
+  "duration_seconds": 0.370508435,
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "  outbox/edge_fw/re_engine.rules  (iptables, 1 rule(s))\n"
+}

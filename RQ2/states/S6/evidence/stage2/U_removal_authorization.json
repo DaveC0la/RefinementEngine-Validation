@@ -1,0 +1,9 @@
+{
+  "device": "WebApplicationFirewall",
+  "effective_rule_id": "9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4",
+  "nsf": "ModSecurity",
+  "operation_id": "remove:9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4",
+  "rule_id": "rq1_a5_01_inbound_useragent|WebApplicationFirewall|ModSecurity",
+  "signal": "to_ids=0",
+  "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+}

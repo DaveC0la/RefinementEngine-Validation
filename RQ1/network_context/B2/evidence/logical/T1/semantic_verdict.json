@@ -1,0 +1,14 @@
+{
+  "allocation_oracle": "PASS",
+  "deployment": "NOT_PERFORMED",
+  "model_path_coverage": "PASS",
+  "pass": true,
+  "selected_pairs": [
+    [
+      "BranchFirewall",
+      "IpTables"
+    ]
+  ],
+  "semantic_granularity": "SOURCE_IP_AND_DESTINATION_IP_AND_DESTINATION_PORT",
+  "state": "T1"
+}

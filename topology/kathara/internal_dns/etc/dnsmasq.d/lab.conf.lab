@@ -1,0 +1,13 @@
+interface=eth0
+interface=lo
+bind-interfaces
+no-resolv
+no-hosts
+log-queries
+address=/app.internal.acme-corp.example/10.40.10.10
+# split-horizon: internal clients resolve the public site to the WAF FRONTEND
+# interface (reachable from inside via OSPF). The external view (203.0.113.2 ->
+# edge_fw DNAT) only matches inbound on eth0, so internal clients given the
+# public answer would have no path; this record gives them the WAF directly.
+address=/www.acme-corp.example/172.16.10.2
+server=80.71.158.53

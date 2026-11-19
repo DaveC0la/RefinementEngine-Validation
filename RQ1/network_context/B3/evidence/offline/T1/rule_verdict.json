@@ -1,0 +1,13 @@
+{
+  "check": "JSON_XML_IPTABLES_PASS",
+  "emitted_sha256": "c9220095ff7c2c2622067721f4fc80e5f13aceea9b95acfe578b6757bec65401",
+  "intermediate_sha256": "37ce914f0d52986ed00233539c6868d33aff44eaf60b9861ef2a0aee00f7693a",
+  "lab_device": "edge_fw",
+  "line": "iptables -A FORWARD -m conntrack --ctstate NEW -s 10.30.10.10 -d 80.71.158.10 -p tcp --dport 10213 -m comment --comment \"rq1_b3_01_guest_c2_ipport|EdgeFirewall|IpTables\" -j DROP",
+  "pass": true,
+  "selected_pair": [
+    "EdgeFirewall",
+    "IpTables"
+  ],
+  "xml_sha256": "f51a0d9828ada0389877b86d605581deaafda78a411d088c85e2ce85680c47ca"
+}

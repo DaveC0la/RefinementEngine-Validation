@@ -1,0 +1,26 @@
+{
+  "body": "REFENG-A2-8443",
+  "command": [
+    "kathara",
+    "exec",
+    "employee",
+    "--",
+    "curl",
+    "--noproxy",
+    "*",
+    "-sS",
+    "--connect-timeout",
+    "3",
+    "--max-time",
+    "6",
+    "-w",
+    "\n__A2_HTTP__%{http_code}",
+    "http://80.71.158.10:8443/?test=RQ1-A2-01-baseline-target"
+  ],
+  "http_status": "200",
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "REFENG-A2-8443\n\n__A2_HTTP__200",
+  "time_utc": "2026-10-26T14:57:56.419928+00:00",
+  "token": "RQ1-A2-01-baseline-target"
+}

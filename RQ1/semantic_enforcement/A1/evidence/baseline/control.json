@@ -1,0 +1,10 @@
+{
+  "finished_utc": "2026-10-26T11:50:09.217462+00:00",
+  "host": "benign_web",
+  "http_status": "200",
+  "returncode": 0,
+  "started_utc": "2026-10-26T11:50:06.786987+00:00",
+  "stderr": "",
+  "stdout": "200",
+  "url": "http://www.acme-corp.example/?rq1_a1=control&phase=baseline"
+}

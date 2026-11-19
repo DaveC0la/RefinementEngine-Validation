@@ -1,0 +1,30 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "finance",
+    "--",
+    "curl",
+    "-q",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "9",
+    "-o",
+    "/dev/null",
+    "-w",
+    "__RQ2_HTTP__%{http_code}",
+    "--proxy",
+    "http://10.1.5.2:3128",
+    "--noproxy",
+    "",
+    "http://panel.malware-c2.example/index.html?rq2=RQ2_S7_353e4fcfa471_finance_subdomain"
+  ],
+  "duration_s": 3.201775056,
+  "ended_utc": "2026-11-18T01:02:08.033085+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-18T01:02:04.831341+00:00",
+  "stderr": "",
+  "stdout": "__RQ2_HTTP__200"
+}

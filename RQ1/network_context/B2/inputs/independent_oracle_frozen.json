@@ -1,0 +1,128 @@
+{
+  "case_id": "RQ1-B2-01",
+  "status": "B2_INDEPENDENT_ORACLE_FROZEN",
+  "frozen_at_utc": "2026-10-28T10:06:18.685374+00:00",
+  "independence": "Independent static topology checker + live packet evidence; frozen before RefinementEngine execution",
+  "intent": {
+    "subject_node": "B2TestHost",
+    "source_ip": "10.80.10.10",
+    "object_node": "MaliciousC2Server",
+    "destination_ip": "80.71.158.10",
+    "destination_protocol": "tcp",
+    "destination_port": 10213,
+    "near_match_tcp_port": 10214,
+    "action": "DENY"
+  },
+  "acceptance": {
+    "T0": {
+      "required_pairs": [
+        [
+          "EdgeFirewall",
+          "IpTables"
+        ]
+      ],
+      "minimal_pair_count": 1,
+      "model_path": [
+        "B2TestHost",
+        "B2_Test_Access",
+        "PrivateWANRouter",
+        "WAN_Transit",
+        "EdgeFirewall",
+        "Internet",
+        "MaliciousC2Server"
+      ],
+      "model_path_count": 1,
+      "required_rule_match": {
+        "source_ip": "10.80.10.10",
+        "destination_ip": "80.71.158.10",
+        "ip_protocol": "tcp",
+        "destination_port": 10213
+      },
+      "required_action": "DENY"
+    },
+    "T1": {
+      "required_pairs": [
+        [
+          "BranchFirewall",
+          "IpTables"
+        ]
+      ],
+      "minimal_pair_count": 1,
+      "model_path": [
+        "B2TestHost",
+        "B2_Test_Access",
+        "PrivateWANRouter",
+        "WAN_Transit",
+        "BranchFirewall",
+        "Internet",
+        "MaliciousC2Server"
+      ],
+      "model_path_count": 1,
+      "required_rule_match": {
+        "source_ip": "10.80.10.10",
+        "destination_ip": "80.71.158.10",
+        "ip_protocol": "tcp",
+        "destination_port": 10213
+      },
+      "required_action": "DENY"
+    }
+  },
+  "physical_evidence": {
+    "T0": {
+      "routes": {
+        "next_hop": "10.255.255.1",
+        "out_interface": "eth0",
+        "test_host_ping": "3/3"
+      },
+      "request_counts_on_wan_interfaces": {
+        "edge_fw": 3,
+        "branch_fw": 0
+      },
+      "test_host_ping": "3/3"
+    },
+    "T1": {
+      "routes": {
+        "next_hop": "10.255.255.6",
+        "out_interface": "eth1",
+        "test_host_ping": "3/3"
+      },
+      "request_counts_on_wan_interfaces": {
+        "edge_fw": 0,
+        "branch_fw": 3
+      },
+      "test_host_ping": "3/3"
+    }
+  },
+  "input_and_evidence_sha256": {
+    "manifest.json": "fcee545f6c8e4103ad1a02609f22f1a4328f9abd3d579a0bc41c5f9cb736f443",
+    "b2_hspl.xml": "1400ea61d2754c907436bf96cfd39f94ebb378dbb48ce8dd66c6282ffeb65dca",
+    "offline_static_check.json": "f76893375f2490d3bfb75babc3c62d99dbfbd6ff2f2c5d9ff71c47ba80decbf8",
+    "engine_inputs/T0/custom_templates.yaml": "79aca816e43f116728e990a55a76c7d758209b201097606b5537d3c5d19b7af1",
+    "engine_inputs/T0/custom_types.yaml": "b5f9641125019d2afa9852b0fc4216eae5ed4ec2ec9752a68257f8740f9ecfa8",
+    "engine_inputs/T1/custom_templates.yaml": "e4e4e619e2b1e98f302c4c5998ab1732f91952ad4fc1630cf087222911dba67f",
+    "engine_inputs/T1/custom_types.yaml": "b5f9641125019d2afa9852b0fc4216eae5ed4ec2ec9752a68257f8740f9ecfa8",
+    "kathara_lab/lab.conf": "5262f9ba7332098614a9b51d7257ea46a4b79a2f97ede860daf410ef15be1aa3",
+    "kathara_lab/b2_test_host.startup": "7ef4c24b2bb98fa00483afcf367d87745d510baff208f9725a12a4dbff002fc8",
+    "kathara_lab/wan_rtr.startup": "75d189dd35b971f51de4e7e1acfd286e48b6533b13b9f2a4fb66e7dd88555ee8",
+    "kathara_lab/wan_rtr/etc/frr/frr.conf.lab": "03386f738773eabc686db9e484e463924b1c042845dd1864af02a622fef11f12",
+    "physical/evidence/t0_initial_routing.txt": "829823b971d871b5a15fd5f1c669d68f0b16c23183a5d0e73ee119ab15887700",
+    "physical/evidence/t0_connectivity_diagnostic.txt": "38c8ca47f197197105984b769212f9d309d959171bb46853a2555e77780d67b0",
+    "physical/evidence/t0_edge_capture.txt": "9f4cacec5d2bc7e60d770050aa4295c52160f3e09d0c3161f00099242478c576",
+    "physical/evidence/t0_branch_capture.txt": "82f3b6fcaff7e4b89ec3aacb1765831824f60f468262f2c57d1aff79f18bc8ad",
+    "physical/evidence/t0_path_ping.txt": "f4521f71cf440a5257c89e8ab9b06a5863a0cc76da00da5f0c85a4f7815e369f",
+    "physical/evidence/t1_route_change_attempt.txt": "a8022b3933abc78bc5237fb7bac68eb1f69e07b9b144cb2926cd2ccc276a9341",
+    "physical/evidence/t1_initial_routing.txt": "5afb91b81fce884055bb262c8ae893afb06c489b218b273c21f36cc82990f9e9",
+    "physical/evidence/t1_edge_capture.txt": "82f3b6fcaff7e4b89ec3aacb1765831824f60f468262f2c57d1aff79f18bc8ad",
+    "physical/evidence/t1_branch_capture.txt": "41ba8526e5fa73a5454925b7d3adedfce9f8ba71314fcd45a29ba375ff358149",
+    "physical/evidence/t1_path_ping.txt": "ce47abe51a7b1de58b83ba4fa17fa85830602b6acaf4b7953b2b7b61e2c6b7e3",
+    "physical/evidence/t0_evidence.sha256": "89e88b5baf7169d3a6b9b45141f53cc51b4ac0b21be15ee098980915be66b738",
+    "checker_source_sha256": "e787a5e04227d4c03ff5c86bf11d61897b1dc698fc8c4f85092afbcc4a9177ae",
+    "oracle_script_sha256": "f93347544018e4fbd7986ecf414f0a7f3b24c7b7aeee884b1fea12c034fabdd7"
+  },
+  "scope": {
+    "model_semantics": "intent-relevant active-forwarding projection supplied to the engine",
+    "limitation": "ICMP verifies actual active paths before refinement; TCP enforcement must be tested separately",
+    "route_discovery": "No claim of automatic live route discovery by RefinementEngine",
+    "deployment": "NOT_RUN"
+  }
+}

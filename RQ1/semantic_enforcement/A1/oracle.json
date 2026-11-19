@@ -1,0 +1,47 @@
+{
+  "artifact_hashes": {
+    "lab_device_map_sha256": "e15047bdee3768577d952ff07e735a7e76e40cb0e68bf738bed7f3312a1da1cf",
+    "original_dataset_sha256": "9ce0d4c56707efd7aa2b964706e173baedf53c7acd15b41ad1c5649006278445",
+    "original_lab_edge_startup_sha256": "5862c3cbd2a069ef8fe66f98074f20a0b14fa317372448a0007ae9b637916487",
+    "original_tosca_sha256": "9e817bb99c6035ab001ca6b595f39ae29f5443b9a6a7a348af01acba5c33533c"
+  },
+  "case_id": "RQ1-A1-01",
+  "cti": {
+    "attribute_uuid": "ffdda6ae-ec25-4296-9943-2479ba9b69f6",
+    "indicator_id": "IOC-KRVTZ-IP-SRC",
+    "original_ip": "91.243.188.233",
+    "source_record": "SRC-CIRCL-KRVTZ"
+  },
+  "expected_change": "one managed iptables FORWARD DROP rule on edge_fw; no modification or removal of existing baseline rules",
+  "input": {
+    "action": "is not authorized to access",
+    "hspl_id": "rq1_a1_01_srcip",
+    "object": "PublicWebApp",
+    "subject": "MaliciousHost"
+  },
+  "network": {
+    "expected_control": "IpTables",
+    "expected_device": "EdgeFirewall",
+    "expected_ip_source_condition": "80.71.158.96/32",
+    "expected_port": 80,
+    "expected_protocol": "tcp",
+    "lab_device": "edge_fw",
+    "post_dnat_destination": "172.16.10.2",
+    "pre_dnat_service": "203.0.113.2:80"
+  },
+  "substitution": {
+    "lab_actor": "mal_user",
+    "lab_entity": "MaliciousHost",
+    "lab_ip": "80.71.158.96/32",
+    "original_ip": "91.243.188.233",
+    "reason": "physically isolated lab does not contain real CTI host"
+  },
+  "traffic_oracle": {
+    "baseline_control": 200,
+    "baseline_target": 200,
+    "deployed_control": 200,
+    "deployed_target": "L3/L4 drop; no successful HTTP response and no target reached at WAF/backend",
+    "reset_control": 200,
+    "reset_target": 200
+  }
+}

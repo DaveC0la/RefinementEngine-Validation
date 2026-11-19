@@ -1,0 +1,18 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "waf",
+    "--",
+    "tail",
+    "-n",
+    "12000",
+    "/var/log/apache2/other_vhosts_access.log"
+  ],
+  "duration_s": 3.167260197,
+  "ended_utc": "2026-11-18T00:41:17.032936+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-18T00:41:13.865709+00:00",
+  "stderr": "",
+  "stdout": "www.acme-corp.example:80 80.71.158.30 - - [17/Nov/2026:23:55:52 +0000] \"GET /?refeng_rq2_s3_gate=c6d6e92495f2_ua HTTP/1.1\" 403 487 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36\"\nwww.acme-corp.example:80 80.71.158.30 - - [17/Nov/2026:23:55:54 +0000] \"GET /?refeng_rq2_s3_gate=c6d6e92495f2_benign HTTP/1.1\" 200 271 \"-\" \"Mozilla/5.0\"\nwww.acme-corp.example:80 80.71.158.30 - - [18/Nov/2026:00:01:52 +0000] \"GET /?refeng_rq2_s3_gate=1a439a6e38bc_ua HTTP/1.1\" 403 487 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36\"\nwww.acme-corp.example:80 80.71.158.30 - - [18/Nov/2026:00:01:52 +0000] \"GET /?refeng_rq2_s3_gate=1a439a6e38bc_benign HTTP/1.1\" 200 271 \"-\" \"Mozilla/5.0\"\nwww.acme-corp.example:80 80.71.158.30 - - [18/Nov/2026:00:14:05 +0000] \"GET /?refeng_rq2_s3_gate=d4a3b65152c5_ua HTTP/1.1\" 403 487 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36\"\nwww.acme-corp.example:80 80.71.158.30 - - [18/Nov/2026:00:14:08 +0000] \"GET /?refeng_rq2_s3_gate=d4a3b65152c5_benign HTTP/1.1\" 200 271 \"-\" \"Mozilla/5.0\"\nwww.acme-corp.example:80 80.71.158.30 - - [18/Nov/2026:00:22:18 +0000] \"GET /?refeng_rq2_s3_gate=50c2c3660721_ua HTTP/1.1\" 403 487 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36\"\nwww.acme-corp.example:80 80.71.158.30 - - [18/Nov/2026:00:22:22 +0000] \"GET /?refeng_rq2_s3_gate=50c2c3660721_benign HTTP/1.1\" 200 271 \"-\" \"Mozilla/5.0\"\nwww.acme-corp.example:80 80.71.158.30 - - [18/Nov/2026:00:38:50 +0000] \"GET /?rq2=RQ2_S6_U_STRIKE1_090a83b83e HTTP/1.1\" 403 487 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36\"\nwww.acme-corp.example:80 80.71.158.30 - - [18/Nov/2026:00:40:23 +0000] \"GET /?rq2=RQ2_S6_efaee63e8f57_P2 HTTP/1.1\" 200 271 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36\"\nwww.acme-corp.example:80 80.71.158.30 - - [18/Nov/2026:00:40:26 +0000] \"GET /?rq2=RQ2_S6_efaee63e8f57_P3 HTTP/1.1\" 200 271 \"-\" \"Mozilla/5.0\"\n"
+}

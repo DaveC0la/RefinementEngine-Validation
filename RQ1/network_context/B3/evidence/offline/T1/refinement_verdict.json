@@ -1,0 +1,9 @@
+{
+  "input_rule_sha256": "37ce914f0d52986ed00233539c6868d33aff44eaf60b9861ef2a0aee00f7693a",
+  "pass": true,
+  "selected_pair": [
+    "EdgeFirewall",
+    "IpTables"
+  ],
+  "state": "T1"
+}

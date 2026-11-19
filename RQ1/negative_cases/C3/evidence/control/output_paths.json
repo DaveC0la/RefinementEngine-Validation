@@ -1,0 +1,8 @@
+{
+    "rq1_c3_01_domain_offpath": [
+        [
+            "EgressProxy",
+            "Squid"
+        ]
+    ]
+}

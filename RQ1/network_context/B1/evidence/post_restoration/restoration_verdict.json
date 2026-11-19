@@ -1,0 +1,43 @@
+{
+  "case_id": "RQ1-B1-01",
+  "checks": {
+    "all_firewall_configurations_unchanged": true,
+    "both_connections_seen_by_listener": true,
+    "guest_employee_isolation_preserved": true,
+    "guest_iot_isolation_preserved": true,
+    "icmp_to_c2_preserved": true,
+    "near_match_application_reachable": true,
+    "near_match_c2_listener_accepted": true,
+    "near_match_syn_at_b1_egress": true,
+    "near_match_syn_at_b1_ingress": true,
+    "near_match_syn_at_c2": true,
+    "owned_rule_absent_on_all_firewalls": true,
+    "queues_remain_empty": true,
+    "target_application_reachable": true,
+    "target_c2_listener_accepted": true,
+    "target_syn_at_b1_egress": true,
+    "target_syn_at_b1_ingress": true,
+    "target_syn_at_c2": true
+  },
+  "checks_passed": 17,
+  "checks_total": 17,
+  "firewall_configuration": "PRE_DEPLOYMENT_BASELINE",
+  "near_match_connection": {
+    "elapsed": 0.011,
+    "outcome": "CONNECTED",
+    "port": 10214,
+    "response": "B1_OK_10214\n"
+  },
+  "original_evidence_preserved": true,
+  "pass": true,
+  "stage13_withdrawal": "PASS",
+  "stage14_enforcement": "PASS",
+  "status": "STAGE16_POST_RESTORATION_PASS",
+  "target_connection": {
+    "elapsed": 0.013,
+    "outcome": "CONNECTED",
+    "port": 10213,
+    "response": "B1_OK_10213\n"
+  },
+  "timestamp_utc": "2026-10-27T21:53:44.138798+00:00"
+}

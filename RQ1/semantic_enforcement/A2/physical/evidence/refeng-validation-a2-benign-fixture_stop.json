@@ -1,0 +1,11 @@
+{
+  "command": [
+    "docker",
+    "stop",
+    "refeng-validation-a2-benign-fixture"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "refeng-validation-a2-benign-fixture\n",
+  "time_utc": "2026-10-26T15:22:06.803799+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "checked_utc": "2026-10-26T15:59:41.175835+00:00",
+  "model_path_coverage": true,
+  "pairs": [
+    [
+      "WebApplicationFirewall",
+      "ModSecurity"
+    ]
+  ],
+  "pass": true
+}

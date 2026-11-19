@@ -1,0 +1,10 @@
+{
+  "device": "guest_fw",
+  "enforcement_checks": 19,
+  "restoration_checks": 18,
+  "selected_pair": [
+    "GuestFirewall",
+    "IpTables"
+  ],
+  "status": "PASS"
+}

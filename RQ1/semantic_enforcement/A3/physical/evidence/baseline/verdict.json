@@ -1,0 +1,35 @@
+{
+  "checks": {
+    "backend_log_benign": true,
+    "backend_log_independent_benign": true,
+    "backend_log_independent_target": true,
+    "backend_log_near_match": true,
+    "backend_log_query": true,
+    "backend_log_target": true,
+    "baseline_denied": true,
+    "benign": true,
+    "independent_benign": true,
+    "independent_target": true,
+    "managed_rule_presence": true,
+    "near_match": true,
+    "query": true,
+    "target": true,
+    "waf_log_benign": true,
+    "waf_log_independent_benign": true,
+    "waf_log_independent_target": true,
+    "waf_log_near_match": true,
+    "waf_log_query": true,
+    "waf_log_target": true
+  },
+  "pass": true,
+  "phase": "baseline",
+  "recorded_utc": "2026-10-26T16:13:07.350381+00:00",
+  "statuses": {
+    "benign": "200",
+    "independent_benign": "200",
+    "independent_target": "200",
+    "near_match": "404",
+    "query": "200",
+    "target": "200"
+  }
+}

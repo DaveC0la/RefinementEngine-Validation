@@ -1,0 +1,404 @@
+{
+  "dataset_id": "refeng_cti_validation_minimal",
+  "version": "1.1",
+  "created_on": "2026-10-16",
+  "status": "selected_cti_catalog_with_local_misp_threatfox_normalization_not_engine_native_test_inputs",
+  "purpose": "Small, source-traceable CTI selection for RQ1-A1..A8 and RQ2 state/ownership tests; no mass CTI sampling.",
+  "counts": {
+    "source_records": 5,
+    "selected_indicators": 9,
+    "supplementary_non_actionable_items": 2
+  },
+  "source_records": [
+    {
+      "id": "SRC-CIRCL-KALI365",
+      "provider": "CIRCL OSINT MISP feed",
+      "format": "MISP event JSON",
+      "event_uuid": "814c12e6-0e88-42fb-a463-601d42b70881",
+      "event_title": "NEW KALI365 PHAAS KIT BEING ABUSED IN THE WILD",
+      "event_date": "2026-04-24",
+      "originating_organization": "CIRCL",
+      "event_tags": [
+        "misp-galaxy:mitre-malware=\"Kali365 - S9044\"",
+        "misp-galaxy:mitre-software=\"Kali365 - S9044\"",
+        "type:OSINT",
+        "osint:lifetime=\"perpetual\"",
+        "osint:certainty=\"50\"",
+        "tlp:white",
+        "tlp:clear"
+      ],
+      "original_record_url": "https://www.circl.lu/doc/misp/feed-osint/814c12e6-0e88-42fb-a463-601d42b70881.json",
+      "upstream_reference": "https://github.com/PaloAltoNetworks/Unit42-timely-threat-intel/blob/main/2026-04-24-New-Kali365-PhaaS-Kit.txt",
+      "original_record_available_locally": true,
+      "note": "Original complete event supplied by user; actionable attributes are nested in MISP objects."
+    },
+    {
+      "id": "SRC-CIRCL-KRVTZ",
+      "provider": "CIRCL OSINT MISP feed",
+      "format": "MISP event JSON",
+      "event_uuid": "2b322fc3-b9d7-4b2b-bb94-b16545e25c75",
+      "event_title": "KRVTZ IDS alerts for 2026-01-26",
+      "event_date": "2026-01-26",
+      "originating_organization": "Krawczyk Industries Limited",
+      "original_record_url": "https://www.circl.lu/doc/misp/feed-osint/2b322fc3-b9d7-4b2b-bb94-b16545e25c75.json",
+      "original_record_available_locally": false,
+      "note": "Selected attribute checked against original public CIRCL MISP JSON, not a locally supplied export."
+    },
+    {
+      "id": "SRC-THREATFOX-CECBOT",
+      "provider": "abuse.ch ThreatFox",
+      "format": "MISP event JSON (locally normalized from ThreatFox API)",
+      "threatfox_id": "1967558",
+      "original_record_url": "https://threatfox-api.abuse.ch/api/v1/",
+      "upstream_reference": "https://github.com/deepfield/public-research/tree/main/cecbot",
+      "malware_family": "CECbot",
+      "reporter": "deepfield",
+      "note": "MISP event exported from local RefinementLab instance after importing a normalized ThreatFox API IOC. Event and attribute UUIDs were assigned by local MISP; this is not an original ThreatFox-published MISP event. Upstream ThreatFox record ID 1967558 remains preserved.",
+      "event_uuid": "26313be8-4dea-43f1-9119-0a86ba10c4fe",
+      "event_id_local": "3249",
+      "event_title": "ThreatFox CECbot C2 indicator — normalized from ThreatFox API record 1967558 (research import)",
+      "event_date": "2026-10-15",
+      "originating_organization": "RefinementLab",
+      "published_in_local_misp": false,
+      "local_misp_export_filename": "misp.event.3249.json",
+      "original_record_available_locally": true,
+      "provenance_class": "locally_created_misp_event_from_authentic_upstream_api_ioc"
+    },
+    {
+      "id": "SRC-URLHAUS-OCT14",
+      "provider": "abuse.ch URLhaus MISP feed",
+      "format": "MISP event JSON",
+      "event_uuid": "669567ab-8588-4e55-ba93-a07efeceaf66",
+      "event_title": "URLhaus IOCs for 2026-10-14",
+      "event_date": "2026-10-14",
+      "originating_organization": "abuse.ch",
+      "original_record_url": "https://urlhaus.abuse.ch/downloads/misp/669567ab-8588-4e55-ba93-a07efeceaf66.json",
+      "original_record_available_locally": true,
+      "note": "Full source event supplied in URLhaus ZIP; selected URLs marked to_ids=true."
+    },
+    {
+      "id": "SRC-CHECKPOINT-GOBRUTE",
+      "provider": "Check Point Research",
+      "format": "technical report (HTML)",
+      "report_title": "Inside GoBruteforcer: AI-Generated Server Defaults, Weak Passwords, and Crypto-Focused Campaigns",
+      "report_date": "2026-01-07",
+      "original_record_url": "https://research.checkpoint.com/2026/inside-gobruteforcer-ai-generated-server-defaults-weak-passwords-and-crypto-focused-campaigns/",
+      "note": "User-Agent literal taken from malware phpMyAdmin probing section; not published as a MISP attribute."
+    }
+  ],
+  "indicators": [
+    {
+      "id": "IOC-KALI-DOMAIN",
+      "source_id": "SRC-CIRCL-KALI365",
+      "normalized_type": "domain",
+      "value": "kali365.xyz",
+      "native_representation": {
+        "format": "MISP",
+        "attribute_type": "domain",
+        "attribute_uuid": "d41edbd8-4569-402c-a33f-e4a6cab7c623",
+        "object_name": "domain-ip",
+        "object_uuid": "a9473b62-6823-4f76-bac6-571ba8bc3c27",
+        "object_relation": "domain",
+        "category": "Network activity",
+        "comment": "PhaaS Operator Panel Domain",
+        "to_ids": true,
+        "timestamp": "1789730270"
+      },
+      "interpretation": "Campaign-associated domain; suitable candidate for a domain prohibition under chosen scenario context.",
+      "candidate_for": [
+        "RQ1-A7",
+        "RQ2-S3-S7"
+      ]
+    },
+    {
+      "id": "IOC-KALI-HOST-API",
+      "source_id": "SRC-CIRCL-KALI365",
+      "normalized_type": "hostname",
+      "value": "api.kali365.xyz",
+      "native_representation": {
+        "format": "MISP",
+        "attribute_type": "hostname",
+        "attribute_uuid": "c48d5b68-fc87-4fc8-abb1-22802faf2a3e",
+        "object_name": "domain-ip",
+        "object_uuid": "e7e75908-9c60-41e8-a382-0818b2d64861",
+        "object_relation": "hostname",
+        "category": "Network activity",
+        "comment": "PhaaS Operator Panel Domain",
+        "to_ids": true,
+        "timestamp": "1789730221"
+      },
+      "interpretation": "Exact operator-panel hostname; do not infer sibling hosts are benign.",
+      "candidate_for": [
+        "RQ1-A8",
+        "RQ1-multi-indicator"
+      ]
+    },
+    {
+      "id": "IOC-KALI-HOST-AUTH",
+      "source_id": "SRC-CIRCL-KALI365",
+      "normalized_type": "hostname",
+      "value": "auth.kali365.xyz",
+      "native_representation": {
+        "format": "MISP",
+        "attribute_type": "hostname",
+        "attribute_uuid": "826469c1-5a9d-45cf-84a9-fef5f200e1c8",
+        "object_name": "domain-ip",
+        "object_uuid": "e12d1a4c-3d44-4e0c-ac8e-62f108faa4c5",
+        "object_relation": "hostname",
+        "category": "Network activity",
+        "comment": "PhaaS Operator Panel Domain",
+        "to_ids": true,
+        "timestamp": "1789730230"
+      },
+      "interpretation": "Second source-reported malicious hostname, available as an independent indicator.",
+      "candidate_for": [
+        "RQ1-multi-indicator"
+      ]
+    },
+    {
+      "id": "IOC-KALI-IP-DST",
+      "source_id": "SRC-CIRCL-KALI365",
+      "normalized_type": "destination_ip",
+      "value": "216.203.20.95",
+      "native_representation": {
+        "format": "MISP",
+        "attribute_type": "ip-dst",
+        "attribute_uuid": "97c4a531-5c2b-4120-bf94-505bb4afe5d8",
+        "object_name": "ip-port",
+        "object_uuid": "64245f63-cc66-48b8-97d0-32a7ed63d4de",
+        "object_relation": "ip",
+        "category": "Network activity",
+        "comment": "Main Panel IPs (BP hosted infrastructure)",
+        "to_ids": true,
+        "timestamp": "1789729645"
+      },
+      "interpretation": "Source marks the main-panel IP as to_ids=true; no port is provided in this object.",
+      "candidate_for": [
+        "RQ1-multi-indicator"
+      ]
+    },
+    {
+      "id": "IOC-KRVTZ-IP-SRC",
+      "source_id": "SRC-CIRCL-KRVTZ",
+      "normalized_type": "source_ip",
+      "value": "91.243.188.233",
+      "native_representation": {
+        "format": "MISP",
+        "attribute_type": "ip-src",
+        "attribute_uuid": "ffdda6ae-ec25-4296-9943-2479ba9b69f6",
+        "category": "Network activity",
+        "comment": "ET INFO Request to Hidden Environment File - Inbound",
+        "to_ids": true,
+        "last_seen": "2026-01-26T13:20:57.792943+00:00",
+        "tags": [
+          "misp:threat-level=\"medium-risk\"",
+          "kill-chain:Exploitation"
+        ]
+      },
+      "interpretation": "Observed suspicious inbound attempt; source report is an IDS observation, not proof all traffic from this IP is malicious.",
+      "candidate_for": [
+        "RQ1-A1",
+        "RQ2-S1-S9"
+      ]
+    },
+    {
+      "id": "IOC-THREATFOX-C2-IPPORT",
+      "source_id": "SRC-THREATFOX-CECBOT",
+      "normalized_type": "destination_ip_port",
+      "value": "102.220.161.63:10213",
+      "parsed": {
+        "destination_ip": "102.220.161.63",
+        "destination_port": 10213,
+        "transport_protocol": null
+      },
+      "native_representation": {
+        "format": "MISP",
+        "provenance_class": "locally_normalized_from_threatfox_api",
+        "event_uuid": "26313be8-4dea-43f1-9119-0a86ba10c4fe",
+        "event_id_local": "3249",
+        "attribute_type": "ip-dst|port",
+        "attribute_uuid": "a8ca4c34-9e2c-4fdd-b0d0-5954803cd21f",
+        "attribute_id_local": "21505859",
+        "value": "102.220.161.63|10213",
+        "category": "Network activity",
+        "comment": "Normalized from ThreatFox API IOC 1967558 (original value 102.220.161.63:10213), threat_type botnet_cc, malware CECbot, reporter deepfield, confidence_level 100, is_compromised false, first_seen 2026-10-15 13:04:58 UTC, no last_seen, no transport protocol specified. Source: https://github.com/deepfield/public-research/tree/main/cecbot",
+        "to_ids": true,
+        "first_seen": "2026-10-15T13:04:58.000000+00:00",
+        "last_seen": null,
+        "distribution": "5",
+        "object_id": "0"
+      },
+      "interpretation": "Authentic ThreatFox botnet C2 IP:port (IOC 1967558) normalized as a local MISP ip-dst|port attribute. The upstream API did not supply TCP/UDP or a MISP to_ids flag; the local import assigned to_ids=true. The local MISP UUID does not imply upstream MISP publication.",
+      "candidate_for": [
+        "RQ1-A2",
+        "RQ2-S6-S9"
+      ],
+      "upstream_representation": {
+        "format": "ThreatFox",
+        "record": {
+          "id": "1967558",
+          "ioc": "102.220.161.63:10213",
+          "threat_type": "botnet_cc",
+          "threat_type_desc": "Indicator that identifies a botnet command&control server (C&C)",
+          "ioc_type": "ip:port",
+          "ioc_type_desc": "ip:port combination that is used for botnet Command&control (C&C)",
+          "malware": "apk.cecbot",
+          "malware_printable": "CECbot",
+          "malware_alias": null,
+          "malware_malpedia": "https://malpedia.caad.fkie.fraunhofer.de/details/apk.cecbot",
+          "confidence_level": 100,
+          "is_compromised": false,
+          "first_seen": "2026-10-15 13:04:58 UTC",
+          "last_seen": null,
+          "reference": "https://github.com/deepfield/public-research/tree/main/cecbot",
+          "reporter": "deepfield",
+          "tags": [
+            "Android",
+            "botnet",
+            "CECbot",
+            "DDoS"
+          ]
+        }
+      }
+    },
+    {
+      "id": "IOC-URLHAUS-PATH-I",
+      "source_id": "SRC-URLHAUS-OCT14",
+      "normalized_type": "url",
+      "value": "http://221.15.9.104:39894/i",
+      "parsed": {
+        "scheme": "http",
+        "hostname": "221.15.9.104",
+        "port": 39894,
+        "path": "/i"
+      },
+      "native_representation": {
+        "format": "MISP",
+        "attribute_type": "url",
+        "attribute_uuid": "7f93b413-c762-11f1-88e9-82aee05be84a",
+        "category": "Payload delivery",
+        "comment": "Malware distribution site",
+        "to_ids": true,
+        "timestamp": 1791936128
+      },
+      "interpretation": "Reported malware distribution URL; both selected paths are malicious in the source. A separate laboratory benign path is needed as negative control.",
+      "candidate_for": [
+        "RQ1-path-granularity"
+      ]
+    },
+    {
+      "id": "IOC-URLHAUS-PATH-BINSH",
+      "source_id": "SRC-URLHAUS-OCT14",
+      "normalized_type": "url",
+      "value": "http://221.15.9.104:39894/bin.sh",
+      "parsed": {
+        "scheme": "http",
+        "hostname": "221.15.9.104",
+        "port": 39894,
+        "path": "/bin.sh"
+      },
+      "native_representation": {
+        "format": "MISP",
+        "attribute_type": "url",
+        "attribute_uuid": "80c7af12-c762-11f1-88e9-82aee05be84a",
+        "category": "Payload delivery",
+        "comment": "Malware distribution site",
+        "to_ids": true,
+        "timestamp": 1791936130
+      },
+      "interpretation": "Reported malware distribution URL; both selected paths are malicious in the source. A separate laboratory benign path is needed as negative control.",
+      "candidate_for": [
+        "RQ1-A3",
+        "RQ1-A4",
+        "RQ1-path-granularity"
+      ]
+    },
+    {
+      "id": "IOC-GOBRUTE-USERAGENT",
+      "source_id": "SRC-CHECKPOINT-GOBRUTE",
+      "normalized_type": "http_user_agent",
+      "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+      "native_representation": {
+        "format": "technical_report",
+        "attribute_type": null,
+        "attribute_uuid": null,
+        "to_ids": null,
+        "context": "Hardcoded HTTP User-Agent used by GoBruteforcer for phpMyAdmin probing and login attempts"
+      },
+      "interpretation": "Report-derived literal HTTP User-Agent; suitable for a controlled user-agent prohibition. Not a native MISP attribute or an independent verdict on all traffic carrying the same header.",
+      "candidate_for": [
+        "RQ1-A5",
+        "RQ1-A6",
+        "RQ2-S2-S6"
+      ]
+    }
+  ],
+  "supplementary_non_actionable_context": [
+    {
+      "source_id": "SRC-CIRCL-KALI365",
+      "native_type": "text",
+      "object_name": "regexp",
+      "attribute_uuid": "e405ef9b-791f-44f5-afcc-8e2848e4223b",
+      "value": "kali365\\-live\\/1\\.0\\.0",
+      "to_ids": false,
+      "context": "Regex linked to Kali365 mailbox GUI User-Agent, not a native actionable user-agent indicator.",
+      "normalized_literal": "kali365-live/1.0.0",
+      "reason_not_selected": "Contextual kit UI string rather than a confirmed malicious client request signature."
+    },
+    {
+      "source_id": "SRC-URLHAUS-OCT14",
+      "native_type": "ip-dst",
+      "attribute_uuid": "7d70ac38-c762-11f1-88e9-82aee05be84a",
+      "value": "221.15.9.104",
+      "to_ids": false,
+      "reason_not_selected": "Source explicitly provides this IP context with to_ids=false; do not elevate URL evidence to a blanket IP prohibition."
+    }
+  ],
+  "coverage_candidates": {
+    "RQ1-A1": [
+      "IOC-KRVTZ-IP-SRC"
+    ],
+    "RQ1-A2": [
+      "IOC-THREATFOX-C2-IPPORT"
+    ],
+    "RQ1-A3": [
+      "IOC-URLHAUS-PATH-BINSH"
+    ],
+    "RQ1-A4": [
+      "IOC-URLHAUS-PATH-BINSH"
+    ],
+    "RQ1-A5": [
+      "IOC-GOBRUTE-USERAGENT"
+    ],
+    "RQ1-A6": [
+      "IOC-GOBRUTE-USERAGENT"
+    ],
+    "RQ1-A7": [
+      "IOC-KALI-DOMAIN"
+    ],
+    "RQ1-A8": [
+      "IOC-KALI-HOST-API"
+    ],
+    "RQ1-multiple-indicators": [
+      "IOC-KALI-DOMAIN",
+      "IOC-KALI-HOST-API",
+      "IOC-KALI-IP-DST"
+    ],
+    "RQ2-lifecycle-sequence": [
+      "IOC-KRVTZ-IP-SRC",
+      "IOC-GOBRUTE-USERAGENT",
+      "IOC-KALI-DOMAIN",
+      "IOC-THREATFOX-C2-IPPORT"
+    ]
+  },
+  "use_constraints": [
+    "The dataset contains intelligence observations; assignment of independent prohibition intents, owners, scope, validity/actionability and snapshots is done in separate experiment fixtures.",
+    "MISP to_ids flags are source-provided for CIRCL and URLhaus; to_ids=true was assigned during the local ThreatFox import. Neither to_ids nor confidence alone authorizes a blocking rule.",
+    "Do not infer TCP/UDP for the ThreatFox ip:port or treat the URLhaus contextual IP as a standalone actionable IOC.",
+    "Use a controlled isolated test network. Do not generate traffic to live reported malicious public hosts or URLs during validation.",
+    "For lab enforcement tests, preserve original CTI source provenance while mapping needed endpoints/traffic to isolated fixtures; document the mapping.",
+    "These are source-derived candidate values, not fabricated identical IoCs from multiple independently published CTI reports.",
+    "No synthetic first_seen, last_seen, expiration, or natural actionability history has been added.",
+    "ThreatFox is now represented by a locally exported MISP event; it is not an upstream-authored ThreatFox MISP event. Preserve its original ThreatFox API record and the distinction between original evidence and local normalization."
+  ]
+}

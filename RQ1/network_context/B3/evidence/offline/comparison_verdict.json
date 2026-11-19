@@ -1,0 +1,50 @@
+{
+  "case_id": "RQ1-B3-01",
+  "emitted_devices": {
+    "T0": "guest_fw",
+    "T1": "edge_fw"
+  },
+  "live_route_or_firewall_changed": false,
+  "management_inventory": "STILL_T0",
+  "oracle_sha256": "20d841bd951c2fc478167d0185581754e10690f4389149f67c257b9bea203347",
+  "pairs": {
+    "T0": [
+      "GuestFirewall",
+      "IpTables"
+    ],
+    "T1": [
+      "EdgeFirewall",
+      "IpTables"
+    ]
+  },
+  "pass": true,
+  "physical_deployment": "NOT_PERFORMED",
+  "rule_artifacts": {
+    "T0": {
+      "check": "JSON_XML_IPTABLES_PASS",
+      "emitted_sha256": "28fe0dd23e3a4687ded94d6b8de45da34fb10196c9e6f784053f49c91196ebc9",
+      "intermediate_sha256": "802718d6d0f4bdd132f6ddd1733724c22d589f8c5910eb10ac0ce0b4cb40c3c4",
+      "lab_device": "guest_fw",
+      "line": "iptables -A FORWARD -m conntrack --ctstate NEW -s 10.30.10.10 -d 80.71.158.10 -p tcp --dport 10213 -m comment --comment \"rq1_b3_01_guest_c2_ipport|GuestFirewall|IpTables\" -j DROP",
+      "selected_pair": [
+        "GuestFirewall",
+        "IpTables"
+      ],
+      "xml_sha256": "f51a0d9828ada0389877b86d605581deaafda78a411d088c85e2ce85680c47ca"
+    },
+    "T1": {
+      "check": "JSON_XML_IPTABLES_PASS",
+      "emitted_sha256": "c9220095ff7c2c2622067721f4fc80e5f13aceea9b95acfe578b6757bec65401",
+      "intermediate_sha256": "37ce914f0d52986ed00233539c6868d33aff44eaf60b9861ef2a0aee00f7693a",
+      "lab_device": "edge_fw",
+      "line": "iptables -A FORWARD -m conntrack --ctstate NEW -s 10.30.10.10 -d 80.71.158.10 -p tcp --dport 10213 -m comment --comment \"rq1_b3_01_guest_c2_ipport|EdgeFirewall|IpTables\" -j DROP",
+      "selected_pair": [
+        "EdgeFirewall",
+        "IpTables"
+      ],
+      "xml_sha256": "f51a0d9828ada0389877b86d605581deaafda78a411d088c85e2ce85680c47ca"
+    }
+  },
+  "semantics": "IDENTICAL_MATCH_AND_DENY",
+  "status": "B3_OFFLINE_REFINEMENT_AND_RULES_PASS"
+}

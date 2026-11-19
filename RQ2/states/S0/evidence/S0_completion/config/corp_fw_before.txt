@@ -1,0 +1,9 @@
+Chain FORWARD (policy ACCEPT 24 packets, 2376 bytes)
+    pkts      bytes target     prot opt in     out     source               destination         
+       1       84 DROP       0    --  *      *       10.20.10.0/24        10.40.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       10.20.20.0/24        10.40.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       10.20.10.0/24        10.20.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       10.20.10.0/24        10.10.10.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       10.20.20.0/24        10.10.10.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       10.20.10.0/24        10.10.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       10.20.20.0/24        10.10.20.0/24        ctstate NEW

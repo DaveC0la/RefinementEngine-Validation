@@ -1,0 +1,13 @@
+1793199563.209267 IP 203.0.113.2.60744 > 80.71.158.10.10213: Flags [S], seq 834518428, win 64240, options [mss 1460,sackOK,TS val 3767932887 ecr 0,nop,wscale 7], length 0
+1793199563.212544 IP 203.0.113.2.60744 > 80.71.158.10.10213: Flags [.], ack 602802747, win 502, options [nop,nop,TS val 3767932890 ecr 276224373], length 0
+1793199563.212757 IP 203.0.113.2.60744 > 80.71.158.10.10213: Flags [P.], seq 0:15, ack 1, win 502, options [nop,nop,TS val 3767932890 ecr 276224373], length 15
+1793199563.217201 IP 203.0.113.2.60744 > 80.71.158.10.10213: Flags [.], ack 13, win 502, options [nop,nop,TS val 3767932894 ecr 276224376], length 0
+1793199563.217618 IP 203.0.113.2.60744 > 80.71.158.10.10213: Flags [F.], seq 15, ack 13, win 502, options [nop,nop,TS val 3767932894 ecr 276224376], length 0
+1793199563.218552 IP 203.0.113.2.60744 > 80.71.158.10.10213: Flags [.], ack 14, win 502, options [nop,nop,TS val 3767932895 ecr 276224376], length 0
+1793199566.405572 IP 203.0.113.2.40258 > 80.71.158.10.10214: Flags [S], seq 2470450959, win 64240, options [mss 1460,sackOK,TS val 3767936082 ecr 0,nop,wscale 7], length 0
+1793199566.408635 IP 203.0.113.2.40258 > 80.71.158.10.10214: Flags [.], ack 3793185092, win 502, options [nop,nop,TS val 3767936086 ecr 276227569], length 0
+1793199566.408986 IP 203.0.113.2.40258 > 80.71.158.10.10214: Flags [P.], seq 0:15, ack 1, win 502, options [nop,nop,TS val 3767936087 ecr 276227569], length 15
+1793199566.413414 IP 203.0.113.2.40258 > 80.71.158.10.10214: Flags [.], ack 13, win 502, options [nop,nop,TS val 3767936091 ecr 276227572], length 0
+1793199566.414309 IP 203.0.113.2.40258 > 80.71.158.10.10214: Flags [F.], seq 15, ack 13, win 502, options [nop,nop,TS val 3767936091 ecr 276227572], length 0
+1793199566.415447 IP 203.0.113.2.40258 > 80.71.158.10.10214: Flags [.], ack 14, win 502, options [nop,nop,TS val 3767936091 ecr 276227572], length 0
+

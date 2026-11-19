@@ -1,0 +1,11 @@
+{
+  "checked_utc": "2026-11-18T00:34:34.424015+00:00",
+  "pairs": [
+    [
+      "CorpFirewall",
+      "IpTables"
+    ]
+  ],
+  "pass": true,
+  "path_coverage": true
+}

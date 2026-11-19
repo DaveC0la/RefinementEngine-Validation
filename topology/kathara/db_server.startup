@@ -1,0 +1,5 @@
+#!/bin/sh
+# startup for db_server
+ip link set eth0 up
+ip addr add 10.40.20.10/24 dev eth0
+ip route add default via 10.40.20.1

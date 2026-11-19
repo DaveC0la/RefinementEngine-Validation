@@ -1,0 +1,11 @@
+www.acme-corp.example:80 80.71.158.96 - - [26/Oct/2026:09:34:58 +0000] "GET / HTTP/1.1" 200 271 "-" "curl/7.88.1"
+www.acme-corp.example:80 80.71.158.10 - - [26/Oct/2026:09:35:01 +0000] "GET / HTTP/1.1" 200 271 "-" "curl/7.88.1"
+www.acme-corp.example:80 80.71.158.96 - - [26/Oct/2026:09:41:26 +0000] "GET /malicious/public/path HTTP/1.1" 200 276 "-" "curl/7.88.1"
+www.acme-corp.example:80 80.71.158.30 - - [26/Oct/2026:10:43:36 +0000] "GET / HTTP/1.1" 200 271 "-" "curl/7.88.1"
+www.acme-corp.example:80 80.71.158.96 - - [26/Oct/2026:11:50:06 +0000] "GET /?rq1_a1=target&phase=baseline HTTP/1.1" 200 271 "-" "curl/7.88.1"
+www.acme-corp.example:80 80.71.158.30 - - [26/Oct/2026:11:50:08 +0000] "GET /?rq1_a1=control&phase=baseline HTTP/1.1" 200 271 "-" "curl/7.88.1"
+www.acme-corp.example:80 80.71.158.30 - - [26/Oct/2026:12:07:03 +0000] "GET /?rq1_a1=control&phase=deployed HTTP/1.1" 200 271 "-" "curl/7.88.1"
+www.acme-corp.example:80 80.71.158.96 - - [26/Oct/2026:12:14:40 +0000] "GET /?rq1_a1=target&phase=reset HTTP/1.1" 200 271 "-" "curl/7.88.1"
+www.acme-corp.example:80 80.71.158.30 - - [26/Oct/2026:12:14:43 +0000] "GET /?rq1_a1=control&phase=reset HTTP/1.1" 200 271 "-" "curl/7.88.1"
+
+---STDERR---

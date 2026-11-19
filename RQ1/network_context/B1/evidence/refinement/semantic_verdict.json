@@ -1,0 +1,15 @@
+{
+  "attempt": 2,
+  "model_path_coverage": "PASS",
+  "oracle_acceptance": "PASS",
+  "pair_count": 1,
+  "pass": true,
+  "physical_path_hypotheses": "COVERED_IN_MODEL_NOT_PHYSICALLY_RETESTED",
+  "selected_pairs": [
+    [
+      "B1AccessFirewall",
+      "IpTables"
+    ]
+  ],
+  "semantic_granularity": "SOURCE_IP_AND_DEST_IP_AND_DEST_PORT"
+}

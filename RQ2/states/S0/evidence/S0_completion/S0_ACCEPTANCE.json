@@ -1,0 +1,15 @@
+{
+  "state": "S0",
+  "verdict": "PASS",
+  "baseline_original": "/workspace/refeng-rq2/evidence/S0_retry01",
+  "supplement": "/workspace/refeng-rq2/evidence/S0_completion",
+  "checked": {
+    "baseline_config_count": 10,
+    "baseline_traffic_count": 7,
+    "supplement_commands": 15,
+    "tcp_positive_controls": 3,
+    "additional_http_population_controls": 5
+  },
+  "failures": [],
+  "note": "Physical independent S0 oracle; no lifecycle S1-S9 inference."
+}

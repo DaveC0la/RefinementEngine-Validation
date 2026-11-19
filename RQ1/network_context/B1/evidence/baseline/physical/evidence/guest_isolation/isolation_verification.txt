@@ -1,0 +1,22 @@
+========== DROP COUNTERS BEFORE ==========
+       0        0 DROP       0    --  *      *       10.30.10.0/24        10.20.10.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       10.30.10.0/24        10.30.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       10.30.20.0/24        10.30.10.0/24        ctstate NEW
+========== GUEST -> EMPLOYEE ==========
+PING 10.20.10.10 (10.20.10.10) 56(84) bytes of data.
+
+--- 10.20.10.10 ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1000ms
+
+PING_EXIT=1
+========== GUEST -> IOT DEVICE ==========
+PING 10.30.20.10 (10.30.20.10) 56(84) bytes of data.
+
+--- 10.30.20.10 ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 999ms
+
+PING_EXIT=1
+========== DROP COUNTERS AFTER ==========
+       2      168 DROP       0    --  *      *       10.30.10.0/24        10.20.10.0/24        ctstate NEW
+       2      168 DROP       0    --  *      *       10.30.10.0/24        10.30.20.0/24        ctstate NEW
+       0        0 DROP       0    --  *      *       10.30.20.0/24        10.30.10.0/24        ctstate NEW

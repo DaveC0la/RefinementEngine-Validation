@@ -1,0 +1,25 @@
+[
+    {
+        "hsplid": "rq1_c2_01_atomic_ip_socket",
+        "device": "EgressProxy",
+        "nsf": "Squid",
+        "capabilities": [
+            {
+                "capability": "DestinationPortConditionCapability",
+                "detail": "10213"
+            },
+            {
+                "capability": "IpDestinationAddressConditionCapability",
+                "detail": "80.71.158.10"
+            },
+            {
+                "capability": "IpSourceAddressConditionCapability",
+                "detail": "10.30.10.10"
+            },
+            {
+                "capability": "RejectActionCapability",
+                "detail": ""
+            }
+        ]
+    }
+]

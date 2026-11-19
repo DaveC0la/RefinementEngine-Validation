@@ -1,0 +1,11 @@
+{
+  "active_effective_rules": 2,
+  "baseline_preserved": true,
+  "checked_utc": "2026-11-18T01:12:55.570847+00:00",
+  "device_rules_unchanged": true,
+  "pass": true,
+  "state": "S8",
+  "state_file_byte_identical_to_S7": true,
+  "unchanged_snapshots_reprocessed": 2,
+  "unnecessary_operations": 0
+}

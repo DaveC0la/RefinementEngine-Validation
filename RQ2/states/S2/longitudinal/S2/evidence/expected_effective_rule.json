@@ -1,0 +1,19 @@
+{
+  "control": "ModSecurity",
+  "device": "WebApplicationFirewall",
+  "effective_rule_id": "9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4",
+  "emitted_operator": "@contains",
+  "exact_string_equality_not_claimed": true,
+  "expected_delta": {
+    "add": 1,
+    "remove": 0,
+    "retain": 1
+  },
+  "marker": "rq1_a5_01_inbound_useragent|WebApplicationFirewall|ModSecurity",
+  "owner": {
+    "bundle_id": "SRC-CHECKPOINT-GOBRUTE",
+    "hsplid": "rq1_a5_01_inbound_useragent",
+    "ioc_id": "IOC-GOBRUTE-USERAGENT"
+  },
+  "rule_file_sha256": "724a6a77483ec71eb6b674d89189af186978804e3611bf015d4afdbd5d420935"
+}

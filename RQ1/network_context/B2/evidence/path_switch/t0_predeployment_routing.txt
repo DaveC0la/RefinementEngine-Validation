@@ -1,0 +1,14 @@
+=== T0 default route ===
+default via 10.255.255.1 dev eth0 
+=== T0 forwarding decision ===
+80.71.158.10 from 10.80.10.10 via 10.255.255.1 dev eth0 
+    cache iif eth2 
+=== T0 connectivity ===
+PING 80.71.158.10 (80.71.158.10) 56(84) bytes of data.
+64 bytes from 80.71.158.10: icmp_seq=1 ttl=61 time=7.79 ms
+64 bytes from 80.71.158.10: icmp_seq=2 ttl=61 time=2.77 ms
+64 bytes from 80.71.158.10: icmp_seq=3 ttl=61 time=2.82 ms
+
+--- 80.71.158.10 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2005ms
+rtt min/avg/max/mdev = 2.769/4.458/7.789/2.355 ms

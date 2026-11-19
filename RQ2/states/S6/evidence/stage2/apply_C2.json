@@ -1,0 +1,15 @@
+{
+  "args": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "/workspace/refeng-rq2-novelty/lab/apply-rules.ps1",
+    "-Once"
+  ],
+  "duration_s": 11.550990662,
+  "ended_utc": "2026-11-18T00:36:07.599191+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-18T00:35:58.650310+00:00",
+  "stderr": "",
+  "stdout": "2026-11-18 01:36:02  watcher start (mode: once; controls: edge_fw,admin_fw,guest_fw,corp_fw,dc_fw,branch_fw,waf,egress_proxy,branch_proxy)\n2026-11-18 01:36:07  APPLIED  corp_fw       rq2_s6_c2.rules  (+1 item(s), iptables)\n"
+}

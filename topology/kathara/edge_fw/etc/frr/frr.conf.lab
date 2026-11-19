@@ -1,0 +1,23 @@
+frr version 8
+frr defaults traditional
+hostname edge_fw
+no ipv6 forwarding
+!
+router ospf
+ passive-interface eth0
+ network 203.0.113.0/30 area 0
+ network 10.255.255.0/30 area 0
+ network 172.16.10.0/24 area 0
+ network 10.0.0.0/30 area 0
+ network 10.0.0.4/30 area 0
+ ! NO 'redistribute static'  : a redistributed static was the original backend
+ !   route-leak vector; every advertised prefix is already covered by an explicit
+ !   'network' statement above, so nothing legitimate needs redistribution and a
+ !   future static (e.g. the edge blackhole for 172.16.20.0/24) will NOT leak.
+ ! NO 'redistribute connected': same reason - all connected /30s and /24s on this
+ !   device are listed as 'network', so connected redistribution is redundant and
+ !   would only risk advertising a future interface by accident.
+ default-information originate always
+!
+line vty
+!

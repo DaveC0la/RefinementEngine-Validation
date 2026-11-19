@@ -1,0 +1,14 @@
+[
+  {
+    "b1": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "B1_CAPTURE_READY eth0,eth1\n"
+    },
+    "c2": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "B1_CAPTURE_READY eth0\n"
+    }
+  }
+]

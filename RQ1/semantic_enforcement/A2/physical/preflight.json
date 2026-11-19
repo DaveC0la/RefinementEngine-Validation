@@ -1,0 +1,10 @@
+{
+  "checked_utc": "2026-10-26T14:51:24.154459+00:00",
+  "devices": [
+    "corp_fw"
+  ],
+  "passed": true,
+  "rule_sha256": {
+    "corp_fw": "a21781fab63f2442fde898783a0186ae91ef99c99d34556754bed62766070064"
+  }
+}

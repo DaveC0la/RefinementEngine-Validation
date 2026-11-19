@@ -1,0 +1,5 @@
+# RefinementEngine -> branch_proxy (squid); 1 rule(s)
+# >>> rid=rq1_a7_01_outbound_domain_Branch_Users|BranchProxy|Squid
+acl re_blk_816f5ae1 dstdomain .malware-c2.example
+http_access deny re_blk_816f5ae1
+# <<< rid=rq1_a7_01_outbound_domain_Branch_Users|BranchProxy|Squid

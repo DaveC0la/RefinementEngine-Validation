@@ -1,0 +1,10 @@
+{
+  "additions": 2,
+  "deployment_command_s": 8.881354506,
+  "deployment_to_completed_verification_wall_s": 128.822096056,
+  "includes_traffic_probes": true,
+  "measured_utc": "2026-11-01T19:43:03.877185+00:00",
+  "removals": 0,
+  "replacements": 0,
+  "unnecessary_device_operations": 0
+}

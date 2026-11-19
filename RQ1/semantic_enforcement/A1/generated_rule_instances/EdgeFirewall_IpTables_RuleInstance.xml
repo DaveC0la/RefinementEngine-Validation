@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="language_IpTables.xml" nsfName="IpTables">
+  <rule id="0">
+    <ipDestinationAddressConditionCapability operator="exactMatch">
+      <capabilityIpValue>
+        <exactMatch>172.16.20.10</exactMatch>
+      </capabilityIpValue>
+    </ipDestinationAddressConditionCapability>
+    <ipProtocolTypeConditionCapability operator="exactMatch">
+      <capabilityValue>
+        <exactMatch>http</exactMatch>
+      </capabilityValue>
+    </ipProtocolTypeConditionCapability>
+    <ipSourceAddressConditionCapability operator="rangeCIDR">
+      <capabilityIpValue>
+        <rangeCIDR>
+          <address>80.71.158.96</address>
+          <maskCIDR>32</maskCIDR>
+        </rangeCIDR>
+      </capabilityIpValue>
+    </ipSourceAddressConditionCapability>
+    <appendRuleActionCapability operator="exactMatch">
+      <capabilityValue>
+        <exactMatch>FORWARD</exactMatch>
+      </capabilityValue>
+    </appendRuleActionCapability>
+    <matchActionCapability operator="exactMatch">
+      <capabilityValue>
+        <exactMatch>conntrack</exactMatch>
+      </capabilityValue>
+    </matchActionCapability>
+    <connTrackStateConditionCapability operator="exactMatch">
+      <capabilityValue>
+        <exactMatch>NEW</exactMatch>
+      </capabilityValue>
+    </connTrackStateConditionCapability>
+    <rejectActionCapability />
+  </rule>
+</policy>

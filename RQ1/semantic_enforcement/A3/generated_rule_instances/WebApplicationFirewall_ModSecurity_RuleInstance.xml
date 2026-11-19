@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="language_ModSecurity.xml" nsfName="ModSecurity">
+  <rule id="0">
+    <idInfoCapability>
+      <ruleId>6039</ruleId>
+    </idInfoCapability>
+    <urlPathRegexConditionCapability>
+      <regex>/malicious/public/path</regex>
+    </urlPathRegexConditionCapability>
+    <rejectActionCapability />
+  </rule>
+</policy>

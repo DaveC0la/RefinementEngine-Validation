@@ -1,0 +1,28 @@
+{
+  "device_markers": {
+    "BranchProxy": "rq1_a7_01_outbound_domain_Branch_Users|BranchProxy|Squid",
+    "EgressProxy": "rq1_a7_01_outbound_domain_Devices|EgressProxy|Squid"
+  },
+  "device_to_rule_id": {
+    "BranchProxy": "bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9",
+    "EgressProxy": "104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d"
+  },
+  "emission_sha256": {
+    "branch_proxy": "1c8c3afb15b6695e364601d23a70cab960f38b24581182789df219b2e48e7149",
+    "egress_proxy": "08ad0f4d31950c1cf4ad6d6f0888e98a657abae61ad00f0e3a2469eacc9d02d7"
+  },
+  "expected_delta": {
+    "add": 2,
+    "remove": 0,
+    "retain": 2
+  },
+  "original_source_indicator": "IOC-KALI-DOMAIN",
+  "rule_ids": [
+    "104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d",
+    "bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9"
+  ],
+  "source_owner_counts": {
+    "BranchProxy": 1,
+    "EgressProxy": 4
+  }
+}

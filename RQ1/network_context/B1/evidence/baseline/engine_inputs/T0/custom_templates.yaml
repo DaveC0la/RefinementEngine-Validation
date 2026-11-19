@@ -1,0 +1,535 @@
+tosca_definitions_version: tosca_simple_yaml_1_2
+
+# =============================================================================
+# Modelling idiom:
+#   * Firewalls          -> company.nodes.NetworkDevice   + NSF IpTables   (L3-L4)
+#   * Web App Firewall   -> company.nodes.WAFDevice       + NSF ModSecurity (L7 inbound)
+#   * Forward proxies    -> company.nodes.NetworkDevice   + NSF Squid       (L7 egress)
+#   * Routing-only nodes -> company.nodes.NetworkDevice   (no NSF -> never an enforcement point)
+#   * Zones / subnets    -> company.nodes.CustomSubnet
+#   * Hosts / services   -> company.nodes.NetworkUser
+#   * Published web app  -> company.nodes.WebApp (behind the WAF)
+#   * External attacker  -> company.nodes.MaliciousUser
+# =============================================================================
+
+imports:
+- file: custom_types.yaml
+
+topology_template:
+  node_templates:
+
+    # =========================================================================
+    # SUBNETS (security zones / segments)
+    # =========================================================================
+
+    Internet:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 80.71.158.0/24
+
+    DMZ_Frontend:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 172.16.10.0/24
+
+    DMZ_Backend:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 172.16.20.0/24
+
+    Backbone:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.255.0.0/24
+
+    WAN_Transit:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 100.64.0.0/24
+
+    Egress_Services:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.1.5.0/24
+
+    Employees:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.20.10.0/24
+
+    Finance:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.20.20.0/24
+
+    Guests:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.30.10.0/24
+
+    Devices:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.30.20.0/24
+
+    Applications:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.40.10.0/24
+
+    Database:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.40.20.0/24
+
+    Identity:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.40.30.0/24
+
+    Security:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.10.10.0/24
+
+    Management:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.10.20.0/24
+
+    Branch_Users:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.70.10.0/24
+
+    Branch_Egress:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.70.5.0/24
+
+    # =========================================================================
+    # FIREWALLS  (NetworkDevice + IpTables, L3-L4)
+    # =========================================================================
+
+    EdgeFirewall:
+      type: company.nodes.NetworkDevice
+      properties:
+        id: edge-fw
+      capabilities:
+        NSFs:
+          properties:
+            supported_functions:
+            - function: IpTables
+              processing_order: 1
+      requirements:
+      - device_subnet:
+          node: Internet
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: DMZ_Frontend
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: WAN_Transit
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: Egress_Services
+          relationship: tosca.relationships.network.LinksTo
+
+    BranchFirewall:
+      type: company.nodes.NetworkDevice
+      properties:
+        id: branch-fw
+      capabilities:
+        NSFs:
+          properties:
+            supported_functions:
+            - function: IpTables
+              processing_order: 1
+      requirements:
+      - device_subnet:
+          node: Branch_Users
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: Branch_Egress
+          relationship: tosca.relationships.network.LinksTo
+
+    AdminFirewall:
+      type: company.nodes.NetworkDevice
+      properties:
+        id: admin-fw
+      capabilities:
+        NSFs:
+          properties:
+            supported_functions:
+            - function: IpTables
+              processing_order: 1
+      requirements:
+      - device_subnet:
+          node: Security
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: Management
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: Backbone
+          relationship: tosca.relationships.network.LinksTo
+
+    CorpFirewall:
+      type: company.nodes.NetworkDevice
+      properties:
+        id: corp-fw
+      capabilities:
+        NSFs:
+          properties:
+            supported_functions:
+            - function: IpTables
+              processing_order: 1
+      requirements:
+      - device_subnet:
+          node: Employees
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: Finance
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: Backbone
+          relationship: tosca.relationships.network.LinksTo
+
+    GuestFirewall:
+      type: company.nodes.NetworkDevice
+      properties:
+        id: guest-fw
+      capabilities:
+        NSFs:
+          properties:
+            supported_functions:
+            - function: IpTables
+              processing_order: 1
+      requirements:
+      - device_subnet:
+          node: Guests
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: Devices
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: Backbone
+          relationship: tosca.relationships.network.LinksTo
+
+    DataCenterFirewall:
+      type: company.nodes.NetworkDevice
+      properties:
+        id: dc-fw
+      capabilities:
+        NSFs:
+          properties:
+            supported_functions:
+            - function: IpTables
+              processing_order: 1
+      requirements:
+      - device_subnet:
+          node: Applications
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: Database
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: Identity
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: Backbone
+          relationship: tosca.relationships.network.LinksTo
+
+    # =========================================================================
+    # WEB APPLICATION FIREWALL  (WAFDevice + ModSecurity, L7 inbound)
+    # =========================================================================
+
+    WebApplicationFirewall:
+      type: company.nodes.WAFDevice
+      properties:
+        id: waf
+      capabilities:
+        NSFs:
+          properties:
+            supported_functions:
+            - function: ModSecurity
+              processing_order: 1
+      requirements:
+      - device_subnet:
+          node: DMZ_Frontend
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: DMZ_Backend
+          relationship: tosca.relationships.network.LinksTo
+      - device_webapp:
+          node: PublicWebApp
+          relationship: tosca.relationships.network.LinksTo
+
+    # =========================================================================
+    # FORWARD PROXIES  (NetworkDevice + Squid, L7 egress)
+    # =========================================================================
+
+    EgressProxy:
+      type: company.nodes.NetworkDevice
+      properties:
+        id: egress-proxy
+      capabilities:
+        NSFs:
+          properties:
+            supported_functions:
+            - function: Squid
+              processing_order: 1
+      requirements:
+      - device_subnet:
+          node: Egress_Services
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: Backbone
+          relationship: tosca.relationships.network.LinksTo
+
+    BranchProxy:
+      type: company.nodes.NetworkDevice
+      properties:
+        id: branch-proxy
+      capabilities:
+        NSFs:
+          properties:
+            supported_functions:
+            - function: Squid
+              processing_order: 1
+      requirements:
+      - device_subnet:
+          node: Branch_Egress
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: WAN_Transit
+          relationship: tosca.relationships.network.LinksTo
+
+    # =========================================================================
+    # ROUTING-ONLY NODES  (NetworkDevice, no NSF -> never enforcement points)
+    # =========================================================================
+
+    ISPRouter:
+      type: company.nodes.NetworkDevice
+      properties:
+        id: isp-router
+      requirements:
+      - device_subnet:
+          node: Internet
+          relationship: tosca.relationships.network.LinksTo
+
+    PrivateWANRouter:
+      type: company.nodes.NetworkDevice
+      properties:
+        id: wan-router
+      requirements:
+      - device_subnet:
+          node: WAN_Transit
+          relationship: tosca.relationships.network.LinksTo
+
+    CoreA:
+      type: company.nodes.NetworkDevice
+      properties:
+        id: core-a
+      requirements:
+      - device_subnet:
+          node: Backbone
+          relationship: tosca.relationships.network.LinksTo
+
+    CoreB:
+      type: company.nodes.NetworkDevice
+      properties:
+        id: core-b
+      requirements:
+      - device_subnet:
+          node: Backbone
+          relationship: tosca.relationships.network.LinksTo
+
+    # =========================================================================
+    # HOSTS / SERVICES  (NetworkUser)
+    # =========================================================================
+
+    # --- Corporate Users zone ---
+    EmployeeHost:
+      type: company.nodes.NetworkUser
+      properties:
+        ip_address: 10.20.10.10
+      requirements:
+      - to_subnet:
+          node: Employees
+          relationship: tosca.relationships.network.LinksTo
+
+    FinanceHost:
+      type: company.nodes.NetworkUser
+      properties:
+        ip_address: 10.20.20.10
+      requirements:
+      - to_subnet:
+          node: Finance
+          relationship: tosca.relationships.network.LinksTo
+
+    # --- Guests & Devices zone ---
+    GuestHost:
+      type: company.nodes.NetworkUser
+      properties:
+        ip_address: 10.30.10.10
+      requirements:
+      - to_subnet:
+          node: Guests
+          relationship: tosca.relationships.network.LinksTo
+
+    IoTDevice:
+      type: company.nodes.NetworkUser
+      properties:
+        ip_address: 10.30.20.10
+      requirements:
+      - to_subnet:
+          node: Devices
+          relationship: tosca.relationships.network.LinksTo
+
+    # --- Data Center zone ---
+    InternalApplication:
+      type: company.nodes.NetworkUser
+      properties:
+        ip_address: 10.40.10.10
+      requirements:
+      - to_subnet:
+          node: Applications
+          relationship: tosca.relationships.network.LinksTo
+
+    DBServer:
+      type: company.nodes.NetworkUser
+      properties:
+        ip_address: 10.40.20.10
+      requirements:
+      - to_subnet:
+          node: Database
+          relationship: tosca.relationships.network.LinksTo
+
+    InternalDNSServer:
+      type: company.nodes.NetworkUser
+      properties:
+        ip_address: 10.40.30.53
+      requirements:
+      - to_subnet:
+          node: Identity
+          relationship: tosca.relationships.network.LinksTo
+
+    # --- Administration zone ---
+    RefinementEngine:
+      type: company.nodes.NetworkUser
+      properties:
+        ip_address: 10.10.10.10
+      requirements:
+      - to_subnet:
+          node: Security
+          relationship: tosca.relationships.network.LinksTo
+
+    SIEMLogCollector:
+      type: company.nodes.NetworkUser
+      properties:
+        ip_address: 10.10.10.20
+      requirements:
+      - to_subnet:
+          node: Security
+          relationship: tosca.relationships.network.LinksTo
+
+    ManagementHost:
+      type: company.nodes.NetworkUser
+      properties:
+        ip_address: 10.10.20.10
+      requirements:
+      - to_subnet:
+          node: Management
+          relationship: tosca.relationships.network.LinksTo
+
+    # --- Branch zone ---
+    BranchHost:
+      type: company.nodes.NetworkUser
+      properties:
+        ip_address: 10.70.10.10
+      requirements:
+      - to_subnet:
+          node: Branch_Users
+          relationship: tosca.relationships.network.LinksTo
+
+    # --- External hosts / services (Internet) ---
+    MaliciousC2Server:
+      type: company.nodes.MaliciousC2Server
+      properties:
+        ip_address: 80.71.158.10
+        ip_is_indicator: true
+        port: "10213"
+      requirements:
+      - to_subnet:
+          node: Internet
+          relationship: tosca.relationships.network.LinksTo
+
+    MaliciousWeb:
+      type: company.nodes.MaliciousWeb
+      properties:
+        ip_address: 80.71.158.20
+        ip_is_indicator: false
+        domain: "malware-c2.example"
+        #hostname: "cdn.malware-c2.example"
+        #url: "/payload/stage2.bin"
+      requirements:
+      - to_subnet:
+          node: Internet
+          relationship: tosca.relationships.network.LinksTo
+
+    BenignWebService:
+      type: company.nodes.NetworkUser
+      properties:
+        ip_address: 80.71.158.30
+      requirements:
+      - to_subnet:
+          node: Internet
+          relationship: tosca.relationships.network.LinksTo
+
+    ExternalDNSServer:
+      type: company.nodes.NetworkUser
+      properties:
+        ip_address: 80.71.158.53
+      requirements:
+      - to_subnet:
+          node: Internet
+          relationship: tosca.relationships.network.LinksTo
+
+    # =========================================================================
+    # PUBLISHED WEB APPLICATION  (WebApp behind the WAF)
+    # =========================================================================
+
+    PublicWebApp:
+      type: company.nodes.WebApp
+      properties:
+        ip_address: 172.16.20.10
+      capabilities:
+        endpoint:
+          properties:
+            protocol:
+            - http
+      requirements:
+      - to_subnet:
+          node: DMZ_Backend
+          relationship: tosca.relationships.network.LinksTo
+      - to_device:
+          node: WebApplicationFirewall
+          relationship: tosca.relationships.network.DependsOn
+
+    # =========================================================================
+    # EXTERNAL ATTACKER
+    # =========================================================================
+
+    MaliciousHost:
+      type: company.nodes.MaliciousUser
+      properties:
+        cidr: 80.71.158.96/32
+        ip_is_indicator: true
+        #port: "443"
+        user_agent: "SilabRAT/1.0"
+        #uri: "/wp-admin/admin-ajax.php"
+      requirements:
+      - to_subnet:
+          node: Internet
+          relationship: tosca.relationships.network.LinksTo

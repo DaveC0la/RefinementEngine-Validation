@@ -1,0 +1,10 @@
+{
+  "command": [
+    "tail",
+    "-n",
+    "100",
+    "/var/log/apache2/other_vhosts_access.log"
+  ],
+  "host": "waf",
+  "returncode": 0
+}

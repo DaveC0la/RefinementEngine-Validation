@@ -1,0 +1,6 @@
+# Example RefinementEngine Squid rule -> drop into shared/outbox/egress_proxy/
+# Full rule = acl + http_access, appended to /etc/squid/re-rules.conf, then
+# squid -k reconfigure. Blocks the (resolvable, reachable) malicious web host,
+# so the test is clean: allowed (200) before, denied (403) after.
+acl re_blk_malweb dstdomain hadleyshope.3utilities.com
+http_access deny re_blk_malweb

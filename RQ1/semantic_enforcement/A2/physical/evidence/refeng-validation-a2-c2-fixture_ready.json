@@ -1,0 +1,11 @@
+{
+  "command": [
+    "docker",
+    "logs",
+    "refeng-validation-a2-c2-fixture"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "A2_BOOT\nA2_BOUND port=8443\nA2_BOUND port=8444\nA2_READY port=8443\nA2_READY port=8444\n",
+  "time_utc": "2026-10-26T14:53:54.320138+00:00"
+}

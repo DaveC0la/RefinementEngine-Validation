@@ -1,0 +1,10 @@
+{
+  "pass": true,
+  "rule_files": {
+    "corp_fw": {
+      "marker": "rq1_a2_01_c2_ipport|CorpFirewall|IpTables",
+      "path": "/workspace/refeng-rq2-novelty/novelty_s6/shared/outbox/corp_fw/re_engine.rules",
+      "sha256": "a21781fab63f2442fde898783a0186ae91ef99c99d34556754bed62766070064"
+    }
+  }
+}

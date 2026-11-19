@@ -1,0 +1,13 @@
+{
+  "expected_removals": 2,
+  "grace_strikes": 2,
+  "note": "Controlled non-actionable CTI observations, not live feed expiry history",
+  "order": [
+    "I1",
+    "C1",
+    "I2",
+    "C2"
+  ],
+  "physical_removal_after": "I2 and C2",
+  "synthetic_observations": true
+}

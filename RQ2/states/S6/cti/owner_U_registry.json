@@ -1,0 +1,10 @@
+{
+  "indicators": [
+    {
+      "ioc_id": "IOC-GOBRUTE-USERAGENT",
+      "type": "user-agent",
+      "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+    }
+  ],
+  "schema_version": 1
+}

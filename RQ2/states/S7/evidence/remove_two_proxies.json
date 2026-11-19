@@ -1,0 +1,15 @@
+{
+  "args": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "/workspace/refeng-rq2-novelty/lab/remove-rules.ps1",
+    "-Once"
+  ],
+  "duration_s": 11.076076143,
+  "ended_utc": "2026-11-18T01:01:35.763388+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-18T01:01:27.370782+00:00",
+  "stderr": "",
+  "stdout": "2026-11-18 02:01:29  remover start (mode: once)\n2026-11-18 02:01:34  REMOVED  branch_proxy  malware-c2.example  (to_ids=0, squid)\n2026-11-18 02:01:35  REMOVED  egress_proxy  malware-c2.example  (to_ids=0, squid)\n"
+}

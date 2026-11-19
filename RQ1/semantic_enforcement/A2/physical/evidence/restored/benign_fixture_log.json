@@ -1,0 +1,11 @@
+{
+  "command": [
+    "docker",
+    "logs",
+    "refeng-validation-a2-benign-fixture"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "A2_BOOT\nA2_BOUND port=8443\nA2_READY port=8443\nA2_ACCESS port=8443 path=/?test=RQ1-A2-01-baseline-other_ip_same_port\nA2_ACCESS port=8443 path=/?test=RQ1-A2-01-deployed-other_ip_same_port\nA2_ACCESS port=8443 path=/?test=RQ1-A2-01-restored-other_ip_same_port\n",
+  "time_utc": "2026-10-26T15:17:14.545424+00:00"
+}

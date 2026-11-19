@@ -1,0 +1,17 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "egress_proxy",
+    "--",
+    "squid",
+    "-k",
+    "parse"
+  ],
+  "duration_s": 3.069447148,
+  "ended_utc": "2026-11-18T00:41:42.442203+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-18T00:41:39.372789+00:00",
+  "stderr": "2026/11/18 00:41:42| Startup: Initializing Authentication Schemes ...\n2026/11/18 00:41:42| Startup: Initialized Authentication Scheme 'basic'\n2026/11/18 00:41:42| Startup: Initialized Authentication Scheme 'digest'\n2026/11/18 00:41:42| Startup: Initialized Authentication Scheme 'negotiate'\n2026/11/18 00:41:42| Startup: Initialized Authentication Scheme 'ntlm'\n2026/11/18 00:41:42| Startup: Initialized Authentication.\n2026/11/18 00:41:42| WARNING: BCP 177 violation. Detected non-functional IPv6 loopback.\n2026/11/18 00:41:42| aclIpParseIpData: IPv6 has not been enabled.\n2026/11/18 00:41:42| aclIpParseIpData: IPv6 has not been enabled.\n2026/11/18 00:41:42| Processing Configuration File: /etc/squid/squid.conf (depth 0)\n2026/11/18 00:41:42| Processing: http_port 3128\n2026/11/18 00:41:42| Processing: acl localnet src 10.0.0.0/8\n2026/11/18 00:41:42| Processing: acl localnet src 172.16.0.0/12\n2026/11/18 00:41:42| Processing: acl internal_dst dst 10.0.0.0/8\n2026/11/18 00:41:42| Processing: acl internal_dst dst 172.16.0.0/12\n2026/11/18 00:41:42| Processing: acl re_denied dstdomain \"/etc/squid/re-denylist.acl\"\n2026/11/18 00:41:42| Warning: empty ACL: acl re_denied dstdomain \"/etc/squid/re-denylist.acl\"\n2026/11/18 00:41:42| Processing: http_access deny re_denied\n2026/11/18 00:41:42| Processing: http_access deny internal_dst\n2026/11/18 00:41:42| Processing: include /etc/squid/re-rules.conf\n2026/11/18 00:41:42| Processing Configuration File: /etc/squid/re-rules.conf (depth 1)\n2026/11/18 00:41:42| Processing: acl re_blk_ad74eacb dstdomain .malware-c2.example\n2026/11/18 00:41:42| Processing: http_access deny re_blk_ad74eacb\n2026/11/18 00:41:42| Processing: http_access allow localnet\n2026/11/18 00:41:42| Processing: http_access deny all\n2026/11/18 00:41:42| Processing: visible_hostname egress_proxy\n2026/11/18 00:41:42| Initializing https:// proxy context\n",
+  "stdout": ""
+}

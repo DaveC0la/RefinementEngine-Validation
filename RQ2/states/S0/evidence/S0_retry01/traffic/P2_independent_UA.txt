@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+Date: Sun, 01 Nov 2026 17:59:04 GMT
+Server: Apache/2.4.67 (Debian)
+Last-Modified: Sun, 01 Nov 2026 17:51:15 GMT
+ETag: "2c-65f3aad05507c"
+Accept-Ranges: bytes
+Content-Length: 44
+Content-Type: text/html
+
+<h1>web_backend: www.acme-corp.example</h1>

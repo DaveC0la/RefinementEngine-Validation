@@ -1,0 +1,8 @@
+# Example RefinementEngine iptables rule -> drop into shared/outbox/guest_fw/
+# Blocks corp Employees (10.20.10.0/24) from reaching the IoT/Devices subnet
+# (10.30.20.0/24), enforced at guest_fw. This flow is ALLOWED at baseline (no
+# HSPL deny, no startup rule), so the before/after test is clean: reachable
+# before the push, dropped after.
+# NOTE: do NOT use devices->branch here - that is now a BASELINE rule (hspl29 in
+# guest_fw.startup), so it would already be denied before any push.
+iptables -A FORWARD -m conntrack --ctstate NEW -s 10.20.10.0/24 -d 10.30.20.0/24 -j DROP

@@ -1,0 +1,30 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "employee",
+    "--",
+    "curl",
+    "-q",
+    "--noproxy",
+    "",
+    "--proxy",
+    "http://10.1.5.2:3128",
+    "-sS",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "14",
+    "-o",
+    "/dev/null",
+    "-w",
+    "__RQ2_HTTP__%{http_code}",
+    "http://allowed.utilities.com/index.html?rq2=RQ2_S3_bb3acbf5e05c44f7831adb6bdf4d2c94_employee_benign"
+  ],
+  "duration_s": 2.55755206,
+  "ended_utc": "2026-11-01T19:41:39.950221+00:00",
+  "rc": 0,
+  "started_utc": "2026-11-01T19:41:37.392698+00:00",
+  "stderr": "",
+  "stdout": "__RQ2_HTTP__200"
+}

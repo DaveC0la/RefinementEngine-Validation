@@ -1,0 +1,12 @@
+{
+  "case_id": "RQ1-B2-01",
+  "deployment": "INSTALLED_NOT_TRAFFIC_TESTED",
+  "device": "branch_fw",
+  "other_firewalls_unchanged": true,
+  "owned_rule_count": 1,
+  "removal": "PENDING",
+  "routing": "T1_BRANCH",
+  "rule_sha256": "46465950c3d014ac2087c9d5a5a18d6ddd22854ef3bd4364c007ff560ee500c9",
+  "status": "B2_T1_DEPLOYMENT_PASS",
+  "timestamp_utc": "2026-10-28T12:51:25.439387+00:00"
+}

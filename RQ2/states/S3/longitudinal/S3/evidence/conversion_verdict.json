@@ -1,0 +1,7 @@
+{
+  "pass": true,
+  "xml": {
+    "BranchProxy_Squid_RuleInstance.xml": "f5687fed4dad242cf9f967f4670ae73164498daa205e2134c818b24155e84f47",
+    "EgressProxy_Squid_RuleInstance.xml": "f5687fed4dad242cf9f967f4670ae73164498daa205e2134c818b24155e84f47"
+  }
+}

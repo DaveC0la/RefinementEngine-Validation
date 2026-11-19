@@ -1,0 +1,14 @@
+{
+  "command": [
+    "kathara",
+    "exec",
+    "waf",
+    "--",
+    "apachectl",
+    "configtest"
+  ],
+  "returncode": 0,
+  "stderr": "AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message\nSyntax OK\n",
+  "stdout": "",
+  "utc": "2026-10-27T09:16:23.455837+00:00"
+}

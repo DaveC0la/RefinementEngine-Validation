@@ -1,0 +1,121 @@
+{
+  "baseline_firewall_rules_preserved": true,
+  "baseline_forward_chain_restored": true,
+  "basic_traffic_and_rule_presence_checks_pass": true,
+  "case_id": "RQ1-A1-01",
+  "checks": {
+    "baseline": {
+      "baseline_denied_pass": true,
+      "control_pass": true,
+      "marker_state_pass": true,
+      "observations": {
+        "baseline_denied": {
+          "host": "branch_user",
+          "returncode": 1,
+          "stderr": "",
+          "stdout": "PING 10.40.20.10 (10.40.20.10) 56(84) bytes of data.\n\n--- 10.40.20.10 ping statistics ---\n1 packets transmitted, 0 received, 100% packet loss, time 0ms\n\n",
+          "target": "10.40.20.10"
+        },
+        "control": {
+          "finished_utc": "2026-10-26T11:50:09.217462+00:00",
+          "host": "benign_web",
+          "http_status": "200",
+          "returncode": 0,
+          "started_utc": "2026-10-26T11:50:06.786987+00:00",
+          "stderr": "",
+          "stdout": "200",
+          "url": "http://www.acme-corp.example/?rq1_a1=control&phase=baseline"
+        },
+        "target": {
+          "finished_utc": "2026-10-26T11:50:06.772165+00:00",
+          "host": "mal_user",
+          "http_status": "200",
+          "returncode": 0,
+          "started_utc": "2026-10-26T11:50:03.027968+00:00",
+          "stderr": "",
+          "stdout": "200",
+          "url": "http://www.acme-corp.example/?rq1_a1=target&phase=baseline"
+        }
+      },
+      "target_pass": true
+    },
+    "deployed": {
+      "baseline_denied_pass": true,
+      "control_pass": true,
+      "marker_state_pass": true,
+      "observations": {
+        "baseline_denied": {
+          "host": "branch_user",
+          "returncode": 1,
+          "stderr": "",
+          "stdout": "PING 10.40.20.10 (10.40.20.10) 56(84) bytes of data.\n\n--- 10.40.20.10 ping statistics ---\n1 packets transmitted, 0 received, 100% packet loss, time 0ms\n\n",
+          "target": "10.40.20.10"
+        },
+        "control": {
+          "finished_utc": "2026-10-26T12:07:04.043024+00:00",
+          "host": "benign_web",
+          "http_status": "200",
+          "returncode": 0,
+          "started_utc": "2026-10-26T12:07:01.611158+00:00",
+          "stderr": "",
+          "stdout": "200",
+          "url": "http://www.acme-corp.example/?rq1_a1=control&phase=deployed"
+        },
+        "target": {
+          "finished_utc": "2026-10-26T12:07:01.602212+00:00",
+          "host": "mal_user",
+          "http_status": "000",
+          "returncode": 28,
+          "started_utc": "2026-10-26T12:06:56.226675+00:00",
+          "stderr": "curl: (28) Failed to connect to www.acme-corp.example port 80 after 3000 ms: Timeout was reached\n",
+          "stdout": "000",
+          "url": "http://www.acme-corp.example/?rq1_a1=target&phase=deployed"
+        }
+      },
+      "target_pass": true
+    },
+    "reset": {
+      "baseline_denied_pass": true,
+      "control_pass": true,
+      "marker_state_pass": true,
+      "observations": {
+        "baseline_denied": {
+          "host": "branch_user",
+          "returncode": 1,
+          "stderr": "",
+          "stdout": "PING 10.40.20.10 (10.40.20.10) 56(84) bytes of data.\n\n--- 10.40.20.10 ping statistics ---\n1 packets transmitted, 0 received, 100% packet loss, time 0ms\n\n",
+          "target": "10.40.20.10"
+        },
+        "control": {
+          "finished_utc": "2026-10-26T12:14:43.762094+00:00",
+          "host": "benign_web",
+          "http_status": "200",
+          "returncode": 0,
+          "started_utc": "2026-10-26T12:14:41.284381+00:00",
+          "stderr": "",
+          "stdout": "200",
+          "url": "http://www.acme-corp.example/?rq1_a1=control&phase=reset"
+        },
+        "target": {
+          "finished_utc": "2026-10-26T12:14:41.274606+00:00",
+          "host": "mal_user",
+          "http_status": "200",
+          "returncode": 0,
+          "started_utc": "2026-10-26T12:14:38.797085+00:00",
+          "stderr": "",
+          "stdout": "200",
+          "url": "http://www.acme-corp.example/?rq1_a1=target&phase=reset"
+        }
+      },
+      "target_pass": true
+    }
+  },
+  "exactly_one_managed_firewall_rule_added": true,
+  "physical_verification_complete": false,
+  "required_manual_checks": [
+    "Diff pre/deployed/reset rule snapshots ignoring counters",
+    "Confirm rule counter increased for blocked target",
+    "Confirm WAF/backend did not observe blocked target; correlate probe timestamps/nonces",
+    "Confirm traffic path and no unrelated baseline-denied change"
+  ]
+}

@@ -1,0 +1,26 @@
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+20 packets captured
+20 packets received by filter
+0 packets dropped by kernel
+18:30:16.740421 IP 203.0.113.2.38188 > 80.71.158.10.10213: Flags [S], seq 3402115972, win 64240, options [mss 1460,sackOK,TS val 3732667409 ecr 0,nop,wscale 7], length 0
+18:30:16.740484 IP 80.71.158.10.10213 > 203.0.113.2.38188: Flags [S.], seq 2104139654, ack 3402115973, win 65160, options [mss 1460,sackOK,TS val 240958896 ecr 3732667409,nop,wscale 7], length 0
+18:30:16.744695 IP 203.0.113.2.38188 > 80.71.158.10.10213: Flags [.], ack 1, win 502, options [nop,nop,TS val 3732667415 ecr 240958896], length 0
+18:30:16.745346 IP 203.0.113.2.38188 > 80.71.158.10.10213: Flags [P.], seq 1:11, ack 1, win 502, options [nop,nop,TS val 3732667415 ecr 240958896], length 10
+18:30:16.745424 IP 80.71.158.10.10213 > 203.0.113.2.38188: Flags [.], ack 11, win 509, options [nop,nop,TS val 240958901 ecr 3732667415], length 0
+18:30:16.745613 IP 80.71.158.10.10213 > 203.0.113.2.38188: Flags [P.], seq 1:13, ack 11, win 509, options [nop,nop,TS val 240958902 ecr 3732667415], length 12
+18:30:16.745676 IP 80.71.158.10.10213 > 203.0.113.2.38188: Flags [F.], seq 13, ack 11, win 509, options [nop,nop,TS val 240958902 ecr 3732667415], length 0
+18:30:16.751069 IP 203.0.113.2.38188 > 80.71.158.10.10213: Flags [.], ack 13, win 502, options [nop,nop,TS val 3732667420 ecr 240958902], length 0
+18:30:16.751314 IP 203.0.113.2.38188 > 80.71.158.10.10213: Flags [F.], seq 11, ack 14, win 502, options [nop,nop,TS val 3732667421 ecr 240958902], length 0
+18:30:16.751349 IP 80.71.158.10.10213 > 203.0.113.2.38188: Flags [.], ack 12, win 509, options [nop,nop,TS val 240958907 ecr 3732667421], length 0
+18:30:19.948816 IP 203.0.113.2.60466 > 80.71.158.10.10214: Flags [S], seq 2385970605, win 64240, options [mss 1460,sackOK,TS val 3732670618 ecr 0,nop,wscale 7], length 0
+18:30:19.948876 IP 80.71.158.10.10214 > 203.0.113.2.60466: Flags [S.], seq 4012104478, ack 2385970606, win 65160, options [mss 1460,sackOK,TS val 240962105 ecr 3732670618,nop,wscale 7], length 0
+18:30:19.952868 IP 203.0.113.2.60466 > 80.71.158.10.10214: Flags [.], ack 1, win 502, options [nop,nop,TS val 3732670623 ecr 240962105], length 0
+18:30:19.953298 IP 203.0.113.2.60466 > 80.71.158.10.10214: Flags [P.], seq 1:12, ack 1, win 502, options [nop,nop,TS val 3732670623 ecr 240962105], length 11
+18:30:19.953363 IP 80.71.158.10.10214 > 203.0.113.2.60466: Flags [.], ack 12, win 509, options [nop,nop,TS val 240962109 ecr 3732670623], length 0
+18:30:19.953558 IP 80.71.158.10.10214 > 203.0.113.2.60466: Flags [P.], seq 1:13, ack 12, win 509, options [nop,nop,TS val 240962109 ecr 3732670623], length 12
+18:30:19.953615 IP 80.71.158.10.10214 > 203.0.113.2.60466: Flags [F.], seq 13, ack 12, win 509, options [nop,nop,TS val 240962110 ecr 3732670623], length 0
+18:30:19.957447 IP 203.0.113.2.60466 > 80.71.158.10.10214: Flags [.], ack 13, win 502, options [nop,nop,TS val 3732670627 ecr 240962109], length 0
+18:30:19.957966 IP 203.0.113.2.60466 > 80.71.158.10.10214: Flags [F.], seq 12, ack 14, win 502, options [nop,nop,TS val 3732670628 ecr 240962110], length 0
+18:30:19.958001 IP 80.71.158.10.10214 > 203.0.113.2.60466: Flags [.], ack 13, win 509, options [nop,nop,TS val 240962114 ecr 3732670628], length 0
+

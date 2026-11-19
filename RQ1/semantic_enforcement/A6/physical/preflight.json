@@ -1,0 +1,10 @@
+{
+  "adapter_enabled": true,
+  "created_utc": "2026-10-27T10:10:08.615619+00:00",
+  "native_frozen_implementation": false,
+  "pass": true,
+  "rule_shas": {
+    "branch_proxy": "4a0f584ebbcba593a0a742e3abb9a3bc169b3cacd959700533e90a690823508f",
+    "egress_proxy": "8405be4902135b5263704e7553454f7f8c0b6ab3335b9784e1108c653c509f25"
+  }
+}

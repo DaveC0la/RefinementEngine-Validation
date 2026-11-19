@@ -1,0 +1,6 @@
+# Example RefinementEngine WAF rule -> drop into shared/outbox/waf/
+# Appended to /etc/modsecurity/re-rules.conf, then `apachectl -k graceful`.
+# Blocks the planted malicious web path on the backend (URLhaus-style IoC),
+# which is served normally before the rule -> 200 before, 403 after.
+# Rule IDs must be unique; re-test with a fresh id (or restart the lab).
+SecRule REQUEST_URI "@contains /malicious/public/path" "id:1000001,phase:1,deny,status:403,msg:'RE: block planted malicious web IoC'"

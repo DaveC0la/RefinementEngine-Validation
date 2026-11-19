@@ -1,0 +1,13 @@
+{
+  "before_xml_restoration_sha256": "fde0dd2aacc11c5c845947f991362feb57740c17485daf18a893630c6e5306d4",
+  "comma_mapping": "one literal comma encoded only in temporary converter input; restored in XML",
+  "encoded_converter_input_sha256": "226824c175d75934cf1ef019afc35ae0b6b5b94c5825eba58cfa2bf235a78c29",
+  "literal_cti_user_agent_preserved": true,
+  "note": "Emitter reads original intermediate JSON, not XML; frozen ModSecurity emitter uses @contains, broader than XML exactMatch.",
+  "pass": true,
+  "source_intermediate_sha256": "a790b070a9a24e3c0a6d1c23d0d79bf0ab10f0f273f3cdc3504d348692b5a08a",
+  "xml": {
+    "WebApplicationFirewall_ModSecurity_RuleInstance.xml": "c51d9781731d4325d86bf2c3cc6b099846bab2af4920b08b72b80a0f6e99b314"
+  },
+  "xml_operator": "exactMatch"
+}

@@ -1,0 +1,53 @@
+{
+  "expected_pre_withdraw_delta": {
+    "add": 1,
+    "remove": 0,
+    "retain": 4
+  },
+  "generated": {
+    "marker": "rq1_a2_01_c2_ipport|CorpFirewall|IpTables",
+    "path": "/workspace/refeng-rq2-novelty/novelty_s6/shared/outbox/corp_fw/re_engine.rules",
+    "sha256": "a21781fab63f2442fde898783a0186ae91ef99c99d34556754bed62766070064"
+  },
+  "owner": {
+    "bundle_id": "SRC-THREATFOX-CECBOT",
+    "hsplid": "rq1_a2_01_c2_ipport",
+    "ioc_id": "IOC-THREATFOX-C2-IPPORT"
+  },
+  "rule": {
+    "capabilities": [
+      {
+        "capability": "DestinationPortConditionCapability",
+        "detail": "8443"
+      },
+      {
+        "capability": "IpDestinationAddressConditionCapability",
+        "detail": "80.71.158.10"
+      },
+      {
+        "capability": "IpSourceAddressConditionCapability",
+        "detail": "10.20.10.10"
+      },
+      {
+        "capability": "AppendRuleActionCapability",
+        "detail": "FORWARD"
+      },
+      {
+        "capability": "RejectActionCapability",
+        "detail": ""
+      },
+      {
+        "capability": "MatchActionCapability",
+        "detail": "conntrack"
+      },
+      {
+        "capability": "ConnTrackStateConditionCapability",
+        "detail": "NEW"
+      }
+    ],
+    "device": "CorpFirewall",
+    "hsplid": "rq1_a2_01_c2_ipport",
+    "nsf": "IpTables"
+  },
+  "rule_id": "1ea6780cd9062adac8e7d9a6ee27982330bb99eaa1680f2aeae537b362c510f4"
+}

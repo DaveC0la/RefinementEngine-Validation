@@ -1,0 +1,44 @@
+{
+  "case_id": "RQ1-B1-01",
+  "cti_provenance": {
+    "indicator": "102.220.161.63:10213",
+    "laboratory_endpoint": "80.71.158.10:10213",
+    "transport": "TCP chosen for experiment; not provided by upstream CTI"
+  },
+  "lab_ip_mapping": {
+    "b1_access_fw_upstream": "10.30.30.2/30",
+    "c2": "80.71.158.10",
+    "guest_default_gateway": "10.30.10.1 (b1_access_fw)",
+    "guest_fw_downstream": "10.30.30.1/30",
+    "guest_host": "10.30.10.10"
+  },
+  "note": "Engine implementation and knowledge have not been modified. New topology and deployment inventory are isolated.",
+  "physical_paths_verified": false,
+  "runtime_execution": false,
+  "source_frr_and_config_hashes": {
+    "admin_fw/etc/frr/frr.conf.lab": "67bcfc212b77e51f0ffe021274ec55c31b0d03f11555d923600696169294a76b",
+    "apply-rules.ps1": "8261c58b11a7ae16d754ca18300dde9c1dfa1be8b0f6d6c4a9d86381c5378b20",
+    "branch_fw/etc/frr/frr.conf.lab": "16c43974132227bc287b76b1f15dde33c238ed6c2386db307a96d8fa4e4791dd",
+    "core_a/etc/frr/frr.conf.lab": "ddcd37ad1f3b45e06d5a8da1fe1ad397a3afc09fd43918a1afe722d19738f654",
+    "core_b/etc/frr/frr.conf.lab": "740eb33c43a40ddd763fb7f72c9e576e282dfe69131b69c044ad6e95e280fdbd",
+    "corp_fw/etc/frr/frr.conf.lab": "8ba574408ea832569524ec6455ec0f8e126946b315fcdd95dbc8b96a36ea10a1",
+    "dc_fw/etc/frr/frr.conf.lab": "ec887ba72e8ce3e6a005ddcd133d1f18bb0aa9074f44f781c54600be45f05d25",
+    "edge_fw/etc/frr/frr.conf.lab": "02169e82b2e8b146d200d839bda89ce530200d48df9b98c91162440a74bfa0be",
+    "guest_fw.startup": "0c4bc70a86dc5cb7d1eaa338febca7d706417a756ff2bea82e2be91ba04cff93",
+    "guest_fw/etc/frr/frr.conf.lab": "61b28b859b4231b24842ef616d2fac7d677f3df7b8ff33efdaa25a42c1c7a0ee",
+    "guest_host.startup": "b1ee119e8ef7124ee1370311e91fee0e231d16ac9e66e03623fef303602d24ba",
+    "lab.conf": "b6777d96e53af0b8df4ba55727c3cd59fcf56f15f50622eb3ef35a7c5a7760a4",
+    "shared/device_map.json": "e15047bdee3768577d952ff07e735a7e76e40cb0e68bf738bed7f3312a1da1cf",
+    "wan_rtr/etc/frr/frr.conf.lab": "7fba3332017d9676d65fb99b5840522a9e3f9b23e6c14ba1401853b4c9ae0565"
+  },
+  "source_hashes": {
+    "device_map": "e15047bdee3768577d952ff07e735a7e76e40cb0e68bf738bed7f3312a1da1cf",
+    "guest_fw_frr": "61b28b859b4231b24842ef616d2fac7d677f3df7b8ff33efdaa25a42c1c7a0ee",
+    "guest_fw_startup": "0c4bc70a86dc5cb7d1eaa338febca7d706417a756ff2bea82e2be91ba04cff93",
+    "lab_conf": "b6777d96e53af0b8df4ba55727c3cd59fcf56f15f50622eb3ef35a7c5a7760a4",
+    "tosca": "9e817bb99c6035ab001ca6b595f39ae29f5443b9a6a7a348af01acba5c33533c",
+    "types": "b5f9641125019d2afa9852b0fc4216eae5ed4ec2ec9752a68257f8740f9ecfa8"
+  },
+  "status": "prepared_offline_not_started",
+  "topology_change": "insert b1_access_fw between guest_host and guest_fw; add OSPF transit 10.30.30.0/30"
+}

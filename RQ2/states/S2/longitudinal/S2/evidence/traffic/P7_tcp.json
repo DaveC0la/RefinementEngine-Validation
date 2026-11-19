@@ -1,0 +1,20 @@
+{
+  "args": [
+    "kathara",
+    "exec",
+    "employee",
+    "--",
+    "nc",
+    "-vz",
+    "-w",
+    "5",
+    "80.71.158.10",
+    "8443"
+  ],
+  "duration_s": 2.538094771,
+  "end_utc": "2026-11-01T19:21:30.501051+00:00",
+  "rc": 0,
+  "start_utc": "2026-11-01T19:21:27.962980+00:00",
+  "stderr": "Connection to 80.71.158.10 8443 port [tcp/*] succeeded!\n",
+  "stdout": ""
+}

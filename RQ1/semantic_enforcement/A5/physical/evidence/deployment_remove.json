@@ -1,0 +1,13 @@
+{
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "/workspace/windows/Desktop/refinement-engine-validation/remove-rules.ps1",
+    "-Once"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "2026-10-27 10:26:22  remover start (mode: once)\n2026-10-27 10:26:25  REMOVED  waf           Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36  (experimental_reset, waf)\n",
+  "utc": "2026-10-27T09:26:26.011350+00:00"
+}

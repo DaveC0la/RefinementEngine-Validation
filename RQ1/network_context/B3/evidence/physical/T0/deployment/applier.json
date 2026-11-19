@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/usr/bin/pwsh",
+    "-NoLogo",
+    "-NoProfile",
+    "-NonInteractive",
+    "-File",
+    "/workspace/refeng-b3/RQ1-B3-01/kathara_lab/apply-rules.ps1",
+    "-Once"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "2026-10-28 15:48:42  watcher start (mode: once; controls: edge_fw,admin_fw,guest_fw,corp_fw,dc_fw,branch_fw,waf,egress_proxy,branch_proxy)\n2026-10-28 15:48:47  APPLIED  guest_fw      re_engine.rules  (+1 item(s), iptables)\n",
+  "utc": "2026-10-28T14:48:48.143067+00:00"
+}

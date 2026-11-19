@@ -1,0 +1,2 @@
+2026-10-26 13:06:20  watcher start (mode: once; controls: edge_fw,admin_fw,guest_fw,corp_fw,dc_fw,branch_fw,waf,egress_proxy,branch_proxy)
+2026-10-26 13:06:26  APPLIED  edge_fw       rq1_a1_01.rules  (+1 item(s), iptables)

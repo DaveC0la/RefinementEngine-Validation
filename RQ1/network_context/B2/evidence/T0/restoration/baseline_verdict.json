@@ -1,0 +1,33 @@
+{
+  "case_id": "RQ1-B2-01",
+  "checks": {
+    "b2_rule_still_absent": true,
+    "both_connections_accepted_by_c2": true,
+    "control_connection_allowed": true,
+    "control_syn_absent_at_branch": true,
+    "control_syn_at_edge": true,
+    "control_syn_reached_c2": true,
+    "firewall_configurations_unchanged": true,
+    "target_connection_allowed": true,
+    "target_syn_absent_at_branch": true,
+    "target_syn_at_edge": true,
+    "target_syn_reached_c2": true
+  },
+  "deployment": "NOT_PERFORMED",
+  "near_match": {
+    "elapsed": 0.006,
+    "outcome": "CONNECTED",
+    "port": 10214,
+    "response": "B2_OK_10214\n"
+  },
+  "pass": true,
+  "routing": "T0_EDGE",
+  "status": "B2_T0_TCP_BASELINE_PASS",
+  "target": {
+    "elapsed": 0.017,
+    "outcome": "CONNECTED",
+    "port": 10213,
+    "response": "B2_OK_10213\n"
+  },
+  "utc": "2026-10-28T11:45:15.593232+00:00"
+}

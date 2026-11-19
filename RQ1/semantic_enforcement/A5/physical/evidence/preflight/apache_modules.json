@@ -1,0 +1,14 @@
+{
+  "command": [
+    "kathara",
+    "exec",
+    "waf",
+    "--",
+    "apachectl",
+    "-M"
+  ],
+  "returncode": 0,
+  "stderr": "AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message\n",
+  "stdout": "Loaded Modules:\n core_module (static)\n so_module (static)\n watchdog_module (static)\n http_module (static)\n log_config_module (static)\n logio_module (static)\n version_module (static)\n unixd_module (static)\n access_compat_module (shared)\n alias_module (shared)\n auth_basic_module (shared)\n authn_core_module (shared)\n authn_file_module (shared)\n authz_core_module (shared)\n authz_host_module (shared)\n authz_user_module (shared)\n autoindex_module (shared)\n deflate_module (shared)\n dir_module (shared)\n env_module (shared)\n filter_module (shared)\n headers_module (shared)\n mime_module (shared)\n mpm_event_module (shared)\n negotiation_module (shared)\n proxy_module (shared)\n proxy_http_module (shared)\n reqtimeout_module (shared)\n security2_module (shared)\n setenvif_module (shared)\n status_module (shared)\n unique_id_module (shared)\n",
+  "utc": "2026-10-27T09:16:10.333268+00:00"
+}

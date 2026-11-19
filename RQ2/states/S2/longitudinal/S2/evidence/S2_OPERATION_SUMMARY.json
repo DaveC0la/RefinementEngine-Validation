@@ -1,0 +1,11 @@
+{
+  "adaptation_latency_to_completed_physical_verification_s": 1975.449377576,
+  "additions": 1,
+  "includes_traffic_probes": true,
+  "native_match_semantics": "ModSecurity @contains",
+  "operation_id": "add:9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4",
+  "removals": 0,
+  "replacements": 0,
+  "unnecessary_device_operations": 0,
+  "verified_at_utc": "2026-11-01T19:21:51.141453+00:00"
+}

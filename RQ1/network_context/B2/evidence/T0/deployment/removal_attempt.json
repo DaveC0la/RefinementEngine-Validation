@@ -1,0 +1,28 @@
+{
+  "case_id": "RQ1-B2-01",
+  "command": [
+    "iptables",
+    "-D",
+    "FORWARD",
+    "-m",
+    "conntrack",
+    "--ctstate",
+    "NEW",
+    "-s",
+    "10.80.10.10",
+    "-d",
+    "80.71.158.10",
+    "-p",
+    "tcp",
+    "--dport",
+    "10213",
+    "-m",
+    "comment",
+    "--comment",
+    "rq1_b2_01_wan_c2_ipport|EdgeFirewall|IpTables",
+    "-j",
+    "DROP"
+  ],
+  "status": "EXACT_REMOVAL_STARTED",
+  "timestamp_utc": "2026-10-28T11:03:34.975580+00:00"
+}

@@ -1,0 +1,12 @@
+#!/bin/sh
+# startup for web_backend
+ip link set eth0 up
+ip addr add 172.16.20.10/24 dev eth0
+ip route add default via 172.16.20.1
+# --- start Apache web server ---
+mkdir -p /var/www/html
+echo '<h1>web_backend: www.acme-corp.example</h1>' > /var/www/html/index.html
+# --- planted malicious endpoint (URLhaus-style web IoC placeholder) ---
+mkdir -p /var/www/html/malicious/public
+echo '<h1>web_backend: PLANTED malicious resource (/malicious/public/path)</h1>' > /var/www/html/malicious/public/path
+(service apache2 restart >/dev/null 2>&1) || (apachectl restart >/dev/null 2>&1) || true

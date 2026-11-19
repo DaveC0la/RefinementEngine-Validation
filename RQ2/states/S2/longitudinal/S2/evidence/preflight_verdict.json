@@ -1,0 +1,9 @@
+{
+  "S0_waf_sha256": "1f78e5365366d4c84da52d2b7aa78d5c9c9316c69779690d260d5f91f8c6f067",
+  "S1_edge_rule": "-A FORWARD -s 80.71.158.96/32 -d 172.16.10.2/32 -p tcp -m conntrack --ctstate NEW -m tcp --dport 80 -m comment --comment \"rq2_s1_srcip|EdgeFirewall|IpTables\" -j DROP",
+  "S1_state_sha256": "f2aec0e3b855109ebf4b049634a7e0a1185d6af18707d1d55b8615a32e6238a7",
+  "checked_utc": "2026-11-01T18:49:05.698876+00:00",
+  "pass": true,
+  "pending_additions": 1,
+  "pending_removals": 0
+}

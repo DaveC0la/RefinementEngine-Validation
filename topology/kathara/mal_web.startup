@@ -1,0 +1,10 @@
+#!/bin/sh
+# startup for mal_web
+ip link set eth0 up
+ip addr add 80.71.158.20/24 dev eth0
+ip route add default via 80.71.158.1
+echo 'nameserver 80.71.158.53' > /etc/resolv.conf
+# --- start Apache web server ---
+mkdir -p /var/www/html
+echo '<h1>mal_web: hadleyshope.3utilities.com</h1>' > /var/www/html/index.html
+(service apache2 restart >/dev/null 2>&1) || (apachectl restart >/dev/null 2>&1) || true

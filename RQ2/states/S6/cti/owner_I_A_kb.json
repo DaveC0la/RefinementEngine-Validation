@@ -1,0 +1,16 @@
+[
+  {
+    "decayed": false,
+    "expiry_strikes": 2,
+    "last_checked": "2026-11-18T00:37:41.861473+00:00",
+    "ownership_withdrawn_at": "2026-11-18T00:37:41.861473+00:00",
+    "seen_in_feed": true,
+    "snapshot_id": "NOVELTY-S6-SOURCE-A-OBS-02",
+    "source_id": "SRC-CIRCL-KRVTZ",
+    "status": "ownership_withdrawn",
+    "to_ids": false,
+    "type": "source-ipv4",
+    "value": "80.71.158.96/32",
+    "withdrawal_signal": "to_ids=0"
+  }
+]

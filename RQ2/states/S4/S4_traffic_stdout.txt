@@ -1,0 +1,39 @@
+[PASS] physical_edge_fw
+[PASS] physical_waf
+[PASS] physical_egress_proxy
+[PASS] physical_branch_proxy
+[PASS] S1_source_ip_denied: rc=28 http=000 expected=000
+[PASS] S2_user_agent_denied: rc=0 http=403 expected=403
+[PASS] benign_ingress_allowed: rc=0 http=200 expected=200
+[PASS] employee_target: rc=0 http=403 expected=403
+[PASS] employee_subdomain: rc=0 http=403 expected=403
+[PASS] employee_other_path: rc=0 http=403 expected=403
+[PASS] employee_benign: rc=0 http=200 expected=200
+[PASS] employee_direct_ip: rc=0 http=200 expected=200
+[PASS] finance_target: rc=0 http=403 expected=403
+[PASS] finance_subdomain: rc=0 http=403 expected=403
+[PASS] finance_other_path: rc=0 http=403 expected=403
+[PASS] finance_benign: rc=0 http=200 expected=200
+[PASS] finance_direct_ip: rc=0 http=200 expected=200
+[PASS] guest_host_target: rc=0 http=403 expected=403
+[PASS] guest_host_subdomain: rc=0 http=403 expected=403
+[PASS] guest_host_other_path: rc=0 http=403 expected=403
+[PASS] guest_host_benign: rc=0 http=200 expected=200
+[PASS] guest_host_direct_ip: rc=0 http=200 expected=200
+[PASS] iot_device_target: rc=0 http=403 expected=403
+[PASS] iot_device_subdomain: rc=0 http=403 expected=403
+[PASS] iot_device_other_path: rc=0 http=403 expected=403
+[PASS] iot_device_benign: rc=0 http=200 expected=200
+[PASS] iot_device_direct_ip: rc=0 http=200 expected=200
+[PASS] branch_user_target: rc=0 http=403 expected=403
+[PASS] branch_user_subdomain: rc=0 http=403 expected=403
+[PASS] branch_user_other_path: rc=0 http=403 expected=403
+[PASS] branch_user_benign: rc=0 http=200 expected=200
+[PASS] branch_user_direct_ip: rc=0 http=200 expected=200
+[PASS] C2_target: rc=0 http=- expected=-
+[PASS] C2_port_nearmatch: rc=0 http=- expected=-
+[PASS] C2_address_nearmatch: rc=0 http=- expected=-
+[PASS] baseline_denied
+[PASS] S3 live traffic gate (32 probes); report: /workspace/refeng-rq2-novelty/s3_traffic_gate/s3_traffic_d4a3b65152c5.json
+[NEXT] S3 physical baseline accepted for isolated novelty campaign; S4 may be prepared
+
