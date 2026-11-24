@@ -1,0 +1,226 @@
+{
+  "schema_version": 2,
+  "src_subnet": "SyntheticS2Source",
+  "dst_subnet": "SyntheticS2Destination",
+  "paths": [
+    [
+      "S2Hub",
+      "S2Local1",
+      "S2_Link01"
+    ],
+    [
+      "S2Hub",
+      "S2Local1",
+      "S2_Link02"
+    ],
+    [
+      "S2Local1",
+      "S2_Link03"
+    ],
+    [
+      "S2Hub",
+      "S2Local2",
+      "S2_Link04"
+    ],
+    [
+      "S2Hub",
+      "S2Local2",
+      "S2_Link05"
+    ],
+    [
+      "S2Local2",
+      "S2_Link06"
+    ],
+    [
+      "S2Hub",
+      "S2Local3",
+      "S2_Link07"
+    ],
+    [
+      "S2Hub",
+      "S2Local3",
+      "S2_Link08"
+    ],
+    [
+      "S2Local3",
+      "S2_Link09"
+    ],
+    [
+      "S2Hub",
+      "S2Local4",
+      "S2_Link10"
+    ],
+    [
+      "S2Hub",
+      "S2Local4",
+      "S2_Link11"
+    ],
+    [
+      "S2Local4",
+      "S2_Link12"
+    ]
+  ],
+  "req_capabilities": [
+    "IpDestinationAddressConditionCapability"
+  ],
+  "placement_capabilities": [
+    "IpDestinationAddressConditionCapability"
+  ],
+  "bundles": [
+    {
+      "bundle_id": "S2_SingleAtomicBundle",
+      "placement_capabilities": [
+        "IpDestinationAddressConditionCapability"
+      ]
+    }
+  ],
+  "candidates": {
+    "S2Hub\u0001IpTables": {
+      "path_caps": [
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        []
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 0,
+      "freq": 8
+    },
+    "S2Local1\u0001IpTables": {
+      "path_caps": [
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 0,
+      "freq": 3
+    },
+    "S2Local2\u0001IpTables": {
+      "path_caps": [
+        [],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 0,
+      "freq": 3
+    },
+    "S2Local3\u0001IpTables": {
+      "path_caps": [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        []
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 0,
+      "freq": 3
+    },
+    "S2Local4\u0001IpTables": {
+      "path_caps": [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ]
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 0,
+      "freq": 3
+    }
+  },
+  "selected": [],
+  "description": "Four local branches: global hub covers 8; each local covers 3 with a unique residual path; abstract allocation-only fixture, NOT TOSCA or Kathara"
+}

@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Content-Length: 45
+Content-Type: text/html
+Date: Sun, 01 Nov 2026 18:09:35 GMT
+Server: Apache/2.4.67 (Debian)
+Last-Modified: Sun, 01 Nov 2026 17:51:12 GMT
+ETag: "2d-65f3aacd5e27c"
+Accept-Ranges: bytes
+Age: 0
+X-Cache: HIT from egress_proxy
+X-Cache-Lookup: HIT from egress_proxy:3128
+Via: 1.1 egress_proxy (squid/5.7)
+Connection: keep-alive
+
+<h1>mal_web: hadleyshope.3utilities.com</h1>

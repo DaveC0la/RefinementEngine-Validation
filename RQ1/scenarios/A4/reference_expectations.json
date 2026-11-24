@@ -1,0 +1,126 @@
+{
+  "case_id": "RQ1-A4-01",
+  "source_reference_sha256": "444d0be38223fc05ba6098179adab3ebc6a166e6bdc338e0d75cc5cc2c1c11d0",
+  "reference_type": "Selected scientific expectations extracted from the original independent case oracle; see SOURCE_MAP.csv",
+  "input": {
+    "action": "is not authorized to access",
+    "expected_expanded_rules": {
+      "rq1_a4_01_outbound_url_Branch_Users": [
+        "BranchProxy",
+        "Squid"
+      ],
+      "rq1_a4_01_outbound_url_Devices": [
+        "EgressProxy",
+        "Squid"
+      ],
+      "rq1_a4_01_outbound_url_Employees": [
+        "EgressProxy",
+        "Squid"
+      ],
+      "rq1_a4_01_outbound_url_Finance": [
+        "EgressProxy",
+        "Squid"
+      ],
+      "rq1_a4_01_outbound_url_Guests": [
+        "EgressProxy",
+        "Squid"
+      ]
+    },
+    "hspl_id": "rq1_a4_01_outbound_url",
+    "object": "MaliciousWeb",
+    "subject": "Corporate_Users"
+  },
+  "cti": {
+    "indicator_id": "IOC-URLHAUS-PATH-BINSH",
+    "original_indicator": "http://221.15.9.104:39894/bin.sh",
+    "original_path": "/bin.sh"
+  },
+  "expected_enforcement": {
+    "device_map": {
+      "BranchProxy": "branch_proxy",
+      "EgressProxy": "egress_proxy"
+    },
+    "expected_pairs": [
+      [
+        "EgressProxy",
+        "Squid"
+      ],
+      [
+        "BranchProxy",
+        "Squid"
+      ]
+    ],
+    "required_capabilities": {
+      "RejectActionCapability": "",
+      "UrlPathRegexConditionCapability": "http://80.71.158.20/index.html"
+    }
+  },
+  "reference_traffic": {
+    "expected_baseline_statuses": {
+      "near_match": "404",
+      "other_host_same_path": "200",
+      "same_host_benign": "200",
+      "target": "200",
+      "target_query": "200"
+    },
+    "expected_deployed_statuses": {
+      "near_match": "404",
+      "other_host_same_path": "200",
+      "same_host_benign": "200",
+      "target": "403",
+      "target_query": "403"
+    },
+    "expected_restored_statuses": {
+      "near_match": "404",
+      "other_host_same_path": "200",
+      "same_host_benign": "200",
+      "target": "200",
+      "target_query": "200"
+    },
+    "near_match": "http://80.71.158.20/index.html-extra",
+    "other_host_same_path": "http://80.71.158.30/index.html",
+    "proxy_denial": "Squid TCP_DENIED/403 in respective proxy log; denied requests absent from external origin access log",
+    "same_host_benign": "http://80.71.158.20/",
+    "sources": [
+      {
+        "lab_device": "employee",
+        "proxy": "egress_proxy",
+        "proxy_url": "http://10.1.5.2:3128",
+        "scope": "Employees"
+      },
+      {
+        "lab_device": "finance",
+        "proxy": "egress_proxy",
+        "proxy_url": "http://10.1.5.2:3128",
+        "scope": "Finance"
+      },
+      {
+        "lab_device": "guest_host",
+        "proxy": "egress_proxy",
+        "proxy_url": "http://10.1.5.2:3128",
+        "scope": "Guests"
+      },
+      {
+        "lab_device": "iot_device",
+        "proxy": "egress_proxy",
+        "proxy_url": "http://10.1.5.2:3128",
+        "scope": "Devices"
+      },
+      {
+        "lab_device": "branch_user",
+        "proxy": "branch_proxy",
+        "proxy_url": "http://10.70.20.10:3128",
+        "scope": "Branch_Users"
+      }
+    ],
+    "target": "http://80.71.158.20/index.html",
+    "target_query": "http://80.71.158.20/index.html?probe=1"
+  },
+  "validation_boundary": "The installed Squid rule uses a host-qualified absolute URL, not an unrestricted path-only predicate; the laboratory URL is a controlled substitute.",
+  "lab_substitution": {
+    "lab_address": "80.71.158.20",
+    "lab_host": "mal_web",
+    "lab_url": "http://80.71.158.20/index.html"
+  },
+  "note": "Host-qualified HTTP URL evaluated on isolated laboratory endpoint; see README and original source reference."
+}

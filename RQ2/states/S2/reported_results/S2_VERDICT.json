@@ -1,0 +1,115 @@
+{
+  "checked_utc": "2026-11-01T19:21:51.127392+00:00",
+  "checks": {
+    "C2_and_nearmatches_unaffected": true,
+    "S1_edge_rule_preserved": true,
+    "S1_source_ip_still_denied": true,
+    "S2_contains_matching_confirmed": true,
+    "S2_exact_UA_denied": true,
+    "WAF_exact_rule_presence": true,
+    "allowed_P3_reaches_backend": true,
+    "applier_archive_exactly_once": true,
+    "baseline_denial_preserved": true,
+    "benign_user_agent_allowed": true,
+    "blocked_S1_absent_at_WAF": true,
+    "blocked_S2_absent_backend": true,
+    "blocked_S2_reaches_WAF": true,
+    "near_match_user_agent_allowed": true,
+    "no_S2_failed_archive": true,
+    "no_pending_outbox": true,
+    "no_pending_removals": true,
+    "proxy_benign_unaffected": true,
+    "proxy_domain_unaffected": true
+  },
+  "effective_rule_id": "9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4",
+  "marker": "rq1_a5_01_inbound_useragent|WebApplicationFirewall|ModSecurity",
+  "pass": true,
+  "state": "S2",
+  "traffic": {
+    "P1": {
+      "http_status": "000",
+      "rc": 28,
+      "stderr": "curl: (28) Failed to connect to www.acme-corp.example port 80 after 4001 ms: Timeout was reached\n"
+    },
+    "P10": {
+      "http_status": null,
+      "rc": 1,
+      "stderr": ""
+    },
+    "P2": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "P2_contains": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "P3": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "P3_nearmatch": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "P4_branch_user": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "P4_employee": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "P4_finance": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "P4_guest_host": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "P6_branch_user": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "P6_employee": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "P6_finance": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "P6_guest_host": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "P7": {
+      "http_status": null,
+      "rc": 0,
+      "stderr": "Connection to 80.71.158.10 8443 port [tcp/*] succeeded!\n"
+    },
+    "P8": {
+      "http_status": null,
+      "rc": 0,
+      "stderr": "Connection to 80.71.158.10 8444 port [tcp/*] succeeded!\n"
+    },
+    "P9": {
+      "http_status": null,
+      "rc": 0,
+      "stderr": "Connection to 80.71.158.20 8443 port [tcp/*] succeeded!\n"
+    }
+  }
+}

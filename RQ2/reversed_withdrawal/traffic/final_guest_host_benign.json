@@ -1,0 +1,7 @@
+{
+  "probe": "final_guest_host_benign",
+  "http_status": "200",
+  "return_code": 0,
+  "source_record": "RQ2/reversed_withdrawal/longitudinal/REVERSE2/evidence/final_guest_host_benign.json",
+  "original_sha256": "2246e187738596e58c8d663b807633f6b7a7ec44a23065172885b53d057195e8"
+}

@@ -1,0 +1,7 @@
+{
+  "exit_code": 1,
+  "classification_message": "***ERROR***: Intent unenforceable: no in-scope NSF for capability caps: ['DestinationDomainConditionCapability']; Something went wrong: errors detected or configuration issues: [{'message': 'Intent unenforceable: no in-scope NSF for capability', 'detail': \"caps: ['DestinationDomainConditionCapability']\", 'hsplid': 'rq1_c3_01_domain_offpath'}]",
+  "generated_rule_artifact": null,
+  "original_execution_sha256": "a8271bffddc6c72c2d27253de1b3ce1a1e72621a6c28aa8c93d89c546f474b5d",
+  "original_record_path": "RQ1/negative_cases/C3/evidence/negative/execution.json"
+}

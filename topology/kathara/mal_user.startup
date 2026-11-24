@@ -1,0 +1,6 @@
+#!/bin/sh
+# startup for mal_user
+ip link set eth0 up
+ip addr add 80.71.158.96/24 dev eth0
+ip route add default via 80.71.158.1
+echo 'nameserver 80.71.158.53' > /etc/resolv.conf

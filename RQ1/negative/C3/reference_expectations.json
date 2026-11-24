@@ -1,0 +1,39 @@
+{
+  "available_compatible_control": [
+    "EgressProxy",
+    "Squid"
+  ],
+  "both_states_same_prohibition": true,
+  "case_id": "RQ1-C3-01",
+  "control": {
+    "expected": "SUCCESS_AT_EGRESS_PROXY_SQUID",
+    "path": [
+      "Guests",
+      "EgressProxy",
+      "InspectionTransit",
+      "WebApplicationFirewall",
+      "Internet"
+    ]
+  },
+  "deployment": "FORBIDDEN",
+  "frozen_before_engine": true,
+  "negative": {
+    "compatible_Squid_still_present": true,
+    "expected": "EXPLICIT_OFFPATH_OR_SCOPE_INFEASIBILITY",
+    "path": [
+      "Guests",
+      "TransitRouter",
+      "InspectionTransit",
+      "WebApplicationFirewall",
+      "Internet"
+    ],
+    "squid_off_path": true,
+    "waf_not_eligible": "WAF scope excludes Internet; cannot enforce the domain condition"
+  },
+  "required_condition": "DestinationDomainConditionCapability=malware-c2.example",
+  "scope": "Synthetic model-based L7 placement validation; not a physical traffic test",
+  "status": "C3_INDEPENDENT_ORACLE_FROZEN",
+  "utc": "2026-10-28T16:08:48.198597+00:00",
+  "reference_source_sha256": "86546b3356b709e5dc901efb821aa23bc4e62c1b6bef0f5aa710bb104899d5a6",
+  "note": "Curated extraction of independently specified expected outcomes; source fingerprints available through historical research archive, not a public engine checkout."
+}

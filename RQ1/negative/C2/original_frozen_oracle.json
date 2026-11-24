@@ -1,0 +1,63 @@
+{
+  "case_id": "RQ1-C2-01",
+  "control": {
+    "expected": "SUCCESS_WITH_EGRESS_PROXY_SQUID",
+    "required_conditions": [
+      "DestinationPortConditionCapability",
+      "IpDestinationAddressConditionCapability",
+      "IpSourceAddressConditionCapability"
+    ]
+  },
+  "created_utc": "2026-10-28T15:47:12.809895+00:00",
+  "deployment": "FORBIDDEN",
+  "destination_port": "10213",
+  "engine_hashes": {
+    "src/engine/catalogue.py": "67ca38072da5919087f9ddc5d0c3009ed83e5f3d6586783667f5b885e89aea0a",
+    "src/engine/constants.py": "825fb1589037e92cf1fcf6f6ff2b68126cc700f7082ea3d048a3dfd3943b35d6",
+    "src/refinement.py": "d958d292068d0ea320c6397b816aa69bad44923614437735f69a181de0494ed1"
+  },
+  "frozen_before_engine": true,
+  "inputs_sha256": {
+    "control/custom_templates.yaml": "3145adee601e903bcb58157cc17b9c5a92187669d1fafb5b254922fb19130d4e",
+    "control/custom_types.yaml": "b5f9641125019d2afa9852b0fc4216eae5ed4ec2ec9752a68257f8740f9ecfa8",
+    "control/policy.xml": "ed764bef9fc96c80ac69ee4bf9b71fc445e522f0e5713df7cbd5e63cc8519837",
+    "negative/custom_templates.yaml": "6ea31c5cf5d2eb8740b34553f481ff09cd6f7b503f7088203bdf5ee02489b2de",
+    "negative/custom_types.yaml": "b5f9641125019d2afa9852b0fc4216eae5ed4ec2ec9752a68257f8740f9ecfa8",
+    "negative/policy.xml": "ed764bef9fc96c80ac69ee4bf9b71fc445e522f0e5713df7cbd5e63cc8519837"
+  },
+  "negative": {
+    "expected": "EXPLICIT_NO_FEASIBLE_ATOMIC_BUNDLE_PLACEMENT",
+    "individual_capabilities_available": true,
+    "joint_capabilities_available": false,
+    "note": "IpSource and IpDestination on ModSecurity excluded by frozen engine configuration.",
+    "on_path_pair_support": {
+      "EgressProxy/Squid": [
+        "DestinationPortConditionCapability",
+        "IpDestinationAddressConditionCapability",
+        "IpSourceAddressConditionCapability"
+      ],
+      "WebApplicationFirewall/ModSecurity": [
+        "DestinationPortConditionCapability",
+        "SourcePortConditionCapability"
+      ]
+    },
+    "required_conditions": [
+      "DestinationPortConditionCapability",
+      "IpDestinationAddressConditionCapability",
+      "IpSourceAddressConditionCapability",
+      "SourcePortConditionCapability"
+    ]
+  },
+  "path": [
+    "Guests",
+    "EgressProxy",
+    "InspectionTransit",
+    "WebApplicationFirewall",
+    "Internet"
+  ],
+  "scope": "Synthetic model-based negative feasibility; no physical topology claim",
+  "source_b3": "/home/david/refeng-b3/RQ1-B3-01/corrected_direct_tcp_v2",
+  "source_engine": "/mnt/c/Users/david/Desktop/refinement-engine",
+  "source_port": "54321",
+  "status": "C2_INDEPENDENT_ORACLE_FROZEN"
+}

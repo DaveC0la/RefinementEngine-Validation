@@ -1,0 +1,6 @@
+# RefinementEngine ModSecurity rules (filled by the Translator)
+# (empty before refinement)
+# RefinementEngine -> waf (waf); 1 rule(s)
+# >>> rid=rq1_a3_01_inbound_path|WebApplicationFirewall|ModSecurity
+SecRule REQUEST_URI "@rx ^/malicious/public/path([?].*|$)" "id:1564707,phase:1,deny,status:403,msg:'RE block URL IoC',tag:'rid=rq1_a3_01_inbound_path|WebApplicationFirewall|ModSecurity'"
+# <<< rid=rq1_a3_01_inbound_path|WebApplicationFirewall|ModSecurity

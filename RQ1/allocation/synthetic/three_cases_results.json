@@ -1,0 +1,220 @@
+{
+  "status": "RQ1_STRUCTURAL_THREE_CASES_PASS",
+  "experiment": "RQ1-ALLOCATION-QUALITY-STRUCTURAL-V2",
+  "model": "schema-v2 synthetic path/candidate incidence",
+  "backend": "pulp-cbc",
+  "backend_version": "3.3.2",
+  "repeats": 25,
+  "source_hashes": {
+    "reference_benchmark.py": "84503644d6d00311c24da4df6638fa42f47846916b1ad8e1667e7d8238346949",
+    "reference_placement_ilp_check.py": "1974d7793477563bdd436dc086a033110fcf87b875c10f815a1ee88a92784daa",
+    "three_cases.py": "d2f6c1ca652af591b071fd426e2296b28ee93cd039081fc3bfc59a14f4e6c50c"
+  },
+  "inputs": {
+    "S1": {
+      "input_sha256": "118a38f633d8d7142e04ac0322955907abe6f40bb519010498b407c5da076e0f",
+      "coverage_sha256": "27987fc22cdfea68956ba20749657e635b66339a0586406abbc9a8c42306521b"
+    },
+    "S2": {
+      "input_sha256": "ef1fae6d57bf2430b96e37f0dc2dab9fc760909ace6dcbcdc8a92e7327dfc429",
+      "coverage_sha256": "c007fb02cdbe41c955f0b9d8418e22b0287c7b7151d60579b8f78925d1e56d93"
+    },
+    "S3": {
+      "input_sha256": "38b90295998c34a1ac10a211b2e1665a8aa9831a77b49e1dcbfc2d191a3bf5bb",
+      "coverage_sha256": "25189b6d1276d31a914c23366dfd390b949c1d23c32e9c5de8f1ded5895dabbe"
+    }
+  },
+  "reference_real_cohort": {
+    "source_sha256": "9fc15752332bfd0d1a9cf83bc292f922ffea4f6f0e5ed2054afd716b0f719054",
+    "count": 5,
+    "all_optimal": true,
+    "note": "Read-only reference to original 5 B-series traces; NOT rerun in this experiment."
+  },
+  "results": [
+    {
+      "label": "S1 - Complementary coverage (greedy optimal)",
+      "cohort": "synthetic-structural",
+      "input_sha256": "9bf9dcc0330e9e4be3112de3d54f7cae79823b9a1a958382efaaaf03dde7d5da",
+      "paths": 6,
+      "bundles": 1,
+      "candidates": 4,
+      "selected_pairs_greedy": 2,
+      "selected_pairs_ilp": 2,
+      "optimal": true,
+      "excess_pairs": 0,
+      "relative_excess_percent": 0.0,
+      "greedy_pairs": [
+        [
+          "S1A",
+          "IpTables"
+        ],
+        [
+          "S1B",
+          "IpTables"
+        ]
+      ],
+      "ilp_pairs": [
+        [
+          "S1A",
+          "IpTables"
+        ],
+        [
+          "S1B",
+          "IpTables"
+        ]
+      ],
+      "frozen_engine_replay_match": null,
+      "greedy_timing": {
+        "median_ms": 0.01933,
+        "p95_ms": 0.02098,
+        "samples": 25
+      },
+      "ilp_timing": {
+        "median_ms": 11.93233,
+        "p95_ms": 12.58371,
+        "samples": 25
+      },
+      "case_id": "S1"
+    },
+    {
+      "label": "S2 - High-coverage hub plus local alternatives",
+      "cohort": "synthetic-structural",
+      "input_sha256": "cf0971011e73bb8c3cc7415b157df0af6d1e59da90c2e747789253a333cd6b42",
+      "paths": 12,
+      "bundles": 1,
+      "candidates": 5,
+      "selected_pairs_greedy": 5,
+      "selected_pairs_ilp": 4,
+      "optimal": false,
+      "excess_pairs": 1,
+      "relative_excess_percent": 25.0,
+      "greedy_pairs": [
+        [
+          "S2Hub",
+          "IpTables"
+        ],
+        [
+          "S2Local1",
+          "IpTables"
+        ],
+        [
+          "S2Local2",
+          "IpTables"
+        ],
+        [
+          "S2Local3",
+          "IpTables"
+        ],
+        [
+          "S2Local4",
+          "IpTables"
+        ]
+      ],
+      "ilp_pairs": [
+        [
+          "S2Local1",
+          "IpTables"
+        ],
+        [
+          "S2Local2",
+          "IpTables"
+        ],
+        [
+          "S2Local3",
+          "IpTables"
+        ],
+        [
+          "S2Local4",
+          "IpTables"
+        ]
+      ],
+      "frozen_engine_replay_match": null,
+      "greedy_timing": {
+        "median_ms": 0.04185,
+        "p95_ms": 0.05091,
+        "samples": 25
+      },
+      "ilp_timing": {
+        "median_ms": 10.13233,
+        "p95_ms": 10.57068,
+        "samples": 25
+      },
+      "case_id": "S2"
+    },
+    {
+      "label": "S3 - Two competing hubs with local and cross-branch alternatives",
+      "cohort": "synthetic-structural",
+      "input_sha256": "588a4faf7af417b9f1a172cba1d8b453e6cfcdb5aa9a1c5d5e6872410ba4146d",
+      "paths": 16,
+      "bundles": 1,
+      "candidates": 8,
+      "selected_pairs_greedy": 6,
+      "selected_pairs_ilp": 4,
+      "optimal": false,
+      "excess_pairs": 2,
+      "relative_excess_percent": 50.0,
+      "greedy_pairs": [
+        [
+          "S3HubAlpha",
+          "IpTables"
+        ],
+        [
+          "S3HubBeta",
+          "IpTables"
+        ],
+        [
+          "S3Local1",
+          "IpTables"
+        ],
+        [
+          "S3Local2",
+          "IpTables"
+        ],
+        [
+          "S3Local3",
+          "IpTables"
+        ],
+        [
+          "S3Local4",
+          "IpTables"
+        ]
+      ],
+      "ilp_pairs": [
+        [
+          "S3Local1",
+          "IpTables"
+        ],
+        [
+          "S3Local2",
+          "IpTables"
+        ],
+        [
+          "S3Local3",
+          "IpTables"
+        ],
+        [
+          "S3Local4",
+          "IpTables"
+        ]
+      ],
+      "frozen_engine_replay_match": null,
+      "greedy_timing": {
+        "median_ms": 0.08398,
+        "p95_ms": 0.09738,
+        "samples": 25
+      },
+      "ilp_timing": {
+        "median_ms": 11.3456,
+        "p95_ms": 12.17276,
+        "samples": 25
+      },
+      "case_id": "S3"
+    }
+  ],
+  "notes": [
+    "No physical topology, engine execution or device deployment in synthetic cases",
+    "Synthetic scenarios selected deliberately for 0%, 25%, 50% gaps",
+    "Greedy and ILP use same frozen-candidate/path-capability input",
+    "CBC/HiGHS solver setup included in reported ILP timings"
+  ]
+}

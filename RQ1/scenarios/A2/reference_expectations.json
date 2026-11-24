@@ -1,0 +1,41 @@
+{
+  "case_id": "RQ1-A2-01",
+  "source_reference_sha256": "943b4e3ea2b7daa1608c578707372a0c43ce8a1e7246b396693243b1858d1d7b",
+  "reference_type": "Selected scientific expectations extracted from the original independent case oracle; see SOURCE_MAP.csv",
+  "input": {
+    "action": "is not authorized to access",
+    "hspl_id": "rq1_a2_01_c2_ipport",
+    "object": "MaliciousC2Server",
+    "subject": "EmployeeHost"
+  },
+  "cti": {
+    "indicator_id": "IOC-THREATFOX-C2-IPPORT",
+    "original_indicator": "102.220.161.63:10213"
+  },
+  "expected_enforcement": {
+    "required_capabilities": {
+      "DestinationPortConditionCapability": "8443",
+      "IpDestinationAddressConditionCapability": "80.71.158.10",
+      "IpSourceAddressConditionCapability": "10.20.10.10",
+      "RejectActionCapability": ""
+    }
+  },
+  "reference_traffic": {
+    "baseline_other_ip_same_port": "An independent benign external HTTP service remains reachable",
+    "baseline_same_ip_other_port": "TCP/8444 must establish an application response",
+    "baseline_target": "TCP/8443 must establish an application response",
+    "deployed_controls": "TCP/8444 and independent benign HTTP must remain reachable",
+    "deployed_target": "Connection to 80.71.158.10:8443 must be dropped",
+    "reset": "All baseline traffic decisions restored"
+  },
+  "validation_boundary": "Destination-IP AND TCP-port restriction; single-field near matches are required negative controls.",
+  "lab_substitution": {
+    "destination_lab_actor": "c2",
+    "destination_lab_ip": "80.71.158.10",
+    "destination_lab_port": 8443,
+    "note": "TCP is an explicitly chosen laboratory transport; upstream IoC does not supply one",
+    "source_lab_actor": "employee",
+    "source_lab_ip": "10.20.10.10",
+    "test_transport": "tcp"
+  }
+}

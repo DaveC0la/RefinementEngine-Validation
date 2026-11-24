@@ -1,0 +1,7 @@
+{
+  "probe": "A1_branch_user_domain",
+  "http_status": "403",
+  "return_code": 0,
+  "source_record": "RQ2/reversed_withdrawal/longitudinal/REVERSE2/evidence/A1_branch_user_domain.json",
+  "original_sha256": "150a60db92717e830f346ce3e9d54b8f349d7631c864c168f87384deabd7a960"
+}

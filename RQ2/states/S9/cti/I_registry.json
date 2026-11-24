@@ -1,0 +1,10 @@
+{
+  "indicators": [
+    {
+      "ioc_id": "IOC-RQ2-SOURCE-B",
+      "type": "source-ipv4",
+      "value": "80.71.158.96/32"
+    }
+  ],
+  "schema_version": 1
+}

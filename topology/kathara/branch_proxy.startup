@@ -1,0 +1,14 @@
+#!/bin/sh
+# startup for branch_proxy
+ip link set eth0 up
+ip addr add 10.70.20.10/24 dev eth0
+ip route add default via 10.70.20.1
+echo 'nameserver 80.71.158.53' > /etc/resolv.conf
+# --- start Squid forward proxy ---
+mkdir -p /etc/squid
+cp /etc/squid/squid.conf.lab /etc/squid/squid.conf 2>/dev/null || true
+(squid -z >/dev/null 2>&1) ; (service squid restart >/dev/null 2>&1) || (squid -f /etc/squid/squid.conf >/dev/null 2>&1 &) || true
+
+# RefinementEngine lifecycle device-job agent
+mkdir -p /shared/branch_proxy/inbox /shared/branch_proxy/done
+DEVICE=branch_proxy sh /shared/device_applier.sh >> /shared/branch_proxy/agent.log 2>&1 < /dev/null &

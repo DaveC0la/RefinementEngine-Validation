@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  Baseline enterprise segmentation policy: a deny-list of unreasonable zone-to-zone
+  communications (NOT deny-by-default + whitelist). Anything not listed remains ALLOWED.
+  Rules instantiate NIST guidance; no single rule is claimed as a verbatim NIST mandate.
+
+  Grounding:
+    SP 800-41r1  - deny-by-default, DMZ containment, visitor-network separation,
+                   internal zone isolation, egress filtering
+    SP 800-207   - no implicit trust by network location; limit lateral movement
+    SP 800-92    - centralized log collection (server subnets NOT blocked from Security)
+    SP 800-53r5  - SC-7 (boundary protection), SC-7(5) (deny-by-default at managed
+                   interfaces), AC-4 (information-flow enforcement), AC-5 (separation
+                   of duties), AC-6/AC-6(1) (least privilege / access to security functions)
+    NISTIR 8228  - IoT cybersecurity risk management (risk-based isolation)
+
+  SEGMENTATION ASSUMPTIONS (enforced by topology, NOT by the rules below)
+    Some isolation is achieved BY CONSTRUCTION at the routing/segmentation layer and
+    is therefore intentionally absent from this deny-list:
+      * DMZ_Backend is a segment private to the WAF. Its subnet is reachable only
+        over the WAF's connected interface and is NOT advertised into the internal
+        IGP, so NO internal zone has a route to it. The backend is unreachable from
+        the internal network by construction - the only path is Frontend -> Backend
+        (the WAF reverse-proxy path). Consequently this file contains NO
+        '<internal zone> is not authorized to access DMZ_Backend' rules: that
+        property is provided by segmentation, the same way internal hosts are
+        unreachable from the Internet because RFC1918 space is not routed outward.
+        (hspl11 below still denies Internet->Backend as a defense-in-depth backstop,
+        mirroring the redundant Internet->internal denies hspl1-10.)
+      * DMZ_Backend has NO RETURN ROUTE into the internal network either (Option A:
+        "the backend speaks only to the WAF"). Its only L3 neighbour is the WAF; it
+        has a FORWARD path via edge_fw, but replies addressed to it are not routable
+        (172.16.20.0/24 is absent from the internal IGP and edge_fw blackholes it).
+        The backend's ONLY intended egress is one-way log shipping to the SIEM
+        (UDP syslog is fire-and-forget - it needs no reply, so the missing return
+        route does not impede it), which is why DMZ_Backend -> Security is left OPEN
+        like every other server subnet (SP 800-92), and DMZ_Backend -> DMZ_Frontend
+        (the reverse-proxy return leg) is left open. EVERY OTHER backend-sourced flow
+        is explicitly dropped on the FORWARD leg at edge_fw: the sensitive/internal/
+        Internet zones by hspl30-36 and the untrusted zones (Guests, Devices,
+        Branch_Users) by hspl60-62, so a compromised backend cannot one-way pivot
+        anywhere it has no business reaching. (Structural unreachability stops
+        INBOUND and stops bidirectional sessions; the explicit egress denies are
+        still required because the one-way FORWARD leg is not blocked by routing.)
+    This mirrors SP 800-41r1 §3.1 (the DMZ back tier is a separate segment whose only
+    neighbor is the proxy that fronts it) and SP 800-207 (micro-segmentation): prefer
+    structural unreachability for high-value segments, with ACLs as a backstop only.
+
+  Intentionally NOT denied (normal flows, left open):
+    * Employees / Finance / Branch_Users -> Internet, Applications, Identity
+    * Devices -> Internet          (IoT depends on cloud/other systems - NISTIR 8228)
+    * trusted endpoint <-> peer endpoint
+    * Identity -> Internet         (internal DNS forwarding to public resolver)
+    * Security -> Internet         (SIEM threat-intel feeds)
+    * server subnets -> Security   (log shipping to the SIEM - SP 800-92); this
+                                    INCLUDES both DMZ tiers. The backend ships via
+                                    one-way UDP syslog, which works despite its
+                                    missing return route. Enforcement SHOULD pin
+                                    these flows to the SIEM host and the syslog port
+                                    (a DMZ-side collector that the SIEM pulls from is
+                                    a higher-assurance alternative).
+    * Frontend -> Backend          (WAF reverse-proxy path - the SOLE path to the
+                                    backend, and reachable only because the WAF is
+                                    directly connected to the backend segment)
+
+  Name aliases: Backend = DMZ_Backend, Frontend = DMZ_Frontend (WAF),
+  Devices = IoT_Devices, Security = Admin_Security, Management = Admin_Management.
+-->
+<hspl-list
+	xmlns="http://itrust6g-project.eu/hspl"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://itrust6g-project.eu/hspl hspl.xsd">
+
+	<!-- Perimeter: the Internet may reach only the published frontend - SP 800-41r1 deny-by-default (§4) & §4.1.1; §3.1 DMZ model (Backend) / SP 800-53 SC-7 / SP 800-207 -->
+	<hspl id="hspl1"><subject>Internet</subject><action>is not authorized to access</action><object>Security</object></hspl>
+	<hspl id="hspl2"><subject>Internet</subject><action>is not authorized to access</action><object>Management</object></hspl>
+	<hspl id="hspl3"><subject>Internet</subject><action>is not authorized to access</action><object>Employees</object></hspl>
+	<hspl id="hspl4"><subject>Internet</subject><action>is not authorized to access</action><object>Finance</object></hspl>
+	<hspl id="hspl5"><subject>Internet</subject><action>is not authorized to access</action><object>Guests</object></hspl>
+	<hspl id="hspl6"><subject>Internet</subject><action>is not authorized to access</action><object>Devices</object></hspl>
+	<hspl id="hspl7"><subject>Internet</subject><action>is not authorized to access</action><object>Applications</object></hspl>
+	<hspl id="hspl8"><subject>Internet</subject><action>is not authorized to access</action><object>Database</object></hspl>
+	<hspl id="hspl9"><subject>Internet</subject><action>is not authorized to access</action><object>Identity</object></hspl>
+	<hspl id="hspl10"><subject>Internet</subject><action>is not authorized to access</action><object>Branch_Users</object></hspl>
+	<!-- Defense-in-depth backstop: Internet->Backend is already prevented by construction
+	     (backend not routable from outside, no inbound DNAT to it); this deny is kept for
+	     the same belt-and-suspenders reason as hspl1-10. -->
+	<hspl id="hspl11"><subject>Internet</subject><action>is not authorized to access</action><object>DMZ_Backend</object></hspl>
+
+	<!-- Guests (untrusted) isolated from internal zones - SP 800-41r1 §3.3 (visitor-network separation) / SP 800-207 / SP 800-53 SC-7 -->
+	<hspl id="hspl12"><subject>Guests</subject><action>is not authorized to access</action><object>Employees</object></hspl>
+	<hspl id="hspl13"><subject>Guests</subject><action>is not authorized to access</action><object>Finance</object></hspl>
+	<hspl id="hspl14"><subject>Guests</subject><action>is not authorized to access</action><object>Applications</object></hspl>
+	<hspl id="hspl15"><subject>Guests</subject><action>is not authorized to access</action><object>Database</object></hspl>
+	<hspl id="hspl16"><subject>Guests</subject><action>is not authorized to access</action><object>Identity</object></hspl>
+	<hspl id="hspl17"><subject>Guests</subject><action>is not authorized to access</action><object>Security</object></hspl>
+	<hspl id="hspl18"><subject>Guests</subject><action>is not authorized to access</action><object>Management</object></hspl>
+	<hspl id="hspl19"><subject>Guests</subject><action>is not authorized to access</action><object>Devices</object></hspl>
+	<hspl id="hspl20"><subject>Guests</subject><action>is not authorized to access</action><object>Branch_Users</object></hspl>
+
+	<!-- Devices/IoT (untrusted) isolated from internal zones - NISTIR 8228 (prevent an IoT device being used to attack other hosts) / SP 800-41r1 §3.3 / SP 800-207 -->
+	<hspl id="hspl21"><subject>Devices</subject><action>is not authorized to access</action><object>Employees</object></hspl>
+	<hspl id="hspl22"><subject>Devices</subject><action>is not authorized to access</action><object>Finance</object></hspl>
+	<hspl id="hspl23"><subject>Devices</subject><action>is not authorized to access</action><object>Applications</object></hspl>
+	<hspl id="hspl24"><subject>Devices</subject><action>is not authorized to access</action><object>Database</object></hspl>
+	<hspl id="hspl25"><subject>Devices</subject><action>is not authorized to access</action><object>Identity</object></hspl>
+	<hspl id="hspl26"><subject>Devices</subject><action>is not authorized to access</action><object>Security</object></hspl>
+	<hspl id="hspl27"><subject>Devices</subject><action>is not authorized to access</action><object>Management</object></hspl>
+	<hspl id="hspl28"><subject>Devices</subject><action>is not authorized to access</action><object>Guests</object></hspl>
+	<hspl id="hspl29"><subject>Devices</subject><action>is not authorized to access</action><object>Branch_Users</object></hspl>
+
+	<!-- DMZ Backend EGRESS containment (anti-pivot/anti-beacon). NOTE: inbound isolation
+	     of the backend is structural (see SEGMENTATION ASSUMPTIONS above); these rules
+	     constrain the backend when it is the SOURCE, which segmentation does not cover -
+	     the backend can still initiate outward via the WAF, so its egress is filtered at
+	     edge_fw. SP 800-41r1 §2.1.1/§4.1.1 (egress) / SP 800-53 SC-7 & AC-4.
+	     Untrusted-zone egress (Guests/Devices/Branch) is completed by hspl60-62. -->
+	<hspl id="hspl30"><subject>DMZ_Backend</subject><action>is not authorized to access</action><object>Employees</object></hspl>
+	<hspl id="hspl31"><subject>DMZ_Backend</subject><action>is not authorized to access</action><object>Finance</object></hspl>
+	<hspl id="hspl32"><subject>DMZ_Backend</subject><action>is not authorized to access</action><object>Applications</object></hspl>
+	<hspl id="hspl33"><subject>DMZ_Backend</subject><action>is not authorized to access</action><object>Database</object></hspl>
+	<hspl id="hspl34"><subject>DMZ_Backend</subject><action>is not authorized to access</action><object>Identity</object></hspl>
+	<hspl id="hspl35"><subject>DMZ_Backend</subject><action>is not authorized to access</action><object>Management</object></hspl>
+	<hspl id="hspl36"><subject>DMZ_Backend</subject><action>is not authorized to access</action><object>Internet</object></hspl>
+
+	<!-- DMZ Frontend/WAF containment (defense-in-depth; only intended internal flow is Frontend->Backend, which is also the sole structural path to the backend) - SP 800-41r1 §3.1 & §2.1.9 / SP 800-53 SC-7 & AC-4. Untrusted-zone + Internet egress is completed by hspl63-66. -->
+	<hspl id="hspl37"><subject>DMZ_Frontend</subject><action>is not authorized to access</action><object>Employees</object></hspl>
+	<hspl id="hspl38"><subject>DMZ_Frontend</subject><action>is not authorized to access</action><object>Finance</object></hspl>
+	<hspl id="hspl39"><subject>DMZ_Frontend</subject><action>is not authorized to access</action><object>Applications</object></hspl>
+	<hspl id="hspl40"><subject>DMZ_Frontend</subject><action>is not authorized to access</action><object>Database</object></hspl>
+	<hspl id="hspl41"><subject>DMZ_Frontend</subject><action>is not authorized to access</action><object>Identity</object></hspl>
+	<hspl id="hspl42"><subject>DMZ_Frontend</subject><action>is not authorized to access</action><object>Management</object></hspl>
+
+	<!-- Crown jewels: outsider->sensitive zone (SP 800-41r1 §3.3 accounting-DB example, §2 sensitive functions); no direct DB access incl. Finance = least privilege / app-tier mediation (SP 800-53 AC-6, AC-4); Finance separation (SP 800-53 AC-5) -->
+	<hspl id="hspl43"><subject>Employees</subject><action>is not authorized to access</action><object>Database</object></hspl>
+	<hspl id="hspl44"><subject>Finance</subject><action>is not authorized to access</action><object>Database</object></hspl>
+	<hspl id="hspl45"><subject>Branch_Users</subject><action>is not authorized to access</action><object>Database</object></hspl>
+	<hspl id="hspl46"><subject>Employees</subject><action>is not authorized to access</action><object>Finance</object></hspl>
+	<hspl id="hspl47"><subject>Branch_Users</subject><action>is not authorized to access</action><object>Finance</object></hspl>
+
+	<!-- Security tooling reachable only by the admin plane - SP 800-53 AC-6/AC-6(1) (access to security functions), SC-7, AC-4 / SP 800-92 (server->SIEM preserved) / SP 800-41r1 §5.2.1 (analogy) -->
+	<hspl id="hspl48"><subject>Employees</subject><action>is not authorized to access</action><object>Security</object></hspl>
+	<hspl id="hspl49"><subject>Finance</subject><action>is not authorized to access</action><object>Security</object></hspl>
+	<hspl id="hspl50"><subject>Branch_Users</subject><action>is not authorized to access</action><object>Security</object></hspl>
+
+	<!-- Management console: nothing initiates into it - SP 800-53 SC-7 & AC-6 / SP 800-41r1 §5.1 (analogy) / SP 800-207 (control-plane separation) -->
+	<hspl id="hspl51"><subject>Employees</subject><action>is not authorized to access</action><object>Management</object></hspl>
+	<hspl id="hspl52"><subject>Finance</subject><action>is not authorized to access</action><object>Management</object></hspl>
+	<hspl id="hspl53"><subject>Branch_Users</subject><action>is not authorized to access</action><object>Management</object></hspl>
+	<hspl id="hspl54"><subject>Applications</subject><action>is not authorized to access</action><object>Management</object></hspl>
+	<hspl id="hspl55"><subject>Database</subject><action>is not authorized to access</action><object>Management</object></hspl>
+	<hspl id="hspl56"><subject>Identity</subject><action>is not authorized to access</action><object>Management</object></hspl>
+
+	<!-- Egress: servers must not initiate to the Internet (anti-beacon/anti-C2; topology/use-case derived) - SP 800-41r1 §2.1.1 & §4.1.1 / SP 800-53 SC-7 / SP 800-207 -->
+	<hspl id="hspl57"><subject>Applications</subject><action>is not authorized to access</action><object>Internet</object></hspl>
+	<hspl id="hspl58"><subject>Database</subject><action>is not authorized to access</action><object>Internet</object></hspl>
+
+	<!-- Admin plane must not originate to the Internet (privileged-workstation / PAW
+	     hardening; anti-beacon for the control plane). Closes the intent-vs-enforcement
+	     gap: the deny is already ENFORCED by admin_fw's default-deny egress (permit
+	     mgmt->RFC1918, drop the rest), but until now had no HSPL intent to trace to.
+	     Patching still flows via an internal update server (admin_fw permits
+	     mgmt->RFC1918). SP 800-53 SC-7(5) (deny-by-default egress), SC-7, AC-6 (least
+	     privilege) / SP 800-41r1 §2.1.1 & §4.1.1 (egress filtering) / SP 800-207
+	     (control-plane separation) / NSA "Defend Privileges and Accounts",
+	     Microsoft/NCSC privileged-access-workstation guidance (no Internet/email from
+	     privileged hosts). -->
+	<hspl id="hspl59"><subject>Management</subject><action>is not authorized to access</action><object>Internet</object></hspl>
+
+	<!-- DMZ source-containment COMPLETION. A DMZ host (Internet-exposed) must not
+	     initiate into ANY zone except its required flows: Frontend -> Backend (proxy),
+	     Frontend/Backend -> Security (one-way log shipping), Backend -> Frontend
+	     (return). The original hspl30-42 denied the DMZ tiers toward the sensitive/
+	     internal zones but left the UNTRUSTED zones (Guests, Devices, Branch_Users)
+	     and the WAF's Internet egress open - a lateral-movement / anti-beacon hole.
+	     These rules close it so the stated DMZ containment is actually complete.
+	     SP 800-41r1 §3.1 (DMZ hosts do not initiate into the trusted side) & §2.1.1/
+	     §4.1.1 (egress filtering) / SP 800-53 SC-7, AC-4 / SP 800-207 (limit lateral
+	     movement). Enforced on the FORWARD leg at edge_fw. -->
+	<hspl id="hspl60"><subject>DMZ_Backend</subject><action>is not authorized to access</action><object>Guests</object></hspl>
+	<hspl id="hspl61"><subject>DMZ_Backend</subject><action>is not authorized to access</action><object>Devices</object></hspl>
+	<hspl id="hspl62"><subject>DMZ_Backend</subject><action>is not authorized to access</action><object>Branch_Users</object></hspl>
+	<hspl id="hspl63"><subject>DMZ_Frontend</subject><action>is not authorized to access</action><object>Guests</object></hspl>
+	<hspl id="hspl64"><subject>DMZ_Frontend</subject><action>is not authorized to access</action><object>Devices</object></hspl>
+	<hspl id="hspl65"><subject>DMZ_Frontend</subject><action>is not authorized to access</action><object>Branch_Users</object></hspl>
+	<!-- WAF must not originate to the Internet: it serves inbound clients on
+	     ESTABLISHED connections and proxies to the internal backend; it never needs
+	     NEW outbound to the Internet, so blanket egress here would only be a C2/exfil
+	     channel if the WAF is compromised. (If OCSP/CRL egress is ever needed,
+	     whitelist the specific responder rather than reopening this.) Mirrors the
+	     server anti-beacon denies hspl36/hspl57/hspl58. -->
+	<hspl id="hspl66"><subject>DMZ_Frontend</subject><action>is not authorized to access</action><object>Internet</object></hspl>
+
+</hspl-list>

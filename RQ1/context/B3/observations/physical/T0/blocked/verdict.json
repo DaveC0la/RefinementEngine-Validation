@@ -1,0 +1,50 @@
+{
+  "case_id": "RQ1-B3-01",
+  "checks": {
+    "firewall_configurations_unchanged": true,
+    "guest_employee_isolation": true,
+    "guest_iot_isolation": true,
+    "icmp_allowed": true,
+    "near_match_absent_at_branch": true,
+    "near_match_accepted_c2": true,
+    "near_match_allowed": true,
+    "near_match_at_c2": true,
+    "near_match_at_edge_wan": true,
+    "near_match_at_guest_ingress": true,
+    "owned_drop_counter_increased": true,
+    "owned_rule_still_installed": true,
+    "target_absent_at_branch": true,
+    "target_absent_at_c2": true,
+    "target_absent_at_edge": true,
+    "target_absent_at_edge_wan": true,
+    "target_absent_at_guest_egress": true,
+    "target_at_guest_ingress": true,
+    "target_behavior": true
+  },
+  "checks_passed": 19,
+  "checks_total": 19,
+  "counter_after": {
+    "bytes": 300,
+    "packets": 5
+  },
+  "counter_before": {
+    "bytes": 0,
+    "packets": 0
+  },
+  "mode": "blocked",
+  "near_match": {
+    "elapsed": 0.008,
+    "outcome": "CONNECTED",
+    "port": 10214,
+    "response": "B3_OK_10214\n"
+  },
+  "pass": true,
+  "state": "T0",
+  "status": "B3_T0_BLOCKED_PASS",
+  "target": {
+    "error": "TimeoutError('timed out')",
+    "outcome": "FAILED",
+    "port": 10213
+  },
+  "utc": "2026-10-28T14:51:05.779427+00:00"
+}

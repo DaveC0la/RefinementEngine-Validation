@@ -1,0 +1,37 @@
+{
+  "allowed_rejection_stages": [
+    "capability_catalogue",
+    "atomic_bundle_construction",
+    "rule_generation"
+  ],
+  "case_id": "RQ1-C1-01",
+  "created_utc": "2026-10-28T15:34:42.515787+00:00",
+  "deployment": "FORBIDDEN",
+  "failure_class": "UNSUPPORTED_TRANSLATION_REQUIREMENT",
+  "frozen_before_execution": true,
+  "inputs_sha256": {
+    "control_hspl.xml": "d84bb796adec20e55642444062e40eedae37f283c9cd6d3febaa5562cc49e08a",
+    "custom_templates.yaml": "982c4ae78cf921744af4ab5e1cd26e969328cd4a10b189ae36a46c96e193fada",
+    "custom_types.yaml": "b5f9641125019d2afa9852b0fc4216eae5ed4ec2ec9752a68257f8740f9ecfa8",
+    "unsupported_hspl.xml": "1e549425ea46cb92a321fd875ff1145f3104227ba19505fd71885fea7d5bfed1"
+  },
+  "physical_evidence": "REUSED_FROM_ARCHIVED_B3",
+  "positive_control": "Same HSPL without the time constraint must produce a correct rule",
+  "required_outcome": "Explicit rejection due to unsupported temporal constraint; no rule with dropped temporal selector",
+  "source_b3": "/home/david/refeng-b3/RQ1-B3-01/corrected_direct_tcp_v2",
+  "source_engine": "/mnt/c/Users/david/Desktop/refinement-engine",
+  "source_sha256": {
+    "src/engine/catalogue.py": "67ca38072da5919087f9ddc5d0c3009ed83e5f3d6586783667f5b885e89aea0a",
+    "src/engine/constants.py": "825fb1589037e92cf1fcf6f6ff2b68126cc700f7082ea3d048a3dfd3943b35d6",
+    "src/refinement.py": "d958d292068d0ea320c6397b816aa69bad44923614437735f69a181de0494ed1"
+  },
+  "status": "C1_INDEPENDENT_ORACLE_FROZEN",
+  "unsupported": {
+    "hspl_option_type": "time period",
+    "required_capabilities": [
+      "TimeStartConditionCapability",
+      "TimeStopConditionCapability"
+    ],
+    "value": "08:00 17:00"
+  }
+}

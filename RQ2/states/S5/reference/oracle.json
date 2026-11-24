@@ -1,0 +1,12 @@
+{
+  "evidence_note": "Separate controlled observations, not independent real-world CTI reports",
+  "expected_WAF_owners": 1,
+  "expected_additions": 0,
+  "expected_changed_rule_owner_sets": 2,
+  "expected_domain_A_contributions": 0,
+  "expected_domain_B_contributions": 5,
+  "expected_managed_rules": 4,
+  "expected_removals": 0,
+  "expected_source_IP_owners": 2,
+  "scenario": "S5 retire only original domain owner A after two controlled negative assessments"
+}

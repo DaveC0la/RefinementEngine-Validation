@@ -1,0 +1,71 @@
+#!/bin/sh
+# startup for edge_fw
+ip link set eth0 up
+ip addr add 203.0.113.2/30 dev eth0
+ip link set eth1 up
+ip addr add 10.255.255.1/30 dev eth1
+ip link set eth2 up
+ip addr add 172.16.10.1/24 dev eth2
+ip link set eth3 up
+ip addr add 10.0.0.1/30 dev eth3
+ip link set eth4 up
+ip addr add 10.0.0.5/30 dev eth4
+ip route add default via 203.0.113.1
+# Finding 3: fail-closed backstop for backend isolation (Option A). The backend
+# subnet must never be routed from here; without this, replies destined to
+# 172.16.20.0/24 follow the default and leave the perimeter SNAT'd toward the
+# ISP. Blackholing makes the drop LOCAL and deterministic. This is a static
+# route, but it is NOT redistributed (see frr.conf.lab) so it stays on edge_fw.
+ip route add blackhole 172.16.20.0/24
+# --- iptables baseline: permissive 'before refinement' state ---
+iptables -P FORWARD ACCEPT
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+# === provided ruleset (normalized: CRLF stripped, branch subnet corrected, arg order canonicalized) ===
+iptables -F FORWARD   # idempotency guard: re-run flushes before re-adding
+iptables -A FORWARD -m conntrack --ctstate NEW -s 80.71.158.0/24 -d 10.10.10.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 80.71.158.0/24 -d 10.10.20.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 80.71.158.0/24 -d 10.20.10.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 80.71.158.0/24 -d 10.20.20.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 80.71.158.0/24 -d 10.30.10.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 80.71.158.0/24 -d 10.30.20.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 80.71.158.0/24 -d 10.40.10.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 80.71.158.0/24 -d 10.40.20.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 80.71.158.0/24 -d 10.40.30.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 80.71.158.0/24 -d 172.16.20.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.20.0/24 -d 10.20.10.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.20.0/24 -d 10.20.20.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.20.0/24 -d 10.40.10.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.20.0/24 -d 10.40.20.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.20.0/24 -d 10.40.30.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.20.0/24 -d 10.10.20.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.20.0/24 -d 80.71.158.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.10.0/24 -d 10.20.10.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.10.0/24 -d 10.20.20.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.10.0/24 -d 10.40.10.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.10.0/24 -d 10.40.20.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.10.0/24 -d 10.40.30.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.10.0/24 -d 10.10.20.0/24 -j DROP
+# --- DMZ source-containment completion (hspl60-66): DMZ tiers must not initiate
+#     into the untrusted zones, and the WAF must not originate to the Internet ---
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.20.0/24 -d 10.30.10.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.20.0/24 -d 10.30.20.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.20.0/24 -d 10.70.10.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.10.0/24 -d 10.30.10.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.10.0/24 -d 10.30.20.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.10.0/24 -d 10.70.10.0/24 -j DROP
+iptables -A FORWARD -m conntrack --ctstate NEW -s 172.16.10.0/24 -d 80.71.158.0/24 -j DROP
+# === end provided ruleset ===
+# SNAT (perimeter NAT)
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j DNAT --to-destination 172.16.10.2:80
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j DNAT --to-destination 172.16.10.2:443
+# --- start FRR (OSPF) ---
+mkdir -p /etc/frr
+cp /etc/frr/daemons.lab /etc/frr/daemons 2>/dev/null || true
+cp /etc/frr/frr.conf.lab /etc/frr/frr.conf 2>/dev/null || true
+(/usr/lib/frr/frrinit.sh restart >/dev/null 2>&1) || (service frr restart >/dev/null 2>&1) || (/etc/init.d/frr restart >/dev/null 2>&1) || true
+
+# RefinementEngine lifecycle device-job agent
+mkdir -p /shared/edge_fw/inbox /shared/edge_fw/done
+DEVICE=edge_fw sh /shared/device_applier.sh >> /shared/edge_fw/agent.log 2>&1 < /dev/null &

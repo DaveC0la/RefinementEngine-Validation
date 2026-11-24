@@ -1,0 +1,89 @@
+{
+  "case_id": "RQ1-A6-01",
+  "source_reference_sha256": "5929c73478762a13163c51e6e4991678853ac9da11875e0c0340e2e03ac71603",
+  "reference_type": "Selected scientific expectations extracted from the original independent case oracle; see SOURCE_MAP.csv",
+  "input": {
+    "action": "is not authorized to access",
+    "hspl_id": "rq1_a6_01_outbound_useragent",
+    "object": "MaliciousWeb",
+    "subject": "Corporate_Users"
+  },
+  "cti": {
+    "indicator_id": "IOC-GOBRUTE-USERAGENT",
+    "normalized_type": "http_user_agent",
+    "original_indicator": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "expected_enforcement": {
+    "expanded_sources": [
+      "Branch_Users",
+      "Devices",
+      "Employees",
+      "Finance",
+      "Guests"
+    ],
+    "expected_pairs": [
+      [
+        "EgressProxy",
+        "Squid"
+      ],
+      [
+        "BranchProxy",
+        "Squid"
+      ]
+    ],
+    "required_capabilities": {
+      "HttpReqHdrUserAgentConditionCapability": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+      "RejectActionCapability": ""
+    }
+  },
+  "reference_traffic": {
+    "expected_baseline": {
+      "benign_user_agent": 200,
+      "embedded_original_user_agent": 200,
+      "near_match_user_agent": 200,
+      "original_user_agent": 200
+    },
+    "expected_deployed": {
+      "benign_user_agent": 200,
+      "embedded_original_user_agent": 403,
+      "near_match_user_agent": 200,
+      "original_user_agent": 403
+    },
+    "expected_restored": {
+      "benign_user_agent": 200,
+      "embedded_original_user_agent": 200,
+      "near_match_user_agent": 200,
+      "original_user_agent": 200
+    },
+    "http_transport": "explicit HTTP proxy; no HTTPS CONNECT interception",
+    "lab_origin": "http://80.71.158.20/index.html",
+    "source_population_probes": [
+      {
+        "lab_device": "employee",
+        "name": "employee",
+        "proxy": "egress_proxy"
+      },
+      {
+        "lab_device": "finance",
+        "name": "finance",
+        "proxy": "egress_proxy"
+      },
+      {
+        "lab_device": "guest_host",
+        "name": "guest_host",
+        "proxy": "egress_proxy"
+      },
+      {
+        "lab_device": "iot_device",
+        "name": "iot_device",
+        "proxy": "egress_proxy"
+      },
+      {
+        "lab_device": "branch_user",
+        "name": "branch_user",
+        "proxy": "branch_proxy"
+      }
+    ]
+  },
+  "validation_boundary": "The native Squid configurations and traffic observations document User-Agent enforcement for the evaluated indicator and represented clients. This curated evidence package does not independently replay the proprietary translation pipeline or establish correct enforcement for arbitrary indicator values."
+}

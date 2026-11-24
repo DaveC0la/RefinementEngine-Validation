@@ -1,0 +1,7 @@
+{
+  "exit_code": 1,
+  "classification_message": "***ERROR***: No feasible atomic bundle placement Required condition bundles cannot be enforced on every relevant path; Something went wrong: errors detected or configuration issues: [{'message': 'No feasible atomic bundle placement', 'detail': 'Required condition bundles cannot be enforced on every relevant path', 'hsplid': 'rq1_c2_01_atomic_ip_socket'}]",
+  "generated_rule_artifact": null,
+  "original_execution_sha256": "be5a78e8a1ccf40dbcdc4a747a9e4901cbf44171f64043f558f970b87b8eb463",
+  "original_record_path": "RQ1/negative_cases/C2/evidence/negative/execution.json"
+}

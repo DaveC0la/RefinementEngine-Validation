@@ -1,0 +1,127 @@
+{
+  "case_id": "RQ1-B1-01",
+  "static_fixture_verdict": "PASS",
+  "verification_scope": "OFFLINE_ONLY",
+  "T0": {
+    "model_paths": [
+      [
+        "Guests",
+        "GuestFirewall",
+        "Backbone",
+        "EgressProxy",
+        "Egress_Services",
+        "EdgeFirewall",
+        "Internet"
+      ]
+    ],
+    "candidate_device_pairs": [
+      [
+        "GuestFirewall",
+        "IpTables"
+      ],
+      [
+        "EdgeFirewall",
+        "IpTables"
+      ]
+    ],
+    "accepted_device_sets": [
+      [
+        "GuestFirewall"
+      ],
+      [
+        "EdgeFirewall"
+      ],
+      [
+        "GuestFirewall",
+        "EdgeFirewall"
+      ]
+    ],
+    "minimal_cardinality": 1
+  },
+  "T1": {
+    "model_paths": [
+      [
+        "Guests",
+        "B1AccessFirewall",
+        "Guest_Access_Transit",
+        "GuestFirewall",
+        "Backbone",
+        "EgressProxy",
+        "Egress_Services",
+        "EdgeFirewall",
+        "Internet"
+      ]
+    ],
+    "candidate_device_pairs": [
+      [
+        "B1AccessFirewall",
+        "IpTables"
+      ],
+      [
+        "GuestFirewall",
+        "IpTables"
+      ],
+      [
+        "EdgeFirewall",
+        "IpTables"
+      ]
+    ],
+    "accepted_device_sets": [
+      [
+        "B1AccessFirewall"
+      ],
+      [
+        "GuestFirewall"
+      ],
+      [
+        "EdgeFirewall"
+      ],
+      [
+        "B1AccessFirewall",
+        "GuestFirewall"
+      ],
+      [
+        "B1AccessFirewall",
+        "EdgeFirewall"
+      ],
+      [
+        "GuestFirewall",
+        "EdgeFirewall"
+      ],
+      [
+        "B1AccessFirewall",
+        "GuestFirewall",
+        "EdgeFirewall"
+      ]
+    ],
+    "minimal_cardinality": 1
+  },
+  "physical_path_hypotheses": [
+    [
+      "guest_host",
+      "b1_access_fw",
+      "guest_fw",
+      "core_a",
+      "edge_fw",
+      "isp",
+      "c2"
+    ],
+    [
+      "guest_host",
+      "b1_access_fw",
+      "guest_fw",
+      "core_b",
+      "edge_fw",
+      "isp",
+      "c2"
+    ]
+  ],
+  "live_route_verification": "NOT_RUN",
+  "actual_packet_path_verification": "NOT_RUN",
+  "engine_execution": "NOT_RUN",
+  "warning": "TOSCA simple paths are topological modeling paths, not necessarily literal forwarding paths. Live path evidence required before refinement/deployment.",
+  "_provenance": {
+    "original_reference_sha256": "eb2d3847a299b9e7f544606471e236f3b1484b5801bd4c330a5224ba8689f089",
+    "description": "Curated summary from an earlier independent frozen case oracle"
+  }
+}

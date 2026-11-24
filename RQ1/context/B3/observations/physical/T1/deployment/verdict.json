@@ -1,0 +1,8 @@
+{
+  "device": "edge_fw",
+  "other_firewalls_unchanged": true,
+  "rule_sha256": "c9220095ff7c2c2622067721f4fc80e5f13aceea9b95acfe578b6757bec65401",
+  "state": "T1",
+  "status": "DEPLOYED_EXACTLY_ONCE",
+  "utc": "2026-10-28T14:55:36.487333+00:00"
+}

@@ -1,0 +1,25 @@
+{
+  "allowed_rejection_stages": [
+    "capability_catalogue",
+    "atomic_bundle_construction",
+    "rule_generation"
+  ],
+  "case_id": "RQ1-C1-01",
+  "created_utc": "2026-10-28T15:34:42.515787+00:00",
+  "deployment": "FORBIDDEN",
+  "failure_class": "UNSUPPORTED_TRANSLATION_REQUIREMENT",
+  "frozen_before_execution": true,
+  "positive_control": "Same HSPL without the time constraint must produce a correct rule",
+  "required_outcome": "Explicit rejection due to unsupported temporal constraint; no rule with dropped temporal selector",
+  "status": "C1_INDEPENDENT_ORACLE_FROZEN",
+  "unsupported": {
+    "hspl_option_type": "time period",
+    "required_capabilities": [
+      "TimeStartConditionCapability",
+      "TimeStopConditionCapability"
+    ],
+    "value": "08:00 17:00"
+  },
+  "reference_source_sha256": "4f5edb0f3c4b87bc13ce9270ae99e39f59e398b16699a2eee6a1667a51e77ffc",
+  "note": "Curated extraction of independently specified expected outcomes; source fingerprints available through historical research archive, not a public engine checkout."
+}

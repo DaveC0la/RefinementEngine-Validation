@@ -1,0 +1,112 @@
+{
+  "bindings": [
+    {
+      "deployed_marker": "rq2_s1_srcip|EdgeFirewall|IpTables",
+      "device": "EdgeFirewall",
+      "nsf": "IpTables",
+      "rule_id": "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd"
+    },
+    {
+      "deployed_marker": "rq1_a5_01_inbound_useragent|WebApplicationFirewall|ModSecurity",
+      "device": "WebApplicationFirewall",
+      "nsf": "ModSecurity",
+      "rule_id": "9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4"
+    }
+  ],
+  "operations": [
+    {
+      "device": "EdgeFirewall",
+      "execution_result": "ok",
+      "job_id": "rq2_s1_applier_23d14eefe4f7dc1e",
+      "kind": "add",
+      "nsf": "IpTables",
+      "operation_id": "add:10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+      "rule_id": "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+      "status": "verified",
+      "verified_rule_present": true
+    },
+    {
+      "device": "WebApplicationFirewall",
+      "execution_result": "ok",
+      "job_id": "rq2_s2_applier_724a6a77483ec71e",
+      "kind": "add",
+      "nsf": "ModSecurity",
+      "operation_id": "add:9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4",
+      "rule_id": "9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4",
+      "status": "verified",
+      "verified_rule_present": true
+    }
+  ],
+  "ownership": [
+    {
+      "owners": [
+        {
+          "bundle_id": "SRC-CIRCL-KRVTZ",
+          "hsplid": "rq2_s1_srcip",
+          "ioc_id": "IOC-KRVTZ-IP-SRC"
+        }
+      ],
+      "rule": {
+        "capabilities": [
+          {
+            "capability": "AppendRuleActionCapability",
+            "detail": "FORWARD"
+          },
+          {
+            "capability": "ConnTrackStateConditionCapability",
+            "detail": "NEW"
+          },
+          {
+            "capability": "IpDestinationAddressConditionCapability",
+            "detail": "172.16.20.10"
+          },
+          {
+            "capability": "IpProtocolTypeConditionCapability",
+            "detail": "http"
+          },
+          {
+            "capability": "IpSourceAddressConditionCapability",
+            "detail": "80.71.158.96/32"
+          },
+          {
+            "capability": "MatchActionCapability",
+            "detail": "conntrack"
+          },
+          {
+            "capability": "RejectActionCapability",
+            "detail": ""
+          }
+        ],
+        "device": "EdgeFirewall",
+        "nsf": "IpTables"
+      },
+      "rule_id": "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd"
+    },
+    {
+      "owners": [
+        {
+          "bundle_id": "SRC-CHECKPOINT-GOBRUTE",
+          "hsplid": "rq1_a5_01_inbound_useragent",
+          "ioc_id": "IOC-GOBRUTE-USERAGENT"
+        }
+      ],
+      "rule": {
+        "capabilities": [
+          {
+            "capability": "HttpReqHdrUserAgentConditionCapability",
+            "detail": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+          },
+          {
+            "capability": "RejectActionCapability",
+            "detail": ""
+          }
+        ],
+        "device": "WebApplicationFirewall",
+        "nsf": "ModSecurity"
+      },
+      "rule_id": "9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4"
+    }
+  ],
+  "schema_version": 1,
+  "state_kind": "lifecycle_state"
+}

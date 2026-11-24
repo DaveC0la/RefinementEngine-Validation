@@ -1,0 +1,16 @@
+[
+  {
+    "decayed": false,
+    "expiry_strikes": 2,
+    "last_checked": "2026-11-18T01:21:39.219184+00:00",
+    "ownership_withdrawn_at": "2026-11-18T01:21:39.219184+00:00",
+    "seen_in_feed": true,
+    "snapshot_id": "RQ2-S9-C-OBS-02",
+    "source_id": "RQ2-S9-controlled-invalidity",
+    "status": "ownership_withdrawn",
+    "to_ids": false,
+    "type": "destination-ipv4-tcp-port",
+    "value": "80.71.158.10:8443/TCP",
+    "withdrawal_signal": "to_ids=0"
+  }
+]

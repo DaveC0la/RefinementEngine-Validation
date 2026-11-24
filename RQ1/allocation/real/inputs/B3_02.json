@@ -1,0 +1,76 @@
+{
+  "rq1_b3_01_guest_c2_ipport": {
+    "schema_version": 2,
+    "src_subnet": "Guests",
+    "dst_subnet": "Internet",
+    "paths": [
+      [
+        "GuestFirewall",
+        "Backbone",
+        "EdgeFirewall"
+      ]
+    ],
+    "req_capabilities": [
+      "AppendRuleActionCapability",
+      "DestinationPortConditionCapability",
+      "IpDestinationAddressConditionCapability",
+      "IpSourceAddressConditionCapability",
+      "RejectActionCapability"
+    ],
+    "placement_capabilities": [
+      "DestinationPortConditionCapability",
+      "IpDestinationAddressConditionCapability",
+      "IpSourceAddressConditionCapability"
+    ],
+    "bundles": [
+      {
+        "bundle_id": "rq1_b3_01_guest_c2_ipport:ioc-d30e980c211c6c769b56391f34b21e1cedbd4282c0e8d32cdbe7a0a129b092ca",
+        "placement_capabilities": [
+          "DestinationPortConditionCapability",
+          "IpDestinationAddressConditionCapability",
+          "IpSourceAddressConditionCapability"
+        ]
+      }
+    ],
+    "candidates": {
+      "EdgeFirewall\u0001IpTables": {
+        "caps": [
+          "DestinationPortConditionCapability",
+          "IpDestinationAddressConditionCapability",
+          "IpSourceAddressConditionCapability"
+        ],
+        "path_caps": [
+          [
+            "DestinationPortConditionCapability",
+            "IpDestinationAddressConditionCapability",
+            "IpSourceAddressConditionCapability"
+          ]
+        ],
+        "min_index": 2,
+        "freq": 1
+      },
+      "GuestFirewall\u0001IpTables": {
+        "caps": [
+          "DestinationPortConditionCapability",
+          "IpDestinationAddressConditionCapability",
+          "IpSourceAddressConditionCapability"
+        ],
+        "path_caps": [
+          [
+            "DestinationPortConditionCapability",
+            "IpDestinationAddressConditionCapability",
+            "IpSourceAddressConditionCapability"
+          ]
+        ],
+        "min_index": 0,
+        "freq": 1
+      }
+    },
+    "selected": [
+      [
+        "GuestFirewall",
+        "IpTables"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+http_port 3128
+acl localnet src 10.0.0.0/8
+acl localnet src 172.16.0.0/12
+# deny forwarding to internal destinations (proxy is for internet egress only)
+acl internal_dst dst 10.0.0.0/8
+acl internal_dst dst 172.16.0.0/12
+# === RefinementEngine egress denylist (filled by the Translator) ===
+# see /etc/squid/re-denylist.acl  (acl dstdomain ...)
+acl re_denied dstdomain "/etc/squid/re-denylist.acl"
+http_access deny re_denied
+http_access deny internal_dst
+# === RefinementEngine rules (acl + http_access), pushed incrementally ===
+# Included HERE so engine http_access rules precede the terminal allow/deny.
+# Each appended snippet should define its acl(s) before the http_access line.
+include /etc/squid/re-rules.conf
+# ==================================================================
+http_access allow localnet
+http_access deny all
+visible_hostname branch_proxy

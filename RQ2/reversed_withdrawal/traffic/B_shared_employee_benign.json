@@ -1,0 +1,7 @@
+{
+  "probe": "B_shared_employee_benign",
+  "http_status": "200",
+  "return_code": 0,
+  "source_record": "RQ2/reversed_withdrawal/longitudinal/REVERSE2/evidence/B_shared_employee_benign.json",
+  "original_sha256": "7ab35edb78603221b20cbb381ddf4c5dfad9c4c795980ccb32c13e65a59e659d"
+}

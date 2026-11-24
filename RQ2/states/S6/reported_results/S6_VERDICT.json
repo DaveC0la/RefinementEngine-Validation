@@ -1,0 +1,23 @@
+{
+  "C2_rule_id": "1ea6780cd9062adac8e7d9a6ee27982330bb99eaa1680f2aeae537b362c510f4",
+  "U_rule_id": "9e9deec41bfc35ab7af40287036ef95bf1bbf70e43e2f71ae3076eeac45865c4",
+  "active_effective_rules": 4,
+  "active_rule_labels": [
+    "I",
+    "C",
+    "D_HQ",
+    "D_BRANCH"
+  ],
+  "all_nearmatches_allowed": true,
+  "baseline_preserved": true,
+  "checked_utc": "2026-11-18T00:41:45.696607+00:00",
+  "pass": true,
+  "physical_rule_additions": 1,
+  "physical_rule_removals": 1,
+  "source_A_withdrawn": true,
+  "source_B_remains_sole_source_owner": true,
+  "state": "S6",
+  "two_distinct_nonactionable_observations": true,
+  "unnecessary_operations": 0,
+  "withdrawn": "U"
+}

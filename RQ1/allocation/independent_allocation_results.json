@@ -1,0 +1,96 @@
+{
+  "method": "EXHAUSTIVE_ENUMERATION_OF_CANDIDATE_SUBSETS_FROM_ARCHIVED_PATH_CAPS",
+  "independent_from_frozen_greedy_and_ilp_implementation": true,
+  "results": [
+    {
+      "case": "B1 real/inputs/B1_01.json",
+      "required_path_bundle_obligations": 1,
+      "candidate_pairs": 4,
+      "greedy_pairs": 1,
+      "enumerated_optimal_pairs": 1,
+      "reported_ilp_pairs": 1,
+      "greedy_coverage_complete": true,
+      "ilp_coverage_complete": true,
+      "enumerated_subsets_to_first_optimum": 1
+    },
+    {
+      "case": "B2 real/inputs/B2_01.json",
+      "required_path_bundle_obligations": 1,
+      "candidate_pairs": 1,
+      "greedy_pairs": 1,
+      "enumerated_optimal_pairs": 1,
+      "reported_ilp_pairs": 1,
+      "greedy_coverage_complete": true,
+      "ilp_coverage_complete": true,
+      "enumerated_subsets_to_first_optimum": 1
+    },
+    {
+      "case": "B2 real/inputs/B2_02.json",
+      "required_path_bundle_obligations": 1,
+      "candidate_pairs": 1,
+      "greedy_pairs": 1,
+      "enumerated_optimal_pairs": 1,
+      "reported_ilp_pairs": 1,
+      "greedy_coverage_complete": true,
+      "ilp_coverage_complete": true,
+      "enumerated_subsets_to_first_optimum": 1
+    },
+    {
+      "case": "B3 real/inputs/B3_01.json",
+      "required_path_bundle_obligations": 1,
+      "candidate_pairs": 1,
+      "greedy_pairs": 1,
+      "enumerated_optimal_pairs": 1,
+      "reported_ilp_pairs": 1,
+      "greedy_coverage_complete": true,
+      "ilp_coverage_complete": true,
+      "enumerated_subsets_to_first_optimum": 1
+    },
+    {
+      "case": "B3 real/inputs/B3_02.json",
+      "required_path_bundle_obligations": 1,
+      "candidate_pairs": 2,
+      "greedy_pairs": 1,
+      "enumerated_optimal_pairs": 1,
+      "reported_ilp_pairs": 1,
+      "greedy_coverage_complete": true,
+      "ilp_coverage_complete": true,
+      "enumerated_subsets_to_first_optimum": 1
+    },
+    {
+      "case": "S1",
+      "required_path_bundle_obligations": 6,
+      "candidate_pairs": 4,
+      "greedy_pairs": 2,
+      "enumerated_optimal_pairs": 2,
+      "reported_ilp_pairs": 2,
+      "greedy_coverage_complete": true,
+      "ilp_coverage_complete": true,
+      "enumerated_subsets_to_first_optimum": 5
+    },
+    {
+      "case": "S2",
+      "required_path_bundle_obligations": 12,
+      "candidate_pairs": 5,
+      "greedy_pairs": 5,
+      "enumerated_optimal_pairs": 4,
+      "reported_ilp_pairs": 4,
+      "greedy_coverage_complete": true,
+      "ilp_coverage_complete": true,
+      "enumerated_subsets_to_first_optimum": 30
+    },
+    {
+      "case": "S3",
+      "required_path_bundle_obligations": 16,
+      "candidate_pairs": 8,
+      "greedy_pairs": 6,
+      "enumerated_optimal_pairs": 4,
+      "reported_ilp_pairs": 4,
+      "greedy_coverage_complete": true,
+      "ilp_coverage_complete": true,
+      "enumerated_subsets_to_first_optimum": 162
+    }
+  ],
+  "instances": 8,
+  "greedy_optimal_instances": 6
+}

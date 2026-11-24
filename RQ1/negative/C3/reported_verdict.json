@@ -1,0 +1,12 @@
+{
+  "case_id": "RQ1-C3-01",
+  "control": "CONTROL_PASS",
+  "deployment": "NOT_PERFORMED",
+  "live_engine_or_lab_modified": false,
+  "negative_classification": "EXPLICIT_OFFPATH_L7_INFEASIBILITY",
+  "negative_exit_code": 1,
+  "no_actionable_rule": true,
+  "oracle_sha256": "86546b3356b709e5dc901efb821aa23bc4e62c1b6bef0f5aa710bb104899d5a6",
+  "pass": true,
+  "status": "C3_OFFPATH_L7_PASS"
+}

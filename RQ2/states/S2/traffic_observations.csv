@@ -1,0 +1,14 @@
+probe,source,http_status,return_code,target_url,source_record,source_sha256
+P1_S1_retained,mal_user,000,28,http://www.acme-corp.example/?refeng_rq2=RQ2_S2_fa79dd9eaa504fb4bd410305586f8bdb_P1,RQ2/states/S2/longitudinal/S2/evidence/traffic/P1_S1_retained.json,e99d47aca18967136fb9bfc2b1f3f57440f6229a96607fed0deda728e6348f30
+P2_S2_containing,benign_web,403,0,http://www.acme-corp.example/?refeng_rq2=RQ2_S2_fa79dd9eaa504fb4bd410305586f8bdb_P2_contains,RQ2/states/S2/longitudinal/S2/evidence/traffic/P2_S2_containing.json,a9634df6cae598703c2a90d2d35a3bd2e154e71ff88c148ffa5d849b479576be
+P2_S2_exact,benign_web,403,0,http://www.acme-corp.example/?refeng_rq2=RQ2_S2_fa79dd9eaa504fb4bd410305586f8bdb_P2,RQ2/states/S2/longitudinal/S2/evidence/traffic/P2_S2_exact.json,0a30d4c5d3ce727c553a52b9c86d1bdd7f4b06cbe09c217d5ede23103004ae0d
+P3_benign,benign_web,200,0,http://www.acme-corp.example/?refeng_rq2=RQ2_S2_fa79dd9eaa504fb4bd410305586f8bdb_P3,RQ2/states/S2/longitudinal/S2/evidence/traffic/P3_benign.json,9b4083d2f4a416086c0c35c7a237612df2114b6b6c32a5566dd96cb019c69668
+P3_nearmatch,benign_web,200,0,http://www.acme-corp.example/?refeng_rq2=RQ2_S2_fa79dd9eaa504fb4bd410305586f8bdb_P3_nearmatch,RQ2/states/S2/longitudinal/S2/evidence/traffic/P3_nearmatch.json,ac6cc536599e8e6d75a6cddb2cae8c2206f00c79c4d9504f296117daf111d5ba
+P4_branch_user_domain,branch_user,200,0,http://malware-c2.example/,RQ2/states/S2/longitudinal/S2/evidence/traffic/P4_branch_user_domain.json,7fc9159f942c9bc4ce3acc14effb4b03d6bc3ccd0d930a5fc77d5c6772b07136
+P4_employee_domain,employee,200,0,http://malware-c2.example/,RQ2/states/S2/longitudinal/S2/evidence/traffic/P4_employee_domain.json,d0bb366e8309a7f61a1583f32c73e55b5b949cb1270ec47cad3b1453fa338fdc
+P4_finance_domain,finance,200,0,http://malware-c2.example/,RQ2/states/S2/longitudinal/S2/evidence/traffic/P4_finance_domain.json,9b08e9eda436d18aeb7d8a02c921fd22274935e65f45952a1ce7247bc70bd5db
+P4_guest_host_domain,guest_host,200,0,http://malware-c2.example/,RQ2/states/S2/longitudinal/S2/evidence/traffic/P4_guest_host_domain.json,e9e6ba195ebb5f3c99018595aa6619ed8a87f62129aa52feae5cba57dc5f3318
+P6_branch_user_benign,branch_user,200,0,http://allowed.utilities.com/,RQ2/states/S2/longitudinal/S2/evidence/traffic/P6_branch_user_benign.json,cedcf55495bace8218d7ccee61f618c53f59f0d82e16eefea92e0121d66b620e
+P6_employee_benign,employee,200,0,http://allowed.utilities.com/,RQ2/states/S2/longitudinal/S2/evidence/traffic/P6_employee_benign.json,81bd53592bbfd54bda4f4c25bcfc755490e22b40571bf9cc30009d46724ef1ba
+P6_finance_benign,finance,200,0,http://allowed.utilities.com/,RQ2/states/S2/longitudinal/S2/evidence/traffic/P6_finance_benign.json,8c569d4f8f39f20db37ea11380543732cec0043a233e656d3bea4ebf1a2b207f
+P6_guest_host_benign,guest_host,200,0,http://allowed.utilities.com/,RQ2/states/S2/longitudinal/S2/evidence/traffic/P6_guest_host_benign.json,25408b5e45dcac0c1b38154d9552f9e0787919f945817e4c1c638f6c85a2109b

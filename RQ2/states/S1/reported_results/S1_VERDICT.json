@@ -1,0 +1,120 @@
+{
+  "checked_utc": "2026-11-01T18:28:27.059057+00:00",
+  "checks": {
+    "all_proxy_benign_still_allowed": true,
+    "all_proxy_domains_still_allowed": true,
+    "allowed_P2_reaches_backend": true,
+    "allowed_P3_reaches_backend": true,
+    "baseline_denial_preserved": true,
+    "baseline_iptables_unchanged": true,
+    "benign_inbound": true,
+    "c2_8443_still_allowed": true,
+    "c2_8444_still_allowed": true,
+    "deployment_archive_once": true,
+    "managed_counter_increased": true,
+    "managed_rule_present_once": true,
+    "no_failed_S1_archive": true,
+    "no_pending_outbox": true,
+    "no_pending_removals": true,
+    "other_ip_8443_still_allowed": true,
+    "source_ip_denied": true,
+    "target_absent_at_backend": true,
+    "target_absent_at_waf": true,
+    "user_agent_not_yet_prohibited": true
+  },
+  "description": "Physical source-IP enforcement and non-target preservation",
+  "iptables_counter": {
+    "after": 4,
+    "before": 0
+  },
+  "pass": true,
+  "state": "S1",
+  "traffic": {
+    "P1": {
+      "http_status": "000",
+      "rc": 28,
+      "stderr": "curl: (28) Failed to connect to www.acme-corp.example port 80 after 4004 ms: Timeout was reached\n",
+      "stdout": "__RQ2_HTTP__000"
+    },
+    "P10": {
+      "rc": 1,
+      "stderr": "",
+      "stdout": "PING 10.40.20.10 (10.40.20.10) 56(84) bytes of data.\n\n--- 10.40.20.10 ping statistics ---\n1 packets transmitted, 0 received, 100% packet loss, time 0ms\n\n"
+    },
+    "P2": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": "",
+      "stdout": "__RQ2_HTTP__200"
+    },
+    "P3": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": "",
+      "stdout": "__RQ2_HTTP__200"
+    },
+    "P4_employee": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": "",
+      "stdout": "__RQ2_HTTP__200"
+    },
+    "P4_finance": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": "",
+      "stdout": "__RQ2_HTTP__200"
+    },
+    "P4_guest_host": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": "",
+      "stdout": "__RQ2_HTTP__200"
+    },
+    "P5_branch_user": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": "",
+      "stdout": "__RQ2_HTTP__200"
+    },
+    "P6_branch_user": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": "",
+      "stdout": "__RQ2_HTTP__200"
+    },
+    "P6_employee": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": "",
+      "stdout": "__RQ2_HTTP__200"
+    },
+    "P6_finance": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": "",
+      "stdout": "__RQ2_HTTP__200"
+    },
+    "P6_guest_host": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": "",
+      "stdout": "__RQ2_HTTP__200"
+    },
+    "P7": {
+      "rc": 0,
+      "stderr": "Connection to 80.71.158.10 8443 port [tcp/*] succeeded!\n",
+      "stdout": ""
+    },
+    "P8": {
+      "rc": 0,
+      "stderr": "Connection to 80.71.158.10 8444 port [tcp/*] succeeded!\n",
+      "stdout": ""
+    },
+    "P9": {
+      "rc": 0,
+      "stderr": "Connection to 80.71.158.20 8443 port [tcp/*] succeeded!\n",
+      "stdout": ""
+    }
+  }
+}

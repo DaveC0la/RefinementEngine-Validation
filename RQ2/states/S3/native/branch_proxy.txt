@@ -1,0 +1,6 @@
+# RefinementEngine Squid rules (acl + http_access), filled by the Translator
+# (empty before refinement)
+# >>> rid=rq1_a7_01_outbound_domain_Branch_Users|BranchProxy|Squid
+acl re_blk_816f5ae1 dstdomain .malware-c2.example
+http_access deny re_blk_816f5ae1
+# <<< rid=rq1_a7_01_outbound_domain_Branch_Users|BranchProxy|Squid

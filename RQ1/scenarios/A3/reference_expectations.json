@@ -1,0 +1,45 @@
+{
+  "case_id": "RQ1-A3-01",
+  "source_reference_sha256": "22a9478078ce4a9f12bf69a5b6f02e855169892e1c3e4f254b7333bdb7e6e6b7",
+  "reference_type": "Selected scientific expectations extracted from the original independent case oracle; see SOURCE_MAP.csv",
+  "input": {
+    "action": "is not authorized to access",
+    "hspl_id": "rq1_a3_01_inbound_path",
+    "object": "MaliciousWebPath",
+    "subject": "MaliciousHost"
+  },
+  "cti": {
+    "indicator_id": "IOC-URLHAUS-PATH-BINSH",
+    "original_indicator": "http://221.15.9.104:39894/bin.sh",
+    "original_path": "/bin.sh"
+  },
+  "expected_enforcement": {
+    "expected_control": "ModSecurity",
+    "expected_device": "WebApplicationFirewall",
+    "lab_device": "waf",
+    "required_capabilities": {
+      "RejectActionCapability": "",
+      "UrlPathRegexConditionCapability": "/malicious/public/path"
+    }
+  },
+  "reference_traffic": {
+    "backend_target_absent_when_blocked": true,
+    "baseline_control_status": "200",
+    "baseline_target_status": "200",
+    "deployed_control_status": "200",
+    "deployed_target_status": "403",
+    "independent_control": "/",
+    "near_match": "/malicious/public/path-extra",
+    "near_match_status": "404",
+    "restore": "All baseline decisions and WAF rule file restored",
+    "same_path_query": "/malicious/public/path?probe=1",
+    "target": "/malicious/public/path"
+  },
+  "validation_boundary": "The modelled MaliciousHost endpoint represents generic external traffic for path analysis rather than an IP matching requirement. The native WAF path predicate deliberately applies to matching requests at the protected service independently of source address; secondary-source and near-match probes check this intended scope.",
+  "lab_substitution": {
+    "lab_actor": "mal_user",
+    "lab_path": "/malicious/public/path",
+    "lab_resource": "MaliciousWebPath",
+    "lab_site": "www.acme-corp.example"
+  }
+}

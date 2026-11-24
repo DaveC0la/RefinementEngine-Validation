@@ -1,0 +1,2 @@
+# RefinementEngine -> edge_fw (iptables); 1 rule(s)
+iptables -A FORWARD -m conntrack --ctstate NEW -s 10.80.10.10 -d 80.71.158.10 -p tcp --dport 10213 -m comment --comment "rq1_b2_01_wan_c2_ipport|EdgeFirewall|IpTables" -j DROP

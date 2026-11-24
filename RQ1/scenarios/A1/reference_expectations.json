@@ -1,0 +1,34 @@
+{
+  "case_id": "RQ1-A1-01",
+  "source_reference_sha256": "72d90b743f4efab6704f703f6bc2f0ecdd11f6bd42159dba679d12b669b7835e",
+  "reference_type": "Selected scientific expectations extracted from the original independent case oracle; see SOURCE_MAP.csv",
+  "input": {
+    "action": "is not authorized to access",
+    "hspl_id": "rq1_a1_01_srcip",
+    "object": "PublicWebApp",
+    "subject": "MaliciousHost"
+  },
+  "cti": {
+    "indicator_id": "IOC-KRVTZ-IP-SRC"
+  },
+  "expected_enforcement": {
+    "expected_control": "IpTables",
+    "expected_device": "EdgeFirewall",
+    "lab_device": "edge_fw"
+  },
+  "reference_traffic": {
+    "baseline_control": 200,
+    "baseline_target": 200,
+    "deployed_control": 200,
+    "deployed_target": "L3/L4 drop; no successful HTTP response and no target reached at WAF/backend",
+    "reset_control": 200,
+    "reset_target": 200
+  },
+  "validation_boundary": "Source-IP prohibition; keep the observed Edge Firewall rule and distinguish pre-/post-DNAT addressing in the evaluated path.",
+  "lab_substitution": {
+    "lab_actor": "mal_user",
+    "lab_entity": "MaliciousHost",
+    "lab_ip": "80.71.158.96/32",
+    "original_ip": "91.243.188.233"
+  }
+}

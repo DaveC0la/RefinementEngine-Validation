@@ -1,0 +1,139 @@
+{
+  "schema_version": 2,
+  "src_subnet": "SyntheticS1Source",
+  "dst_subnet": "SyntheticS1Destination",
+  "paths": [
+    [
+      "S1A",
+      "S1C",
+      "S1_Link01"
+    ],
+    [
+      "S1A",
+      "S1D",
+      "S1_Link02"
+    ],
+    [
+      "S1A",
+      "S1B",
+      "S1_Link03"
+    ],
+    [
+      "S1A",
+      "S1B",
+      "S1_Link04"
+    ],
+    [
+      "S1B",
+      "S1C",
+      "S1_Link05"
+    ],
+    [
+      "S1B",
+      "S1D",
+      "S1_Link06"
+    ]
+  ],
+  "req_capabilities": [
+    "IpDestinationAddressConditionCapability"
+  ],
+  "placement_capabilities": [
+    "IpDestinationAddressConditionCapability"
+  ],
+  "bundles": [
+    {
+      "bundle_id": "S1_SingleAtomicBundle",
+      "placement_capabilities": [
+        "IpDestinationAddressConditionCapability"
+      ]
+    }
+  ],
+  "candidates": {
+    "S1A\u0001IpTables": {
+      "path_caps": [
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        []
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 0,
+      "freq": 4
+    },
+    "S1B\u0001IpTables": {
+      "path_caps": [
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ]
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 0,
+      "freq": 4
+    },
+    "S1C\u0001IpTables": {
+      "path_caps": [
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        []
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 1,
+      "freq": 2
+    },
+    "S1D\u0001IpTables": {
+      "path_caps": [
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ]
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 1,
+      "freq": 2
+    }
+  },
+  "selected": [],
+  "description": "Complementary coverage: two high-coverage pairs form a 2-pair optimum; abstract allocation-only fixture, NOT TOSCA or Kathara"
+}

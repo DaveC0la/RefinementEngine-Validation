@@ -1,0 +1,12 @@
+[
+  {
+    "decayed": false,
+    "expiry_strikes": 0,
+    "fixture_owner_family": "B",
+    "seen_in_feed": true,
+    "status": "active",
+    "to_ids": true,
+    "type": "domain",
+    "value": "malware-c2.example"
+  }
+]

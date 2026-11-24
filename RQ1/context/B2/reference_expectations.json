@@ -1,0 +1,105 @@
+{
+  "case_id": "RQ1-B2-01",
+  "status": "B2_INDEPENDENT_ORACLE_FROZEN",
+  "independence": "Independent static topology checker + live packet evidence; frozen before RefinementEngine execution",
+  "intent": {
+    "subject_node": "B2TestHost",
+    "source_ip": "10.80.10.10",
+    "object_node": "MaliciousC2Server",
+    "destination_ip": "80.71.158.10",
+    "destination_protocol": "tcp",
+    "destination_port": 10213,
+    "near_match_tcp_port": 10214,
+    "action": "DENY"
+  },
+  "acceptance": {
+    "T0": {
+      "required_pairs": [
+        [
+          "EdgeFirewall",
+          "IpTables"
+        ]
+      ],
+      "minimal_pair_count": 1,
+      "model_path": [
+        "B2TestHost",
+        "B2_Test_Access",
+        "PrivateWANRouter",
+        "WAN_Transit",
+        "EdgeFirewall",
+        "Internet",
+        "MaliciousC2Server"
+      ],
+      "model_path_count": 1,
+      "required_rule_match": {
+        "source_ip": "10.80.10.10",
+        "destination_ip": "80.71.158.10",
+        "ip_protocol": "tcp",
+        "destination_port": 10213
+      },
+      "required_action": "DENY"
+    },
+    "T1": {
+      "required_pairs": [
+        [
+          "BranchFirewall",
+          "IpTables"
+        ]
+      ],
+      "minimal_pair_count": 1,
+      "model_path": [
+        "B2TestHost",
+        "B2_Test_Access",
+        "PrivateWANRouter",
+        "WAN_Transit",
+        "BranchFirewall",
+        "Internet",
+        "MaliciousC2Server"
+      ],
+      "model_path_count": 1,
+      "required_rule_match": {
+        "source_ip": "10.80.10.10",
+        "destination_ip": "80.71.158.10",
+        "ip_protocol": "tcp",
+        "destination_port": 10213
+      },
+      "required_action": "DENY"
+    }
+  },
+  "physical_evidence": {
+    "T0": {
+      "routes": {
+        "next_hop": "10.255.255.1",
+        "out_interface": "eth0",
+        "test_host_ping": "3/3"
+      },
+      "request_counts_on_wan_interfaces": {
+        "edge_fw": 3,
+        "branch_fw": 0
+      },
+      "test_host_ping": "3/3"
+    },
+    "T1": {
+      "routes": {
+        "next_hop": "10.255.255.6",
+        "out_interface": "eth1",
+        "test_host_ping": "3/3"
+      },
+      "request_counts_on_wan_interfaces": {
+        "edge_fw": 0,
+        "branch_fw": 3
+      },
+      "test_host_ping": "3/3"
+    }
+  },
+  "scope": {
+    "model_semantics": "intent-relevant active-forwarding projection supplied to the engine",
+    "limitation": "ICMP verifies actual active paths before refinement; TCP enforcement must be tested separately",
+    "route_discovery": "No claim of automatic live route discovery by RefinementEngine",
+    "deployment": "NOT_RUN"
+  },
+  "_provenance": {
+    "original_reference_sha256": "a5ab7687f3a55ce3993f36aa7dfe46f9675c03a68224e50246e7c5bf326595e6",
+    "description": "Curated summary from an earlier independent frozen case oracle"
+  }
+}

@@ -1,0 +1,2 @@
+# RefinementEngine Squid rules (acl + http_access), filled by the Translator
+# (empty before refinement)

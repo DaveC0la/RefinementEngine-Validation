@@ -1,0 +1,65 @@
+{
+  "bindings": [
+    {
+      "deployed_marker": "rq1_a7_01_outbound_domain_Devices|EgressProxy|Squid",
+      "device": "EgressProxy",
+      "nsf": "Squid",
+      "rule_id": "104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d"
+    },
+    {
+      "deployed_marker": "rq1_a7_01_outbound_domain_Branch_Users|BranchProxy|Squid",
+      "device": "BranchProxy",
+      "nsf": "Squid",
+      "rule_id": "bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9"
+    }
+  ],
+  "operations": [
+    {
+      "device": "EgressProxy",
+      "execution_result": "ok",
+      "job_id": "rq2_reverse_add_08ad0f4d31950c1c",
+      "kind": "add",
+      "nsf": "Squid",
+      "operation_id": "add:104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d",
+      "rule_id": "104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d",
+      "status": "verified",
+      "verified_rule_present": true
+    },
+    {
+      "device": "BranchProxy",
+      "execution_result": "ok",
+      "job_id": "rq2_reverse_add_1c8c3afb15b6695e",
+      "kind": "add",
+      "nsf": "Squid",
+      "operation_id": "add:bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9",
+      "rule_id": "bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9",
+      "status": "verified",
+      "verified_rule_present": true
+    },
+    {
+      "device": "EgressProxy",
+      "execution_result": "ok",
+      "job_id": "rq2_reverse_remove_471020a1a35d5458",
+      "kind": "remove",
+      "nsf": "Squid",
+      "operation_id": "remove:104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d",
+      "rule_id": "104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d",
+      "status": "verified",
+      "verified_rule_present": false
+    },
+    {
+      "device": "BranchProxy",
+      "execution_result": "ok",
+      "job_id": "rq2_reverse_remove_32106fe6935e45d1",
+      "kind": "remove",
+      "nsf": "Squid",
+      "operation_id": "remove:bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9",
+      "rule_id": "bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9",
+      "status": "verified",
+      "verified_rule_present": false
+    }
+  ],
+  "ownership": [],
+  "schema_version": 1,
+  "state_kind": "lifecycle_state"
+}

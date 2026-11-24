@@ -1,0 +1,16 @@
+{
+  "additions": 0,
+  "at_utc": "2026-11-18T00:15:31.349680+00:00",
+  "domain_A_contributions": 5,
+  "domain_B_contributions": 5,
+  "effective_rules": 4,
+  "ownership_changed": 3,
+  "pass": true,
+  "physical_device_operations_by_runner": 0,
+  "removals": 0,
+  "scope": "isolated S4 state with real device configuration and traffic checks",
+  "shared_domain_rules": 2,
+  "shared_source_rules": 1,
+  "source_IP_owners": 2,
+  "traffic_probes_passed": 32
+}

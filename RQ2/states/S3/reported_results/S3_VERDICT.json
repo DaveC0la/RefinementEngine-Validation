@@ -1,0 +1,197 @@
+{
+  "checked_utc": "2026-11-01T19:43:03.866482+00:00",
+  "checks": {
+    "C2_endpoint_and_nearmatches_allowed": true,
+    "HQ_and_branch_domain_denial": true,
+    "HQ_and_branch_non_targets_allowed": true,
+    "S1_absent_WAF": true,
+    "S1_source_IP_retained": true,
+    "S2_WAF_UA_retained": true,
+    "S2_blocked_WAF_not_backend": true,
+    "Squid_denial_logged_at_both_points": true,
+    "baseline_denial_retained": true,
+    "benign_ingress_allowed": true,
+    "both_Squid_configs_unchanged_by_probes": true,
+    "exactly_two_applied_jobs": true,
+    "five_owners_two_rules": true,
+    "ingress_allowed_reaches_backend": true,
+    "no_pending_outbox": true,
+    "no_pending_removals": true
+  },
+  "effective_rule_ids": [
+    "104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d",
+    "bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9"
+  ],
+  "markers": {
+    "BranchProxy": "rq1_a7_01_outbound_domain_Branch_Users|BranchProxy|Squid",
+    "EgressProxy": "rq1_a7_01_outbound_domain_Devices|EgressProxy|Squid"
+  },
+  "owners_per_device": {
+    "BranchProxy": 1,
+    "EgressProxy": 4
+  },
+  "pass": true,
+  "state": "S3",
+  "traffic": {
+    "P1": {
+      "http_status": "000",
+      "rc": 28,
+      "stderr": "curl: (28) Failed to connect to www.acme-corp.example port 80 after 4003 ms: Timeout was reached\n"
+    },
+    "P10": {
+      "http_status": null,
+      "rc": 1,
+      "stderr": ""
+    },
+    "P2": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "P3": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "P7": {
+      "http_status": null,
+      "rc": 0,
+      "stderr": "Connection to 80.71.158.10 8443 port [tcp/*] succeeded!\n"
+    },
+    "P8": {
+      "http_status": null,
+      "rc": 0,
+      "stderr": "Connection to 80.71.158.10 8444 port [tcp/*] succeeded!\n"
+    },
+    "P9": {
+      "http_status": null,
+      "rc": 0,
+      "stderr": "Connection to 80.71.158.20 8443 port [tcp/*] succeeded!\n"
+    },
+    "branch_user_benign": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "branch_user_direct_ip": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "branch_user_other_path": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "branch_user_subdomain": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "branch_user_target": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "employee_benign": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "employee_direct_ip": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "employee_other_path": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "employee_subdomain": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "employee_target": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "finance_benign": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "finance_direct_ip": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "finance_other_path": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "finance_subdomain": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "finance_target": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "guest_host_benign": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "guest_host_direct_ip": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "guest_host_other_path": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "guest_host_subdomain": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "guest_host_target": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "iot_device_benign": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "iot_device_direct_ip": {
+      "http_status": "200",
+      "rc": 0,
+      "stderr": ""
+    },
+    "iot_device_other_path": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "iot_device_subdomain": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    },
+    "iot_device_target": {
+      "http_status": "403",
+      "rc": 0,
+      "stderr": ""
+    }
+  }
+}

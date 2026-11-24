@@ -1,0 +1,7 @@
+{
+  "probe": "final_baseline_denial",
+  "http_status": null,
+  "return_code": 1,
+  "source_record": "RQ2/reversed_withdrawal/longitudinal/REVERSE2/evidence/final_baseline_denial.json",
+  "original_sha256": "d3aa2127922be4368a8edfab1c4e244fa9164c84571b84a168cc54b7764c1fcc"
+}

@@ -1,0 +1,15 @@
+frr version 8
+frr defaults traditional
+hostname dc_fw
+no ipv6 forwarding
+!
+router ospf
+ network 10.1.4.0/30 area 0
+ network 10.1.4.4/30 area 0
+ network 10.40.10.0/24 area 0
+ network 10.40.20.0/24 area 0
+ network 10.40.30.0/24 area 0
+ redistribute connected
+!
+line vty
+!

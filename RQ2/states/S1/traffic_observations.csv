@@ -1,0 +1,12 @@
+probe,source,http_status,return_code,target_url,source_record,source_sha256
+P1_srcip_blocked,mal_user,000,28,http://www.acme-corp.example/?refeng_rq2=RQ2_S1_a9bb11cac98d480ca44f039598e8da69_P1,RQ2/states/S1/longitudinal/S1/evidence/traffic/P1_srcip_blocked.json,497e2bb96e33c798a5da3d34bbd77bdba267e277de2dabe2bd1c0a96421daaf7
+P2_UA_not_active,benign_web,200,0,http://www.acme-corp.example/?refeng_rq2=RQ2_S1_a9bb11cac98d480ca44f039598e8da69_P2,RQ2/states/S1/longitudinal/S1/evidence/traffic/P2_UA_not_active.json,23a87ad257b6499f08239b6ec43d65b2ea39f3758a622a2031b3cc9447d6845c
+P3_benign_ua,benign_web,200,0,http://www.acme-corp.example/?refeng_rq2=RQ2_S1_a9bb11cac98d480ca44f039598e8da69_P3,RQ2/states/S1/longitudinal/S1/evidence/traffic/P3_benign_ua.json,9d3dff8a8de941280deb20cedcab84dd551e1b58018ec330251fe659231c430c
+P4_employee_domain,employee,200,0,http://malware-c2.example/,RQ2/states/S1/longitudinal/S1/evidence/traffic/P4_employee_domain.json,150231fa5aebcbcdb28663bf795d977f7a1286fe77069e7288e8bd35ffd648d0
+P4_finance_domain,finance,200,0,http://malware-c2.example/,RQ2/states/S1/longitudinal/S1/evidence/traffic/P4_finance_domain.json,c64555ad5bca081d194891ee43127626cfb934636beabc792f07b5c93d8cd023
+P4_guest_host_domain,guest_host,200,0,http://malware-c2.example/,RQ2/states/S1/longitudinal/S1/evidence/traffic/P4_guest_host_domain.json,775890e8bc03ae8714565518a513edfc9277986328a6288cb8cebdeb1106a9bc
+P5_branch_user_domain,branch_user,200,0,http://malware-c2.example/,RQ2/states/S1/longitudinal/S1/evidence/traffic/P5_branch_user_domain.json,8af347c6b8f125cd24e31b0ee311199d1584fa50c0b030eaffbc08da21f4b7f3
+P6_branch_user_benign,branch_user,200,0,http://allowed.utilities.com/,RQ2/states/S1/longitudinal/S1/evidence/traffic/P6_branch_user_benign.json,f39702784347cee9cef922dfa1333c33aa66b924de59507b7c482e09624c0e60
+P6_employee_benign,employee,200,0,http://allowed.utilities.com/,RQ2/states/S1/longitudinal/S1/evidence/traffic/P6_employee_benign.json,73f25aae72bdbc6661661c60488cd7dd41c83af86b19a7ab26516b00159607e4
+P6_finance_benign,finance,200,0,http://allowed.utilities.com/,RQ2/states/S1/longitudinal/S1/evidence/traffic/P6_finance_benign.json,a9a8410394779b6b7d140976bc50b3e360291b6979311312f321ab220d72897b
+P6_guest_host_benign,guest_host,200,0,http://allowed.utilities.com/,RQ2/states/S1/longitudinal/S1/evidence/traffic/P6_guest_host_benign.json,896768e45db641d0ed7c24e0f7e4fdf62f73c5e9d87a5aef7bab852de7e62713

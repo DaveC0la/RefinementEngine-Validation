@@ -1,0 +1,6 @@
+# RefinementEngine Squid rules (acl + http_access), filled by the Translator
+# (empty before refinement)
+# >>> rid=rq1_a4_01_outbound_url_Devices|EgressProxy|Squid
+acl re_blk_9c535d1e url_regex ^http://80\.71\.158\.20/index\.html([?].*|$)
+http_access deny re_blk_9c535d1e
+# <<< rid=rq1_a4_01_outbound_url_Devices|EgressProxy|Squid

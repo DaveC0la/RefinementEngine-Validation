@@ -1,0 +1,387 @@
+{
+  "schema_version": 2,
+  "src_subnet": "SyntheticS3Source",
+  "dst_subnet": "SyntheticS3Destination",
+  "paths": [
+    [
+      "S3Local1",
+      "S3HubAlpha",
+      "S3CrossWest",
+      "S3_Link01"
+    ],
+    [
+      "S3Local1",
+      "S3HubAlpha",
+      "S3_Link02"
+    ],
+    [
+      "S3Local1",
+      "S3HubBeta",
+      "S3CrossEast",
+      "S3_Link03"
+    ],
+    [
+      "S3Local1",
+      "S3CrossWest",
+      "S3_Link04"
+    ],
+    [
+      "S3Local2",
+      "S3HubAlpha",
+      "S3CrossWest",
+      "S3_Link05"
+    ],
+    [
+      "S3Local2",
+      "S3HubAlpha",
+      "S3_Link06"
+    ],
+    [
+      "S3Local2",
+      "S3HubBeta",
+      "S3CrossEast",
+      "S3_Link07"
+    ],
+    [
+      "S3Local2",
+      "S3_Link08"
+    ],
+    [
+      "S3Local3",
+      "S3HubAlpha",
+      "S3CrossEast",
+      "S3_Link09"
+    ],
+    [
+      "S3Local3",
+      "S3HubAlpha",
+      "S3_Link10"
+    ],
+    [
+      "S3Local3",
+      "S3HubBeta",
+      "S3CrossWest",
+      "S3_Link11"
+    ],
+    [
+      "S3Local3",
+      "S3_Link12"
+    ],
+    [
+      "S3Local4",
+      "S3HubAlpha",
+      "S3CrossEast",
+      "S3_Link13"
+    ],
+    [
+      "S3Local4",
+      "S3HubAlpha",
+      "S3_Link14"
+    ],
+    [
+      "S3Local4",
+      "S3HubBeta",
+      "S3CrossWest",
+      "S3_Link15"
+    ],
+    [
+      "S3Local4",
+      "S3CrossEast",
+      "S3_Link16"
+    ]
+  ],
+  "req_capabilities": [
+    "IpDestinationAddressConditionCapability"
+  ],
+  "placement_capabilities": [
+    "IpDestinationAddressConditionCapability"
+  ],
+  "bundles": [
+    {
+      "bundle_id": "S3_SingleAtomicBundle",
+      "placement_capabilities": [
+        "IpDestinationAddressConditionCapability"
+      ]
+    }
+  ],
+  "candidates": {
+    "S3CrossEast\u0001IpTables": {
+      "path_caps": [
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ]
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 1,
+      "freq": 5
+    },
+    "S3CrossWest\u0001IpTables": {
+      "path_caps": [
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        []
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 1,
+      "freq": 5
+    },
+    "S3HubAlpha\u0001IpTables": {
+      "path_caps": [
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        []
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 1,
+      "freq": 8
+    },
+    "S3HubBeta\u0001IpTables": {
+      "path_caps": [
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        []
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 1,
+      "freq": 4
+    },
+    "S3Local1\u0001IpTables": {
+      "path_caps": [
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 0,
+      "freq": 4
+    },
+    "S3Local2\u0001IpTables": {
+      "path_caps": [
+        [],
+        [],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 0,
+      "freq": 4
+    },
+    "S3Local3\u0001IpTables": {
+      "path_caps": [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 0,
+      "freq": 4
+    },
+    "S3Local4\u0001IpTables": {
+      "path_caps": [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ],
+        [
+          "IpDestinationAddressConditionCapability"
+        ]
+      ],
+      "caps": [
+        "IpDestinationAddressConditionCapability"
+      ],
+      "min_index": 0,
+      "freq": 4
+    }
+  },
+  "selected": [],
+  "description": "Two hubs, four complementary locals and two cross-branch alternatives; 16-path integrated synthetic allocation; abstract allocation-only fixture, NOT TOSCA or Kathara"
+}

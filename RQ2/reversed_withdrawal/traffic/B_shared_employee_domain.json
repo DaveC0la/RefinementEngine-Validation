@@ -1,0 +1,7 @@
+{
+  "probe": "B_shared_employee_domain",
+  "http_status": "403",
+  "return_code": 0,
+  "source_record": "RQ2/reversed_withdrawal/longitudinal/REVERSE2/evidence/B_shared_employee_domain.json",
+  "original_sha256": "af4754c4f9826d914de279756cea02692f94fb5b70971e0ee5d3bf82c6294479"
+}

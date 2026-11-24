@@ -1,0 +1,7 @@
+{
+  "exit_code": 1,
+  "classification_message": "***ERROR***: Cannot construct atomic enforcement bundles Unsupported contextual qualifier: TimeStartConditionCapability; Something went wrong: errors detected or configuration issues: [{'message': 'Cannot construct atomic enforcement bundles', 'detail': 'Unsupported contextual qualifier: TimeStartConditionCapability', 'hsplid': 'rq1_b3_01_guest_c2_ipport'}]",
+  "generated_rule_artifact": null,
+  "original_execution_sha256": "f62cb1e5c492551256bdf89e269a424cf4c4b39397ec9fe62a3edb257c4e7467",
+  "original_record_path": "RQ1/negative_cases/C1/evidence/negative/execution.json"
+}

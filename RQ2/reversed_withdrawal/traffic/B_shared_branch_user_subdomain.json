@@ -1,0 +1,7 @@
+{
+  "probe": "B_shared_branch_user_subdomain",
+  "http_status": "403",
+  "return_code": 0,
+  "source_record": "RQ2/reversed_withdrawal/longitudinal/REVERSE2/evidence/B_shared_branch_user_subdomain.json",
+  "original_sha256": "501f709fd6e84c5e0336aae9dabc96b84ce969329f1be8258cb6bba51a33acc5"
+}

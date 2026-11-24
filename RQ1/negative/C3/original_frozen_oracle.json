@@ -1,0 +1,56 @@
+{
+  "available_compatible_control": [
+    "EgressProxy",
+    "Squid"
+  ],
+  "both_states_same_prohibition": true,
+  "case_id": "RQ1-C3-01",
+  "control": {
+    "expected": "SUCCESS_AT_EGRESS_PROXY_SQUID",
+    "path": [
+      "Guests",
+      "EgressProxy",
+      "InspectionTransit",
+      "WebApplicationFirewall",
+      "Internet"
+    ]
+  },
+  "deployment": "FORBIDDEN",
+  "frozen_before_engine": true,
+  "inputs_sha256": {
+    "control/custom_templates.yaml": "be50f584f3f3526ac2c03ab3deff678e89f84163065c79639605bdcd7315d753",
+    "control/custom_types.yaml": "b5f9641125019d2afa9852b0fc4216eae5ed4ec2ec9752a68257f8740f9ecfa8",
+    "control/policy.xml": "4c4254e4ff9f1588ef1de4e216c06385baba5b0c9cec33b2c15b6ea5103294fc",
+    "negative/custom_templates.yaml": "a65561955b17eb014cbb78af77e9a4f3918caee1440d5e102763f88c880e659e",
+    "negative/custom_types.yaml": "b5f9641125019d2afa9852b0fc4216eae5ed4ec2ec9752a68257f8740f9ecfa8",
+    "negative/policy.xml": "4c4254e4ff9f1588ef1de4e216c06385baba5b0c9cec33b2c15b6ea5103294fc"
+  },
+  "negative": {
+    "compatible_Squid_still_present": true,
+    "expected": "EXPLICIT_OFFPATH_OR_SCOPE_INFEASIBILITY",
+    "path": [
+      "Guests",
+      "TransitRouter",
+      "InspectionTransit",
+      "WebApplicationFirewall",
+      "Internet"
+    ],
+    "squid_off_path": true,
+    "waf_not_eligible": "WAF scope excludes Internet; cannot enforce the domain condition"
+  },
+  "required_condition": "DestinationDomainConditionCapability=malware-c2.example",
+  "scope": "Synthetic model-based L7 placement validation; not a physical traffic test",
+  "source_b3": "/home/david/refeng-b3/RQ1-B3-01/corrected_direct_tcp_v2",
+  "source_engine": "/mnt/c/Users/david/Desktop/refinement-engine",
+  "source_sha256": {
+    "src/config/capability_placement.json": "ac01b42ee715fa03b869387ee2ec322ce60dc49aa010d8012a33c0f00f08861d",
+    "src/config/environment_config.json": "bc3b85b421ca5908cfe260948a1177023079bde3b3cde8fbe3aba2cabe4e1d97",
+    "src/config/nsf_cap_exclusions.json": "7c21ef127c2485f1b01d014bc35f813d0c2e52c9def891e4bf854856f2eedcd9",
+    "src/config/nsf_scope.json": "72c9a7ebc29d19707ebc6c69a785586e7390f53d79b6c598432e4fe721d128e3",
+    "src/engine/catalogue.py": "67ca38072da5919087f9ddc5d0c3009ed83e5f3d6586783667f5b885e89aea0a",
+    "src/engine/constants.py": "825fb1589037e92cf1fcf6f6ff2b68126cc700f7082ea3d048a3dfd3943b35d6",
+    "src/refinement.py": "d958d292068d0ea320c6397b816aa69bad44923614437735f69a181de0494ed1"
+  },
+  "status": "C3_INDEPENDENT_ORACLE_FROZEN",
+  "utc": "2026-10-28T16:08:48.198597+00:00"
+}

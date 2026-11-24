@@ -1,0 +1,13 @@
+{
+  "firewalls_restored": [
+    "guest_fw",
+    "edge_fw",
+    "branch_fw",
+    "corp_fw",
+    "dc_fw",
+    "admin_fw"
+  ],
+  "state": "T1",
+  "status": "B3_T1_EXACT_RULE_REMOVED",
+  "utc": "2026-10-28T14:58:37.639822+00:00"
+}

@@ -1,0 +1,44 @@
+{
+  "case_id": "RQ1-B3-01",
+  "checks": {
+    "firewall_configurations_unchanged": true,
+    "guest_employee_isolation": true,
+    "guest_iot_isolation": true,
+    "icmp_allowed": true,
+    "managed_rule_absent": true,
+    "near_match_absent_at_branch": true,
+    "near_match_accepted_c2": true,
+    "near_match_allowed": true,
+    "near_match_at_c2": true,
+    "near_match_at_edge_wan": true,
+    "near_match_at_guest_ingress": true,
+    "target_absent_at_branch": true,
+    "target_at_edge_ingress": true,
+    "target_at_guest_ingress": true,
+    "target_behavior": true,
+    "target_forwarded_by_guest": true,
+    "target_present_at_c2": true,
+    "target_present_at_edge_wan": true
+  },
+  "checks_passed": 18,
+  "checks_total": 18,
+  "counter_after": null,
+  "counter_before": null,
+  "mode": "restored",
+  "near_match": {
+    "elapsed": 0.009,
+    "outcome": "CONNECTED",
+    "port": 10214,
+    "response": "B3_OK_10214\n"
+  },
+  "pass": true,
+  "state": "T1",
+  "status": "B3_T1_RESTORED_PASS",
+  "target": {
+    "elapsed": 0.008,
+    "outcome": "CONNECTED",
+    "port": 10213,
+    "response": "B3_OK_10213\n"
+  },
+  "utc": "2026-10-28T15:00:29.946392+00:00"
+}

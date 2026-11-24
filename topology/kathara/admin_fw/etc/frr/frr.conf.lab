@@ -1,0 +1,14 @@
+frr version 8
+frr defaults traditional
+hostname admin_fw
+no ipv6 forwarding
+!
+router ospf
+ network 10.1.1.0/30 area 0
+ network 10.1.1.4/30 area 0
+ network 10.10.10.0/24 area 0
+ network 10.10.20.0/24 area 0
+ redistribute connected
+!
+line vty
+!

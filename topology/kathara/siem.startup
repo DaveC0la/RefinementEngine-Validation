@@ -1,0 +1,6 @@
+#!/bin/sh
+# startup for siem
+ip link set eth0 up
+ip addr add 10.10.10.20/24 dev eth0
+ip route add default via 10.10.10.1
+echo 'nameserver 10.40.30.53' > /etc/resolv.conf

@@ -1,0 +1,6 @@
+# RefinementEngine Squid rules (acl + http_access), filled by the Translator
+# (empty before refinement)
+# >>> rid=rq1_a6_01_outbound_useragent_Branch_Users|BranchProxy|Squid
+acl re_blk_872c7197 req_header User-Agent Mozilla/5\.0[[:blank:]]\(Windows[[:blank:]]NT[[:blank:]]10\.0;[[:blank:]]Win64;[[:blank:]]x64\)[[:blank:]]AppleWebKit/537\.3k[[:blank:]]\(KHTML,[[:blank:]]like[[:blank:]]Gecko\)[[:blank:]]Chrome/137\.0\.0\.0[[:blank:]]Safari/537\.36
+http_access deny re_blk_872c7197
+# <<< rid=rq1_a6_01_outbound_useragent_Branch_Users|BranchProxy|Squid

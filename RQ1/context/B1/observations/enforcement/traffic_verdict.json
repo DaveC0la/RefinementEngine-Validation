@@ -1,0 +1,47 @@
+{
+  "attempt": 2,
+  "blocked_connection": {
+    "elapsed": 2.818,
+    "outcome": "TIMEOUT",
+    "port": 10213
+  },
+  "case_id": "RQ1-B1-01",
+  "checks": {
+    "firewall_configuration_unchanged": true,
+    "guest_employee_isolation_preserved": true,
+    "guest_iot_isolation_preserved": true,
+    "icmp_to_c2_preserved": true,
+    "near_match_application_pass": true,
+    "near_match_c2_listener_accepted": true,
+    "near_match_syn_seen_c2": true,
+    "near_match_syn_seen_egress": true,
+    "near_match_syn_seen_ingress": true,
+    "owned_rule_counter_increased": true,
+    "rule_remains_installed": true,
+    "target_absent_on_c2_listener": true,
+    "target_guest_timeout": true,
+    "target_syn_absent_b1_egress": true,
+    "target_syn_absent_on_c2": true,
+    "target_syn_at_b1_ingress": true
+  },
+  "counter_after": {
+    "bytes": 180,
+    "packets": 3
+  },
+  "counter_before": {
+    "bytes": 0,
+    "packets": 0
+  },
+  "deployment": "RULE_REMAINS_INSTALLED",
+  "near_match_connection": {
+    "elapsed": 0.026,
+    "outcome": "CONNECTED",
+    "port": 10214,
+    "response": "B1_OK_10214\n"
+  },
+  "original_failure_sha256": "de6672f08665ae6003813f366a49aabe2cc53b5181173ba2fa559478ca2cdb96",
+  "pass": true,
+  "restoration": "PENDING",
+  "status": "STAGE14_TRAFFIC_PASS",
+  "timestamp_utc": "2026-10-27T20:43:14.968826+00:00"
+}

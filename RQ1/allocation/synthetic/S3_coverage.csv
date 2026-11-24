@@ -1,0 +1,17 @@
+path,nodes,S3CrossEast/IpTables,S3CrossWest/IpTables,S3HubAlpha/IpTables,S3HubBeta/IpTables,S3Local1/IpTables,S3Local2/IpTables,S3Local3/IpTables,S3Local4/IpTables
+P1,S3Local1 -> S3HubAlpha -> S3CrossWest -> S3_Link01,0,1,1,0,1,0,0,0
+P2,S3Local1 -> S3HubAlpha -> S3_Link02,0,0,1,0,1,0,0,0
+P3,S3Local1 -> S3HubBeta -> S3CrossEast -> S3_Link03,1,0,0,1,1,0,0,0
+P4,S3Local1 -> S3CrossWest -> S3_Link04,0,1,0,0,1,0,0,0
+P5,S3Local2 -> S3HubAlpha -> S3CrossWest -> S3_Link05,0,1,1,0,0,1,0,0
+P6,S3Local2 -> S3HubAlpha -> S3_Link06,0,0,1,0,0,1,0,0
+P7,S3Local2 -> S3HubBeta -> S3CrossEast -> S3_Link07,1,0,0,1,0,1,0,0
+P8,S3Local2 -> S3_Link08,0,0,0,0,0,1,0,0
+P9,S3Local3 -> S3HubAlpha -> S3CrossEast -> S3_Link09,1,0,1,0,0,0,1,0
+P10,S3Local3 -> S3HubAlpha -> S3_Link10,0,0,1,0,0,0,1,0
+P11,S3Local3 -> S3HubBeta -> S3CrossWest -> S3_Link11,0,1,0,1,0,0,1,0
+P12,S3Local3 -> S3_Link12,0,0,0,0,0,0,1,0
+P13,S3Local4 -> S3HubAlpha -> S3CrossEast -> S3_Link13,1,0,1,0,0,0,0,1
+P14,S3Local4 -> S3HubAlpha -> S3_Link14,0,0,1,0,0,0,0,1
+P15,S3Local4 -> S3HubBeta -> S3CrossWest -> S3_Link15,0,1,0,1,0,0,0,1
+P16,S3Local4 -> S3CrossEast -> S3_Link16,1,0,0,0,0,0,0,1

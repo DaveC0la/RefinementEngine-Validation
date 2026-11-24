@@ -1,0 +1,2 @@
+# RefinementEngine ModSecurity rules (filled by the Translator)
+# (empty before refinement)

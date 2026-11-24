@@ -1,0 +1,64 @@
+{
+  "id": "RQ2-S0-S9-REFERENCE-V1",
+  "origin": "Frozen, protocol-defined expected results, authored independently of engine output",
+  "status": "provisional until isolated WSL lab baseline and final per-location HSPL projections are verified",
+  "source_cti_dataset_version": "1.1",
+  "research_question": "RQ2 controlled adaptation",
+  "reference_campaign": "one persistent lifecycle state S0-S9; no reset between states",
+  "scope_constraints": [
+    "Each scenario uses independently declared lab mapping and never contacts a reported public malicious endpoint",
+    "Effective-rule identities and physical markers must be checked using actual generated rules, not assumed from symbols",
+    "Owner A and B are independent experimental prohibition ownership/validity records, not asserted independent published CTI reports",
+    "No physical rule is removed while any owner still requires it",
+    "All baseline-allowed and baseline-denied traffic decisions must be retained",
+    "A state is complete only after its necessary physical operations are verified",
+    "Observations that accrue grace strikes are persisted separately; never automatically retry a strike-bearing call"
+  ],
+  "sources": {
+    "I": {"source_ioc_id":"IOC-KRVTZ-IP-SRC", "original":"91.243.188.233", "lab":"80.71.158.96/32", "capability":"source IP", "locations":["EdgeFirewall/IpTables"]},
+    "U": {"source_ioc_id":"IOC-GOBRUTE-USERAGENT", "original":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36", "lab":"same literal", "capability":"HTTP User-Agent", "locations":["WebApplicationFirewall/ModSecurity"]},
+    "D": {"source_ioc_id":"IOC-KALI-DOMAIN", "original":"kali365.xyz", "lab":"malware-c2.example", "capability":"destination domain incl. subdomains", "locations":["EgressProxy/Squid", "BranchProxy/Squid"]},
+    "C": {"source_ioc_id":"IOC-THREATFOX-C2-IPPORT", "original":"102.220.161.63:10213", "lab":"80.71.158.10:8443", "transport_assumption":"TCP selected for isolated validation; absent upstream", "capability":"destination IP+port and employee source scope", "locations":["CorpFirewall/IpTables"]}
+  },
+  "rule_symbols": {
+    "I": "EdgeFirewall/IpTables/source-IP",
+    "U": "WebApplicationFirewall/ModSecurity/User-Agent",
+    "D_HQ": "EgressProxy/Squid/destination-domain",
+    "D_BRANCH": "BranchProxy/Squid/destination-domain",
+    "C": "CorpFirewall/IpTables/employee-to-destination-IP-TCP-port"
+  },
+  "states": [
+    {"id":"S0", "transition":"Initial permissive/managed-policy baseline", "owner_families":[], "rules":[], "add":[], "remove":[], "notes":"Baseline protection inventory independently captured before execution"},
+    {"id":"S1", "transition":"Add source-IP owner", "owner_families":["I"], "rules":["I"], "add":["I"], "remove":[]},
+    {"id":"S2", "transition":"Add User-Agent owner", "owner_families":["I","U"], "rules":["I","U"], "add":["U"], "remove":[]},
+    {"id":"S3", "transition":"Add domain owner A", "owner_families":["I","U","A"], "rules":["I","U","D_HQ","D_BRANCH"], "add":["D_HQ","D_BRANCH"], "remove":[]},
+    {"id":"S4", "transition":"Add independent domain owner B", "owner_families":["I","U","A","B"], "rules":["I","U","D_HQ","D_BRANCH"], "add":[], "remove":[], "ownership_only":true},
+    {"id":"S5", "transition":"A: first non-actionable observation then second, producing eligible withdrawal", "owner_families":["I","U","B"], "rules":["I","U","D_HQ","D_BRANCH"], "add":[], "remove":[], "ownership_only":true, "grace_observations":2},
+    {"id":"S6", "transition":"U withdraws after two observations; add C", "owner_families":["I","B","C"], "rules":["I","D_HQ","D_BRANCH","C"], "add":["C"], "remove":["U"], "grace_observations":2},
+    {"id":"S7", "transition":"B withdraws after second non-actionable observation", "owner_families":["I","C"], "rules":["I","C"], "add":[], "remove":["D_HQ","D_BRANCH"], "grace_observations":2},
+    {"id":"S8", "transition":"Repeat unchanged authoritative snapshot", "owner_families":["I","C"], "rules":["I","C"], "add":[], "remove":[], "expected_device_operations":0},
+    {"id":"S9", "transition":"Withdraw I and C after each meets grace eligibility", "owner_families":[], "rules":[], "add":[], "remove":["I","C"], "grace_observations":2}
+  ],
+  "minimum_physical_rule_operations": {"additions":5,"removals":5,"replacements":0,"unnecessary":0},
+  "required_traffic_oracle_classes": [
+    {"probe":"P1", "intent":"source-IP denial", "isolate":"mal_user -> public application", "baseline":"allowed, to be measured", "active":"EdgeFirewall denial"},
+    {"probe":"P2", "intent":"User-Agent denial", "isolate":"independent non-blocked external client -> public application with exact User-Agent", "baseline":"allowed, to be measured", "active":"WAF denial"},
+    {"probe":"P3", "intent":"User-Agent benign near-match", "isolate":"same independent client and path with benign User-Agent", "baseline":"allowed, to be measured", "active":"allowed"},
+    {"probe":"P4", "intent":"HQ domain denial", "isolate":"HQ representative employee/finance/guest -> malware-c2.example and subdomain via HQ Squid", "baseline":"allowed, to be measured", "active":"HQ Squid denial"},
+    {"probe":"P5", "intent":"branch domain denial", "isolate":"branch_user -> malware-c2.example and subdomain via Branch Squid", "baseline":"allowed, to be measured", "active":"Branch Squid denial"},
+    {"probe":"P6", "intent":"near-match domain allowed", "isolate":"all relevant proxy populations -> unrelated benign domain", "baseline":"allowed, to be measured", "active":"allowed"},
+    {"probe":"P7", "intent":"C2 endpoint denial", "isolate":"employee -> C2 lab IP:8443/TCP", "baseline":"allowed, to be measured", "active":"CorpFirewall denial"},
+    {"probe":"P8", "intent":"port precision", "isolate":"employee -> same C2 IP different open TCP port", "baseline":"allowed, to be measured", "active":"allowed"},
+    {"probe":"P9", "intent":"destination precision", "isolate":"employee -> different controlled IP same TCP port", "baseline":"allowed, to be measured", "active":"allowed"},
+    {"probe":"P10", "intent":"independent baseline-deny", "isolate":"one known-denied corporate/branch route from baseline HSPL", "baseline":"denied, to be measured", "active":"denied"}
+  ],
+  "measurement_definitions": {
+    "config_churn":"Count actual physical additions/removals/replacements; compare to frozen rule set differences. Ownership changes are not physical operations.",
+    "adaptation_latency":"Duration from start of processing an actionable/withdrawal-eligible update until independently verified physical realization; record clock source and timepoints.",
+    "grace_delay":"Track first vs second non-actionable observations separately from processing latency.",
+    "deduplication":"No more than one effective domain configuration rule per enforcing Squid proxy while A/B coexist.",
+    "stale_rule":"Temporarily managed rule that remains physically after verified eligible last-owner withdrawal.",
+    "premature_withdrawal":"Rule absent physically while a current valid owner still requires it.",
+    "idempotence":"No new physical operations and unchanged effective physical configuration after S8."
+  }
+}

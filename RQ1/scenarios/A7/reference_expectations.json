@@ -1,0 +1,128 @@
+{
+  "case_id": "RQ1-A7-01",
+  "source_reference_sha256": "aa0604490f12d75a0332193a79bac5646c1f5db23d22118a0d1a984c4a39d1cc",
+  "reference_type": "Selected scientific expectations extracted from the original independent case oracle; see SOURCE_MAP.csv",
+  "input": {
+    "action": "is not authorized to access",
+    "expected_expanded_rules": {
+      "rq1_a7_01_outbound_domain_Branch_Users": [
+        "BranchProxy",
+        "Squid"
+      ],
+      "rq1_a7_01_outbound_domain_Devices": [
+        "EgressProxy",
+        "Squid"
+      ],
+      "rq1_a7_01_outbound_domain_Employees": [
+        "EgressProxy",
+        "Squid"
+      ],
+      "rq1_a7_01_outbound_domain_Finance": [
+        "EgressProxy",
+        "Squid"
+      ],
+      "rq1_a7_01_outbound_domain_Guests": [
+        "EgressProxy",
+        "Squid"
+      ]
+    },
+    "hspl_id": "rq1_a7_01_outbound_domain",
+    "object": "MaliciousWeb",
+    "subject": "Corporate_Users"
+  },
+  "cti": {
+    "indicator_id": "IOC-KALI-DOMAIN",
+    "native_type": "MISP domain",
+    "original_indicator": "kali365.xyz"
+  },
+  "expected_enforcement": {
+    "device_map": {
+      "BranchProxy": "branch_proxy",
+      "EgressProxy": "egress_proxy"
+    },
+    "expected_pairs": [
+      [
+        "EgressProxy",
+        "Squid"
+      ],
+      [
+        "BranchProxy",
+        "Squid"
+      ]
+    ],
+    "required_capabilities": {
+      "DestinationDomainConditionCapability": "malware-c2.example",
+      "RejectActionCapability": ""
+    }
+  },
+  "reference_traffic": {
+    "benign_domain": "http://allowed.utilities.com/index.html",
+    "direct_ip": "http://80.71.158.20/index.html",
+    "dns_basis": "The existing external dnsmasq address=/malware-c2.example/80.71.158.20 resolves the apex and child names within lab",
+    "expected_baseline_statuses": {
+      "benign_domain": "200",
+      "direct_ip": "200",
+      "same_domain_other_path": "200",
+      "subdomain": "200",
+      "target": "200"
+    },
+    "expected_deployed_statuses": {
+      "benign_domain": "200",
+      "direct_ip": "200",
+      "same_domain_other_path": "403",
+      "subdomain": "403",
+      "target": "403"
+    },
+    "expected_restored_statuses": {
+      "benign_domain": "200",
+      "direct_ip": "200",
+      "same_domain_other_path": "200",
+      "subdomain": "200",
+      "target": "200"
+    },
+    "near_match_lookalike": "http://malware-c2.example.invalid/index.html",
+    "near_match_note": "near_match_lookalike is STATIC non-resolving ACL negative control, not an HTTP-200 live probe",
+    "proxy_denial": "TCP_DENIED/403; blocked host requests not present in mal_web access.log",
+    "same_domain_other_path": "http://malware-c2.example/",
+    "sources": [
+      {
+        "lab_device": "employee",
+        "proxy": "egress_proxy",
+        "proxy_url": "http://10.1.5.2:3128",
+        "scope": "Employees"
+      },
+      {
+        "lab_device": "finance",
+        "proxy": "egress_proxy",
+        "proxy_url": "http://10.1.5.2:3128",
+        "scope": "Finance"
+      },
+      {
+        "lab_device": "guest_host",
+        "proxy": "egress_proxy",
+        "proxy_url": "http://10.1.5.2:3128",
+        "scope": "Guests"
+      },
+      {
+        "lab_device": "iot_device",
+        "proxy": "egress_proxy",
+        "proxy_url": "http://10.1.5.2:3128",
+        "scope": "Devices"
+      },
+      {
+        "lab_device": "branch_user",
+        "proxy": "branch_proxy",
+        "proxy_url": "http://10.70.20.10:3128",
+        "scope": "Branch_Users"
+      }
+    ],
+    "subdomain": "http://panel.malware-c2.example/index.html",
+    "target": "http://malware-c2.example/index.html"
+  },
+  "validation_boundary": "Two Squid proxy-local, source-independent domain-denial blocks are tested for five represented client groups on designated proxy paths; exclusivity against untested proxy clients is not established.",
+  "lab_substitution": {
+    "lab_address": "80.71.158.20",
+    "lab_domain": "malware-c2.example",
+    "lab_host": "mal_web"
+  }
+}

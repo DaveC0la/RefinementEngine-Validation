@@ -1,0 +1,43 @@
+{
+  "case_id": "RQ1-B2-01",
+  "checks": {
+    "all_six_firewalls_at_predeployment_baseline": true,
+    "icmp_to_c2_preserved": true,
+    "managed_rule_absent_on_all_six_firewalls": true,
+    "queues_empty": true,
+    "restored_b2_rule_still_absent": true,
+    "restored_both_connections_accepted_by_c2": true,
+    "restored_control_connection_allowed": true,
+    "restored_control_syn_absent_at_branch": true,
+    "restored_control_syn_at_edge": true,
+    "restored_control_syn_reached_c2": true,
+    "restored_firewall_configurations_unchanged": true,
+    "restored_target_connection_allowed": true,
+    "restored_target_syn_absent_at_branch": true,
+    "restored_target_syn_at_edge": true,
+    "restored_target_syn_reached_c2": true,
+    "t0_route_unchanged": true
+  },
+  "checks_passed": 16,
+  "checks_total": 16,
+  "firewall_configuration": "PREDEPLOYMENT_BASELINE",
+  "managed_rule": "ABSENT",
+  "near_match": {
+    "elapsed": 0.006,
+    "outcome": "CONNECTED",
+    "port": 10214,
+    "response": "B2_OK_10214\n"
+  },
+  "no_deployment_or_route_mutation": true,
+  "pass": true,
+  "previous_enforcement": "16/16_PASS",
+  "routing": "T0_EDGE",
+  "status": "B2_T0_POST_RESTORATION_PASS",
+  "target": {
+    "elapsed": 0.017,
+    "outcome": "CONNECTED",
+    "port": 10213,
+    "response": "B2_OK_10213\n"
+  },
+  "utc": "2026-10-28T11:45:58.544179+00:00"
+}

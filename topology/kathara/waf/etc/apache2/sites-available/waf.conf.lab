@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+    ServerName www.acme-corp.example
+    # reverse proxy to the protected Public Web Application Backend
+    ProxyPreserveHost On
+    ProxyPass        / http://172.16.20.10/
+    ProxyPassReverse / http://172.16.20.10/
+
+    <IfModule security2_module>
+        SecRuleEngine On
+        IncludeOptional /etc/modsecurity/re-rules.conf
+    </IfModule>
+</VirtualHost>

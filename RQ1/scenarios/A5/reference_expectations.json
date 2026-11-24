@@ -1,0 +1,114 @@
+{
+  "case_id": "RQ1-A5-01",
+  "source_reference_sha256": "1ebb734390e4e28233ea4859a041d0674c8da2e80e2bcabefc1c061b16cdb436",
+  "reference_type": "Selected scientific expectations extracted from the original independent case oracle; see SOURCE_MAP.csv",
+  "input": {
+    "action": "is not authorized to access",
+    "hspl_id": "rq1_a5_01_inbound_useragent",
+    "object": "PublicWebApp",
+    "subject": "MaliciousHost"
+  },
+  "cti": {
+    "indicator_id": "IOC-GOBRUTE-USERAGENT",
+    "normalized_type": "http_user_agent",
+    "original_indicator": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  },
+  "expected_enforcement": {
+    "expected_pair": [
+      "WebApplicationFirewall",
+      "ModSecurity"
+    ],
+    "lab_device": "waf",
+    "required_capabilities": {
+      "HttpReqHdrUserAgentConditionCapability": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+      "RejectActionCapability": ""
+    }
+  },
+  "reference_traffic": {
+    "allowed_user_agents": [
+      "Mozilla/5.0 (validation benign browser)",
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.37"
+    ],
+    "blocked_user_agents": [
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+      "ValidationProbe Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+    ],
+    "log_oracle": "Blocked requests appear in WAF access log and not backend; allowed requests appear at both",
+    "requests": [
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "403",
+        "id": "target_root",
+        "path": "/",
+        "source": "mal_user",
+        "ua": "indicator"
+      },
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "403",
+        "id": "target_other_path",
+        "path": "/malicious/public/path",
+        "source": "mal_user",
+        "ua": "indicator"
+      },
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "403",
+        "id": "embedded_indicator",
+        "path": "/",
+        "source": "mal_user",
+        "ua": "prefixed"
+      },
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "200",
+        "id": "benign_root",
+        "path": "/",
+        "source": "mal_user",
+        "ua": "benign"
+      },
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "200",
+        "id": "near_match",
+        "path": "/",
+        "source": "mal_user",
+        "ua": "near_match"
+      },
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "200",
+        "id": "benign_other_path",
+        "path": "/malicious/public/path",
+        "source": "mal_user",
+        "ua": "benign"
+      },
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "403",
+        "id": "independent_target",
+        "path": "/",
+        "source": "c2",
+        "ua": "indicator"
+      },
+      {
+        "expected_baseline": "200",
+        "expected_deployed": "200",
+        "id": "independent_benign",
+        "path": "/",
+        "source": "c2",
+        "ua": "benign"
+      }
+    ],
+    "restore": "All WAF rules and baseline traffic decisions restored exactly"
+  },
+  "validation_boundary": "The modelled MaliciousHost endpoint represents generic external traffic for path analysis rather than an IP matching requirement. The intended native predicate is User-Agent containment at the protected service, independent of source address; literal, embedded, near-match, and secondary-source probes check that behavior.",
+  "lab_substitution": {
+    "lab_independent_source": "c2",
+    "lab_site": "http://www.acme-corp.example",
+    "lab_source": "mal_user",
+    "lab_target": "PublicWebApp",
+    "lab_target_device": "web_backend",
+    "lab_user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  }
+}

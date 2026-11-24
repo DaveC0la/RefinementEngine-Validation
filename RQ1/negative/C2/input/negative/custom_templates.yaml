@@ -1,0 +1,71 @@
+tosca_definitions_version: tosca_simple_yaml_1_2
+description: RQ1-C2 synthetic capability-complementarity test, no deployment
+imports:
+- file: custom_types.yaml
+topology_template:
+  node_templates:
+    Guests:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.30.10.0/24
+    InspectionTransit:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 10.255.210.0/24
+    Internet:
+      type: company.nodes.CustomSubnet
+      properties:
+        cidr: 80.71.158.0/24
+    GuestHost:
+      type: company.nodes.NetworkUser
+      properties:
+        ip_address: 10.30.10.10
+        port: '54321'
+      requirements:
+      - to_subnet:
+          node: Guests
+          relationship: tosca.relationships.network.LinksTo
+    MaliciousC2Server:
+      type: company.nodes.MaliciousC2Server
+      properties:
+        ip_address: 80.71.158.10
+        ip_is_indicator: true
+        port: '10213'
+      requirements:
+      - to_subnet:
+          node: Internet
+          relationship: tosca.relationships.network.LinksTo
+    EgressProxy:
+      type: company.nodes.NetworkDevice
+      properties:
+        id: c2-proxy
+      capabilities:
+        NSFs:
+          properties:
+            supported_functions:
+            - function: Squid
+              processing_order: 1
+      requirements:
+      - device_subnet:
+          node: Guests
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: InspectionTransit
+          relationship: tosca.relationships.network.LinksTo
+    WebApplicationFirewall:
+      type: company.nodes.WAFDevice
+      properties:
+        id: c2-waf
+      capabilities:
+        NSFs:
+          properties:
+            supported_functions:
+            - function: ModSecurity
+              processing_order: 1
+      requirements:
+      - device_subnet:
+          node: InspectionTransit
+          relationship: tosca.relationships.network.LinksTo
+      - device_subnet:
+          node: Internet
+          relationship: tosca.relationships.network.LinksTo

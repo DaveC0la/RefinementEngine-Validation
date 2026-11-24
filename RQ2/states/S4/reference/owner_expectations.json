@@ -1,0 +1,19 @@
+{
+  "expected": {
+    "active_rules": 4,
+    "adds": 0,
+    "owner_sets_changed": 3,
+    "removes": 0,
+    "retained": 4
+  },
+  "new_domain_ioc_id": "ioc-64d62a361edfb6f5d9e4600386a090a5eba909f695cee370dec52734db6f0e5c",
+  "new_source_ioc_id": "IOC-RQ2-SOURCE-B",
+  "original_domain_ioc_id": "ioc-977d5e9b5164a258deb71b131bfe4658f9fa2feb8f4c98fee93290b0b55815d0",
+  "original_source_ioc_id": "IOC-KRVTZ-IP-SRC",
+  "shared_domain_rule_ids": [
+    "104abbe195929ab6291a632ad4b57a27390581cc6d205981ba5547235e982b8d",
+    "bad9dccee17cfedadeb9fa3b7bcc3b5be986525b800eb040bc2e4bb69656e9e9"
+  ],
+  "shared_source_rule_id": "10328aed03ecdc4cc94191ee45c55aaa62ba25d79c440ab05d4aee9d913a9acd",
+  "source_refiner_report_sha256": "4de9d75062f27ebbedc8891f47b688d4e474718f3bbea242a0ba57af3090937d"
+}

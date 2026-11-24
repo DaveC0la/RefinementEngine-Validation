@@ -1,0 +1,11 @@
+state,ioc_update,active_rules,additions,removals,verified_outcome
+S0,Baseline; no active IoCs,0,0,0,Baseline traffic decisions confirmed
+S1,Add SRC-A,1,1,0,Source IP blocked at Edge Firewall
+S2,Add UA,2,1,0,User-Agent blocked at WAF
+S3,Add DOM-A,4,2,0,Domain blocked at both proxies
+S4,Add DOM-B and SRC-B,4,0,0,Three rules shared by two IoCs; no duplicates
+S5,Withdraw DOM-A,4,0,0,Both proxy rules retained for DOM-B
+S6,Withdraw SRC-A and UA; add C2,4,1,1,Source-IP rule retained; WAF removed; C2 installed
+S7,Withdraw DOM-B,2,0,2,Both proxy rules removed
+S8,Reconcile unchanged state twice,2,0,0,Both rules retained; no changes
+S9,Withdraw SRC-B and C2,0,0,2,Last firewall rules removed; S0 baseline restored

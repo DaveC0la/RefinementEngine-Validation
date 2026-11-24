@@ -1,0 +1,7 @@
+{
+  "exit_code": 0,
+  "classification_message": "",
+  "generated_rule_artifact": "control/control",
+  "original_execution_sha256": "6c9fbb14b31bda2881d00e1e6231f6dc1621f5afcd502a6204f2e2f0edb563a3",
+  "original_record_path": "RQ1/negative_cases/C3/evidence/control/execution.json"
+}

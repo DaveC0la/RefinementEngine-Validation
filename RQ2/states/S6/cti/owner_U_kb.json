@@ -1,0 +1,16 @@
+[
+  {
+    "decayed": false,
+    "expiry_strikes": 2,
+    "last_checked": "2026-11-18T00:39:07.132758+00:00",
+    "ownership_withdrawn_at": "2026-11-18T00:39:07.132758+00:00",
+    "seen_in_feed": true,
+    "snapshot_id": "RQ2-S6-U-OBS-02",
+    "source_id": "SRC-CHECKPOINT-GOBRUTE",
+    "status": "ownership_withdrawn",
+    "to_ids": false,
+    "type": "user-agent",
+    "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3k (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+    "withdrawal_signal": "to_ids=0"
+  }
+]
