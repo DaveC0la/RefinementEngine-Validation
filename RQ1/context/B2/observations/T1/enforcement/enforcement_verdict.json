@@ -44,6 +44,5 @@
     "error": "TimeoutError('timed out')",
     "outcome": "FAILED",
     "port": 10213
-  },
-  "utc": "2026-10-28T13:01:03.792536+00:00"
+  }
 }

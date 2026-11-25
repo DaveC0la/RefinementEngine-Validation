@@ -2,7 +2,6 @@
   "active_effective_rules": 0,
   "all_managed_rules_absent": true,
   "baseline_controls_preserved": true,
-  "checked_utc": "2026-11-18T01:26:51.671416+00:00",
   "historical_bindings": 5,
   "pass": true,
   "s0_firewall_filter_baselines_restored": true,

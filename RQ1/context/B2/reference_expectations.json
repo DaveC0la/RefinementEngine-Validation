@@ -99,7 +99,6 @@
     "deployment": "NOT_RUN"
   },
   "_provenance": {
-    "original_reference_sha256": "a5ab7687f3a55ce3993f36aa7dfe46f9675c03a68224e50246e7c5bf326595e6",
     "description": "Curated summary from an earlier independent frozen case oracle"
   }
 }

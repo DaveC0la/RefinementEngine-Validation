@@ -1,7 +1,6 @@
 {
   "case_id": "RQ1-A4-01",
-  "source_reference_sha256": "444d0be38223fc05ba6098179adab3ebc6a166e6bdc338e0d75cc5cc2c1c11d0",
-  "reference_type": "Selected scientific expectations extracted from the original independent case oracle; see SOURCE_MAP.csv",
+  "reference_type": "Selected scientific expectations extracted from the original independent case oracle",
   "input": {
     "action": "is not authorized to access",
     "expected_expanded_rules": {

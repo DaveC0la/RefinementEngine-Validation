@@ -1,7 +1,7 @@
-phase,probe,source,proxy,url,user_agent,http_status,return_code,source_record,source_sha256
-baseline,control,benign_web,,http://www.acme-corp.example/?rq1_a1=control&phase=baseline,,200,0,RQ1/semantic_enforcement/A1/evidence/baseline/control.json,8b1559723e4d619b93b9f5474decbe8031d76968e3a3b0b86c60a0f45244da1e
-baseline,target,mal_user,,http://www.acme-corp.example/?rq1_a1=target&phase=baseline,,200,0,RQ1/semantic_enforcement/A1/evidence/baseline/target.json,75081362d67ec3f135370787b29e3182ac009e73b575d7ad567059fc994e42d3
-deployed,control,benign_web,,http://www.acme-corp.example/?rq1_a1=control&phase=deployed,,200,0,RQ1/semantic_enforcement/A1/evidence/deployed/control.json,9a308ed49922f9d9cd916842b8b3befbc09d59238b4a8115e2a73ef53a8f470c
-deployed,target,mal_user,,http://www.acme-corp.example/?rq1_a1=target&phase=deployed,,000,28,RQ1/semantic_enforcement/A1/evidence/deployed/target.json,62ef1e2be4469cf147a745a9a4f458a9e93fafb482ba500e244db11cc5dee740
-restored,control,benign_web,,http://www.acme-corp.example/?rq1_a1=control&phase=reset,,200,0,RQ1/semantic_enforcement/A1/evidence/reset/control.json,03739245074dbf52c8fe880ce7c4e41e023d765896d8a400a5df6ebb961bad94
-restored,target,mal_user,,http://www.acme-corp.example/?rq1_a1=target&phase=reset,,200,0,RQ1/semantic_enforcement/A1/evidence/reset/target.json,acfaa3c078698b0fc9d7ca9d5cf06f9275caca1232810dfa9386bd5fcfcaafd6
+phase,probe,source,proxy,url,user_agent,http_status,return_code
+baseline,control,benign_web,,http://www.acme-corp.example/?rq1_a1=control&phase=baseline,,200,0
+baseline,target,mal_user,,http://www.acme-corp.example/?rq1_a1=target&phase=baseline,,200,0
+deployed,control,benign_web,,http://www.acme-corp.example/?rq1_a1=control&phase=deployed,,200,0
+deployed,target,mal_user,,http://www.acme-corp.example/?rq1_a1=target&phase=deployed,,000,28
+restored,control,benign_web,,http://www.acme-corp.example/?rq1_a1=control&phase=reset,,200,0
+restored,target,mal_user,,http://www.acme-corp.example/?rq1_a1=target&phase=reset,,200,0

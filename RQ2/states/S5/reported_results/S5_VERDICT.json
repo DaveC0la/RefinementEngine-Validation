@@ -9,6 +9,5 @@
   "removals": 0,
   "source_IP_owners": 2,
   "state": "S5",
-  "traffic_probes": 32,
-  "verified_at": "2026-11-18T00:23:59.373796+00:00"
+  "traffic_probes": 32
 }

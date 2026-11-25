@@ -1,5 +1,4 @@
 {
-  "checked_utc": "2026-11-01T18:28:27.059057+00:00",
   "checks": {
     "all_proxy_benign_still_allowed": true,
     "all_proxy_domains_still_allowed": true,

@@ -38,6 +38,5 @@
     "outcome": "CONNECTED",
     "port": 10213,
     "response": "B1_OK_10213\n"
-  },
-  "timestamp_utc": "2026-10-27T21:53:44.138798+00:00"
+  }
 }

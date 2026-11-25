@@ -8,7 +8,6 @@
       "IpSourceAddressConditionCapability"
     ]
   },
-  "created_utc": "2026-10-28T15:47:12.809895+00:00",
   "deployment": "FORBIDDEN",
   "destination_port": "10213",
   "frozen_before_engine": true,
@@ -44,7 +43,5 @@
   ],
   "scope": "Synthetic model-based negative feasibility; no physical topology claim",
   "source_port": "54321",
-  "status": "C2_INDEPENDENT_ORACLE_FROZEN",
-  "reference_source_sha256": "9571c1f345efde7d982d176e665c60a71bf771bff742543407da33c63eb4ee09",
-  "note": "Curated extraction of independently specified expected outcomes; source fingerprints available through historical research archive, not a public engine checkout."
+  "status": "C2_INDEPENDENT_ORACLE_FROZEN"
 }

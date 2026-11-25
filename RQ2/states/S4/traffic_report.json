@@ -1,7 +1,6 @@
 {
   "state": "S4",
   "kind": "physical checks after S4 transition",
-  "recorded_time_utc": "2026-11-18T00:13:46.143539+00:00",
   "checks": {
     "physical_branch_proxy": true,
     "physical_edge_fw": true,

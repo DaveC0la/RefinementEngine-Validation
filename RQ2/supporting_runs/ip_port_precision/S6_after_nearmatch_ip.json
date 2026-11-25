@@ -12,9 +12,7 @@
     "8443"
   ],
   "duration_s": 3.329423532,
-  "ended_utc": "2026-11-01T20:54:55.705356+00:00",
   "rc": 0,
-  "started_utc": "2026-11-01T20:54:52.375992+00:00",
   "stderr": "Connection to 80.71.158.20 8443 port [tcp/*] succeeded!\n",
   "stdout": ""
 }

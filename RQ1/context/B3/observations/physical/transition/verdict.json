@@ -4,6 +4,5 @@
   "GuestFirewall_operational_iptables": "UNCHANGED",
   "firewalls": "UNCHANGED",
   "routing": "UNCHANGED",
-  "status": "B3_T1_ELIGIBILITY_CHANGED",
-  "utc": "2026-10-28T14:54:53.225374+00:00"
+  "status": "B3_T1_ELIGIBILITY_CHANGED"
 }

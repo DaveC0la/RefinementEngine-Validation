@@ -12,9 +12,7 @@
     "8444"
   ],
   "duration_s": 2.598085975,
-  "ended_utc": "2026-11-01T20:53:53.137062+00:00",
   "rc": 0,
-  "started_utc": "2026-11-01T20:53:50.539003+00:00",
   "stderr": "Connection to 80.71.158.10 8444 port [tcp/*] succeeded!\n",
   "stdout": ""
 }

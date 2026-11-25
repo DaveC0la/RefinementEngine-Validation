@@ -1,5 +1,4 @@
 {
-  "checked_utc": "2026-11-01T19:43:03.866482+00:00",
   "checks": {
     "C2_endpoint_and_nearmatches_allowed": true,
     "HQ_and_branch_domain_denial": true,

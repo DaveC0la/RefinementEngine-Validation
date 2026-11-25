@@ -121,7 +121,6 @@
   "engine_execution": "NOT_RUN",
   "warning": "TOSCA simple paths are topological modeling paths, not necessarily literal forwarding paths. Live path evidence required before refinement/deployment.",
   "_provenance": {
-    "original_reference_sha256": "eb2d3847a299b9e7f544606471e236f3b1484b5801bd4c330a5224ba8689f089",
     "description": "Curated summary from an earlier independent frozen case oracle"
   }
 }

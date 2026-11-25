@@ -1,0 +1,62 @@
+{
+  "case_id": "RQ1-B3-01",
+  "reference_type": "Selected expectations from the original frozen independent B3 oracle",
+  "input": {
+    "source_ip": "10.30.10.10",
+    "destination_ip": "80.71.158.10",
+    "tcp_destination_port": 10213,
+    "near_match_tcp_port": 10214,
+    "action": "DENY"
+  },
+  "T0": {
+    "eligible_pairs": [
+      [
+        "GuestFirewall",
+        "IpTables"
+      ],
+      [
+        "EdgeFirewall",
+        "IpTables"
+      ]
+    ],
+    "expected_pairs": [
+      [
+        "GuestFirewall",
+        "IpTables"
+      ]
+    ],
+    "minimum_pairs": 1
+  },
+  "T1": {
+    "eligible_pairs": [
+      [
+        "EdgeFirewall",
+        "IpTables"
+      ]
+    ],
+    "expected_pairs": [
+      [
+        "EdgeFirewall",
+        "IpTables"
+      ]
+    ],
+    "minimum_pairs": 1
+  },
+  "expected_baseline": {
+    "target": "allowed",
+    "near_match": "allowed"
+  },
+  "expected_enforced": {
+    "target": "denied",
+    "near_match": "allowed"
+  },
+  "expected_after_withdrawal": {
+    "target": "allowed",
+    "near_match": "allowed"
+  },
+  "baseline_properties": {
+    "guest_employee_isolation": "preserved",
+    "guest_iot_isolation": "preserved",
+    "ICMP_to_C2": "preserved"
+  }
+}

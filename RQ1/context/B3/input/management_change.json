@@ -1,0 +1,34 @@
+{
+  "case_id": "RQ1-B3-01",
+  "change": "GuestFirewall no longer eligible for NEW managed rule placement in T1",
+  "unchanged": [
+    "HSPL prohibition",
+    "traffic path",
+    "baseline routing and filtering"
+  ],
+  "modelled_direct_tcp_path": [
+    "Guests",
+    "GuestFirewall",
+    "Backbone",
+    "EdgeFirewall",
+    "Internet"
+  ],
+  "control_eligibility": {
+    "T0": [
+      [
+        "GuestFirewall",
+        "IpTables"
+      ],
+      [
+        "EdgeFirewall",
+        "IpTables"
+      ]
+    ],
+    "T1": [
+      [
+        "EdgeFirewall",
+        "IpTables"
+      ]
+    ]
+  }
+}

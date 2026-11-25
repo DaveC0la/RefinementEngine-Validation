@@ -1,0 +1,122 @@
+{
+  "baseline_checks": {
+    "all_firewalls_unchanged": true,
+    "both_connections_accepted_by_c2": true,
+    "guest_employee_isolation_preserved": true,
+    "guest_iot_isolation_preserved": true,
+    "icmp_to_c2_preserved": true,
+    "near_match_connection_allowed": true,
+    "near_match_syn_absent_at_branch_firewall": true,
+    "near_match_syn_at_c2_after_nat": true,
+    "near_match_syn_at_edge_firewall": true,
+    "near_match_syn_at_guest_firewall": true,
+    "owned_rules_absent": true,
+    "target_connection_allowed": true,
+    "target_syn_absent_at_branch_firewall": true,
+    "target_syn_at_c2_after_nat": true,
+    "target_syn_at_edge_firewall": true,
+    "target_syn_at_guest_firewall": true
+  },
+  "candidate_pairs": {
+    "T0": [
+      [
+        "GuestFirewall",
+        "IpTables"
+      ],
+      [
+        "EdgeFirewall",
+        "IpTables"
+      ]
+    ],
+    "T1": [
+      [
+        "EdgeFirewall",
+        "IpTables"
+      ]
+    ]
+  },
+  "case_id": "RQ1-B3-01",
+  "created_utc": "2026-10-28T14:34:53.522873+00:00",
+  "destination_ip": "80.71.158.10",
+  "destination_tcp_port": 10213,
+  "engine_executed": false,
+  "evidence_sha256": {
+    "b3_hspl.xml": "d84bb796adec20e55642444062e40eedae37f283c9cd6d3febaa5562cc49e08a",
+    "control_states/T0/apply-rules.ps1": "8261c58b11a7ae16d754ca18300dde9c1dfa1be8b0f6d6c4a9d86381c5378b20",
+    "control_states/T1/apply-rules.ps1": "409005274c7e999502d41321024545d4417f14e79f30b57b45fe01a31ab9776f",
+    "engine_inputs/T0/custom_templates.yaml": "982c4ae78cf921744af4ab5e1cd26e969328cd4a10b189ae36a46c96e193fada",
+    "engine_inputs/T1/custom_templates.yaml": "d4e763fec2afd211e59027e9befaddc0706d03a6a83df550356936bb4401f37a",
+    "fixture_manifest.json": "f9364a98df0e52bd527d54bca73a354272c5642a1e16c9fdb76a01bc97aa551a",
+    "model_revision.json": "fdcafb5480f9e25357b1a96d01acb54ed96460d2ea2796e00203c88bc8fa04ea",
+    "offline_static_check.json": "e87135c56bac3b92a67394a7d9b54ab68d13d6b00d347926e768470ccdcf7c48",
+    "physical/evidence/b3_physical_baseline/after/admin_fw.iptables-save": "805cefe82175ef671c9f67f3f77cfd161970a2380436117f46e53023f5a689a0",
+    "physical/evidence/b3_physical_baseline/after/branch_fw.iptables-save": "0ca937a217125423d55bfceeb8565b7c7ae113d037e7e28d558b1eeecd11ff87",
+    "physical/evidence/b3_physical_baseline/after/corp_fw.iptables-save": "c0fa419560a70adc31fa824130d2b6a356653cd6f3dfe985636201edb4dfab1f",
+    "physical/evidence/b3_physical_baseline/after/dc_fw.iptables-save": "65895cf96a7290596dedaace065dd321ba4fdb4be6538fc915aeda9e6b631143",
+    "physical/evidence/b3_physical_baseline/after/edge_fw.iptables-save": "3fe86b1238cf50c5ca11a71ac89e711dd394c2f018f4e375d4b06224305518e4",
+    "physical/evidence/b3_physical_baseline/after/guest_fw.iptables-save": "88bca309ba5690b2512eda83f57e04cf22c5acc8d311cf6ff44310aa9cdc2ef4",
+    "physical/evidence/b3_physical_baseline/attempt.json": "1a5da5d8d5ced924e8f23ecf8a0b12033e722cd8f5e9476e954421e462f257bd",
+    "physical/evidence/b3_physical_baseline/baseline_verdict.json": "1b3df60537a43eac3e370c3fcaae7671cb963926b13b635a7813253bc2ae49b7",
+    "physical/evidence/b3_physical_baseline/before/admin_fw.iptables-save": "fbec059971cb2cd35a00f4fe7cc84dbdc8e8756f3aaccd3c94749f61a0ec821b",
+    "physical/evidence/b3_physical_baseline/before/branch_fw.iptables-save": "556d1aa13ba7c6ccaa173acb07e6b7126566aa9558fb56439893c4199d79cf0d",
+    "physical/evidence/b3_physical_baseline/before/corp_fw.iptables-save": "277025e8345dc99f10c177ca654e02fc5fa39a3b6922e318c4d1991aed46f775",
+    "physical/evidence/b3_physical_baseline/before/dc_fw.iptables-save": "d50c05fae2ac7a201753aa3c15248dadf57ad749fe8a0f77a317c56c7f8c0c18",
+    "physical/evidence/b3_physical_baseline/before/edge_fw.iptables-save": "755419e4423b9e420d7a3d7ccb4651accfff12b088abca664917781d8161a68c",
+    "physical/evidence/b3_physical_baseline/before/guest_fw.iptables-save": "bce41c0100ea42ca1c6d8b78467aae95ae19ba77ac2a642bf3110e49cca45bb3",
+    "physical/evidence/b3_physical_baseline/preflight.json": "6af41d5243e7fe3927b3c7fb9aeea3b3923fb7ab3b7d7d1d39af361698f637f9",
+    "physical/evidence/b3_physical_baseline/startup/capture_probe.json": "326b0bb14a4e1f9035d9b7bba9c241dbe5dee2c87b51f1e64f96d42357703a1b",
+    "physical/evidence/b3_physical_baseline/startup/listener_probe.json": "d67a49d77fa4422429ea6111c86974c1d494903be2e62ac4bd20e6bc57e715f5",
+    "physical/evidence/b3_physical_baseline/traffic/branch_eth1.stderr.txt": "c6610559fc58b724b4264d6cb3cd372ed9aa58d2a1e57104cc2df4c3ff0ec20e",
+    "physical/evidence/b3_physical_baseline/traffic/branch_eth1.stdout.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "physical/evidence/b3_physical_baseline/traffic/c2_eth0.stderr.txt": "bb8dc83a28299359ba20ba9395bb5e1277c38e90174f154c4d6b485cd66dac77",
+    "physical/evidence/b3_physical_baseline/traffic/c2_eth0.stdout.txt": "ac53b8c50362214d9705fc9e43dfd0cfbcdf661737400676893d67bfaa7a451e",
+    "physical/evidence/b3_physical_baseline/traffic/client_10213.txt": "d46065de152815b28cb7c80a87e6dc94e4d0d877d07cd925e34ddefccff58734",
+    "physical/evidence/b3_physical_baseline/traffic/client_10214.txt": "cc1f6c73ebfe8a1f534c9709f6b7ea77bbb4e8496ff3871e5a849cc193213c68",
+    "physical/evidence/b3_physical_baseline/traffic/edge_any.stderr.txt": "2f9857a852b64127c317db41eb1451b4dd34957e1110fdd58192fc17861d8720",
+    "physical/evidence/b3_physical_baseline/traffic/edge_any.stdout.txt": "bde889afe4bf69d2dc830b086cc69ce5f62b7ff5b23c3efee40b561868f2d22e",
+    "physical/evidence/b3_physical_baseline/traffic/guest_eth2.stderr.txt": "49e85b017dda4bdbd18c208d06294f308af52c8156b71589788d95bd9c5e288d",
+    "physical/evidence/b3_physical_baseline/traffic/guest_eth2.stdout.txt": "d09740648e724fd18182dd2cea492078598e9365da1e83e67a9852b926b2581e",
+    "physical/evidence/b3_physical_baseline/traffic/listener.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "physical/evidence/b3_physical_baseline/traffic/listener.stdout.txt": "7e502ddda7faa3c0daac2488d208e6ab26c84422665be1cad46d42d9ffef8f76",
+    "physical/evidence/b3_physical_baseline/traffic/ping_c2.txt": "5626fb1aeb9edca18a48ade1b18048a75685af46bf2e3635f7d2620789cfd748",
+    "physical/evidence/b3_physical_baseline/traffic/ping_employee.txt": "ab74a895684ad50189a569fd448136bffe584c54024a9c1fd0db56a8085452bb",
+    "physical/evidence/b3_physical_baseline/traffic/ping_iot.txt": "c10ae36c30fd4a25d976ee7841c362169bbd28febe8968e7d3071047de7b6f41"
+  },
+  "expected_pairs": {
+    "T0": [
+      [
+        "GuestFirewall",
+        "IpTables"
+      ]
+    ],
+    "T1": [
+      [
+        "EdgeFirewall",
+        "IpTables"
+      ]
+    ]
+  },
+  "frozen_before_refinement": true,
+  "frozen_before_revised_refinement": true,
+  "minimum_pairs": {
+    "T0": 1,
+    "T1": 1
+  },
+  "model_path": [
+    "Guests",
+    "GuestFirewall",
+    "Backbone",
+    "EdgeFirewall",
+    "Internet"
+  ],
+  "near_match_tcp_port": 10214,
+  "only_change": "GuestFirewall no longer eligible for NEW managed rule placement in T1",
+  "original_oracle_sha256": "0172e677ca9b26b77e1fa9590ab2480753b5732635789fde2fcdcf79df4e79aa",
+  "physical_path": "GuestFirewall -> EdgeFirewall for direct TCP; forward HTTP proxy not on active TCP path",
+  "revision": "DIRECT_TCP_ACTIVE_PATH_V2",
+  "revision_is_post_original_attempt": true,
+  "rules_deployed": false,
+  "same_source_destination_intent_and_network": true,
+  "source_ip": "10.30.10.10",
+  "status": "B3_INDEPENDENT_ORACLE_FROZEN"
+}
